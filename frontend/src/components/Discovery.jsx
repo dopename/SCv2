@@ -14,7 +14,7 @@ class Discovery extends Component {
 
 		return (
 			<div className="container">
-				{this.props.industry.map(i => (
+				{this.props.industries.map(i => (
 					<h3>{i.name}</h3>
 				))}
 			</div>
