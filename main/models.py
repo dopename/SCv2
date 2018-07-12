@@ -24,7 +24,7 @@ class Category(models.Model):
 	industry = models.ForeignKey(Industry, on_delete=models.CASCADE, related_name="categories")
 
 	def __str__(self):
-		return self.name
+		return "{} - {}".format(self.name, self.industry.name)
 
 
 class MediaLocation(models.Model):
