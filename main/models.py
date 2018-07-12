@@ -27,12 +27,12 @@ class Category(models.Model):
 		return self.name
 
 
- class MediaLocation(models.Model):
- 	medialocation_id = models.AutoField(primary_key=True)
- 	location_name = models.CharField(max_length=64)
+class MediaLocation(models.Model):
+	medialocation_id = models.AutoField(primary_key=True)
+	location_name = models.CharField(max_length=64)
 
- 	def __str__(self):
- 		return self.location_name
+	def __str__(self):
+		return self.location_name
 
 
 class Media(models.Model):
