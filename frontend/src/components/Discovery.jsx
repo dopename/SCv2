@@ -19,12 +19,14 @@ class Discovery extends Component {
 						<h3>Starter Nav</h3>
 						<div className="text-left">
 							{this.props.discovery.industries.map(i => (
-								<CheckBoxItem item={i} checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? true : false} checkBox={this.props.checkBox} />
-								<ul className="list-group">
-									{i.categories.map(e => (
-										<li className="list-group-item"><CheckBoxItem item={e} checked={true} checkBox={this.props.checkBox} /></li>
-									))}
-								</ul>
+								<div>
+									<CheckBoxItem item={i} checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? true : false} checkBox={this.props.checkBox} />
+									<ul className="list-group">
+										{i.categories.map(e => (
+											<li className="list-group-item"><CheckBoxItem item={e} checked={true} checkBox={this.props.checkBox} /></li>
+										))}
+									</ul>
+								</div>
 							))}
 						</div>
 					</div>
