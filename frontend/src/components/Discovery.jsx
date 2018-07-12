@@ -27,7 +27,6 @@ class Discovery extends Component {
 								</div>
 							))}
 						</div>
-						<DiscoveryNavigation industries={this.props.discovery.industries} />
 					</div>
 					<div className="col-lg-9">
 					</div>
