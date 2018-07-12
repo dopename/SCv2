@@ -1,8 +1,8 @@
 import * as helpers from "../helpers/index";
 
 const initialState = {
-	allIndustry:[],
-	activeSolutions:[],
+	industries: [],
+	activeSolutions: [],
 
 }
 
@@ -10,7 +10,7 @@ export default function discovery(state = initialState, action) {
 	switch (action.type) {
 		case "FETCH_ALL_INDUSTRY":
 			let newState = state;
-			newState.allIndustry = action.allIndustry;
+			newState.industries = action.industries;
 			return newState
 		default:
 			return state;

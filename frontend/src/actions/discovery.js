@@ -4,12 +4,12 @@ export const listIndustries = () => {
 	return dispatch => {
 		return helpers.fetchListAPICall("industry")
 			.then(res => res.json())
-			.then(allIndustry => {
-				console.log('RETURN DATA', allIndustry);
+			.then(industries => {
+				console.log('RETURN DATA', industries);
 				
 				return dispatch({
 					type: "FETCH_ALL_INDUSTRY",
-					allIndustry
+					industries
 				})
 			})
 	}
