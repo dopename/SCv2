@@ -1,9 +1,9 @@
-from .api.serializers import UserLoginSerializer
+from api.serializers import UserLoginSerializer
 from django.contrib.auth.models import User
 from main.models import CustomUser
 
 
-def jwt_response_handler(token, user=None, request=None):
+def my_jwt_response_handler(token, user=None, request=None):
 	current_user = CustomUser.objects.get(user__username=UserLoginSerializer(user, context={'request': request}).data['username'])
 
 	returnData = {
