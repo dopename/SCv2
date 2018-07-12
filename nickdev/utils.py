@@ -1,6 +1,6 @@
 from api.serializers import UserLoginSerializer
 from django.contrib.auth.models import User
-from main.models import CustomUser, UserList, ListItem
+from main.models import CustomUser
 
 
 def jwt_response_handler(token, user=None, request=None):
@@ -11,8 +11,6 @@ def jwt_response_handler(token, user=None, request=None):
 		'user': {
 			'pk':False,
 			'username':False,
-			'user_list':False, 
-			'projects':False,
 			#'credential':False,
 		}
 	}
@@ -20,8 +18,6 @@ def jwt_response_handler(token, user=None, request=None):
 	if current_user:
 		returnData['user']['pk'] = current_user.pk
 		returnData['user']['username'] = current_user.user.username
-		returnData['user']['user_list'] = [x.pk for x in current_user.user_list.all()]
-		returnData['user']['projects'] = [y.pk for y in current_user.projects.all()]
 		#returnData['user']['credential'] = current_user.credential
 
 	return returnData

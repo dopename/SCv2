@@ -21,7 +21,7 @@ class Industy(models.Model):
 class Category(models.Model):
 	category_id = models.AutoField(primary_key=True)
 	name = models.CharField(max_length=64)
-	industry = models.ForeignKey(Industry, on_delete=models.CASCADE)
+	industry = models.ForeignKey(Industry, on_delete=models.CASCADE, related_name="categories")
 
 	def __str__(self):
 		return self.name
@@ -62,7 +62,7 @@ class TagType(models.Model):
 class Tag(models.Model):
 	tag_id = models.AutoField(primary_key=True)
 	name = models.CharField(max_length=64)
-	tagtype = models.ForeignKey(TagType, on_delete=models.CASCADE)
+	tagtype = models.ForeignKey(TagType, on_delete=models.CASCADE, related_name="tags")
 
 	def __str__(self):
 		return self.name
@@ -81,7 +81,7 @@ class Provider(models.Model):
 	tagline = models.CharField(max_length=128)
 	logo = models.ImageField()
 	about_us = models.CharField(max_length=400)
-	tags = models.ManyToManyField(Tag)
+	tags = models.ManyToManyField(Tag, related_name="providers")
 	views = models.IntegerField(default=0)
 
 	def __str__(self):
@@ -95,20 +95,16 @@ class Provider(models.Model):
 				total_views += each.views
 		return total_views
 
-	class Meta:
-		verbose_name = "Provider Backend"
-		verbose_name_plural = 'Provider Backend'
-
 #Provider account
 class ProviderAccount(models.Model):
 	useraccount_id = models.AutoField(primary_key=True)
-	user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, verbose_name='provider_user')
-	provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
+	user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="provider_account")
+	provider = models.ForeignKey(Provider, on_delete=models.CASCADE,  related_name="provider_account")
 
 
 class SeekerAccount(models.Model):
 	seekeruser_id = models.AutoField(primary_key=True)
-	user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, verbose_name='seeker_user')
+	user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="seeker_account")
 	tags = models.ManyToManyField(Tag, blank=True, null=True)
 	industries = models.ManyToManyField(Industry, blank=True, null=True)
 	caregories = models.ManyToManyField(Category, blank=True, null=True)
@@ -119,8 +115,8 @@ class SeekerAccount(models.Model):
 
 class Solution(models.Model):
 	solution_id = models.AutoField(primary_key=True)
-	Category = models.ManyToManyField(SubField, blank=True, null=True, related_name='categories')
-	industry = models.ForeignKey(Field, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Top Level Category", related_name='solutions')
+	category = models.ManyToManyField(SubField, blank=True, null=True, related_name='solutions')
+	industry = models.ForeignKey(Field, on_delete=models.CASCADE, blank=True, null=True, related_name='solutions')
 	name = models.CharField(max_length=64)
 	what = models.TextField()
 	why = models.TextField()
@@ -129,7 +125,6 @@ class Solution(models.Model):
 	opportunity = models.TextField()
 	status = models.CharField(max_length=24, choices=[('Emerging soon','Emerging soon'), ('Available since', 'Available since')], blank=True, null=True)
 	status_date = models.CharField(max_length=12, blank=True, null=True)
-	text = models.ForeignKey(Text, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Solution Text")
 	tags = models.ManyToManyField(Tag, related_name='solutions')
 	provider = models.ForeignKey(Provider, on_delete=models.CASCADE, related_name='solutions')
 	views = models.IntegerField(default=0)
