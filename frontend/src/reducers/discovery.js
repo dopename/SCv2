@@ -14,7 +14,7 @@ export default function discovery(state = initialState, action) {
 		case "CHECK_BOX":
 			if (state.selectedIndustries.indexOf(action.pk) > -1) {
 				let editedArray = [...state.selectedIndustries]
-				editedArray = editedArray.filter(pk -> pk !== action.pk)
+				editedArray = editedArray.filter(pk => pk !== action.pk)
 				return {...state, selectedIndustries: editedArray}
 			}
 			else {
