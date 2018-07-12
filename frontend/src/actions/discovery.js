@@ -6,11 +6,18 @@ export const listIndustries = () => {
 			.then(res => res.json())
 			.then(industries => {
 				console.log('RETURN DATA', industries);
-				
+
 				return dispatch({
 					type: "FETCH_ALL_INDUSTRY",
 					industries
 				})
 			})
+	}
+}
+
+export const checkBox = (pk) => {
+	return  {
+		type: "CHECK_BOX",
+		pk
 	}
 }
