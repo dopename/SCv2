@@ -26,6 +26,38 @@ class UserLoginSerializer(serializers.ModelSerializer):
 
 #/------------------------------------------------------------------------------/
 
+class CategoryCreateSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Category
+		fields = [
+			"name",
+			"industry"
+		]
+
+
+class CategorySerializer(serializers.ModelSerializer):
+	solutions = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
+	class Meta:
+		model = Category
+		fields = [
+			"pk",
+			"name",
+			"industry",
+			"solutions"
+		]
+
+class CategoryDestroySerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Category
+		fields = [
+			"pk"
+		]
+
+#/------------------------------------------------------------------------------/
+
 class IndustryCreateSerializer(serializers.ModelSerializer):
 
 	class Meta:
@@ -66,39 +98,6 @@ class IndustryDestroySerializer(serializers.ModelSerializer):
 		fields = [
 			"pk",
 		]
-
-#/------------------------------------------------------------------------------/
-
-class CategoryCreateSerializer(serializers.ModelSerializer):
-
-	class Meta:
-		model = Category
-		fields = [
-			"name",
-			"industry"
-		]
-
-
-class CategorySerializer(serializers.ModelSerializer):
-	solutions = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-
-	class Meta:
-		model = Category
-		fields = [
-			"pk",
-			"name",
-			"industry",
-			"solutions"
-		]
-
-class CategoryDestroySerializer(serializers.ModelSerializer):
-
-	class Meta:
-		model = Category
-		fields = [
-			"pk"
-		]
-
 
 #/------------------------------------------------------------------------------/
 
