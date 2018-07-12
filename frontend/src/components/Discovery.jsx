@@ -13,10 +13,25 @@ class Discovery extends Component {
 		console.log("PROPS", this.props);
 
 		return (
-			<div className="container">
-				{this.props.discovery.industries.map(i => (
-					<h3>{i.name}</h3>
-				))}
+			<div className="container-fluid">
+				<div className="row">
+					<div className="col-lg-3 text-center">
+						<h3>Starter Nav</h3>
+						<div className="text-left">
+							{this.props.discovery.industries.map(i => (
+								<div className="input-group">
+									<div className="input-group-prepend">
+										<input type="checkbox" checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? {true} : {false}} />
+									</div>
+									<h3>{i.name}</h3>
+								</div>
+							))}
+						</div>
+						<DiscoveryNavigation industries={this.props.discovery.industries} />
+					</div>
+					<div className="col-lg-9">
+					</div>
+				</div>
 			</div>
 		)
 	}
@@ -37,3 +52,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Discovery);
+
