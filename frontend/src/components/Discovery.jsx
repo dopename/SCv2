@@ -21,7 +21,7 @@ class Discovery extends Component {
 							{this.props.discovery.industries.map(i => (
 								<div className="input-group">
 									<div className="input-group-prepend">
-										<input type="checkbox" checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? {true} : {false}} />
+										<input type="checkbox" checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? true : false} />
 									</div>
 									<h3>{i.name}</h3>
 								</div>
