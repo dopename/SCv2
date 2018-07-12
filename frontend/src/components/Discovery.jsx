@@ -20,13 +20,10 @@ class Discovery extends Component {
 						<div className="text-left">
 							{this.props.discovery.industries.map(i => (
 								<CheckBoxItem item={i} checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? true : false} checkBox={this.props.checkBox} />
-								if (i.categories.length > 0) {
-									<ul className="list-group">
-										{i.categories.map(e => (
-											<li className="list-group-item"><CheckBoxItem item={e} checked={true} checkBox={this.props.checkBox} /></li>
-										))}
-									</ul>
-								}
+								<ul className="list-group">
+									{i.categories.map(e => (
+										<li className="list-group-item"><CheckBoxItem item={e} checked={true} checkBox={this.props.checkBox} /></li>
+									))}
 							))}
 						</div>
 					</div>
