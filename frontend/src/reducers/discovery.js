@@ -9,10 +9,13 @@ const initialState = {
 export default function discovery(state = initialState, action) {
 	switch (action.type) {
 		case "FETCH_ALL_INDUSTRY":
-			let returnData = helpers.fetchListAPICall("industry");
-			console.log("RETURN DATA", returnData.json());
 			let newState = state;
-			newState.allIndustry = [...newState.allIndustry, ...returnData]
+			let returnData = helpers.fetchListAPICall("industry");
+			.then(response => response.json())
+			.then(data => {
+				console.log("RETURN DATA", data);
+				newState.allIndusty = data
+			})
 			return newState
 		default:
 			return state;
