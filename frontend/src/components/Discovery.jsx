@@ -11,11 +11,14 @@ class Discovery extends Component {
 
 	render() {
 		console.log("PROPS", this.props);
+		var display = [];
+
+		this.props.discovery.allIndustry.map((i) => {
+			display.push(<h3>{i.name}</h3>);
+		})
 		return (
 			<div>
-				{this.props.discovery.allIndustry.map((i) => (
-					<div><h3>{i.name}</h3></div>
-				))}
+				{display}
 			</div>
 		)
 	}
