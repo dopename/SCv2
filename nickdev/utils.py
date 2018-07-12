@@ -1,4 +1,4 @@
-from nickdev.api.serializers import UserLoginSerializer
+from .api.serializers import UserLoginSerializer
 from django.contrib.auth.models import User
 from main.models import CustomUser
 
