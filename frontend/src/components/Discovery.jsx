@@ -30,7 +30,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		listIndustries: () => {
-			dispatch(discovery.listIndustries())
+			dispatch(discovery.listIndustries());
 		}
 	}
 }
