@@ -5,8 +5,10 @@ export const listIndustries = () => {
 		return helpers.fetchListAPICall("industry")
 			.then(res => res.json())
 			.then(allIndustry => {
+				console.log('RETURN DATA', allIndustry);
+				
 				return dispatch({
-					type: 'FETCH_ALL_INDUSTRY',
+					type: "FETCH_ALL_INDUSTRY",
 					allIndustry
 				})
 			})
