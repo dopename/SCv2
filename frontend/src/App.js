@@ -5,9 +5,10 @@ import Main from './components/Main';
 
 import { Provider } from "react-redux";
 import scApp from "./reducers/index";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-let store = createStore(scApp);
+let store = createStore(scApp, applyMiddleware(thunk));
 
 class App extends Component {
   render() {
