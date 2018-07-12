@@ -68,5 +68,4 @@ export function fetchListAPICall(model) {
 		// 	Authorization: "JWT " + token,
 		// }
 	//})
-	.then(response => response.json())
 }
