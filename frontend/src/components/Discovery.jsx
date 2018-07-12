@@ -71,7 +71,7 @@ class SubCheckBoxItems extends Component {
 		return (
 			<ul className="list-group">
 				{this.props.items.map(e => (
-					<li className="list-group-item"><CheckBoxItem item={e} checked={true} checkBox={null} /></li>
+					<li><CheckBoxItem item={e} checked={true} checkBox={null} /></li>
 				))}
 			</ul>
 		)
