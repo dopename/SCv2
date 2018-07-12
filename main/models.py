@@ -10,7 +10,7 @@ class Customuser(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
-class Industy(models.Model):
+class Industry(models.Model):
 	industry_id = models.AutoField(primary_key=True)
 	name = models.CharField(max_length=64)
 
