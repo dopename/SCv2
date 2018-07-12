@@ -14,7 +14,7 @@ class Discovery extends Component {
 
 		return (
 			<div>
-				{this.props.discovery.allIndustry}
+				{this.props}
 			</div>
 		)
 	}
