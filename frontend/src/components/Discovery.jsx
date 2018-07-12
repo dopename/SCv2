@@ -9,13 +9,13 @@ class Discovery extends Component {
 	}
 
 	render() {
-		return {
+		return (
 			<div>
 				{this.props.allIndustry.map(industry => (
 					<h3>{industry.name}</h3>
 				))}
 			</div>
-		}
+		)
 	}
 }
 
