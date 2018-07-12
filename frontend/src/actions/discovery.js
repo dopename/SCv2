@@ -1,4 +1,4 @@
-import * as helpers from "../helpers.index";
+import * as helpers from "../helpers/index";
 
 export const listIndustries = () => {
 	return dispatch => {
