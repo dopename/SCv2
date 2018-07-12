@@ -61,7 +61,7 @@ export function fetchAPICall(model, list, token) {
 }
 
 export function fetchListAPICall(model) {
-	const url = "http://127.0.0.1/api/list/" + model + "/"
+	const url = "/api/list/" + model + "/"
 
 	return fetch(url)//, {
 		// headers: {
