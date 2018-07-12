@@ -1,3 +1,3 @@
-import * as default1 from "./default";
+import * as discovery from "./discovery";
 
-export {default1}
+export {discovery}

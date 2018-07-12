@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import scApp from "./reducers/index";
 import { createStore } from "redux";
 
+let store = createStore(scApp);
+
 class App extends Component {
   render() {
     return (

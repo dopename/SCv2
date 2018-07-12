@@ -6,12 +6,14 @@ urlpatterns = [
 	path('users/', UserAPIView.as_view(), name="users"),
 
 	path('destroy/industry/<int:pk>/', IndustryDestroyView.as_view(), name="industry-destroy-view"),
-	path('industry/<int:pk>/', IndustryUpdateRetrieveView.as_view(), name="industry-update-retrieve-view"),
 	path('create/industry/', IndustryCreateView.as_view(), name="industry-create-view"),
+	path('list/industry/', IndustryListView.as_view(), name="industry-list-view"),
+	path('industry/<int:pk>/', IndustryUpdateRetrieveView.as_view(), name="industry-update-retrieve-view"),
 
 	path('destroy/category/<int:pk>/', CategoryDestroyView.as_view(), name="category-destroy-view"),
-	path('category/<int:pk>/', CategoryUpdateRetrieveView.as_view(), name="category-update-retrieve-view"),
 	path('create/category', CategoryCreateView.as_view(), name="category-create-view"),
+	path('list/category/', CategoryListView.as_view(), name="category-list-view"),
+	path('category/<int:pk>/', CategoryUpdateRetrieveView.as_view(), name="category-update-retrieve-view"),
 
 	path('destroy/medialocation/<int:pk>/', MediaLocationDestroyView.as_view(), name="medialocation-destroy-view"),
 	path('medialocation/<int:pk>/', MediaLocationUpdateRetrieveView.as_view(), name="medialocation-update-retrieve-view"),

@@ -67,6 +67,12 @@ class IndustryDestroyView(generics.DestroyAPIView):
 			qs = qs.filter(pk=query)
 		return qs
 
+class IndustryListView(generics.ListAPIView):
+	serializer_class = IndustryListSerializer
+
+	def get_queryset(self):
+		return Industry.objects.all()
+
 #/--------------------------------------------------------------/
 
 class CategoryUpdateRetrieveView(generics.RetrieveUpdateAPIView):
@@ -106,6 +112,12 @@ class CategoryDestroyView(generics.DestroyAPIView):
 		if query is not None:
 			qs = qs.filter(pk=query)
 		return qs
+
+class CategoryListView(generics.ListAPIView):
+	serializer_class = CategorySerializer
+
+	def get_queryset(self):
+		return Category.objects.all()
 		
 #/--------------------------------------------------------------/
 

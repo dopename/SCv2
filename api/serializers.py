@@ -44,7 +44,19 @@ class IndustrySerializer(serializers.ModelSerializer):
 		fields = [
 			"pk",
 			"name",
-			"solutions"
+			"solutions",
+			"categories"
+		]
+
+class IndustryListSerializer(serializers.ModelSerializer):
+	categories = CategorySerializer(many=True, read_only=True)
+
+	class Meta:
+		model = Industry
+		fields = [
+			"pk",
+			"name",
+			"categories"
 		]
 
 class IndustryDestroySerializer(serializers.ModelSerializer):
@@ -52,7 +64,7 @@ class IndustryDestroySerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Industry
 		fields = [
-			"pk"
+			"pk",
 		]
 
 #/------------------------------------------------------------------------------/

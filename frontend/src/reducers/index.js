@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import default from "./default";
+import discovery from "./discovery";
 
 const scApp = combineReducers({
-	default,
+	discovery,
 })
 
 export default scApp;
