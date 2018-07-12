@@ -25,7 +25,7 @@ const mapStateToProps = state => {
 	}
 }
 
-const mapDispathToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
 	return {
 		listIndustries: () => {
 			dispatch(discovery.listIndustries())
