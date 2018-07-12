@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {discovery} from "../actions/index"
 
 class Discovery extends Component {
+	
 	componentDidMount() {
 		this.props.listIndustries();
 	}
