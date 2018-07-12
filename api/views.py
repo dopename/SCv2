@@ -389,16 +389,16 @@ class ProviderAccountCreateView(generics.CreateAPIView):
 	def post(self, request, *args, **kwargs):
 		return self.create(request, *args, **kwargs)
 
-class ProviderAccountDestroyView(generics.DestroyAPIView):
-	lookup_field = 'pk'
-	serializer_class = ProviderAccountDestroySerializer
+# class ProviderAccountDestroyView(generics.DestroyAPIView):
+# 	lookup_field = 'pk'
+# 	serializer_class = ProviderAccountDestroySerializer
 
-	def get_queryset(self):
-		qs = ProviderAccount.objects.all()
-		query = self.request.GET.get('q')
-		if query is not None:
-			qs = qs.filter(pk=query)
-		return qs
+# 	def get_queryset(self):
+# 		qs = ProviderAccount.objects.all()
+# 		query = self.request.GET.get('q')
+# 		if query is not None:
+# 			qs = qs.filter(pk=query)
+# 		return qs
 		
 #/--------------------------------------------------------------/
 
@@ -429,16 +429,16 @@ class SeekerAccountCreateView(generics.CreateAPIView):
 	def post(self, request, *args, **kwargs):
 		return self.create(request, *args, **kwargs)
 
-class SeekerAccountDestroyView(generics.DestroyAPIView):
-	lookup_field = 'pk'
-	serializer_class = SeekerAccountDestroySerializer
+# class SeekerAccountDestroyView(generics.DestroyAPIView):
+# 	lookup_field = 'pk'
+# 	serializer_class = SeekerAccountDestroySerializer
 
-	def get_queryset(self):
-		qs = SeekerAccount.objects.all()
-		query = self.request.GET.get('q')
-		if query is not None:
-			qs = qs.filter(pk=query)
-		return qs
+# 	def get_queryset(self):
+# 		qs = SeekerAccount.objects.all()
+# 		query = self.request.GET.get('q')
+# 		if query is not None:
+# 			qs = qs.filter(pk=query)
+# 		return qs
 		
 #/--------------------------------------------------------------/
 
