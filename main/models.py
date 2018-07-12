@@ -115,8 +115,8 @@ class SeekerAccount(models.Model):
 
 class Solution(models.Model):
 	solution_id = models.AutoField(primary_key=True)
-	category = models.ManyToManyField(SubField, blank=True, null=True, related_name='solutions')
-	industry = models.ForeignKey(Field, on_delete=models.CASCADE, blank=True, null=True, related_name='solutions')
+	category = models.ManyToManyField(Category, blank=True, null=True, related_name='solutions')
+	industry = models.ForeignKey(Industry, on_delete=models.CASCADE, blank=True, null=True, related_name='solutions')
 	name = models.CharField(max_length=64)
 	what = models.TextField()
 	why = models.TextField()
