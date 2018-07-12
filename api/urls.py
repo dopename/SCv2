@@ -25,7 +25,7 @@ urlpatterns = [
 	path('solutionmedia/<int:pk>/', SolutionMediaUpdateRetrieveView.as_view(), name="solutionmedia-update-retrieve-view"),
 	path('create/solutionmedia/', SolutionMediaCreateView.as_view(), name="solutionmedia-create-view"),
 
-	path('destroy/tagtype/<int:pk>/', TagType.as_view(), name="tagtype-destroy-view"),
+	path('destroy/tagtype/<int:pk>/', TagTypeDestroyView.as_view(), name="tagtype-destroy-view"),
 	path('tagtype/<int:pk>/', TagTypeUpdateRetrieveView.as_view(), name="tagtype-update-retrieve-view"),
 	path('create/tagtype/', TagTypeCreateView.as_view(), name="tagtype-create-view"),
 
