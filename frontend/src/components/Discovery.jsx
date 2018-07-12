@@ -14,6 +14,7 @@ class Discovery extends Component {
 		var display = [];
 
 		this.props.discovery.allIndustry.map((i) => {
+			console.log(i.name);
 			display.push(<h3>{i.name}</h3>);
 		})
 		return (
