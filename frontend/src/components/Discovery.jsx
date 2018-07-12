@@ -19,12 +19,14 @@ class Discovery extends Component {
 						<h3>Starter Nav</h3>
 						<div className="text-left">
 							{this.props.discovery.industries.map(i => (
-								<div className="input-group">
-									<div className="input-group-prepend">
-										<input type="checkbox" onClick={() => this.props.checkBox(i.pk)} checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? true : false} />
-									</div>
-									<h3>{i.name}</h3>
-								</div>
+								<CheckBoxItem item={i} checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? true : false} checkBox={this.props.checkBox} />
+								if (i.categories.length > 0) {
+									<ul className="list-group">
+										{i.categories.map(e => (
+											<li className="list-group-item"><CheckBoxItem item={e} checked={true} checkBox={this.props.checkBox} /></li>
+										))}
+									</ul>
+								}
 							))}
 						</div>
 					</div>
@@ -55,3 +57,13 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Discovery);
 
+class CheckBoxItem extends Component {
+	render() {
+		<div className="input-group">
+			<div className="input-group-prepend">
+				<input type="checkbox" onClick={() => this.props.checkBox(i.pk)} checked={this.props.checked} />
+			</div>
+			<h3>{this.props.item.name}</h3>
+		</div>
+	}
+}
