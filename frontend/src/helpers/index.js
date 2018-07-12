@@ -58,6 +58,7 @@ export function fetchAPICall(model, list, token) {
 	})
 	
 	return queries
+}
 
 export function fetchListAPICall(model) {
 	const url = "/api/list/" + model + "/"
