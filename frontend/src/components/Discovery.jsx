@@ -24,6 +24,7 @@ class Discovery extends Component {
 									{i.categories.map(e => (
 										<li className="list-group-item"><CheckBoxItem item={e} checked={true} checkBox={this.props.checkBox} /></li>
 									))}
+								</ul>
 							))}
 						</div>
 					</div>
