@@ -11,7 +11,7 @@ const initialState = {
 export default function discovery(state = initialState, action) {
 	switch (action.type) {
 		case "FETCH_ALL_INDUSTRY":
-			return {...state, industries: action.industries, selectedIndustries: action.industries.map(e => e.pk), selectedCategories: action.industries.map(e => e.categories)}
+			return {...state, industries: action.industries, selectedIndustries: action.industries.map(e => e.pk), selectedCategories: action.industries.map(e => e.categories.map(c => c.pk))}
 		case "CHECK_BOX":
 			if (state.selectedIndustries.indexOf(action.pk) > -1) {
 				let editedArray = [...state.selectedIndustries]
