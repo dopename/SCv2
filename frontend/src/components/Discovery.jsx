@@ -14,7 +14,7 @@ class Discovery extends Component {
 
 		return (
 			<div className="container">
-				{this.props.discovery.allIndustry.map(i => (
+				{this.props.industry.map(i => (
 					<h3>{i.name}</h3>
 				))}
 			</div>
@@ -24,7 +24,7 @@ class Discovery extends Component {
 
 const mapStateToProps = state => {
 	return {
-		discovery:state.discovery
+		industry:state.discovery.allIndustry
 	}
 }
 
