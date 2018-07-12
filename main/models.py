@@ -6,7 +6,7 @@ from rest_framework.reverse import reverse as api_reverse
 
 UPLOAD_ROOT = '/home/sc/static/'
 
-class Customuser(models.Model):
+class CustomUser(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
