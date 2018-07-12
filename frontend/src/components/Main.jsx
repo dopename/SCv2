@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import { Discovery } from "./Discovery";
+import Discovery from "./Discovery";
 import { Button } from "reactstrap";
 
 export default class Main extends Component {
