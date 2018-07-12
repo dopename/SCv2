@@ -24,7 +24,7 @@ class Discovery extends Component {
 
 const mapStateToProps = state => {
 	return {
-		industry:state.discovery.allIndustry
+		industries:state.discovery.industries
 	}
 }
 
