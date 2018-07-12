@@ -55,12 +55,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(Discovery);
 
 class CheckBoxItem extends Component {
 	render() {
-		<div className="input-group">
-			<div className="input-group-prepend">
-				<input type="checkbox" onClick={() => this.props.checkBox(i.pk)} checked={this.props.checked} />
+		return (
+			<div className="input-group">
+				<div className="input-group-prepend">
+					<input type="checkbox" onClick={() => this.props.checkBox(item.pk)} checked={this.props.checked} />
+				</div>
+				<h3>{this.props.item.name}</h3>
 			</div>
-			<h3>{this.props.item.name}</h3>
-		</div>
+		)
 	}
 }
 
