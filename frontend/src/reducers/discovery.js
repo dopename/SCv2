@@ -9,7 +9,7 @@ const initialState = {
 export default function discovery(state = initialState, action) {
 	switch (action.type) {
 		case "FETCH_ALL_INDUSTRY":
-			let newState = state;
+			let newState = Object.assign({}, state);
 			newState.industries = action.industries;
 			return newState
 		default:
