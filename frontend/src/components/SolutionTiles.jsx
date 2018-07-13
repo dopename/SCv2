@@ -25,9 +25,13 @@ class SolutionTiles extends Component {
 			if (this.props.unselected.indexOf(solution.category[0]) < 0) {
 		    	cols.push(
 		    		<div class="col-md-4 my-2" key={"solution_" + solution.pk}>
-		    			<Button outline size="block" color="primary">
+		    			<div className="solution-main-image text-center">
+		    				<img alt={solution.name + " product image"} src={solution.main_image} />
+		    			</div>
+		    			<div className="solution-title text-center">
 		    				<h3 className="">{solution.name}</h3>
-		    			</Button>
+		    			</div>
+
 		    		</div>)
 			}
 		    if (((index + 1) % 3 === 0) || (index + 1 === this.props.solutionData.length)) {
