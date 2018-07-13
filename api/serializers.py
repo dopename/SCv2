@@ -395,6 +395,7 @@ class SolutionCreateSerializer(serializers.ModelSerializer):
 
 
 class SolutionSerializer(serializers.ModelSerializer):
+	provider_name = serializers.CharField(source='user.username', read_only=True)
 
 	class Meta:
 		model = Solution
@@ -414,7 +415,8 @@ class SolutionSerializer(serializers.ModelSerializer):
 			"provider",
 			"views",
 			"main_image",
-			"solutionmedia"
+			"solutionmedia",
+			"provider_name",
 		]
 
 class SolutionDestroySerializer(serializers.ModelSerializer):

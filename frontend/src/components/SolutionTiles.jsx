@@ -30,6 +30,7 @@ class SolutionTiles extends Component {
 			    			<div className="solution-main-image text-center">
 			    				<img alt={solution.name + " product image"} src={solution.main_image} className="responsive-image" />
 			    			</div>
+			    			<hr className="my-2" />
 			    			<div className="solution-title text-center">
 			    				<h3 className="">{solution.name}</h3>
 			    			</div>
