@@ -1,4 +1,4 @@
-import React, { Component } from "redux";
+import React, { Component } from "react";
 import {connect} from "react-redux";
 
 import {solution_tiles} from "../actions/index";
