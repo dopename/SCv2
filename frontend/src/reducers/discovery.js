@@ -1,7 +1,7 @@
 import * as helpers from "../helpers/index";
 
 const initialState = {
-	industries: [],
+	industries: {},
 	selectedIndustries: [],
 	selectedCategories: [],
 	activeSolutions: [],
@@ -11,15 +11,15 @@ const initialState = {
 export default function discovery(state = initialState, action) {
 	switch (action.type) {
 		case "FETCH_ALL_INDUSTRY":
-			let categories = []
-			let industries = []
+			let arr = {}
 			action.industries.map(i => {
-				industries.push(i.pk);
+				var iarr = [];
 				i.categories.map(c => {
-					categories.push(c.pk)
+					iarr.push(c.pk)
 				})
+				arr[i.pk] = iarr
 			})
-			return {...state, industries: action.industries, selectedIndustries: industries, selectedCategories: categories}
+			return {...state, industries: arr}
 		case "CHECK_BOX":
 			if (state.selectedIndustries.indexOf(action.pk) > -1) {
 				let editedArray = [...state.selectedIndustries]
@@ -33,3 +33,4 @@ export default function discovery(state = initialState, action) {
 			return state;
 	}
 }
+
