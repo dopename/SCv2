@@ -33,8 +33,8 @@ class SolutionTiles extends Component {
 			    			<hr className="my-2" />
 			    			<div className="solution-title text-left">
 			    				<h3 className="text-center">{solution.name}</h3>
-			    				<p className="ml-2">{solution.provider_name}</p>
-			    				<p className="ml-2"><i className={solution.status === "Available Now" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}>{solution.status}: {solution.status_date}</i></p>
+			    				<p className="ml-2 mb-1">{solution.provider_name}</p>
+			    				<p className="ml-2"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}>{solution.status}: {solution.status_date}</i></p>
 			    			</div>
 			    		</div>
 		    		</div>)
