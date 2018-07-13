@@ -49,7 +49,7 @@ export default class Tags extends Component {
 		this.props.tags.map((t) => {
 			//var t = tag[0]
 			cols.push(
-				<div className={"list-group-item btn-outline-info"} key={"tag_"+t.pk}>
+				<div className={"list-group-item btn-outline-info p-1"} key={"tag_"+t.pk}>
 					<p className="mb-0">
 						{t.name}
 					</p>
