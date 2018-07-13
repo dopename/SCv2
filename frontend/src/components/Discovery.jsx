@@ -17,9 +17,9 @@ class Discovery extends Component {
 		return (
 			<div className="container-fluid">
 				<div className="row">
-					<div className="col-lg-3 text-center discovery-area">
+					<div className="col-lg-3 text-center discovery-sidebar">
 						<h3>Refine Results</h3>
-						<div className="text-left">
+						<div className="text-left discovery-area">
 							<div className="text-center discovery-header">
 								<h4>Solution Categories</h4>
 							</div>
@@ -75,9 +75,9 @@ class CheckBoxItem extends Component {
 class SubCheckBoxItems extends Component {
 	render() {
 		return (
-			<ul className="list-group list-group-flush">
+			<ul>
 				{this.props.items.map(e => (
-					<li className="list-group-item"><CheckBoxItem item={e} checked={this.props.unselected.indexOf(e.pk) > -1 ? false : true} checkBox={this.props.checkBox} type="category" /></li>
+					<li><CheckBoxItem item={e} checked={this.props.unselected.indexOf(e.pk) > -1 ? false : true} checkBox={this.props.checkBox} type="category" /></li>
 				))}
 			</ul>
 		)

@@ -1,9 +1,16 @@
-.discovery-area {
+.discovery-sidebar {
 	background-color: #eef4fc;
-	border:solid black 1px;
 }
 
 .discovery-header {
 	border-bottom: solid black 1px;
 	background-color: #e6e6e6;
+}
+
+.discovery-area {
+	border:solid black 1px;
+}
+
+ul {
+  list-style-type: none;
 }
