@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {connect} from "react-redux";
 
 import {discovery} from "../actions/index"
+import SolutionTiles from "./SolutionTiles"
 
 class Discovery extends Component {
 
@@ -27,6 +28,7 @@ class Discovery extends Component {
 						</div>
 					</div>
 					<div className="col-lg-9">
+						<SolutionTiles />
 					</div>
 				</div>
 			</div>

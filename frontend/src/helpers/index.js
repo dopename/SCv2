@@ -44,16 +44,16 @@ export function createAPICall(model, data, token) {
 	})
 }
 
-export function fetchAPICall(model, list, token) {
+export function fetchAPICall(model, list) {
 	const url = "/api/" + model + "/"
 
 	var queries = list.map((pk) => {
-		return fetch(url + pk + '/', {
-			headers: {
-				Authorization: "JWT " + token,
-				"Content-Type":"application/json",
-			}
-		})
+		return fetch(url + pk + '/')//, {
+		// 	headers: {
+		// 		Authorization: "JWT " + token,
+		// 		"Content-Type":"application/json",
+		// 	}
+		// })
 		.then(response => response.json())
 	})
 	

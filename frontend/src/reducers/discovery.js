@@ -3,7 +3,7 @@ import * as helpers from "../helpers/index";
 const initialState = {
 	industries: [],
 	unselectedCategories: [],
-	activeSolutions: [],
+	solutions: [],
 
 }
 
@@ -16,9 +16,8 @@ export default function discovery(state = initialState, action) {
 					solutions = [...solutions, ...cat.solutions]
 				})
 			})
-			return {...state, industries: action.industries, activeSolutions: solutions}
+			return {...state, industries: action.industries, solutions: solutions}
 		case "CHECK_BOX":
-			var newSolutions = state.activeSolutions
 			if ( action.model === "category") {
 				if (state.unselectedCategories.indexOf(action.pk) > -1) {
 					let editedArray = [...state.unselectedCategories]
@@ -30,7 +29,6 @@ export default function discovery(state = initialState, action) {
 				}
 			}
 			else {
-				var obj = {};
 				var newData = state.unselectedCategories;
 				state.industries.map((i) => {
 					obj[i.pk] = i
