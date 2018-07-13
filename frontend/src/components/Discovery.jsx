@@ -15,8 +15,8 @@ class Discovery extends Component {
 		console.log("PROPS", this.props);
 
 		return (
-			<div className="container-fluid">
-				<div className="row">
+			<div className="container-fluid h-100">
+				<div className="row h-100">
 					<div className="col-lg-3 text-center discovery-sidebar">
 						<h3><i className="fa fa-search"></i> Refine Results</h3>
 						<input className="form-control mb-2" type="text" placeholder="What would you like to find?" />
