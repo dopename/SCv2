@@ -5,10 +5,10 @@ export const fetchSolutionData = (solutions) => {
 		let queries = helpers.fetchAPICall("solution", solutions)
 		return queries
 
-		Promise.all(queries).then(data => {
+		Promise.all(queries).then(returnData => {
 			return dispatch({
 				type: "FETCH_SOLUTION_DATA",
-				data
+				returnData
 			})
 		})
 
