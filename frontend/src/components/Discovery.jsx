@@ -18,12 +18,6 @@ class Discovery extends Component {
 					<div className="col-lg-3 text-center">
 						<h3>Starter Nav</h3>
 						<div className="text-left">
-							{this.props.discovery.industries.map(i => (
-								<div>
-									<CheckBoxItem item={i} checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? true : false} checkBox={this.props.checkBox} />
-									<SubCheckBoxItems items={i.categories} checked={this.props.discovery.selectedCategories} />
-								</div>
-							))}
 						</div>
 					</div>
 					<div className="col-lg-9">
@@ -33,6 +27,13 @@ class Discovery extends Component {
 		)
 	}
 }
+
+							// {this.props.discovery.industries.map(i => (
+							// 	<div>
+							// 		<CheckBoxItem item={i} checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? true : false} checkBox={this.props.checkBox} />
+							// 		<SubCheckBoxItems items={i.categories} checked={this.props.discovery.selectedCategories} />
+							// 	</div>
+							// ))}
 
 const mapStateToProps = state => {
 	return {
