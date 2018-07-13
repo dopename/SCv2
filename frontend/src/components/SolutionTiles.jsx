@@ -25,7 +25,7 @@ class SolutionTiles extends Component {
 		this.props.solutionData.map((solution, index) => {
 			if (this.props.unselected.indexOf(solution.category[0]) < 0) {
 		    	cols.push(
-		    		<div class="col-md-4 my-2" key={"solution_" + solution.pk}>
+		    		<div class="col-md-4 my-2 p-2 solution-tile" key={"solution_" + solution.pk}>
 		    			<div className="solution-main-image text-center">
 		    				<img alt={solution.name + " product image"} src={solution.main_image} className="responsive-image" />
 		    			</div>
