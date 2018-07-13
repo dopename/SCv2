@@ -29,6 +29,7 @@ export default function discovery(state = initialState, action) {
 				}
 			}
 			else {
+				var obj = {};
 				var newData = state.unselectedCategories;
 				state.industries.map((i) => {
 					obj[i.pk] = i
