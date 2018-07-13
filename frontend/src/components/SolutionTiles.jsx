@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
+import { Button } from "reactstrap";
 
 import {solution_tiles} from "../actions/index";
 
