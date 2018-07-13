@@ -1,0 +1,16 @@
+.horizontal-scroll {
+  overflow-x: scroll;
+    /* Make this scrollable when needed */
+    overflow-x: auto;
+    /* We don't want vertical scrolling */
+    overflow-y: hidden;
+    /* Make an auto-hiding scroller for the 3 people using a IE */
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    /* For WebKit implementations, provide inertia scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* We don't want internal inline elements to wrap */
+    white-space: nowrap;
+    /* Remove the default scrollbar for WebKit implementations */
+}
+
+.horizontal-scroll::-webkit-scrollbar { height: 0 !important }

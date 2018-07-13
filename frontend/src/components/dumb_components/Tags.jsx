@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import $ from 'jquery';
 import { Button } from 'reactstrap';
+import "./Tag.css";
 
 export default class Tags extends Component {
 	constructor(props) {
@@ -58,10 +59,9 @@ export default class Tags extends Component {
 		})
 
 		return (
-			<div className="pt-2">
 			<div class="container-fluid">
 				<div className="row">
-					<div className="col-1 px-0 text-center">
+					<div className="col-1 px-1 text-center">
 						<Button 
 							outline
 							color="dark"
@@ -71,7 +71,7 @@ export default class Tags extends Component {
 						</Button>
 					</div>
 					<div className="col-10">
-						<div class="row overflowX flex-nowrapp-0" id={this.state.tagContainer}>
+						<div class="row overflowX flex-nowrap horizontal-scroll p-0" id={this.state.tagContainer}>
 							{cols}
 						</div>
 					</div>
@@ -85,7 +85,6 @@ export default class Tags extends Component {
 						</Button>
 					</div>
 				</div>
-			</div>
 			</div>
 		)
 	}
