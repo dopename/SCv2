@@ -20,8 +20,8 @@ class Discovery extends Component {
 						<div className="text-left">
 							{this.props.discovery.industries.map(i => (
 								<div>
-									<CheckBoxItem item={i} checked={this.props.discovery.selectedIndustries.indexOf(i.pk) > -1 ? true : false} checkBox={this.props.checkBox} />
-									<SubCheckBoxItems items={i.categories} checked={this.props.discovery.selectedCategories} />
+									<CheckBoxItem item={i} checked={i.categories.map(c => c.pk).some(r => this.props.discovery.unselectedCategories.includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
+									<SubCheckBoxItems items={i.categories} unselected={this.props.discovery.unselectedCategories} />
 								</div>
 							))}
 						</div>
@@ -45,8 +45,8 @@ const mapDispatchToProps = dispatch => {
 		listIndustries: () => {
 			dispatch(discovery.listIndustries());
 		},
-		checkBox: (pk) => {
-			dispatch(discovery.checkBox(pk));
+		checkBox: (pk, type) => {
+			dispatch(discovery.checkBox(pk, type));
 		}
 	}
 }
@@ -58,7 +58,7 @@ class CheckBoxItem extends Component {
 		return (
 			<div className="input-group">
 				<div className="input-group-prepend">
-					<input type="checkbox" onClick={() => this.props.checkBox(this.props.item.pk)} checked={this.props.checked} />
+					<input type="checkbox" onClick={() => this.props.checkBox(this.props.item.pk, this.props.type)} checked={this.props.checked} />
 				</div>
 				<h3>{this.props.item.name}</h3>
 			</div>
@@ -71,7 +71,7 @@ class SubCheckBoxItems extends Component {
 		return (
 			<ul className="list-group list-group-flush">
 				{this.props.items.map(e => (
-					<li className="list-group-item"><CheckBoxItem item={e} checked={this.props.checked.indexOf(e.pk) > -1 ? true : false} checkBox={null} /></li>
+					<li className="list-group-item"><CheckBoxItem item={e} checked={this.props.unselected.indexOf(e.pk) > -1 ? true : false} checkBox={null} type="category" /></li>
 				))}
 			</ul>
 		)

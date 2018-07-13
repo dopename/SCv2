@@ -2,8 +2,7 @@ import * as helpers from "../helpers/index";
 
 const initialState = {
 	industries: [],
-	selectedIndustries: [],
-	selectedCategories: [],
+	unselectedCategories: [],
 	activeSolutions: [],
 
 }
@@ -11,25 +10,46 @@ const initialState = {
 export default function discovery(state = initialState, action) {
 	switch (action.type) {
 		case "FETCH_ALL_INDUSTRY":
-			let categories = []
-			let industries = []
-			action.industries.map(i => {
-				industries.push(i.pk);
-				i.categories.map(c => {
-					categories.push(c.pk)
-				})
-			})
-			return {...state, industries: action.industries, selectedIndustries: industries, selectedCategories: categories}
+			return {...state, industries: action.industries}
 		case "CHECK_BOX":
-			if (state.selectedIndustries.indexOf(action.pk) > -1) {
-				let editedArray = [...state.selectedIndustries]
-				editedArray = editedArray.filter(pk => pk !== action.pk)
-				return {...state, selectedIndustries: editedArray}
+			if ( action.type === "category") {
+				if (state.unselectedCategories.indexOf(action.pk) > -1) {
+					let editedArray = [...state.unselectedCategories]
+					editedArray = editedArray.filter(pk => pk !== action.pk)
+					return {...state, unselectedCategories: editedArray}
+				}
+				else {
+					return {...state, unselectedCategories: [...state.unselectedCategories, action.pk] }
+				}
 			}
 			else {
-				return {...state, selectedIndustries: [...state.selectedIndustries, action.pk] }
+				let obj = {};
+				let newData = state.unselectedCategories;
+				state.industries.map((i) => {
+					obj[i.pk] = i
+				})
+				if (obj[action.pk].categories.map(c => c.pk).some(r => state.unselectedCategories.includes(r))) {
+					obj[action.pk].categories.map(c => {
+						if (newData.indexOf(c.pk) > -1) {
+							newData = newData.filter(pk => pk !== c.pk)
+						}
+					})
+					return {...state, unselectedCategories: newData}
+				}
+				else {
+					obj[i.pk].categories.map(c => {
+						if (newData.indexOf(c.pk) < 0) {
+							newData = [...newData, c.pk]
+						}
+					})
+					return {...state, unselectedCategories : newData}
+				}
 			}
 		default:
 			return state;
 	}
 }
+
+// function checkEach(categories, against) {
+// 	categories.
+// }

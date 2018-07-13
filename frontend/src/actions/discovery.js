@@ -15,9 +15,10 @@ export const listIndustries = () => {
 	}
 }
 
-export const checkBox = (pk) => {
+export const checkBox = (pk, type) => {
 	return  {
 		type: "CHECK_BOX",
-		pk
+		pk,
+		type
 	}
 }
