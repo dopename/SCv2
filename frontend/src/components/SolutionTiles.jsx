@@ -25,14 +25,15 @@ class SolutionTiles extends Component {
 		this.props.solutionData.map((solution, index) => {
 			if (this.props.unselected.indexOf(solution.category[0]) < 0) {
 		    	cols.push(
-		    		<div class="col-md-4 my-2 p-2 solution-tile" key={"solution_" + solution.pk}>
-		    			<div className="solution-main-image text-center">
-		    				<img alt={solution.name + " product image"} src={solution.main_image} className="responsive-image" />
-		    			</div>
-		    			<div className="solution-title text-center">
-		    				<h3 className="">{solution.name}</h3>
-		    			</div>
-
+		    		<div class="col-md-4 my-2 p-2" key={"solution_" + solution.pk}>
+		    			<div className="solution-tile">
+			    			<div className="solution-main-image text-center">
+			    				<img alt={solution.name + " product image"} src={solution.main_image} className="responsive-image" />
+			    			</div>
+			    			<div className="solution-title text-center">
+			    				<h3 className="">{solution.name}</h3>
+			    			</div>
+			    		</div>
 		    		</div>)
 			}
 		    if (((index + 1) % 3 === 0) || (index + 1 === this.props.solutionData.length)) {
