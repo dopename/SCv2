@@ -246,6 +246,15 @@ class TagSerializer(serializers.ModelSerializer):
 			"providers"
 		]
 
+class SolutionTagSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Tag
+		fields = [
+			"pk",
+			"name"
+		]
+
 class TagDestroySerializer(serializers.ModelSerializer):
 
 	class Meta:
@@ -396,6 +405,7 @@ class SolutionCreateSerializer(serializers.ModelSerializer):
 
 class SolutionSerializer(serializers.ModelSerializer):
 	provider_name = serializers.CharField(source='provider.name', read_only=True)
+	tags = SolutionTagSerializer(many=True, read_only=True)
 
 	class Meta:
 		model = Solution
