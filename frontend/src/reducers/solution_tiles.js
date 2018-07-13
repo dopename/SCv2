@@ -11,3 +11,5 @@ export default function solution_tiles(state = initialState, action) {
 			return {...state, solutionData: action.data}
 		default:
 			return state;
+		}
+	}
