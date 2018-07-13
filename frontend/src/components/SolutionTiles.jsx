@@ -21,6 +21,7 @@ class SolutionTiles extends Component {
 const mapStateToProps = state => {
 	return {
 		solutions:state.discovery.solutions,
+		solutionData:state.solution_tiles.solutionData,
 
 	}
 }
