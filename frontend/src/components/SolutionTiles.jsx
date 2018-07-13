@@ -17,17 +17,31 @@ class SolutionTiles extends Component {
 
 	render() {
 		console.log("SOLUTION TILES PROPS", this.props)
+		var cols = [];
+		var rows = [];
+
+		this.props.solutionData.map((solution, index) => {
+			if (this.props.unselected.indexOf(solution.category[0]) < 0) {
+		    	cols.push(
+		    		<div class="col-md-3 my-2" key={"solution_" + solution.pk}>
+		    			<Button outline size="block" color="primary">
+		    				<h3 className="">{solution.name}</h3>
+		    			</Button>
+		    		</div>)
+			}
+		    if (((index + 1) % 3 === 0) || (index + 1 === this.props.solutionData.length)) {
+		        rows.push(
+		          <div class="row" key={"row_"+index}>
+		            {cols}
+		          </div>
+		          )
+		        cols = []
+		      }
+		})
+
 		return (
 			<div>
-				{this.props.solutionData.map(solution => {
-					if (this.props.unselected.indexOf(solution.category[0]) < 0) {
-						return (
-							<div className="col-lg-3 col-md-6">
-								<h3>{solution.name}</h3>
-							</div>
-						)
-					}
-				})}
+				{rows}
 			</div>
 		)
 	}
