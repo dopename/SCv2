@@ -5,7 +5,7 @@ import {solution_tiles} from "../actions/index";
 
 class SolutionTiles extends Component {
 
-	compnentDidMount() {
+	componentDidMount() {
 		this.props.fetchSolutionData(this.props.solutions)
 	}
 
