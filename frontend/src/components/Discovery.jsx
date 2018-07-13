@@ -71,7 +71,7 @@ class SubCheckBoxItems extends Component {
 		return (
 			<ul className="list-group list-group-flush">
 				{this.props.items.map(e => (
-					<li className="list-group-item"><CheckBoxItem item={e} checked={this.props.unselected.indexOf(e.pk) > -1 ? true : false} checkBox={this.props.checkBox} type="category" /></li>
+					<li className="list-group-item"><CheckBoxItem item={e} checked={this.props.unselected.indexOf(e.pk) > -1 ? false : true} checkBox={this.props.checkBox} type="category" /></li>
 				))}
 			</ul>
 		)
