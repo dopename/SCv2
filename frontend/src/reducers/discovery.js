@@ -37,7 +37,7 @@ export default function discovery(state = initialState, action) {
 					return {...state, unselectedCategories: newData}
 				}
 				else {
-					obj[i.pk].categories.map(c => {
+					obj[action.pk].categories.map(c => {
 						if (newData.indexOf(c.pk) < 0) {
 							newData = [...newData, c.pk]
 						}
