@@ -14,10 +14,12 @@ export default function discovery(state = initialState, action) {
 			let arr = []
 			action.industries.map(i => {
 				var iarr = [];
+				var iobj = {}
 				i.categories.map(c => {
 					iarr.push(c.pk)
 				})
-				arr.push(iarr);
+				iobj[i.pk] = iarr
+				arr.push(iobj);
 			})
 			return {...state, industries: arr}
 		case "CHECK_BOX":
