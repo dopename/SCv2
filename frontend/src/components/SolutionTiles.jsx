@@ -9,6 +9,12 @@ class SolutionTiles extends Component {
 		this.props.fetchSolutionData(this.props.solutions)
 	}
 
+	componentDidUpdate(prevProps) {
+		if (this.props.solutions !== prevProps.solutions) {
+			this.props.fetchSolutionData(this.props.solutions);
+		}
+	}
+
 	render() {
 		console.log("SOLUTION TILES PROPS", this.props)
 		return (
