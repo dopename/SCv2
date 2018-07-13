@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import Discovery from "./Discovery";
 import { Button } from "reactstrap";
 import {main} from "../actions/index"
+import {connect} from "react-redux";
 
 class Main extends Component {
 
