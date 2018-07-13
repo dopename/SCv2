@@ -58,9 +58,10 @@ export default class Tags extends Component {
 		})
 
 		return (
+			<div className="pt-2">
 			<div class="container-fluid">
 				<div className="row">
-					<div className="col-1 px-1 text-center">
+					<div className="col-1 px-0 text-center">
 						<Button 
 							outline
 							color="dark"
@@ -84,6 +85,7 @@ export default class Tags extends Component {
 						</Button>
 					</div>
 				</div>
+			</div>
 			</div>
 		)
 	}
