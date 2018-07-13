@@ -19,6 +19,6 @@ export const checkBox = (pk, type) => {
 	return  {
 		type: "CHECK_BOX",
 		pk,
-		type
+		model
 	}
 }

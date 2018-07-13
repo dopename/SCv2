@@ -45,8 +45,8 @@ const mapDispatchToProps = dispatch => {
 		listIndustries: () => {
 			dispatch(discovery.listIndustries());
 		},
-		checkBox: (pk, type) => {
-			dispatch(discovery.checkBox(pk, type));
+		checkBox: (pk, model) => {
+			dispatch(discovery.checkBox(pk, model));
 		}
 	}
 }

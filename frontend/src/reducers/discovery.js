@@ -12,7 +12,7 @@ export default function discovery(state = initialState, action) {
 		case "FETCH_ALL_INDUSTRY":
 			return {...state, industries: action.industries}
 		case "CHECK_BOX":
-			if ( action.type === "category") {
+			if ( action.model === "category") {
 				if (state.unselectedCategories.indexOf(action.pk) > -1) {
 					console.log("It's a category and is in the unselected categories list");
 					let editedArray = [...state.unselectedCategories]
