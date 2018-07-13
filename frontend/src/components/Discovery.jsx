@@ -18,7 +18,8 @@ class Discovery extends Component {
 			<div className="container-fluid">
 				<div className="row">
 					<div className="col-lg-3 text-center discovery-sidebar">
-						<h3>Refine Results</h3>
+						<h3><i className="fa fa-search"></i> Refine Results</h3>
+						<input className="form-control" type="text" />
 						<div className="text-left discovery-area">
 							<div className="text-center discovery-header">
 								<h4>Solution Categories</h4>
