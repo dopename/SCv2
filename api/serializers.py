@@ -395,7 +395,7 @@ class SolutionCreateSerializer(serializers.ModelSerializer):
 
 
 class SolutionSerializer(serializers.ModelSerializer):
-	provider_name = serializers.CharField(source='user.username', read_only=True)
+	provider_name = serializers.CharField(source='provider.name', read_only=True)
 
 	class Meta:
 		model = Solution
