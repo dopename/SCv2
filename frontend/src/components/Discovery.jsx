@@ -46,6 +46,7 @@ class Discovery extends Component {
 const mapStateToProps = state => {
 	return {
 		discovery:state.discovery
+		mobile:state.main
 	}
 }
 

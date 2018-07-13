@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import Discovery from "./Discovery";
 import { Button } from "reactstrap";
+import {main} from "../actions/index"
 
-export default class Main extends Component {
+class Main extends Component {
+
+	componentDidMount() {
+		this.props.getScreenData(window.screen);
+	}
+
 	render() {
 		return (
 			<div>
@@ -18,6 +24,22 @@ export default class Main extends Component {
 	}
 }
 
+const mapStateToProps = state => {
+	return {
+		screen_height:state.main.screen_height,
+		screen_width:state.main.screen_width
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		getScreenData: (screen) => {
+			dispatch(main.getScreenData(screen));
+		},
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
 
 class Initial extends Component {
 	render() {
