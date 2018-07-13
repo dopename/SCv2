@@ -128,7 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-MEDIA_ROOT = "/home/nick/nickenv/static/media/"
+MEDIA_ROOT = "/home/nick/nickdev/static/media/"
 MEDIA_URL = "/media/"
 
 WEBPACK_LOADER = {
