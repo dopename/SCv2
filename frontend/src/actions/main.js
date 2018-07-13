@@ -1,6 +1,6 @@
-export const getScreenData = (screen) => {
-	var screen_height = screen.height;
-	var screen_width = screen.width;
+export const getScreenData = (width, height) => {
+	var screen_width = width;
+	var screen_height = height;
 	return {
 		type: "SCREEN_DIMENSIONS",
 		screen_width, 

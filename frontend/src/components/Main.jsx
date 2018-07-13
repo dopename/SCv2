@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 class Main extends Component {
 
 	componentDidMount() {
-		this.props.getScreenData(window.screen);
+		this.props.getScreenData(window.screen.width, window.screen.height);
 	}
 
 	render() {
@@ -34,8 +34,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		getScreenData: (screen) => {
-			dispatch(main.getScreenData(screen));
+		getScreenData: (width, height) => {
+			dispatch(main.getScreenData(width, height));
 		},
 	}
 }
