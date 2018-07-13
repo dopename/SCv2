@@ -14,13 +14,11 @@ export default function discovery(state = initialState, action) {
 		case "CHECK_BOX":
 			if ( action.model === "category") {
 				if (state.unselectedCategories.indexOf(action.pk) > -1) {
-					console.log("It's a category and is in the unselected categories list");
 					let editedArray = [...state.unselectedCategories]
 					editedArray = editedArray.filter(pk => pk !== action.pk)
 					return {...state, unselectedCategories: editedArray}
 				}
 				else {
-					console.log("It's a category and is NOT in the unselected categories list");
 					return {...state, unselectedCategories: [...state.unselectedCategories, action.pk] }
 				}
 			}
