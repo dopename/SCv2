@@ -22,7 +22,7 @@ class SolutionTiles extends Component {
 		var cols = [];
 		var rows = [];
 
-		var max_height = (this.props.mobile.screen_height * 0.15).toString() + "%";
+		var max_height = (this.props.mobile.screen_height * 0.15).toString() + "px";
 
 		this.props.solutionData.map((solution, index) => {
 			if (this.props.unselected.indexOf(solution.category[0]) < 0) {
