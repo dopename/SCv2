@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import { Button } from "reactstrap";
 
 import {solution_tiles} from "../actions/index";
+import "./SolutionTiles.css";
 
 class SolutionTiles extends Component {
 
@@ -26,7 +27,7 @@ class SolutionTiles extends Component {
 		    	cols.push(
 		    		<div class="col-md-4 my-2" key={"solution_" + solution.pk}>
 		    			<div className="solution-main-image text-center">
-		    				<img alt={solution.name + " product image"} src={solution.main_image} />
+		    				<img alt={solution.name + " product image"} src={solution.main_image} className="responsive-image" />
 		    			</div>
 		    			<div className="solution-title text-center">
 		    				<h3 className="">{solution.name}</h3>
