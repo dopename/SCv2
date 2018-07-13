@@ -37,7 +37,7 @@ class MediaLocation(models.Model):
 
 class Media(models.Model):
 	media_id = models.AutoField(primary_key=True)
-	file = models.FileField()
+	file = models.FileField(upload_to="uploads/solution_media/")
 	title = models.CharField(max_length=64)
 	description = models.CharField(max_length=128, blank=True, null=True)
 	location = models.ForeignKey(MediaLocation, on_delete=models.CASCADE)
@@ -79,7 +79,7 @@ class Provider(models.Model):
 	zipcode = models.CharField(max_length=5)
 	industry_type = models.CharField(max_length=64, blank=True, null=True)
 	tagline = models.CharField(max_length=128)
-	logo = models.ImageField()
+	logo = models.ImageField(upload_to="uploads/provider_media/")
 	about_us = models.CharField(max_length=400)
 	tags = models.ManyToManyField(Tag, related_name="providers")
 	views = models.IntegerField(default=0)
