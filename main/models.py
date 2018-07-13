@@ -128,6 +128,8 @@ class Solution(models.Model):
 	tags = models.ManyToManyField(Tag, related_name='solutions')
 	provider = models.ForeignKey(Provider, on_delete=models.CASCADE, related_name='solutions')
 	views = models.IntegerField(default=0)
+	main_image = models.ImageField(upload_to="solution_images/", blank=True, null=True)
+	solutionmedia = models.OneToOneField(SolutionMedia, on_delete=models.CASCADE, blank=True, null=True, realted_name="solution")
 
 	def __str__(self):
 		return self.name

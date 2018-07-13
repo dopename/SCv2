@@ -24,7 +24,7 @@ class SolutionTiles extends Component {
 		this.props.solutionData.map((solution, index) => {
 			if (this.props.unselected.indexOf(solution.category[0]) < 0) {
 		    	cols.push(
-		    		<div class="col-md-3 my-2" key={"solution_" + solution.pk}>
+		    		<div class="col-md-4 my-2" key={"solution_" + solution.pk}>
 		    			<Button outline size="block" color="primary">
 		    				<h3 className="">{solution.name}</h3>
 		    			</Button>
