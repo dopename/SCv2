@@ -24,12 +24,14 @@ class Discovery extends Component {
 							<div className="text-center discovery-header">
 								<h4>Solution Categories</h4>
 							</div>
-							{this.props.discovery.industries.map(i => (
-								<div>
-									<CheckBoxItem item={i} checked={i.categories.map(c => c.pk).some(r => this.props.discovery.unselectedCategories.includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
-									<SubCheckBoxItems items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
-								</div>
-							))}
+							<div className="discovery-body p-1">
+								{this.props.discovery.industries.map(i => (
+									<div>
+										<CheckBoxItem item={i} checked={i.categories.map(c => c.pk).some(r => this.props.discovery.unselectedCategories.includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
+										<SubCheckBoxItems items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
+									</div>
+								))}
+							</div>
 						</div>
 					</div>
 					<div className="col-lg-9">
