@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 
 import {discovery} from "../actions/index"
 import SolutionTiles from "./SolutionTiles"
+import "./Discovery.css"
 
 class Discovery extends Component {
 
@@ -16,9 +17,12 @@ class Discovery extends Component {
 		return (
 			<div className="container-fluid">
 				<div className="row">
-					<div className="col-lg-3 text-center">
-						<h3>Starter Nav</h3>
+					<div className="col-lg-3 text-center discovery-area">
+						<h3>Refine Results</h3>
 						<div className="text-left">
+							<div className="text-center discovery-header">
+								<h4>Solution Categories</h4>
+							</div>
 							{this.props.discovery.industries.map(i => (
 								<div>
 									<CheckBoxItem item={i} checked={i.categories.map(c => c.pk).some(r => this.props.discovery.unselectedCategories.includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
@@ -62,7 +66,7 @@ class CheckBoxItem extends Component {
 				<div className="input-group-prepend">
 					<input type="checkbox" onClick={() => this.props.checkBox(this.props.item.pk, this.props.type)} checked={this.props.checked} />
 				</div>
-				<h3>{this.props.item.name}</h3>
+				<h5 className={this.props.type === "industry" ? "font-weight-bold" : ""}>{this.props.item.name}</h5>
 			</div>
 		)
 	}
