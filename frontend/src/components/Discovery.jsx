@@ -21,7 +21,7 @@ class Discovery extends Component {
 							{this.props.discovery.industries.map(i => (
 								<div>
 									<CheckBoxItem item={i} checked={i.categories.map(c => c.pk).some(r => this.props.discovery.unselectedCategories.includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
-									<SubCheckBoxItems items={i.categories} unselected={this.props.discovery.unselectedCategories} />
+									<SubCheckBoxItems items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
 								</div>
 							))}
 						</div>
