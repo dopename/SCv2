@@ -389,7 +389,8 @@ class SolutionCreateSerializer(serializers.ModelSerializer):
 			"status_date",
 			"tags",
 			"provider",
-			"views"
+			"views",
+			"main_image"
 		]
 
 
@@ -411,7 +412,9 @@ class SolutionSerializer(serializers.ModelSerializer):
 			"status_date",
 			"tags",
 			"provider",
-			"views"
+			"views",
+			"main_image",
+			"solutionmedia"
 		]
 
 class SolutionDestroySerializer(serializers.ModelSerializer):
