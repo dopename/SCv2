@@ -8,7 +8,7 @@ export default class Main extends Component {
 		return (
 			<div>
 				<BrowserRouter>
-					<Switch className="h-100">
+					<Switch>
 						<Route exact path="/" component={Initial} />
 						<Route path="/discovery/" render= { () => <Discovery /> } />
 					</Switch>
