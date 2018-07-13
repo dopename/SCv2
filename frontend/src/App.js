@@ -13,7 +13,7 @@ let store = createStore(scApp, applyMiddleware(thunk));
 class App extends Component {
   render() {
     return (
-        <Provider store={store} className="h-100">
+        <Provider store={store}>
           <Main />
         </Provider>
     );
