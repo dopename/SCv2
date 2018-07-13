@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 
 import {solution_tiles} from "../actions/index";
 import "./SolutionTiles.css";
-import Tag from "./dumb_components/Tag";
+import Tags from "./dumb_components/Tags";
 
 class SolutionTiles extends Component {
 
@@ -36,7 +36,7 @@ class SolutionTiles extends Component {
 			    			<hr className="my-2" />
 			    			<div className="solution-title text-left">
 			    				<h3 className="text-center">{solution.name}</h3>
-			    				<Tag tags={solution.tags} />
+			    				<Tags tags={solution.tags} />
 			    				<p className="ml-2 mb-1">{solution.provider_name}</p>
 			    				<p className="ml-2"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {solution.status}: {solution.status_date}</p>
 			    			</div>

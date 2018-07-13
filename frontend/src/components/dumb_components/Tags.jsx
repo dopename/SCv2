@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import $ from 'jquery';
 import { Button } from 'reactstrap';
 
-export default class Tag extends Component {
+export default class Tags extends Component {
 	constructor(props) {
 		super(props)
 
