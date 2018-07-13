@@ -1,7 +1,7 @@
 .responsive-image {
 	width:auto;
 	max-width:100%;
-	max-height:180px;
+/*	max-height:180px;*/
 	border-radius:10px;
 }
 

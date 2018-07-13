@@ -22,13 +22,15 @@ class SolutionTiles extends Component {
 		var cols = [];
 		var rows = [];
 
+		var max_height = (this.props.mobile.screen_height * 0.15).toString() + "%";
+
 		this.props.solutionData.map((solution, index) => {
 			if (this.props.unselected.indexOf(solution.category[0]) < 0) {
 		    	cols.push(
 		    		<div class="col-md-4 my-2 p-2" key={"solution_" + solution.pk}>
 		    			<div className="solution-tile">
 			    			<div className="solution-main-image text-center">
-			    				<img alt={solution.name + " product image"} src={solution.main_image} className="responsive-image" />
+			    				<img alt={solution.name + " product image"} src={solution.main_image} style={{maxHeight : max_height}} className="responsive-image" />
 			    			</div>
 			    			<hr className="my-2" />
 			    			<div className="solution-title text-left">
@@ -62,6 +64,7 @@ const mapStateToProps = state => {
 		solutions:state.discovery.solutions,
 		unselected:state.discovery.unselectedCategories,
 		solutionData:state.solution_tiles.solutionData,
+		mobile:state.main,
 
 	}
 }
