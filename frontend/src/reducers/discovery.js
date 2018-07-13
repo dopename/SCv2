@@ -11,13 +11,13 @@ const initialState = {
 export default function discovery(state = initialState, action) {
 	switch (action.type) {
 		case "FETCH_ALL_INDUSTRY":
-			let arr = {}
+			let arr = []
 			action.industries.map(i => {
 				var iarr = [];
 				i.categories.map(c => {
 					iarr.push(c.pk)
 				})
-				arr[i.pk] = iarr
+				arr.push(iarr);
 			})
 			return {...state, industries: arr}
 		case "CHECK_BOX":
