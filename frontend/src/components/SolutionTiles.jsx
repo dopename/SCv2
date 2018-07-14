@@ -9,9 +9,12 @@ import Tags from "./dumb_components/Tags";
 import SolutionModal from "./dumb_components/SolutionModal";
 
 class SolutionTiles extends Component {
+	constructor(props) {
+		super(props)
 
-	state = {
-		openSolution: false
+		this.state = {
+			openSolution: false
+		}
 	}
 
 	componentDidMount() {
@@ -70,7 +73,7 @@ class SolutionTiles extends Component {
 			    				</div>
 			    			</div>
 			    		</div>
-			    		<SolutionModal solution={solution} toggle={this.toggleOff} activeModal={this.state.openSolution} />
+			    		<SolutionModal solution={solution} toggle={this.toggleOff} screen_width={this.props.mobile.screen_width} activeModal={this.state.openSolution} />
 		    		</div>)
 			}
 		    if (((index + 1) % 3 === 0) || (index + 1 === this.props.solutionData.length)) {

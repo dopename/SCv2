@@ -8,7 +8,7 @@ class SolutionModal extends Component {
 
     this.state = {
       modal:false,
-      mobile:window.screen.width > 540 ? false : true
+      mobile:null
     }
 
     this.checkIfActive = this.checkIfActive.bind(this);
@@ -39,8 +39,9 @@ class SolutionModal extends Component {
   // }
 
   checkIfActive() {
+    var isMobile = this.props.screen_width < 540 ? true : false;
     if (this.props.activeModal === this.props.solution.pk) {
-      this.setState({modal:true});
+      this.setState({modal:true, mobile:isMobile});
       // this.updateSolutionViews();
     }
     else {
