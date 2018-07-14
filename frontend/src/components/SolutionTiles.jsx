@@ -40,7 +40,15 @@ class SolutionTiles extends Component {
 			    				<Tags tags={solution.tags} />
 			    				<p className="ml-2 my-1">{solution.provider_name}</p>
 			    				<p className="ml-2 mb-1"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {solution.status}: {solution.status_date}</p>
-			    				<Button outline color="success" size="md">View Details</Button>
+			    				<div className="row">
+			    					<div className="col-1">
+			    					</div>
+			    					<div className="col-10">
+			    						<Button outline className="btn-block" color="success" size="md">View Details</Button>
+			    					</div>
+			    					<div className="col-1">
+			    					</div>
+			    				</div>
 			    			</div>
 			    		</div>
 		    		</div>)
