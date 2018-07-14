@@ -63,8 +63,8 @@ class SolutionModal extends Component {
 								<Tags tags={this.props.solution.tags} />
 							</div>
 						</div>
-						<div className="col-6 text-right">
-							<div className="col-12">
+						<div className="col-6">
+							<div className="col-12 text-center">
 								<p className="ml-2 mb-1"><i className={this.props.solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {this.props.solution.status}: {this.props.solution.status_date}</p>
 								<Button color="success" size="lg">Connect with Solution Provider</Button>
 							</div>
