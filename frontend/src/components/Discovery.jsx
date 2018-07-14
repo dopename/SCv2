@@ -8,9 +8,6 @@ import "./Discovery.css"
 class Discovery extends Component {
 
 	componentDidMount() {
-		if (this.props.discovery.loaded) {
-			this.props.resetState();
-		}
 		this.props.listIndustries();
 	}
 
@@ -60,10 +57,7 @@ const mapDispatchToProps = dispatch => {
 		},
 		checkBox: (pk, model) => {
 			dispatch(discovery.checkBox(pk, model));
-		},
-		resetState: () => {
-			dispatch(discovery.resetState());
-		},
+		}
 	}
 }
 
