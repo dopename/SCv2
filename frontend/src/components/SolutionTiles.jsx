@@ -6,7 +6,13 @@ import {solution_tiles} from "../actions/index";
 import "./SolutionTiles.css";
 import Tags from "./dumb_components/Tags";
 
+import SolutonModal from "./dumb_components/SolutionModal";
+
 class SolutionTiles extends Component {
+
+	state = {
+		openSolution: false
+	}
 
 	componentDidMount() {
 		this.props.fetchSolutionData(this.props.solutions)
@@ -16,6 +22,19 @@ class SolutionTiles extends Component {
 		if (this.props.solutions !== prevProps.solutions) {
 			this.props.fetchSolutionData(this.props.solutions);
 		}
+	}
+
+	toggleSolution(pk) {
+		if (!this.state.openSolution) {
+			this.setState({openSolution:pk});
+		}
+		else {
+			this.setState({openSolution:false});
+		}
+	}
+
+	toggleOff() {
+		this.setState({openSolution:false});
 	}
 
 	render() {
@@ -44,13 +63,14 @@ class SolutionTiles extends Component {
 			    					<div className="col-1">
 			    					</div>
 			    					<div className="col-10">
-			    						<Button outline className="btn-block mb-1" color="success" size="md" onClick={() => this.props.history.push(`solution/`)}>View Details</Button>
+			    						<Button outline className="btn-block mb-1" color="success" size="md">View Details</Button>
 			    					</div>
 			    					<div className="col-1">
 			    					</div>
 			    				</div>
 			    			</div>
 			    		</div>
+			    		<SolutionModal solution={solution} toggle={this.toggleOff} activeModal={this.state.openSolution} />
 		    		</div>)
 			}
 		    if (((index + 1) % 3 === 0) || (index + 1 === this.props.solutionData.length)) {
