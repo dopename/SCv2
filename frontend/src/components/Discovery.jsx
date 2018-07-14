@@ -87,7 +87,7 @@ class CheckBoxItem extends Component {
 class SubCheckBoxItems extends Component {
 	render() {
 		return (
-			<ul className="mb-0">
+			<ul>
 				{this.props.items.map(e => (
 					<li><CheckBoxItem item={e} checked={this.props.unselected.indexOf(e.pk) > -1 ? false : true} checkBox={this.props.checkBox} type="category" /></li>
 				))}
