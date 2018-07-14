@@ -17,7 +17,7 @@ class Main extends Component {
 				<BrowserRouter>
 					<Switch>
 						<Route exact path="/" component={Initial} />
-						<Route path="/discovery/" render= { () => <Discovery /> } />
+						<Route path="/discovery" render= { () => <Discovery /> } />
 					</Switch>
 				</BrowserRouter>
 			</div>
@@ -45,10 +45,25 @@ export default connect(mapStateToProps, mapDispatchToProps)(Main);
 class Initial extends Component {
 	render() {
 		return (
-			<div className="container">
-				<div id="intro" className="text-center">
-					<h1>Welcome line will go here</h1>
-					<p>I'm sure there will be more text too</p>
+			<div className="container-fluid">
+				<div id="intro" className="text-center h-100">
+					<div className="row">
+						<div className="col-12">
+							<h1>Welcome Friends</h1>
+						</div>
+					</div>
+					<div className="row h-100">
+						<div className="col-lg-6 h-100 text-center">
+							<h2>To your profile</h2>
+							<p>Customize what content you subscribe to and stay up to date on the latest innovations.
+							Your profile is a one-stop shop for innovative tech so you can maximize your efficiency.</p>
+						</div>
+						<div className="col-lg-6 h-100 text-center">
+							<h2>To the Discovery Environment</h2>
+							<p>Know you need something, but don't quite know what you're looking for?
+							Head over to the discovery environment and see new technology in every industry imaginable</p>
+							<Button outline color="secondary" size="lg"><Link to="/discovery">Go Discover!</Link></Button>
+						</div>
 				</div>
 			</div>
 		)
