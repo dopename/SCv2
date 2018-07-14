@@ -9,7 +9,6 @@ class Main extends Component {
 
 	componentDidMount() {
 		this.props.getScreenData(window.screen.width, window.screen.height);
-		this.props.resetState();
 	}
 
 	render() {
