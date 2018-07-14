@@ -52,8 +52,8 @@ class SolutionModal extends Component {
   render() {
     return (
       <div>
-        <Modal size={this.state.mobile ? "md":"lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
-          <h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointerHand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointerHand"></i><i className="fa fa-share-alt-square mx-1 float-right pointerHand"></i></h4>
+        <Modal className="col-12" isOpen={this.state.modal} toggle={this.props.toggle}>
+          <h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
           <div className="text-center">
             <h2>{this.props.solution.name} by {this.props.solution.provider_name}</h2>
             <p className="alert alert-secondary">{this.props.solution.status} {this.props.solution.status_date}</p>
