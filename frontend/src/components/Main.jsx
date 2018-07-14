@@ -52,18 +52,19 @@ class Initial extends Component {
 							<h1>Welcome Friends</h1>
 						</div>
 					</div>
-					<div className="row h-100">
+					<div className="row h-100" style={{borderTop:"solid black 1px"}}>
 						<div className="col-lg-6 h-100 text-center">
 							<h2>To your profile</h2>
 							<p>Customize what content you subscribe to and stay up to date on the latest innovations.
 							Your profile is a one-stop shop for innovative tech so you can maximize your efficiency.</p>
 						</div>
-						<div className="col-lg-6 h-100 text-center">
+						<div className="col-lg-6 h-100 text-center" style={{borderLeft:"solid black 1px", backgroundColor:"#eef4fc"}}>
 							<h2>To the Discovery Environment</h2>
 							<p>Know you need something, but don't quite know what you're looking for?
 							Head over to the discovery environment and see new technology in every industry imaginable</p>
 							<Button outline color="secondary" size="lg"><Link to="/discovery">Go Discover!</Link></Button>
 						</div>
+					</div>
 				</div>
 			</div>
 		)
