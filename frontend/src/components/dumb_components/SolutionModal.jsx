@@ -12,7 +12,7 @@ class SolutionModal extends Component {
     }
 
     this.checkIfActive = this.checkIfActive.bind(this);
-    this.updateSolutionViews = this.updateSolutionViews.bind(this);
+    //this.updateSolutionViews = this.updateSolutionViews.bind(this);
   }
 
   componentDidMount() {
