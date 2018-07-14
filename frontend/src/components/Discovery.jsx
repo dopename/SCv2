@@ -78,7 +78,7 @@ class CheckBoxItem extends Component {
 				<div className="input-group-prepend">
 					<input type="checkbox" onClick={() => this.props.checkBox(this.props.item.pk, this.props.type)} checked={this.props.checked} />
 				</div>
-				<h5 className={"mb-1" + this.props.type === "industry" ? " font-weight-bold" : ""}>{this.props.item.name}</h5>
+				<h5 className={"mb-0" + this.props.type === "industry" ? " font-weight-bold" : ""}>{this.props.item.name}</h5>
 			</div>
 		)
 	}
