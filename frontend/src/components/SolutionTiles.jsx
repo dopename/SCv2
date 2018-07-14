@@ -39,7 +39,7 @@ class SolutionTiles extends Component {
 			    				<p className="ml-2 mb-0">Who it's for:</p>
 			    				<Tags tags={solution.tags} />
 			    				<p className="ml-2 my-1">{solution.provider_name}</p>
-			    				<p className="ml-2"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {solution.status}: {solution.status_date}</p>
+			    				<p className="ml-2 mb-1"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {solution.status}: {solution.status_date}</p>
 			    				<Button outline color="success" size="md">View Details</Button>
 			    			</div>
 			    		</div>
