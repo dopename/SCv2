@@ -63,7 +63,7 @@ class SolutionTiles extends Component {
 			    					<div className="col-1">
 			    					</div>
 			    					<div className="col-10">
-			    						<Button outline className="btn-block mb-1" color="success" size="md">View Details</Button>
+			    						<Button outline className="btn-block mb-1" color="success" size="md" onClick={() => { this.toggleSolution(solution.pk) } }>View Details</Button>
 			    					</div>
 			    					<div className="col-1">
 			    					</div>
