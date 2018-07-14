@@ -70,3 +70,5 @@ class SolutionModal extends Component {
     )
   }
 }
+
+export default SolutionModal;
