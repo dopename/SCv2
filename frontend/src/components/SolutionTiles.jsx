@@ -15,6 +15,9 @@ class SolutionTiles extends Component {
 		this.state = {
 			openSolution: false
 		}
+
+		this.toggleSolution = this.toggleSolution.bind(this);
+		this.toggleOff = this.toggleOff.bind(this)
 	}
 
 	componentDidMount() {
