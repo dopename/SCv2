@@ -29,7 +29,7 @@ class SolutionTiles extends Component {
 			if (this.props.unselected.indexOf(solution.category[0]) < 0) {
 		    	cols.push(
 		    		<div class="col-md-4 my-2 p-2" key={"solution_" + solution.pk}>
-		    			<div className="solution-tile pointer-hand">
+		    			<div className="solution-tile">
 			    			<div className="solution-main-image text-center">
 			    				<img alt={solution.name + " product image"} src={solution.main_image} style={{maxHeight : max_height}} className="responsive-image" />
 			    			</div>
