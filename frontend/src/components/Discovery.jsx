@@ -8,9 +8,6 @@ import "./Discovery.css"
 class Discovery extends Component {
 
 	componentDidMount() {
-		if (this.props.discovery.loaded) {
-			this.props.resetState();
-		}
 		this.props.listIndustries();
 	}
 
