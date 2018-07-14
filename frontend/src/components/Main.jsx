@@ -53,12 +53,12 @@ class Initial extends Component {
 						</div>
 					</div>
 					<div className="row h-100" style={{borderTop:"solid black 1px"}}>
-						<div className="col-lg-6 h-100 text-center mt-3" style={{backgroundColor:"#e6e6e6"}}>
+						<div className="col-lg-6 h-100 text-center pt-3" style={{backgroundColor:"#e6e6e6"}}>
 							<h2>To your profile</h2>
 							<p>Customize what content you subscribe to and stay up to date on the latest innovations.
 							Your profile is a one-stop shop for innovative tech so you can maximize your efficiency.</p>
 						</div>
-						<div className="col-lg-6 h-100 text-center mt-3" style={{borderLeft:"solid black 1px", backgroundColor:"#eef4fc"}}>
+						<div className="col-lg-6 h-100 text-center pt-3" style={{borderLeft:"solid black 1px", backgroundColor:"#eef4fc"}}>
 							<h2>To the Discovery Environment</h2>
 							<p>Know you need something, but don't quite know what you're looking for?
 							Head over to the discovery environment and see new technology in every industry imaginable</p>
