@@ -39,7 +39,7 @@ const mapDispatchToProps = dispatch => {
 			dispatch(main.getScreenData(width, height));
 		},
 		resetState: () => {
-			dispatch(discover.resetState());
+			dispatch(discovery.resetState());
 		}
 	}
 }
