@@ -22,3 +22,9 @@ export const checkBox = (pk, model) => {
 		model
 	}
 }
+
+export const resetState = () => {
+	return {
+		type: "RESET_STATE",
+	}
+}

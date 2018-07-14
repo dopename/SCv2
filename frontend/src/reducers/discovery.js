@@ -51,6 +51,9 @@ export default function discovery(state = initialState, action) {
 					return {...state, unselectedCategories : newData}
 				}
 			}
+		case "RESET_STATE":
+			var newState = {...initialState};
+			return newState;
 		default:
 			return state;
 	}

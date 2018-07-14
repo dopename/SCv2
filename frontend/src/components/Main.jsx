@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import Discovery from "./Discovery";
 import { Button } from "reactstrap";
-import {main} from "../actions/index"
+import {main, discovery} from "../actions/index"
 import {connect} from "react-redux";
 
 class Main extends Component {
 
 	componentDidMount() {
 		this.props.getScreenData(window.screen.width, window.screen.height);
+		this.props.resetState();
 	}
 
 	render() {
@@ -37,6 +38,9 @@ const mapDispatchToProps = dispatch => {
 		getScreenData: (width, height) => {
 			dispatch(main.getScreenData(width, height));
 		},
+		resetState: () => {
+			dispatch(discover.resetState()));
+		}
 	}
 }
 
