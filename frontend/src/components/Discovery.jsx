@@ -63,7 +63,7 @@ const mapDispatchToProps = dispatch => {
 		},
 		resetState: () => {
 			dispatch(discovery.resetState());
-		}
+		},
 	}
 }
 
