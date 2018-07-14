@@ -4,6 +4,7 @@ const initialState = {
 	industries: [],
 	unselectedCategories: [],
 	solutions: [],
+	loaded: false,
 
 }
 
@@ -16,7 +17,7 @@ export default function discovery(state = initialState, action) {
 					solutions = [...solutions, ...cat.solutions]
 				})
 			})
-			return {...state, industries: action.industries, solutions: solutions}
+			return {...state, industries: action.industries, solutions: solutions, loaded:true}
 		case "CHECK_BOX":
 			if ( action.model === "category") {
 				if (state.unselectedCategories.indexOf(action.pk) > -1) {
