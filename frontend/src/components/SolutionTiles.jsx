@@ -6,7 +6,7 @@ import {solution_tiles} from "../actions/index";
 import "./SolutionTiles.css";
 import Tags from "./dumb_components/Tags";
 
-import SolutonModal from "./dumb_components/SolutionModal";
+import SolutionModal from "./dumb_components/SolutionModal";
 
 class SolutionTiles extends Component {
 
