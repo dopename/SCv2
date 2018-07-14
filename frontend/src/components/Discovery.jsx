@@ -35,6 +35,11 @@ class Discovery extends Component {
 						</div>
 					</div>
 					<div className="col-lg-9">
+						<div className="row">
+							<div className="col-12">
+								<h2 className="text-left"><i className="fa fa-globe text-success"></i> Explore Solutions</h2>
+							</div>
+						</div>
 						<SolutionTiles />
 					</div>
 				</div>
