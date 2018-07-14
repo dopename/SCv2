@@ -38,7 +38,7 @@ class SolutionTiles extends Component {
 			    				<h3 className="text-center">{solution.name}</h3>
 			    				<p className="ml-2 mb-0">Who it's for:</p>
 			    				<Tags tags={solution.tags} />
-			    				<p className="mx-2 my-1"><p className="text-left">{solution.provider_name}</p><p className="text-right"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {solution.status}: {solution.status_date}</p></p>
+			    				<p className="mx-2 my-1"><p className="text-left mb-0">{solution.provider_name}</p><p className="text-right mb-0"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {solution.status}: {solution.status_date}</p></p>
 			    			</div>
 			    		</div>
 		    		</div>)
