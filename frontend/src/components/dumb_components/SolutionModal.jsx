@@ -55,10 +55,10 @@ class SolutionModal extends Component {
 				<Modal size={this.state.mobile ? "md":"lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
 					<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
 					<div className="row">
-						<div className="col-8 text-left">
+						<div className="col-8">
 							<h2>{this.props.solution.name}</h2>
 							<p>{this.props.solution.provider_name}</p>
-							<p><small>Who it's for</small></p>
+							<p className="mb-0"><small>Who it's for</small></p>
 							<Tags tags={this.props.solution.tags} />
 						</div>
 						<div className="col-4">
