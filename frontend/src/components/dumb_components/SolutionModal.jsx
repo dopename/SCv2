@@ -51,7 +51,7 @@ class SolutionModal extends Component {
 	}
 
 	render() {
-		var max_height = (this.props.mobile.screen_height * 0.15).toString() + "px";
+		var max_height = (this.props.screen_height * 0.15).toString() + "px";
 
 		return (
 			<div>
