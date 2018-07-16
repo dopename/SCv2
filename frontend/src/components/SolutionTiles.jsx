@@ -76,7 +76,7 @@ class SolutionTiles extends Component {
 			    				</div>
 			    			</div>
 			    		</div>
-			    		<SolutionModal solution={solution} toggle={this.toggleOff} screen_width={this.props.mobile.screen_width} activeModal={this.state.openSolution} />
+			    		<SolutionModal solution={solution} toggle={this.toggleOff} screen_width={this.props.mobile.screen_width} screen_height={this.props.mobile.screen_height} activeModal={this.state.openSolution} />
 		    		</div>)
 			}
 		    if (((index + 1) % 3 === 0) || (index + 1 === this.props.solutionData.length)) {

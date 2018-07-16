@@ -51,6 +51,8 @@ class SolutionModal extends Component {
 	}
 
 	render() {
+		var max_height = (this.props.mobile.screen_height * 0.15).toString() + "px";
+
 		return (
 			<div>
 				<Modal size={this.state.mobile ? "md":"lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
@@ -78,7 +80,19 @@ class SolutionModal extends Component {
 						<div className="row">
 							<div className="col-12 text-center">
 								<h4 className="mb-2">{this.props.solution.what}</h4>
-								<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:"15%"}}/>
+								<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:maxHeight}}/>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-12 text-left">
+								<h5 className="mb-1">Why this solution exists</h5>
+								<p className="mb-1">{this.props.solution.why}</p>
+								<h5 className="mb-1">How it works</h5>
+								<p className="mb-1">{this.props.solution.how}</p>
+								<h5 className="mb-1">What's the opportunity?</h5>
+								<p className="mb-1">{this.props.solution.opportunity}</p>
+								<h5 className="mb-1">How do you integrate?</h5>
+								<p>{this.props.solution.integration}</p>
 							</div>
 						</div>
 					</div>
