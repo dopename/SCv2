@@ -80,7 +80,7 @@ class SolutionModal extends Component {
 						<div className="row">
 							<div className="col-12 text-center">
 								<h4 className="mb-2">{this.props.solution.what}</h4>
-								<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:maxHeight}}/>
+								<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:max_height}}/>
 							</div>
 						</div>
 						<div className="row">
