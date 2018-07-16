@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, ModalBody, ModalFooter, Button } from "reactstrap";
+import { Modal, Button } from "reactstrap";
 import Tags from "./Tags"
 import "./SolutionModal.css"
 
@@ -84,21 +84,20 @@ class SolutionModal extends Component {
 							</div>
 						</div>
 						<div className="row">
-							<div className="col-12 text-left">
-								<h5 className="mb-1">Why this solution exists</h5>
-								<p className="mb-1">{this.props.solution.why}</p>
-								<h5 className="mb-1">How it works</h5>
-								<p className="mb-1">{this.props.solution.how}</p>
-								<h5 className="mb-1">What's the opportunity?</h5>
-								<p className="mb-1">{this.props.solution.opportunity}</p>
-								<h5 className="mb-1">How do you integrate?</h5>
-								<p>{this.props.solution.integration}</p>
+							<div className="col-12">
+								<div className="col-12 text-left">
+									<h5 className="mb-1">Why this solution exists</h5>
+									<p className="mb-1">{this.props.solution.why}</p>
+									<h5 className="mb-1">How it works</h5>
+									<p className="mb-1">{this.props.solution.how}</p>
+									<h5 className="mb-1">What's the opportunity?</h5>
+									<p className="mb-1">{this.props.solution.opportunity}</p>
+									<h5 className="mb-1">How do you integrate?</h5>
+									<p>{this.props.solution.integration}</p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<ModalFooter>
-						<Button outline color="primary" className="btn-block">Additional Solution Media</Button>
-					</ModalFooter>
 				</Modal>
 			</div>
 		)
