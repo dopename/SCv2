@@ -55,7 +55,7 @@ class SolutionModal extends Component {
 			<div>
 				<Modal size={this.state.mobile ? "md":"lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
 					<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
-					<div className="container">
+					<div className="container-fluid">
 						<div className="row">
 							<div className="col-6">
 								<div className="col-12">
