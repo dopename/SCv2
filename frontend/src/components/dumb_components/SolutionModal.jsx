@@ -55,7 +55,7 @@ class SolutionModal extends Component {
 			<div>
 				<Modal size={this.state.mobile ? "md":"lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
 					<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
-					<div className="container-fluid">
+					<div className="container-fluid" style={{borderBottom:"solid #E9ECEF 1px"}}>
 						<div className="row">
 							<div className="col-6">
 								<div className="col-12">
@@ -66,7 +66,7 @@ class SolutionModal extends Component {
 								</div>
 							</div>
 							<div className="col-6">
-								<div className="col-12 text-center">
+								<div className="col-12 text-right">
 									<p className="ml-2 mb-1"><i className={this.props.solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {this.props.solution.status}: {this.props.solution.status_date}</p>
 									<Button color="success" size="lg">Connect with Solution Provider</Button>
 								</div>
@@ -74,9 +74,14 @@ class SolutionModal extends Component {
 						</div>
 					</div>
 					<hr className="my-2" />
-					<ModalBody>
-						<br/>
-					</ModalBody>
+					<div className="container-fluid">
+						<div className="row">
+							<div className="col-12 text-center">
+								<h4 className="mb-2">{this.props.solution.what}</h4>
+								<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:"15%"}}/>
+							</div>
+						</div>
+					</div>
 					<ModalFooter>
 						<Button outline color="primary" className="btn-block">Additional Solution Media</Button>
 					</ModalFooter>
