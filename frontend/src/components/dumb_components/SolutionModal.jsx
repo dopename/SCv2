@@ -69,8 +69,10 @@ class SolutionModal extends Component {
 							</div>
 							<div className="col-6">
 								<div className="col-12 text-right">
-									<p className="ml-2 mb-1"><i className={this.props.solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {this.props.solution.status}: {this.props.solution.status_date}</p>
-									<Button color="success" size="lg">Connect with Solution Provider</Button>
+									<div className="float-right text-left">
+										<p className="ml-2 mb-1"><i className={this.props.solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {this.props.solution.status}: {this.props.solution.status_date}</p>
+										<Button color="success" size="lg">Connect with Solution Provider</Button>
+									</div>
 								</div>
 							</div>
 						</div>
