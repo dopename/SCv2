@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Modal, ModalBody, ModalFooter, Button } from "reactstrap";
 import Tags from "./Tags"
+import "./SolutionModal.css"
 
 class SolutionModal extends Component {
 	constructor(props) {
