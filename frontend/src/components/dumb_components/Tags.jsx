@@ -62,13 +62,7 @@ export default class Tags extends Component {
 			<div class="container-fluid">
 				<div className="row">
 					<div className="col-1 p-1 text-center">
-						<Button 
-							outline
-							color="dark"
-							onClick={(e) => { this.scrollRight(e)} }
-							className="px-1 h-100">
-							<span class="fa fa-angle-left pointer-hand"></span>
-						</Button>
+						<span class="fa fa-angle-left h-100 pointer-hand" onClick={(e) => { this.scrollRight(e)} }></span>
 					</div>
 					<div className="col-10">
 						<div class="row overflowX flex-nowrap horizontal-scroll py-1 px-0" id={this.state.tagContainer}>
@@ -76,13 +70,7 @@ export default class Tags extends Component {
 						</div>
 					</div>
 					<div className="col-1 p-1 text-center">
-						<Button 
-							outline
-							color="dark"
-							onClick={(e) => { this.scrollLeft(e)} }
-							className="px-1 h-100">
-							<span class="fa fa-angle-right p-auto pointer-hand"></span>
-						</Button>
+						<span class="fa fa-angle-right p-auto pointer-hand h-100" onClick={(e) => { this.scrollLeft(e)} }></span>
 					</div>
 				</div>
 			</div>
@@ -91,3 +79,24 @@ export default class Tags extends Component {
 
 }
 
+					// 	<Button 
+					// 		outline
+					// 		color="dark"
+					// 		onClick={(e) => { this.scrollRight(e)} }
+					// 		className="px-1 h-100">
+					// 		<span class="fa fa-angle-left pointer-hand"></span>
+					// 	</Button>
+					// </div>
+					// <div className="col-10">
+					// 	<div class="row overflowX flex-nowrap horizontal-scroll py-1 px-0" id={this.state.tagContainer}>
+					// 		{cols}
+					// 	</div>
+					// </div>
+					// <div className="col-1 p-1 text-center">
+					// 	<Button 
+					// 		outline
+					// 		color="dark"
+					// 		onClick={(e) => { this.scrollLeft(e)} }
+					// 		className="px-1 h-100">
+					// 		<span class="fa fa-angle-right p-auto pointer-hand"></span>
+					// 	</Button>
