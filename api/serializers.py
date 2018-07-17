@@ -288,7 +288,7 @@ class ProviderCreateSerializer(serializers.ModelSerializer):
 
 class ProviderSerializer(serializers.ModelSerializer):
 	solutions = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-	provider_acount = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+	provider_account = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
 	class Meta:
 		model = Provider
