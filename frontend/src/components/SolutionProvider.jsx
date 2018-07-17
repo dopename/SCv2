@@ -13,18 +13,18 @@ class SolutionProvider extends Component {
 
 	render() {
 		return (
-			<div className="container-fluid">
+			<div className="container">
 				<div className="col-lg-12">
 					<h1 className="text-center">{this.props.providerData.name}</h1>
 				</div>
 				<div className="row">
 					<div className="col-lg-6">
-						<img className="responsive-image" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} href={this.props.providerData.logo} />
+						<img className="responsive-image" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
 					</div>
 					<div className="col-lg-6 text-center">
 						<h3>About us</h3>
 						<div className="text-left">
-							<p>{this.props.providerData.abous_us}</p>
+							<p>{this.props.providerData.about_us}</p>
 						</div>
 					</div>
 				</div>
