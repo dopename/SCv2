@@ -61,7 +61,7 @@ class SolutionTiles extends Component {
 			    			<hr className="my-2" style={{borderTop:"dotted black 1px"}} />
 			    			<div className="solution-title text-left">
 			    				<h3 className="text-center">{solution.name}</h3>
-			    				<p className="ml-2 my-1">{solution.provider_name}</p>
+			    				<h5 className="ml-2 my-1">{solution.provider_name}</h5>
 			    				<p className="ml-2 mb-1"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {solution.status}: {solution.status_date}</p>
 			    				<hr className="my-2" style={{borderTop:"dotted black 1px"}} />
 			    				<p className="ml-2 mb-0">Who it's for:</p>
