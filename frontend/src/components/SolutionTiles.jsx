@@ -56,7 +56,7 @@ class SolutionTiles extends Component {
 		    		<div class="col-md-4 my-2 p-2" key={"solution_" + solution.pk}>
 		    			<div className="solution-tile">
 			    			<div className="solution-main-image text-center pointer-hand" onClick={() => { this.toggleSolution(solution.pk) } }>
-			    				<img alt={solution.name + " product image"} src={solution.main_image} style={{maxHeight : max_height}} className="responsive-image mt-1" />
+			    				<img alt={solution.name + " product image"} src={solution.main_image} style={{maxHeight : max_height}} className="responsive-image mt-2" />
 			    			</div>
 			    			<hr className="my-2" style={{borderTop:"dotted black 1px"}} />
 			    			<div className="solution-title text-left">
