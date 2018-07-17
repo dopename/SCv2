@@ -55,7 +55,7 @@ class SolutionTiles extends Component {
 		    	cols.push(
 		    		<div class="col-md-4 my-2 p-2" key={"solution_" + solution.pk}>
 		    			<div className="solution-tile">
-			    			<div className="solution-main-image text-center pointer-hand" onClick={() => { this.toggleSolution(solution.pk) } }>
+			    			<div className="solution-main-image text-center pointer-hand pb-1" onClick={() => { this.toggleSolution(solution.pk) } }>
 			    				<img alt={solution.name + " product image"} src={solution.main_image} style={{maxHeight : max_height}} className="responsive-image" />
 			    			</div>
 			    			<hr className="my-2" style={{borderTop:"dotted black 1px"}} />
@@ -64,7 +64,7 @@ class SolutionTiles extends Component {
 			    				<h5 className="ml-2 my-1">{solution.provider_name}</h5>
 			    				<p className="ml-2 mb-1"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {solution.status}: {solution.status_date}</p>
 			    				<hr className="my-2" style={{borderTop:"dotted black 1px"}} />
-			    				<p className="ml-2 mb-0"><small>Who it's for:</small></p>
+			    				<small className="ml-2 mb-0">Who it's for:</small>
 			    				<Tags tags={solution.tags} />
 			    			</div>
 			    		</div>
