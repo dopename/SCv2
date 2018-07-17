@@ -6,7 +6,8 @@ import {solution_provider} from "../actions/index";
 class SolutionProvider extends Component {
 
 	componentDidMount() {
-		const providerPK = this.props.match.params.id;
+		//const { match: { params } } = this.props;
+		const providerPK = this.props.match.params.providerPK;
 		this.props.retrieveProviderData(providerPK);
 	}
 
