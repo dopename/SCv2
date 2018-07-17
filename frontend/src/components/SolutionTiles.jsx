@@ -55,25 +55,17 @@ class SolutionTiles extends Component {
 		    	cols.push(
 		    		<div class="col-md-4 my-2 p-2" key={"solution_" + solution.pk}>
 		    			<div className="solution-tile">
-			    			<div className="solution-main-image text-center">
+			    			<div className="solution-main-image text-center pointer-hand" onClick={() => { this.toggleSolution(solution.pk) } }>
 			    				<img alt={solution.name + " product image"} src={solution.main_image} style={{maxHeight : max_height}} className="responsive-image" />
 			    			</div>
-			    			<hr className="my-2" />
+			    			<hr className="my-2" style={{borderTop:"dotted black 1px"}} />
 			    			<div className="solution-title text-left">
 			    				<h3 className="text-center">{solution.name}</h3>
-			    				<p className="ml-2 mb-0">Who it's for:</p>
-			    				<Tags tags={solution.tags} />
 			    				<p className="ml-2 my-1">{solution.provider_name}</p>
 			    				<p className="ml-2 mb-1"><i className={solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {solution.status}: {solution.status_date}</p>
-			    				<div className="row">
-			    					<div className="col-1">
-			    					</div>
-			    					<div className="col-10">
-			    						<Button outline className="btn-block mb-1" color="success" size="md" onClick={() => { this.toggleSolution(solution.pk) } }>View Details</Button>
-			    					</div>
-			    					<div className="col-1">
-			    					</div>
-			    				</div>
+			    				<hr className="my-2" style={{borderTop:"dotted black 1px"}} />
+			    				<p className="ml-2 mb-0">Who it's for:</p>
+			    				<Tags tags={solution.tags} />
 			    			</div>
 			    		</div>
 			    		<SolutionModal solution={solution} toggle={this.toggleOff} screen_width={this.props.mobile.screen_width} screen_height={this.props.mobile.screen_height} activeModal={this.state.openSolution} />
