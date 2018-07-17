@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+
 import Discovery from "./Discovery";
+import SolutionProvider from "./SolutionProvider";
+
 import { Button } from "reactstrap";
 import {main} from "../actions/index"
 import {connect} from "react-redux";
@@ -18,6 +21,7 @@ class Main extends Component {
 					<Switch>
 						<Route exact path="/" component={Initial} />
 						<Route path="/discovery" render= { () => <Discovery /> } />
+						<Route path="/provider/:providerPK" component={SolutionProvider} />
 					</Switch>
 				</BrowserRouter>
 			</div>

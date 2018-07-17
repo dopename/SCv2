@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button } from "reactstrap";
 import Tags from "./Tags"
+import { Link } from "react-router-dom";
 import "./SolutionModal.css"
 
 class SolutionModal extends Component {
@@ -72,7 +73,7 @@ class SolutionModal extends Component {
 									<div className="col-12 text-right">
 										<div className="float-right text-left">
 											<p className="ml-2 mb-1"><i className={this.props.solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {this.props.solution.status}: {this.props.solution.status_date}</p>
-											<Button color="success" size="lg">Connect with Solution Provider</Button>
+											<Button color="success" size="lg"><Link to={`/provider/${this.props.solution.provider}`}>Connect with Solution Provider</Link></Button>
 										</div>
 									</div>
 								</div>

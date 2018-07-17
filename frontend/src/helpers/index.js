@@ -44,6 +44,13 @@ export function createAPICall(model, data, token) {
 	})
 }
 
+
+export function retrieveAPICall(model, pk) {
+	const url = "/api/" + model + "/" + pk + "/"
+	return fetch(url)
+}
+
+
 export function fetchAPICall(model, list) {
 	const url = "/api/" + model + "/"
 
