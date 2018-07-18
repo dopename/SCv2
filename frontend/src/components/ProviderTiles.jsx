@@ -16,6 +16,7 @@ class ProviderTiles extends Component {
 
 	//Pull in API query from helpers - get solution data
 	componentDidMount() {
+		console.log("Provider tile props:", this.props)
 		let queries = fetchAPICall(this.props.solutions);
 
 		Promise.all(queries).then(returnData => {
