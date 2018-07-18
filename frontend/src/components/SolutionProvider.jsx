@@ -17,14 +17,14 @@ class SolutionProvider extends Component {
 
 		return (
 			<div className="container border mt-2">
-				<div className="col-lg-12 border-bottom">
+				<div className="col-lg-12 border-bottom mb-2">
 					<h1 className="text-center">{this.props.providerData.name}</h1>
 				</div>
 				<div className="row border-bottom">
-					<div className="col-lg-6 border-right text-center mt-2">
+					<div className="col-lg-6 border-right text-center">
 						<img className="responsive-image m-auto" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
 					</div>
-					<div className="col-lg-6 text-center mt-2">
+					<div className="col-lg-6 text-center">
 						<h3>About us</h3>
 						<div className="text-left">
 							<p>{this.props.providerData.about_us}</p>
