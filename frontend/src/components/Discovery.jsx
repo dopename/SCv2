@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {connect} from "react-redux";
 
 import {discovery} from "../actions/index"
-import SolutionTiles from "./SolutionTiles"
+//import SolutionTiles from "./SolutionTiles"
+import DiscoveryTiles from "./DiscoveryTiles"
 import "./Discovery.css"
 
 class Discovery extends Component {
@@ -40,7 +41,7 @@ class Discovery extends Component {
 								<h2 className="text-left"><i className="fa fa-globe text-success"></i> Explore Solutions</h2>
 							</div>
 						</div>
-						<SolutionTiles />
+						<DiscoveryTiles />
 					</div>
 				</div>
 			</div>
