@@ -20,6 +20,7 @@ class ProviderTiles extends Component {
 			let queries = fetchAPICall(this.props.solutions);
 
 			Promise.all(queries).then(returnData => {
+				console.log("DID MOUNT",returnData);
 				this.setState({
 					solutions:returnData
 				})
@@ -32,6 +33,7 @@ class ProviderTiles extends Component {
 			let queries = fetchAPICall(this.props.solutions);
 
 			Promise.all(queries).then(returnData => {
+				console.log("DID UPDATE",returnData);
 				this.setState({
 					solutions:returnData
 				})
