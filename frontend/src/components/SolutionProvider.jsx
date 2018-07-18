@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import Tags from "./dumb_components/Tags";
 import {solution_provider} from "../actions/index";
 
+import ProviderTiles from "./ProviderTiles";
+
 class SolutionProvider extends Component {
 
 	componentDidMount() {
