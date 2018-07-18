@@ -60,7 +60,7 @@ export default class Tags extends Component {
 			}
 			else {
 				cols.push(
-					<div className={"list-group-item p-1 btn btn-outline-" + t.type === "industry" ? "primary" : "success"} key={"tag_"+t.type + t.pk}>
+					<div className={"list-group-item p-1 btn btn-outline-" + (t.type === "industry" ? "primary" : "success")} key={"tag_"+t.type + t.pk}>
 						<p className="mb-0">
 							{t.name}
 						</p>
