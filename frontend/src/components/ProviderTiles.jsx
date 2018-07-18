@@ -16,24 +16,40 @@ class ProviderTiles extends Component {
 
 	//Pull in API query from helpers - get solution data
 	componentDidMount() {
-		let queries = fetchAPICall("solution", this.props.solutions);
-
-		Promise.all(queries).then(returnData => {
-			this.setState({
-				solutions:returnData
-			})
+		var stateSolutions = []
+		this.props.providerSolutions.map(ps => {
+			var index = this.props.solutions.map(e => e.pk).indexOf(ps);
+			stateSolutions.push(this.props.solutions[index])
 		})
+
+		this.setState({solutions:stateSolutions});
+
+		// let queries = fetchAPICall("solution", this.props.solutions);
+
+		// Promise.all(queries).then(returnData => {
+		// 	this.setState({
+		// 		solutions:returnData
+		// 	})
+		// })
 	}
 
 	componentDidUpdate(prevProps) {
 		if (this.props.solutions !== prevProps.solutions) {
-			let queries = fetchAPICall("solution", this.props.solutions);
-
-			Promise.all(queries).then(returnData => {
-				this.setState({
-					solutions:returnData
-				})
+			var stateSolutions = []
+			this.props.providerSolutions.map(ps => {
+				var index = this.props.solutions.map(e => e.pk).indexOf(ps);
+				stateSolutions.push(this.props.solutions[index])
 			})
+
+			this.setState({solutions:stateSolutions});
+			
+			// let queries = fetchAPICall("solution", this.props.solutions);
+
+			// Promise.all(queries).then(returnData => {
+			// 	this.setState({
+			// 		solutions:returnData
+			// 	})
+			// })
 		}
 	}
 
@@ -49,6 +65,7 @@ class ProviderTiles extends Component {
 const mapStateToProps = state => {
 	return {
 		mobile:state.main,
+		solutions:state.discovery.solutions,
 	}
 }
 
