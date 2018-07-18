@@ -16,6 +16,7 @@ class ProviderTiles extends Component {
 
 	//Pull in API query from helpers - get solution data
 	componentDidMount() {
+		console.log(this.props);
 		var stateSolutions = []
 		this.props.providerSolutions.map(ps => {
 			var index = this.props.solutions.map(e => e.pk).indexOf(ps);
@@ -42,7 +43,7 @@ class ProviderTiles extends Component {
 			})
 
 			this.setState({solutions:stateSolutions});
-			
+
 			// let queries = fetchAPICall("solution", this.props.solutions);
 
 			// Promise.all(queries).then(returnData => {
