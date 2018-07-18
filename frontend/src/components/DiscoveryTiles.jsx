@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {connect} from "react-redux";
 
 import {solution_tiles} from "../actions/index";
-import DumbTiles from "./dumb-components/DumbTiles";
+import DumbTiles from "./dumb_components/DumbTiles";
 
 
 class DiscoveryTiles extends Component {
