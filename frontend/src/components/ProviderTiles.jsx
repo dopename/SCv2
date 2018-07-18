@@ -6,12 +6,9 @@ import DumbTiles from "./dumb_components/DumbTiles";
 
 
 class ProviderTiles extends Component {
-	constructor(props) {
-		super(props)
-		
-		this.state = {
-			solutions: []
-		}
+
+	state = {
+		solutions: []
 	}
 
 	componentDidMount() {
@@ -23,19 +20,6 @@ class ProviderTiles extends Component {
 			})
 		})
 	}
-
-	componentDidUpdate(prevProps) {
-		if (this.props.solutions !== prevProps.solutions) {
-			let queries = fetchAPICall(this.props.solutions);
-
-			Promise.all(queries).then(returnData => {
-				this.setState({
-					solutions:returnData
-				})
-			})
-		}
-	}
-
 
 	render() {
 		return (

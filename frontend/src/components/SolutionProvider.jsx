@@ -44,6 +44,9 @@ class SolutionProvider extends Component {
 						{this.props.providerData ? <Tags tags={this.props.providerData.child_ind_cat} /> : "Loading..."}
 					</div>
 				</div>
+				<div>
+					<ProviderTiles solutions={this.props.providerData.solutions} />
+				</div>
 			</div>
 		)
 	}
