@@ -31,6 +31,7 @@ export default class DumbTiles extends Component {
 	}
 	//Props required - screen_height, screen_width, solutions(array), openSolution, 
 	render() {
+		console.log("SOLUTIONS", this.props.solutions)
 		var colSize = 0
 		switch (this.props.size) {
 			case "lg":
