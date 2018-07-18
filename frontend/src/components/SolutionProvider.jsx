@@ -23,7 +23,7 @@ class SolutionProvider extends Component {
 					<h1 className="text-center">{this.props.providerData.name}</h1>
 					<p className="text-center"><i>{this.props.providerData.tagline}</i></p>
 				</div>
-				<div className="row border-bottom">
+				<div className="row border-bottom mb-2">
 					<div className="col-lg-6 border-right text-center">
 						<img className="responsive-image m-auto" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
 					</div>
@@ -34,7 +34,7 @@ class SolutionProvider extends Component {
 						</div>
 					</div>
 				</div>
-				<div className="row">
+				<div className="row mb-2">
 					<div className="col-lg-6">
 						<h3 className="text-center">Who we serve</h3>
 						{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : "Loading..."}
