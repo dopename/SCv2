@@ -310,7 +310,8 @@ class ProviderSerializer(serializers.ModelSerializer):
 			"solutions",
 			"provider_account",
 			"child_tags",
-			"solution_views"
+			"solution_views",
+			"child_ind_cat",
 		]
 
 class ProviderDestroySerializer(serializers.ModelSerializer):

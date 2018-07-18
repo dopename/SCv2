@@ -101,7 +101,15 @@ class Provider(models.Model):
 		for solution in self.solutions.all():
 			[all_solutions.append({'pk':x.pk, 'name':x.name}) for x in solution.tags.all() if x.pk not in [y['pk'] for y in all_solutions]]
 		return all_solutions
-	
+
+	#ind_cat is for Industries and Categories
+	@property
+	def child_ind_cat(self):
+		all_ind_cat = []
+		for solution in self.solutions.all():
+			[all_ind_cat.append({'pk':x.pk, 'name':x.name, 'type':'category'}) for x in solution.category_set.all() if x.pk not in [y['pk'] for y in all_ind_cat]]
+			all_ind_cat.append({'pk':solution.industy.pk, 'name':solution.industry.name, 'type':'industry'})
+		return all_ind_cat
 
 #Provider account
 class ProviderAccount(models.Model):
