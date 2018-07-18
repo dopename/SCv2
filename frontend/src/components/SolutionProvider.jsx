@@ -14,7 +14,7 @@ class SolutionProvider extends Component {
 
 	render() {
 		console.log(this.props);
-		
+
 		return (
 			<div className="container border mt-2">
 				<div className="col-lg-12 border-bottom">
@@ -29,6 +29,13 @@ class SolutionProvider extends Component {
 						<div className="text-left">
 							<p>{this.props.providerData.about_us}</p>
 						</div>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-lg-6">
+						<Tags tags={this.props.providerData.child_tags} />
+					</div>
+					<div className="col-lg-6">
 					</div>
 				</div>
 			</div>
