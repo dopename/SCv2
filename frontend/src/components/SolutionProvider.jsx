@@ -37,16 +37,16 @@ class SolutionProvider extends Component {
 				<div className="row mb-2 pb-2 border-bottom">
 					<div className="col-lg-6">
 						<h3 className="text-center">Who we serve</h3>
-						{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : "Loading..."}
+						{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : <div className="loader"></div>}
 					</div>
 					<div className="col-lg-6">
 						<h3 className="text-center">Industries & Categories</h3>
-						{this.props.providerData ? <Tags tags={this.props.providerData.child_ind_cat} /> : "Loading..."}
+						{this.props.providerData ? <Tags tags={this.props.providerData.child_ind_cat} /> : <div className="loader"></div>}
 					</div>
 				</div>
 				<div>
 					<h3 className="text-center">Our Solutions</h3>
-					{this.props.providerData ? <ProviderTiles solutions={this.props.providerData.solutions} /> : "Loading..."}
+					{this.props.providerData ? <ProviderTiles solutions={this.props.providerData.solutions} /> : <div className="loader"></div>}
 				</div>
 			</div>
 		)
