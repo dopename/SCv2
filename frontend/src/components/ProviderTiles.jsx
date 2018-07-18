@@ -16,7 +16,7 @@ class ProviderTiles extends Component {
 
 	//Pull in API query from helpers - get solution data
 	componentDidMount() {
-		let queries = fetchAPICall("solutons", this.props.solutions);
+		let queries = fetchAPICall("solution", this.props.solutions);
 
 		Promise.all(queries).then(returnData => {
 			this.setState({
@@ -27,7 +27,7 @@ class ProviderTiles extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.solutions !== prevProps.solutions) {
-			let queries = fetchAPICall("solutions", this.props.solutions);
+			let queries = fetchAPICall("solution", this.props.solutions);
 
 			Promise.all(queries).then(returnData => {
 				this.setState({
