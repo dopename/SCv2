@@ -6,9 +6,12 @@ import DumbTiles from "./dumb_components/DumbTiles";
 
 
 class ProviderTiles extends Component {
-
-	state = {
-		solutions: []
+	constructor(props) {
+		super(props)
+		
+		this.state = {
+			solutions: []
+		}
 	}
 
 	componentDidMount() {
