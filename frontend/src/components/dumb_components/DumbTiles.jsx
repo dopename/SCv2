@@ -35,10 +35,13 @@ export default class DumbTiles extends Component {
 		switch (this.props.size) {
 			case "lg":
 				colSize = 6;
+				break;
 			case "md":
 				colSize = 4;
+				break;
 			case "sm":
 				colSize = 3;
+				break;
 			default:
 				colSize = 4
 		}
