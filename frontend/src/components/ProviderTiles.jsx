@@ -13,7 +13,7 @@ class ProviderTiles extends Component {
 
 	//Pull in API query from helpers - get solution data
 	componentDidMount() {
-		if (this.props.solutions) {
+		if (!this.props.solutions == null) {
 			let queries = fetchAPICall(this.props.solutions);
 
 			Promise.all(queries).then(returnData => {
