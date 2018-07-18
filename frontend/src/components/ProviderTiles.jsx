@@ -16,11 +16,9 @@ class ProviderTiles extends Component {
 
 	//Pull in API query from helpers - get solution data
 	componentDidMount() {
-		console.log("Provider tile props:", this.props)
-		let queries = fetchAPICall(this.props.solutions);
+		let queries = fetchAPICall("solutons", this.props.solutions);
 
 		Promise.all(queries).then(returnData => {
-			console.log("DID MOUNT",returnData);
 			this.setState({
 				solutions:returnData
 			})
@@ -29,10 +27,9 @@ class ProviderTiles extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.solutions !== prevProps.solutions) {
-			let queries = fetchAPICall(this.props.solutions);
+			let queries = fetchAPICall("solutions", this.props.solutions);
 
 			Promise.all(queries).then(returnData => {
-				console.log("DID UPDATE", returnData);
 				this.setState({
 					solutions:returnData
 				})
