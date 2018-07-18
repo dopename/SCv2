@@ -15,25 +15,25 @@ class ProviderTiles extends Component {
 	}
 
 	//Pull in API query from helpers - get solution data
-	// componentDidMount() {
-	// 	console.log(this.props);
-	// 	var stateSolutions = []
-	// 	if (this.props.solutions.length > 0) {
-	// 		this.props.providerSolutions.map(ps => {
-	// 			var index = this.props.solutions.map(e => e.pk).indexOf(ps);
-	// 			stateSolutions.push(this.props.solutions[index])
-	// 		})
+	componentDidMount() {
+		console.log(this.props);
+		var stateSolutions = []
+		if (this.props.solutions.length > 0) {
+			this.props.providerSolutions.map(ps => {
+				var index = this.props.solutions.map(e => e.pk).indexOf(ps);
+				stateSolutions.push(this.props.solutions[index])
+			})
 
-	// 		this.setState({solutions:stateSolutions});
-	// 	}
-	// 	// let queries = fetchAPICall("solution", this.props.solutions);
+			this.setState({solutions:stateSolutions});
+		}
+		// let queries = fetchAPICall("solution", this.props.solutions);
 
-	// 	// Promise.all(queries).then(returnData => {
-	// 	// 	this.setState({
-	// 	// 		solutions:returnData
-	// 	// 	})
-	// 	// })
-	// }
+		// Promise.all(queries).then(returnData => {
+		// 	this.setState({
+		// 		solutions:returnData
+		// 	})
+		// })
+	}
 
 	componentDidUpdate(prevProps) {
 		if (this.props.solutions !== prevProps.solutions) {
