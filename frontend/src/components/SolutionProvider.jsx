@@ -13,12 +13,12 @@ class SolutionProvider extends Component {
 
 	render() {
 		return (
-			<div className="container">
-				<div className="col-lg-12">
+			<div className="container border mt-2">
+				<div className="col-lg-12 border-bottom">
 					<h1 className="text-center">{this.props.providerData.name}</h1>
 				</div>
-				<div className="row">
-					<div className="col-lg-6">
+				<div className="row border-bottom">
+					<div className="col-lg-6 border-right">
 						<img className="responsive-image" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
 					</div>
 					<div className="col-lg-6 text-center">
