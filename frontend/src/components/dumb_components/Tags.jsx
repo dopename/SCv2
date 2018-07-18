@@ -72,9 +72,7 @@ export default class Tags extends Component {
 				<div className="row">
 					<div className="col-1 px-0 text-center">
 						<h2 className="p-0 m-0">
-						{if (this.state.tagContainer) {
-							document.getElementById(this.state.tagContainer).offsetWidth < document.getElementById(this.state.tagContainer).scrollWidth ? (
-							<span class="fa fa-angle-left h-100 pointer-hand" onClick={(e) => { this.scrollRight(e)} }></span>) : null}}
+							<span class="fa fa-angle-left h-100 pointer-hand" onClick={(e) => { this.scrollRight(e)} }></span>
 						</h2>
 					</div>
 					<div className="col-10">
@@ -84,9 +82,7 @@ export default class Tags extends Component {
 					</div>
 					<div className="col-1 px-0 text-center">
 						<h2 className="p-0 m-0">
-							{if (this.state.tagContainer) {
-								document.getElementById(this.state.tagContainer).offsetWidth < document.getElementById(this.state.tagContainer).scrollWidth ? (
-								<span class="fa fa-angle-right p-auto pointer-hand h-100" onClick={(e) => { this.scrollLeft(e)} }></span>) : null}}
+							<span class="fa fa-angle-right p-auto pointer-hand h-100" onClick={(e) => { this.scrollLeft(e)} }></span>
 						</h2>
 					</div>
 				</div>
