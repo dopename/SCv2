@@ -33,7 +33,7 @@ class SolutionProvider extends Component {
 				</div>
 				<div className="row">
 					<div className="col-lg-6">
-						<Tags tags={this.props.providerData.child_tags} />
+						{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : null}
 					</div>
 					<div className="col-lg-6">
 					</div>
