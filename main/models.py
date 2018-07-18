@@ -99,7 +99,7 @@ class Provider(models.Model):
 	def child_tags(self):
 		all_solutions = []
 		for solution in self.solutions.all():
-			[all_solutions.append({'pk':x.pk, 'name':x.name}) for x in solution.tags.all() if x.pk not in [y['pk]'] for y in all_solutions]]
+			[all_solutions.append({'pk':x.pk, 'name':x.name}) for x in solution.tags.all() if x.pk not in [y['pk'] for y in all_solutions]]
 		return all_solutions
 	
 
