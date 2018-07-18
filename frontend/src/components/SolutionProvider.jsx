@@ -45,7 +45,7 @@ class SolutionProvider extends Component {
 					</div>
 				</div>
 				<div>
-					<ProviderTiles solutions={this.props.providerData.solutions} />
+					{this.props.providerData ? <ProviderTiles solutions={this.props.providerData.solutions} /> : "Loading..."}
 				</div>
 			</div>
 		)
