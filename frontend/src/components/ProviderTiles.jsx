@@ -12,7 +12,7 @@ class ProviderTiles extends Component {
 	}
 
 	componentDidMount() {
-		if (this.props.length > 0) {
+		if (this.props.solutions.length > 0) {
 			let queries = fetchAPICall(this.props.solutions);
 
 			Promise.all(queries).then(returnData => {
