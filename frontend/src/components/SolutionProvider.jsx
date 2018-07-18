@@ -19,7 +19,7 @@ class SolutionProvider extends Component {
 			<div className="container border mt-2">
 				<div className="col-lg-12 border-bottom mb-2">
 					<h1 className="text-center">{this.props.providerData.name}</h1>
-					<p><i>{this.props.providerData.tagline}</i></p>
+					<p className="text-center"><i>{this.props.providerData.tagline}</i></p>
 				</div>
 				<div className="row border-bottom">
 					<div className="col-lg-6 border-right text-center">
