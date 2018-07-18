@@ -11,8 +11,9 @@ class ProviderTiles extends Component {
 		solutions: []
 	}
 
+	//Pull in API query from helpers - get solution data
 	componentDidMount() {
-		if (this.props.solutions.length > 0) {
+		if (this.props.solutions) {
 			let queries = fetchAPICall(this.props.solutions);
 
 			Promise.all(queries).then(returnData => {
@@ -34,7 +35,6 @@ class ProviderTiles extends Component {
 			})
 		}
 	}
-
 
 	render() {
 		return (
