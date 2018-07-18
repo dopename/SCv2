@@ -21,7 +21,7 @@ class SolutionProvider extends Component {
 					<h1 className="text-center">{this.props.providerData.name}</h1>
 				</div>
 				<div className="row border-bottom mt-2">
-					<div className="col-lg-6 border-right">
+					<div className="col-lg-6 border-right text-center">
 						<img className="responsive-image m-auto" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
 					</div>
 					<div className="col-lg-6 text-center">
