@@ -72,7 +72,7 @@ export default class DumbTiles extends Component {
 			   				<Tags tags={solution.tags} />
 			   			</div>
 			   		</div>
-			   		<SolutionModal solution={solution} toggle={this.toggleOff} screen_width={this.props.screen_width} screen_height={this.props.screen_height} activeModal={this.state.openSolution} />
+			   		<SolutionModal solution={solution} toggle={this.toggleOff} screen_width={this.props.screen_width} screen_height={this.props.screen_height} activeModal={this.state.openSolution} env={this.props.env} />
 		    	</div>)
 
 		    if (((index + 1) % numPerRow === 0) || (index + 1 === this.props.solutions.length)) {

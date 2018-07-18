@@ -40,7 +40,7 @@ class ProviderTiles extends Component {
 	render() {
 		return (
 			<div>
-				<DumbTiles solutions={this.state.solutions} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} />
+				<DumbTiles solutions={this.state.solutions} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="provider" />
 			</div>
 		)
 	}
