@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
 
+import Tags from "./dumb_components/Tags";
 import {solution_provider} from "../actions/index";
 
 class SolutionProvider extends Component {
@@ -12,14 +13,16 @@ class SolutionProvider extends Component {
 	}
 
 	render() {
+		console.log(this.props);
+		
 		return (
 			<div className="container border mt-2">
 				<div className="col-lg-12 border-bottom">
 					<h1 className="text-center">{this.props.providerData.name}</h1>
 				</div>
-				<div className="row border-bottom">
+				<div className="row border-bottom mt-2">
 					<div className="col-lg-6 border-right">
-						<img className="responsive-image" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
+						<img className="responsive-image m-auto" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
 					</div>
 					<div className="col-lg-6 text-center">
 						<h3>About us</h3>

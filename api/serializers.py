@@ -308,7 +308,9 @@ class ProviderSerializer(serializers.ModelSerializer):
 			"tags",
 			"views",
 			"solutions",
-			"provider_account"
+			"provider_account",
+			"child_tags",
+			"solution_views"
 		]
 
 class ProviderDestroySerializer(serializers.ModelSerializer):

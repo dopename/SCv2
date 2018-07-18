@@ -95,6 +95,14 @@ class Provider(models.Model):
 				total_views += each.views
 		return total_views
 
+	@property
+	def child_tags(self):
+		all_solutions = []
+		for solution in self.solutions.all():
+			[all_solution.append({'pk':x.pk, 'name':x.name}) for x in solution.tags if x.pk not in [y.pk for y in all_solutions]]
+		return all_solutions
+	
+
 #Provider account
 class ProviderAccount(models.Model):
 	useraccount_id = models.AutoField(primary_key=True)
