@@ -3,6 +3,7 @@ import { Button } from "reactstrap";
 
 import Tags from "./Tags";
 import SolutionModal from "./SolutionModal";
+import "./DumbTiles.css";
 
 export default class DumbTiles extends Component {
 	constructor(props) {
