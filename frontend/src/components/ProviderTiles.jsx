@@ -21,6 +21,19 @@ class ProviderTiles extends Component {
 		})
 	}
 
+	componentDidUpdate(prevProps) {
+		if (this.props.solutions !== prevProps.solutions) {
+			let queries = fetchAPICall(this.props.solutions);
+
+			Promise.all(queries).then(returnData => {
+				this.setState({
+					solutions:returnData
+				})
+			})
+		}
+	}
+
+
 	render() {
 		return (
 			<div>
