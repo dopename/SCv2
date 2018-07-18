@@ -25,7 +25,7 @@ class ProviderTiles extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if (this.props.solutions !== prevProps.solutions) {
+		if ((this.props.solutions !== prevProps.solutions) && (!this.props.solutions == null)) {
 			let queries = fetchAPICall(this.props.solutions);
 
 			Promise.all(queries).then(returnData => {
