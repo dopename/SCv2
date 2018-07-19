@@ -102,8 +102,8 @@ class Initial extends Component {
 									<h2 className="text-left text-white ml-3">Solution Connect simplifies technology so you can focus on what matters most you you.</h2>
 								</div>
 								<div className="col-4">
-									<div className='col-6 m-auto flex-fill'>
-										<Link to="/discovery"><Button className="btn-block h-100 flex-fill" color="light">Explore Solutions</Button></Link>
+									<div className='col-6 m-auto h-100'>
+										<Link to="/discovery"><Button className="btn-block h-100" color="light">Explore Solutions</Button></Link>
 									</div>
 								</div>
 							</div>
