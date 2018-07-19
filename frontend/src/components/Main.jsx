@@ -93,7 +93,7 @@ class Initial extends Component {
 			<div className="container-fluid h-100">
 				<div id="intro" className="text-center h-100">
 					<div className="row">
-						<div className="col-12 px-0" id="home-content1" style={{width:"100%", height:"auto"}}>
+						<div className="col-12 px-0" id="home-content1">
 							<h1 className="text-white mt-3">Bringing clarity to innvovation</h1>
 						</div>
 					</div>

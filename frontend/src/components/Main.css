@@ -1,3 +1,5 @@
 #home-content1 {
-	background-image:url("/media/bg-image.jpg");
+	background:url("/media/bg-image.jpg");
+	background-size:auto;
+	background-repeat:no-repeat;
 }
