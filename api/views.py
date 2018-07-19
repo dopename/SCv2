@@ -12,7 +12,7 @@ from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework_jwt.settings import api_settings
-from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication, BasicAuthentication
 from rest_framework_jwt.serializers import VerifyJSONWebTokenSerializer
 
 from knox.models import AuthToken
@@ -48,6 +48,8 @@ class UserAPI(generics.RetrieveAPIView):
 
 class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginUserSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = (permissions.AllowAny,)
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
