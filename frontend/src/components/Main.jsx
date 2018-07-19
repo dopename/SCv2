@@ -6,6 +6,8 @@ import SolutionProvider from "./SolutionProvider";
 import Login from "./Login";
 import Register from "./Register";
 
+import "./Main.css"
+
 import { Button, Nav, Navbar, NavbarBrand, NavItem } from "reactstrap";
 import {main, auth} from "../actions/index"
 import {connect} from "react-redux";
@@ -47,7 +49,7 @@ class Main extends Component {
 							</div>
 						</div>
 						<Switch>
-							<Route exact path="/" component={Initial} />
+							<Route exact path="/" render= { () => <Initial screen_width={this.props.screen_width} screen_height={this.props.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
 							<Route exact path="/login" component={Login} />
 							<Route exact path="/register" component={Register} />
@@ -91,8 +93,8 @@ class Initial extends Component {
 			<div className="container-fluid h-100">
 				<div id="intro" className="text-center h-100">
 					<div className="row">
-						<div className="col-12">
-							<h1>Welcome Friends</h1>
+						<div className="col-12 px-0" id="home-content1">
+							<h1 className="text-white mt-3">Bringing clarity to innvovation</h1>
 						</div>
 					</div>
 					<div className="row h-100" style={{borderTop:"solid black 1px"}}>
