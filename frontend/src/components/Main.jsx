@@ -103,7 +103,7 @@ class Initial extends Component {
 								</div>
 								<div className="col-4">
 									<div className='col-6 m-auto'>
-										<Link to="/discovery"><Button className="btn-block" color="light">Explore Solutions</Button></Link>
+										<Link to="/discovery"><Button className="btn-block h-100 flex-fill" color="light">Explore Solutions</Button></Link>
 									</div>
 								</div>
 							</div>
