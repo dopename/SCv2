@@ -113,7 +113,7 @@ class Initial extends Component {
 						<h1 className="text-center">Connecting businesses with solutions to help them succeed</h1>
 					</div>
 					<div className="row h-25">
-						<div className="col-lg-8 h-50 text-left">
+						<div className="col-lg-8 h-100 text-left">
 							<div className="col-12">
 								<h2>Technological innovation is accelerating at an exponential rate, and it can be difficult to keep up with the developments that matter to you.</h2>
 							</div>
@@ -122,8 +122,8 @@ class Initial extends Component {
 								<h2>Solution Connect demystifies cutting edge technologies to help you find and connect with the solutions you need.</h2>
 							</div>
 						</div>
-						<div className="col-lg-4 h-50">
-							<img style={{backgroundPosition:"center"}} src="/media/home-2.png" alt="Solution man" />
+						<div className="col-lg-4 h-100 text-center">
+							<img className="m-auto" style={{backgroundPosition:"center", backgrondSize:"contain"}} src="/media/home-2.png" alt="Solution man" />
 						</div>
 					</div>
 				</div>
