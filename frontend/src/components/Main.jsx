@@ -97,7 +97,7 @@ class Initial extends Component {
 							<h1 className="text-white mt-3 display-1">Bringing clarity to innvovation</h1>
 						</div>
 						<div className="col-12 px-0 h-25">
-							<h4 className="text-left display-4 text-white mb-3">Solution Connect simplifies technology so you can focus on what matters most you you.</h4>
+							<h3 className="text-left text-white mb-3">Solution Connect simplifies technology so you can focus on what matters most you you.</h3>
 						</div>
 					</div>
 					<div className="row h-100" style={{borderTop:"solid black 1px"}}>
