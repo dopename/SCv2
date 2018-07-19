@@ -45,6 +45,7 @@ class RegistrationAPI(generics.GenericAPIView):
 #/--------------------------------------------------------------/        
 
 class UserAPI(generics.RetrieveAPIView):
+	authentication_classes = [TokenAuthentication.]
     permission_classes = (permissions.IsAuthenticated, )
     serializer_class = CustomUserSerializer
 
