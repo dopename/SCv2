@@ -90,20 +90,20 @@ class Initial extends Component {
 	render() {
 		var image_height = (0.50 * this.props.screen_height).toString() + "px";
 		return (
-			<div className="container-fluid h-100">
-				<div id="intro" className="text-center h-100">
-					<div className="row h-75" id="home-content1">
-						<div className="col-12 h-75">
+			<div className="container-fluid custom-h-100">
+				<div id="intro" className="text-center custom-h-100">
+					<div className="row custom-h-75" id="home-content1">
+						<div className="col-12 custom-h-75">
 							<h1 className="text-white mt-3 display-1">Bringing clarity to innvovation</h1>
 						</div>
-						<div className="col-12 h-25">
+						<div className="col-12 custom-h-25">
 							<div className="row">
 								<div className="col-8">
 									<h1 className="text-left text-white ml-3">Solution Connect simplifies technology so you can focus on what matters most you you.</h1>
 								</div>
 								<div className="col-4">
-									<div className='col-6 m-auto h-100'>
-										<Link to="/discovery"><Button className="btn-block h-100" color="light">Explore Solutions</Button></Link>
+									<div className='col-6 m-auto custom-h-100'>
+										<Link to="/discovery"><Button className="btn-block custom-h-100" color="light">Explore Solutions</Button></Link>
 									</div>
 								</div>
 							</div>
@@ -112,8 +112,8 @@ class Initial extends Component {
 					<div className="col-12 mb-4 mt-2">
 						<h1 className="text-center">Connecting businesses with solutions to help them succeed</h1>
 					</div>
-					<div className="row h-25 mb-2">
-						<div className="col-lg-8 h-100 text-left">
+					<div className="row custom-h-25 mb-2">
+						<div className="col-lg-8 custom-h-100 text-left">
 							<div className="col-12">
 								<h2>Technological innovation is accelerating at an exponential rate, and it can be difficult to keep up with the developments that matter to you.</h2>
 							</div>
@@ -122,8 +122,8 @@ class Initial extends Component {
 								<h2>Solution Connect demystifies cutting edge technologies to help you find and connect with the solutions you need.</h2>
 							</div>
 						</div>
-						<div className="col-lg-4 h-100 text-center">
-							<img className="m-auto h-100" style={{backgroundPosition:"center", backgrondSize:"contain", width:"auto"}} src="/media/home-2.png" alt="Solution man" />
+						<div className="col-lg-4 custom-h-100 text-center">
+							<img className="m-auto custom-h-100" style={{backgroundPosition:"center", backgrondSize:"contain", width:"auto"}} src="/media/home-2.png" alt="Solution man" />
 						</div>
 					</div>
 				</div>

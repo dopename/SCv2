@@ -4,3 +4,21 @@
 	background-repeat:no-repeat;
 	background-position: center;
 }
+
+@media (min-width:550px) {
+	.custom-h-100 {
+		height:100%!important;
+	}
+
+	.custom-h-75 {
+		height:75%!important;
+	}
+
+	.custom-h-50 {
+		height:50%!important;
+	}
+
+	.custom-h-25 {
+		height:25%!important;
+	}
+}
