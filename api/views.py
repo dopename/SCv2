@@ -32,9 +32,9 @@ class RegistrationAPI(generics.GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
-        custom_user = CustomUser.objects.create(user=user.pk)
+        custom_user = CustomUser.objects.create(user=user)
         custom_user.save()
-        seeker_user = SeekerUser.objects.create(user=user.pk)
+        seeker_user = SeekerAccount.objects.create(user=user)
         seeker_user.save()
 
         return Response({
