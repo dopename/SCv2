@@ -16,6 +16,7 @@ from rest_framework.authentication import BasicAuthentication
 from rest_framework_jwt.serializers import VerifyJSONWebTokenSerializer
 
 from knox.models import AuthToken
+from knox.auth import TokenAuthentication
 
 import datetime
 import dateutil.relativedelta
@@ -37,13 +38,13 @@ class RegistrationAPI(generics.GenericAPIView):
 
 #/--------------------------------------------------------------/        
 
-class UserAPI(generics.RetrieveAPIView):
+class UserAPI(TokenAuthentication):
     #permission_classes = [permissions.IsAuthenticated, ]
     serializer_class = UserSerializer
 
-    def get_object(self):
-        return self.request.user
-
+    def get(self, request, *args, **kwargs):
+    	user, token = self.authenticate(request)
+    	return Response({'user':user})
 #/--------------------------------------------------------------/        
 
 class LoginAPI(generics.GenericAPIView):
