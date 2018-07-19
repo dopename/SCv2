@@ -26,7 +26,7 @@ class Main extends Component {
 				<BrowserRouter>
 					<div className="h-100">
 						<div className="container-fluid">
-							<div className="row mb-2">
+							<div className="row">
 								<div className="col-12 px-0">
 									<Navbar color="dark" dark expand="lg">
 										<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
@@ -88,12 +88,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(Main);
 
 class Initial extends Component {
 	render() {
-		console.log(this.props);
+		var image_height = (0.50 * this.props.screen_height).toString() + "px";
 		return (
 			<div className="container-fluid h-100">
 				<div id="intro" className="text-center h-100">
 					<div className="row">
-						<div className="col-12 px-0" id="home-content1">
+						<div className="col-12 px-0" id="home-content1" style={{width:"100%", height:"auto"}}>
 							<h1 className="text-white mt-3">Bringing clarity to innvovation</h1>
 						</div>
 					</div>
