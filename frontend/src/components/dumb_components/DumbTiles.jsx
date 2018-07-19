@@ -47,13 +47,14 @@ export default class DumbTiles extends Component {
 				colSize = 4
 		}
 
+		var max_height = (this.props.screen_height * (colSize * .04)).toString() + "px";
+
 		var numPerRow = 12 / colSize;
 		colSize = colSize.toString();
 
 		var cols = [];
 		var rows = [];
 
-		var max_height = (this.props.screen_height * 0.18).toString() + "px";
 
 		this.props.solutions.map((solution, index) => {
 		    cols.push(
