@@ -8,7 +8,7 @@ export function deleteAPICall(model, pk, title, token) {
 		return fetch(url, {
 			method:"delete",
 			headers: {
-				Authorization: "JWT " + token,
+				Authorization: "Token " + token,
 			}
 		})
 	}
@@ -24,7 +24,7 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 	return fetch(url, {
 		method:'put',
 		headers: {
-			Authorization: "JWT " + token,
+			Authorization: "Token " + token,
 			"Content-Type":"application/json",
 		},
 		body:JSON.stringify(data)
@@ -38,7 +38,7 @@ export function createAPICall(model, data, token) {
 		method:'post',
 		headers: {
 			"content-type":"application/json",
-			Authorization: "JWT " + token,
+			Authorization: "Token " + token,
 		},
 		body:JSON.stringify(data)
 	})
@@ -57,7 +57,7 @@ export function fetchAPICall(model, list) {
 	var queries = list.map((pk) => {
 		return fetch(url + pk + '/')//, {
 		// 	headers: {
-		// 		Authorization: "JWT " + token,
+		// 		Authorization: "Token " + token,
 		// 		"Content-Type":"application/json",
 		// 	}
 		// })
@@ -72,7 +72,7 @@ export function fetchListAPICall(model) {
 
 	return fetch(url)//, {
 		// headers: {
-		// 	Authorization: "JWT " + token,
+		// 	Authorization: "Token " + token,
 		// }
 	//})
 }

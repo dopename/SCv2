@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'webpack_loader',
     'corsheaders',
+    'knox',
     'main'
 ]
 
@@ -150,16 +151,17 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         #'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
+        'knox.auth.TokenAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
     ),
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-JWT_AUTH = {
-    'JWT_RESPONSE_PAYLOAD_HANDLER': 'nickdev.utils.my_jwt_response_handler',
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
-    'JWT_ALLOW_REFRESH':True,
-    #'JWT_AUTH_COOKIE': 'user'
-}
+# JWT_AUTH = {
+#     'JWT_RESPONSE_PAYLOAD_HANDLER': 'nickdev.utils.my_jwt_response_handler',
+#     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
+#     'JWT_ALLOW_REFRESH':True,
+#     #'JWT_AUTH_COOKIE': 'user'
+# }

@@ -5,6 +5,10 @@ from django.urls import path
 urlpatterns = [
 	path('users/', UserAPIView.as_view(), name="users"),
 
+	path("auth/user/", UserAPI.as_view()),
+	path("auth/register/", RegistrationAPI.as_view()),
+	path("auth/login/", LoginAPI.as_view()),
+
 	path('destroy/industry/<int:pk>/', IndustryDestroyView.as_view(), name="industry-destroy-view"),
 	path('create/industry/', IndustryCreateView.as_view(), name="industry-create-view"),
 	path('list/industry/', IndustryListView.as_view(), name="industry-list-view"),

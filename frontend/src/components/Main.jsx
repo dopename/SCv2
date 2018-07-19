@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 import Discovery from "./Discovery";
 import SolutionProvider from "./SolutionProvider";
+import Login from "./Login";
+import Register from "./Register";
 
 import { Button } from "reactstrap";
 import {main} from "../actions/index"
@@ -21,6 +23,8 @@ class Main extends Component {
 					<Switch>
 						<Route exact path="/" component={Initial} />
 						<Route path="/discovery" render= { () => <Discovery /> } />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/register" component={Register} />
 						<Route path="/provider/:providerPK" component={SolutionProvider} />
 					</Switch>
 				</BrowserRouter>
@@ -32,7 +36,8 @@ class Main extends Component {
 const mapStateToProps = state => {
 	return {
 		screen_height:state.main.screen_height,
-		screen_width:state.main.screen_width
+		screen_width:state.main.screen_width,
+		user: state.auth.user,
 	}
 }
 
@@ -41,6 +46,7 @@ const mapDispatchToProps = dispatch => {
 		getScreenData: (width, height) => {
 			dispatch(main.getScreenData(width, height));
 		},
+		logout: () => dispatch(auth.logout()),
 	}
 }
 
@@ -48,6 +54,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Main);
 
 class Initial extends Component {
 	render() {
+		console.log(this.props);
 		return (
 			<div className="container-fluid h-100">
 				<div id="intro" className="text-center h-100">

@@ -26,6 +26,7 @@ from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token, refresh
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/auth/', include('knox.urls')),
     path('api/', include("api.urls")),
     path('', TemplateView.as_view(template_name="index.html")),
     path('token-auth/', obtain_jwt_token),
