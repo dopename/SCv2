@@ -40,7 +40,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
 		fields = ['username', 'pk']
 
 class CustomUserSerializer(serializers.ModelSerializer):
-	user = UserSerializer(read_only=True)
+	#user = UserSerializer(read_only=True)
 	seeker_account = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 	provider_acount = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
@@ -48,7 +48,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 		model = CustomUser
 		fields = [
 			'pk',
-			'user',
+			#'user',
 			'seeker_user',
 			'provider_user'
 		]
