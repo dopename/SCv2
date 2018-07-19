@@ -118,7 +118,7 @@ class Initial extends Component {
 								<h2>Technological innovation is accelerating at an exponential rate, and it can be difficult to keep up with the developments that matter to you.</h2>
 							</div>
 							<br />
-							<div className="col-12 mt-2">
+							<div className="col-12 mt-4">
 								<h2>Solution Connect demystifies cutting edge technologies to help you find and connect with the solutions you need.</h2>
 							</div>
 						</div>
