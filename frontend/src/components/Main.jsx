@@ -21,7 +21,7 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<Switch>
-						<Route exact path="/" component={Initial} />
+						<Route exact path="/" render= { () => <Initial user={this.props.user} /> } />
 						<Route path="/discovery" render= { () => <Discovery /> } />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/register" component={Register} />
