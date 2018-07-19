@@ -48,9 +48,9 @@ class UserAPI(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated, ]
     serializer_class = CustomUserSerializer
 
-    def get_object(self):
+    def get_queryset(self):
         user = self.request.user
-        return user
+        return user.custom_user
 
 #/--------------------------------------------------------------/        
 
