@@ -26,6 +26,7 @@ jwt_decode_handler = api_settings.JWT_DECODE_HANDLER
 
 class RegistrationAPI(generics.GenericAPIView):
     serializer_class = CreateUserSerializer
+    permission_classes = (permissions.AllowAny,)
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
