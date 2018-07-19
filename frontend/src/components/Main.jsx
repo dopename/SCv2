@@ -21,30 +21,30 @@ class Main extends Component {
 		console.log(this.props.auth);
 		return (
 			<div>
-				<div className="container-fluid">
-					<div className="row">
-						<div className="col-12">
-							<Navbar color="dark" dark expand="lg">
-								<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
-								<Nav className="ml-auto" navbar>
-									<NavItem>
-										<Link className="list-inline-item" to="/">Home</Link>
-									</NavItem>
-									<NavItem>
-										<Link className="list-inline-item" to="/discovery">Discover</Link>
-									</NavItem>
-									<NavItem>
-										{this.props.auth.isAuthenticated ? (
-											<h4 className="list-inline-item pointer-hand" onClick={() => this.props.logout()}>Logout</h4>)
-											 : (
-											 <Link className="list-inline-item" to="/login">Login</Link>)}
-									</NavItem>
-								</Nav>
-							</Navbar>
+				<BrowserRouter>
+					<div className="container-fluid">
+						<div className="row">
+							<div className="col-12">
+								<Navbar color="dark" dark expand="lg">
+									<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
+									<Nav className="ml-auto" navbar>
+										<NavItem>
+											<Link className="list-inline-item" to="/">Home</Link>
+										</NavItem>
+										<NavItem>
+											<Link className="list-inline-item" to="/discovery">Discover</Link>
+										</NavItem>
+										<NavItem>
+											{this.props.auth.isAuthenticated ? (
+												<h4 className="list-inline-item pointer-hand" onClick={() => this.props.logout()}>Logout</h4>)
+												 : (
+												 <Link className="list-inline-item" to="/login">Login</Link>)}
+										</NavItem>
+									</Nav>
+								</Navbar>
+							</div>
 						</div>
 					</div>
-				</div>
-				<BrowserRouter>
 					<Switch>
 						<Route exact path="/" component={Initial} />
 						<Route path="/discovery" render= { () => <Discovery /> } />
