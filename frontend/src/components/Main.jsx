@@ -24,7 +24,7 @@ class Main extends Component {
 				<BrowserRouter>
 					<div className="h-100">
 						<div className="container-fluid">
-							<div className="row">
+							<div className="row mb-2">
 								<div className="col-12 px-0">
 									<Navbar color="dark" dark expand="lg">
 										<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
