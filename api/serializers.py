@@ -42,7 +42,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
 class CustomUserSerializer(serializers.ModelSerializer):
 	user = UserSerializer(read_only=True)
 	seeker_account = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-	provider_acount = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+	provider_account = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
 	class Meta:
 		model = CustomUser
