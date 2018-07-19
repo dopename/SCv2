@@ -51,6 +51,7 @@ export const login = (username, password) => {
         }
       })
       .then(res => {
+        console.log(res);
         if (res.status === 200) {
           dispatch({type: 'LOGIN_SUCCESSFUL', data: res.data });
           return res.data;
