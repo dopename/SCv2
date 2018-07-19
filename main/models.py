@@ -127,7 +127,7 @@ class SeekerAccount(models.Model):
 	caregories = models.ManyToManyField(Category, blank=True, null=True)
 
 	def __str__(self):
-		return self.first + ' ' + self.last
+		return self.user.user.username
 
 
 class Solution(models.Model):
