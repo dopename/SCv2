@@ -14,14 +14,16 @@ class Main extends Component {
 
 	componentDidMount() {
 		this.props.getScreenData(window.screen.width, window.screen.height);
+		this.props.loadUser();
 	}
 
 	render() {
+		console.log(this.props.auth);
 		return (
 			<div>
 				<BrowserRouter>
 					<Switch>
-						<Route exact path="/" render= { () => <Initial user={this.props.user} /> } />
+						<Route exact path="/" component={Initial} />
 						<Route path="/discovery" render= { () => <Discovery /> } />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/register" component={Register} />
@@ -37,7 +39,7 @@ const mapStateToProps = state => {
 	return {
 		screen_height:state.main.screen_height,
 		screen_width:state.main.screen_width,
-		user: state.auth.user,
+		auth: state.auth,
 	}
 }
 
@@ -46,7 +48,12 @@ const mapDispatchToProps = dispatch => {
 		getScreenData: (width, height) => {
 			dispatch(main.getScreenData(width, height));
 		},
-		logout: () => dispatch(auth.logout()),
+		logout: () => {
+			return dispatch(auth.logout())
+		},
+	    loadUser: () => {
+	      return dispatch(auth.loadUser());
+	    },
 	}
 }
 
