@@ -92,9 +92,12 @@ class Initial extends Component {
 		return (
 			<div className="container-fluid h-100">
 				<div id="intro" className="text-center h-100">
-					<div className="row h-50">
-						<div className="col-12 px-0" id="home-content1">
-							<h1 className="text-white mt-3">Bringing clarity to innvovation</h1>
+					<div className="row h-50" id="home-content1">
+						<div className="col-12 px-0 h-75">
+							<h1 className="text-white mt-3 display-1">Bringing clarity to innvovation</h1>
+						</div>
+						<div className="col-12 px-0 h-25">
+							<h4 className="text-white mb-3">Solution Connect simplifies technology so you can focus on what matters most you you.</h4>
 						</div>
 					</div>
 					<div className="row h-100" style={{borderTop:"solid black 1px"}}>
