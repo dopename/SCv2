@@ -22,24 +22,24 @@ class Main extends Component {
 		return (
 			<div>
 				<BrowserRouter>
-					<div>
+					<div className="h-100">
 						<div className="container-fluid">
 							<div className="row">
-								<div className="col-12">
+								<div className="col-12 px-0">
 									<Navbar color="dark" dark expand="lg">
 										<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
 										<Nav className="ml-auto" navbar>
 											<NavItem>
-												<Link className="list-inline-item" to="/">Home</Link>
+												<Link className="list-inline-item mx-2" to="/">Home</Link>
 											</NavItem>
 											<NavItem>
-												<Link className="list-inline-item" to="/discovery">Discover</Link>
+												<Link className="list-inline-item mx-2" to="/discovery">Discover</Link>
 											</NavItem>
 											<NavItem>
 												{this.props.auth.isAuthenticated ? (
-													<h4 className="list-inline-item pointer-hand" onClick={() => this.props.logout()}>Logout</h4>)
+													<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>)
 													 : (
-													 <Link className="list-inline-item" to="/login">Login</Link>)}
+													 <Link className="list-inline-item mx-2" to="/login">Login</Link>)}
 											</NavItem>
 										</Nav>
 									</Navbar>
