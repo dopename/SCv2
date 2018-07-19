@@ -50,7 +50,7 @@ class UserAPI(generics.RetrieveAPIView):
 
     def get_object(self):
         user = self.request.user
-        custom_user = CustomUser.objects.get(user=user.pk)
+        custom_user = CustomUser.objects.get(user=user.id)
         return custom_user
 
 #/--------------------------------------------------------------/        
