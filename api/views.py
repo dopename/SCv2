@@ -13,16 +13,12 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework_jwt.settings import api_settings
 from rest_framework.authentication import BasicAuthentication
-from rest_framework_jwt.serializers import VerifyJSONWebTokenSerializer
 
 from knox.models import AuthToken
 from knox.auth import TokenAuthentication
 
 import datetime
 import dateutil.relativedelta
-
-
-jwt_decode_handler = api_settings.JWT_DECODE_HANDLER
 
 class RegistrationAPI(generics.GenericAPIView):
 	serializer_class = CreateUserSerializer
@@ -45,13 +41,12 @@ class RegistrationAPI(generics.GenericAPIView):
 #/--------------------------------------------------------------/        
 
 class UserAPI(generics.RetrieveAPIView):
-	authentication_classes = [TokenAuthentication,]
 	permission_classes = (permissions.IsAuthenticated, )
 	serializer_class = CustomUserSerializer
 
 	def get_object(self):
-		user = self.request.user.custom_user
-		#custom_user = CustomUser.objects.get(user=user.pk)
+		user = self.request.user
+		custom_user = CustomUser.objects.get(user=user.pk)
 		return user
 
 #/--------------------------------------------------------------/        
