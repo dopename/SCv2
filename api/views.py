@@ -34,7 +34,7 @@ class RegistrationAPI(generics.GenericAPIView):
         user = serializer.save()
         custom_user = CustomUser.objects.create(user=user)
         custom_user.save()
-        seeker_user = SeekerAccount.objects.create(user=custom_user)
+        seeker_user = SeekerAccount.objects.create(user=custom_user.pk)
         seeker_user.save()
 
         return Response({
