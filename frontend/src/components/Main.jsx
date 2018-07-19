@@ -22,7 +22,7 @@ class Main extends Component {
 		return (
 			<div>
 				<BrowserRouter>
-					<Switch>
+					<div>
 						<div className="container-fluid">
 							<div className="row">
 								<div className="col-12">
@@ -46,12 +46,14 @@ class Main extends Component {
 								</div>
 							</div>
 						</div>
-						<Route exact path="/" component={Initial} />
-						<Route path="/discovery" render= { () => <Discovery /> } />
-						<Route exact path="/login" component={Login} />
-						<Route exact path="/register" component={Register} />
-						<Route path="/provider/:providerPK" component={SolutionProvider} />
-					</Switch>
+						<Switch>
+							<Route exact path="/" component={Initial} />
+							<Route path="/discovery" render= { () => <Discovery /> } />
+							<Route exact path="/login" component={Login} />
+							<Route exact path="/register" component={Register} />
+							<Route path="/provider/:providerPK" component={SolutionProvider} />
+						</Switch>
+					</div>
 				</BrowserRouter>
 			</div>
 		)
