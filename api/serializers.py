@@ -4,20 +4,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
 
-# class UserSerializer(serializers.ModelSerializer):
-# 	username = serializers.CharField(source='user.username', read_only=True)
-# 	seeker_account = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-# 	provider_acount = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-
-# 	class Meta:
-# 		model = CustomUser
-# 		fields = [
-# 			'pk',
-# 			'username',
-# 			'seeker_user',
-# 			'provider_user'
-#		]
-
 class LoginUserSerializer(serializers.Serializer):
 	username = serializers.CharField()
 	password = serializers.CharField()
@@ -52,6 +38,20 @@ class UserLoginSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = User
 		fields = ['username', 'pk']
+
+class CustomUserSerializer(serializers.ModelSerializer):
+	user = UserSerializer(read_only=True)
+	seeker_account = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+	provider_acount = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
+	class Meta:
+		model = CustomUser
+		fields = [
+			'pk',
+			'user',
+			'seeker_user',
+			'provider_user'
+		]
 
 #/------------------------------------------------------------------------------/
 
