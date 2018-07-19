@@ -14,11 +14,6 @@ class LoginUserSerializer(serializers.Serializer):
 			return user
 		raise serializers.ValidationError("Unable to log in with provided credentials.")
 
-class UserSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = User
-		fields = ('id', 'username')
-
 
 class CreateUserSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -38,9 +33,9 @@ class UserLoginSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = User
 		fields = ['username', 'pk']
+		
 
 class CustomUserSerializer(serializers.ModelSerializer):
-	user = UserSerializer(read_only=True)
 	seeker_account = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 	provider_account = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
@@ -48,10 +43,17 @@ class CustomUserSerializer(serializers.ModelSerializer):
 		model = CustomUser
 		fields = [
 			'pk',
-			'user',
 			'seeker_account',
 			'provider_account'
 		]
+
+
+class UserSerializer(serializers.ModelSerializer):
+	custom_user = CustomUserSerializer()
+
+	class Meta:
+		model = User
+		fields = ('id', 'username', 'custom_user')
 
 #/------------------------------------------------------------------------------/
 
