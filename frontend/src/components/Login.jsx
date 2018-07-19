@@ -14,7 +14,7 @@ class Login extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.error("Not implemented!!1");
+    this.props.login(this.state.username, this.state.password);
   }
 
   render() {
