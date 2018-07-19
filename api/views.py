@@ -15,6 +15,8 @@ from rest_framework_jwt.settings import api_settings
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework_jwt.serializers import VerifyJSONWebTokenSerializer
 
+from knox.models import AuthToken
+
 import datetime
 import dateutil.relativedelta
 
