@@ -148,7 +148,7 @@ REST_FRAMEWORK = {
      # 'DEFAULT_PERMISSION_CLASSES': (
      #    'rest_framework.permissions.IsAuthenticatedOrReadOnly',
      # ),
-    'DEFAULT_AUTHENTICATION_CLASSES': 'knox.auth.TokenAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
