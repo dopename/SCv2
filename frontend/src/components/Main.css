@@ -1,6 +1,6 @@
 #home-content1 {
 	background:url("/media/bg-image.jpg");
-	background-size:contain;
+	/*background-size:contain;*/
 	background-repeat:no-repeat;
 	background-position: center;
 }
