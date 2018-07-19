@@ -109,7 +109,7 @@ class Initial extends Component {
 							</div>
 						</div>
 					</div>
-					<div className="col-12 mb-4">
+					<div className="col-12 mb-4 mt-2">
 						<h1 className="text-center">Connecting businesses with solutions to help them succeed</h1>
 					</div>
 					<div className="row h-25 mb-2">
