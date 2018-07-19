@@ -93,15 +93,22 @@ class Initial extends Component {
 			<div className="container-fluid h-100">
 				<div id="intro" className="text-center h-100">
 					<div className="row h-75" id="home-content1">
-						<div className="col-12 px-0 h-75">
+						<div className="col-12 h-75">
 							<h1 className="text-white mt-3 display-1">Bringing clarity to innvovation</h1>
 						</div>
-						<div className="col-12 px-0 h-25">
-							<h3 className="text-left text-white ml-3">Solution Connect simplifies technology so you can focus on what matters most you you.</h3>
+						<div className="col-12 h-25">
+							<div className="row">
+								<div className="col-8">
+									<h2 className="text-left text-white ml-3">Solution Connect simplifies technology so you can focus on what matters most you you.</h2>
+								</div>
+								<div className="col-4">
+									<Link to="/discovery"><Button size="lg" color="light">Explore Solutions</Button></Link>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div className="row h-50" style={{borderTop:"solid black 1px"}}>
-						<div className="col-lg-6 h-100 text-center pt-3" style={{backgroundColor:"#e6e6e6"}}>
+						<div className="col-lg-6 h-50 text-center pt-3" style={{backgroundColor:"#e6e6e6"}}>
 							<h2>To your profile</h2>
 							<div className="row">
 								<div className="col-md-2">
