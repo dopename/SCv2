@@ -7,7 +7,7 @@ import Login from "./Login";
 import Register from "./Register";
 
 import { Button } from "reactstrap";
-import {main} from "../actions/index"
+import {main, auth} from "../actions/index"
 import {connect} from "react-redux";
 
 class Main extends Component {
