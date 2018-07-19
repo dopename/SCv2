@@ -92,7 +92,7 @@ class Initial extends Component {
 		return (
 			<div className="container-fluid h-100">
 				<div id="intro" className="text-center h-100">
-					<div className="row">
+					<div className="row h-50">
 						<div className="col-12 px-0" id="home-content1">
 							<h1 className="text-white mt-3">Bringing clarity to innvovation</h1>
 						</div>
