@@ -25,50 +25,50 @@ import dateutil.relativedelta
 jwt_decode_handler = api_settings.JWT_DECODE_HANDLER
 
 class RegistrationAPI(generics.GenericAPIView):
-    serializer_class = CreateUserSerializer
-    permission_classes = (permissions.AllowAny,)
+	serializer_class = CreateUserSerializer
+	permission_classes = (permissions.AllowAny,)
 
-    def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.save()
-        custom_user = CustomUser.objects.create(user=user)
-        custom_user.save()
-        seeker_user = SeekerAccount.objects.create(user=custom_user.pk)
-        seeker_user.save()
+	def post(self, request, *args, **kwargs):
+		serializer = self.get_serializer(data=request.data)
+		serializer.is_valid(raise_exception=True)
+		user = serializer.save()
+		custom_user = CustomUser.objects.create(user=user)
+		custom_user.save()
+		seeker_user = SeekerAccount.objects.create(user=custom_user.pk)
+		seeker_user.save()
 
-        return Response({
-            "user": UserSerializer(user, context=self.get_serializer_context()).data,
-            "token": AuthToken.objects.create(user)
-        })
+		return Response({
+			"user": UserSerializer(user, context=self.get_serializer_context()).data,
+			"token": AuthToken.objects.create(user)
+		})
 
 #/--------------------------------------------------------------/        
 
 class UserAPI(generics.RetrieveAPIView):
 	authentication_classes = [TokenAuthentication,]
-    permission_classes = (permissions.IsAuthenticated, )
-    serializer_class = CustomUserSerializer
+	permission_classes = (permissions.IsAuthenticated, )
+	serializer_class = CustomUserSerializer
 
-    def get_object(self):
-        user = self.request.user.custom_user
-        #custom_user = CustomUser.objects.get(user=user.pk)
-        return user
+	def get_object(self):
+		user = self.request.user.custom_user
+		#custom_user = CustomUser.objects.get(user=user.pk)
+		return user
 
 #/--------------------------------------------------------------/        
 
 class LoginAPI(generics.GenericAPIView):
-    serializer_class = LoginUserSerializer
-    authentication_classes = [BasicAuthentication]
-    permission_classes = (permissions.AllowAny,)
+	serializer_class = LoginUserSerializer
+	authentication_classes = [BasicAuthentication]
+	permission_classes = (permissions.AllowAny,)
 
-    def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data
-        return Response({
-            "user": UserSerializer(user, context=self.get_serializer_context()).data,
-            "token": AuthToken.objects.create(user)
-        })
+	def post(self, request, *args, **kwargs):
+		serializer = self.get_serializer(data=request.data)
+		serializer.is_valid(raise_exception=True)
+		user = serializer.validated_data
+		return Response({
+			"user": UserSerializer(user, context=self.get_serializer_context()).data,
+			"token": AuthToken.objects.create(user)
+		})
 
 #/--------------------------------------------------------------/
 
