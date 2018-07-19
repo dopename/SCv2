@@ -6,7 +6,7 @@ import SolutionProvider from "./SolutionProvider";
 import Login from "./Login";
 import Register from "./Register";
 
-import { Button, Navbar, NavbarBrand, NavItem } from "reactstrap";
+import { Button, Nav, Navbar, NavbarBrand, NavItem } from "reactstrap";
 import {main, auth} from "../actions/index"
 import {connect} from "react-redux";
 

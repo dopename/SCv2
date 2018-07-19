@@ -23,6 +23,7 @@ class Login extends Component {
     }
     return (
       <form onSubmit={this.onSubmit}>
+        <div className="text-center">
         <fieldset>
           <legend>Register</legend>
           {this.props.errors.length > 0 && (
@@ -52,6 +53,7 @@ class Login extends Component {
             Already have an account? <Link to="/login">Login</Link>
           </p>
         </fieldset>
+        </div>
       </form>
     )
   }
