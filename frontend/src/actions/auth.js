@@ -5,9 +5,8 @@ export const loadUser = () => {
     const token = getState().auth.token;
 
     let headers = {
-    //   "Content-Type": "application/json",
+      "Content-Type": "application/json",
     };
-
 
     if (token) {
       headers["Authorization"] = `Token ${token}`;
