@@ -63,7 +63,9 @@ class SeekerProfile extends Component {
 
 const mapStateToProps = state => {
 	return {
-		seekerAccount:state.seeker_account.seekerAccount,
+		seekerBookmarks:state.seeker_account.seekerBookmarks,
+		seekerTags: state.seeker_account.seekerTags,
+		seekerCategories:state.seeker_account.seekerCategories,
 		mobile:state.main,
 		auth:state.auth,
 		allSolutions:state.seeker_account.allSolutions
