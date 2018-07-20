@@ -5,6 +5,7 @@ import Discovery from "./Discovery";
 import SolutionProvider from "./SolutionProvider";
 import Login from "./Login";
 import Register from "./Register";
+import SeekerProfile from "./SeekerProfile";
 
 import "./Main.css"
 
@@ -54,6 +55,7 @@ class Main extends Component {
 							<Route exact path="/login" component={Login} />
 							<Route exact path="/register" component={Register} />
 							<Route path="/provider/:providerPK" component={SolutionProvider} />
+							<Route path="/profile/seeker" component={SeekerProfile} />
 						</Switch>
 					</div>
 				</BrowserRouter>

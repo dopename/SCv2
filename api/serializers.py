@@ -399,20 +399,6 @@ class SeekerAccountCreateSerializer(serializers.ModelSerializer):
 		]
 
 
-class SeekerAccountSerializer(serializers.ModelSerializer):
-	user = UserSerializer()
-
-	class Meta:
-		model = SeekerAccount
-		fields = [
-			"pk",
-			"user",
-			"tags",
-			"industries",
-			"categories"
-		]
-
-
 #/------------------------------------------------------------------------------/
 
 
@@ -480,5 +466,34 @@ class SolutionUpdateViewsSerializer(serializers.ModelSerializer):
 		fields = [
 			"pk",
 			"views"
-		]		
+		]	
+
+
+class SolutionChildSerializer(serializers.ModelSerializer):
+	
+	class Meta:
+		model = Solution
+		fields = [
+			"pk",
+			"name",
+		]	
 		
+
+
+class SeekerAccountSerializer(serializers.ModelSerializer):
+	#user = UserSerializer()
+	bookmarks = SolutionChildSerializer(many=True, read_only=True)
+	categories = CategorySerializer(many=True, read_only=True)
+	industries = IndustryListSerializer(many=True, read_only=True)
+	tags = SolutionTagSerializer(many=True, read_only=True)
+
+	class Meta:
+		model = SeekerAccount
+		fields = [
+			"pk",
+			#"user",
+			"tags",
+			"industries",
+			"categories",
+			"bookmarks"
+		]
