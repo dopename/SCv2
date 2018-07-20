@@ -30,11 +30,15 @@ class SeekerProfile extends Component {
 				if (this.props.seekerBookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
 						bookmarks.push(<li>{solution.name}</li>)
 				}
-				if (this.props.seekerCategories.some(r => solution.category.indexOf(r)) > -1) {
-					categoryFeed.push(<li>{solution.name}</li>)
+				if (this.props.seekerCategories.length > 0) {
+					if (this.props.seekerCategories.some(r => solution.category.indexOf(r)) > -1) {
+						categoryFeed.push(<li>{solution.name}</li>)
+					}
 				}
-				if (this.props.seekerTags.some(r => solution.tags.indexOf(r)) > -1) {
-					identityFeed.push(<li>{solution.name}</li>)
+				if (this.props.seekerTags.length > 0) {
+					if (this.props.seekerTags.some(r => solution.tags.indexOf(r)) > -1) {
+						identityFeed.push(<li>{solution.name}</li>)
+					}
 				}
 			})
 		}
