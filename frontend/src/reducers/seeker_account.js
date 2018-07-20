@@ -11,7 +11,7 @@ export default function seeker_account(state = initialState, action) {
 			return {...state, isLoading:true}
 		case "SEEKER_LOADED":
 			return {...state,
-			seekerBookmarks: action.seekerAccountData,
+			seeker: action.seekerAccountData,
 			isLoading: false,
 			isLoaded: true
 			}
