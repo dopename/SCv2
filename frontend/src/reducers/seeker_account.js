@@ -2,7 +2,7 @@ var initialState = {
 	seekerBookmarks: [],
 	seekerTags: [],
 	seekerCategories: [],
-	allSolutions: [].
+	allSolutions: [],
 	loaded: false,
 }
 
