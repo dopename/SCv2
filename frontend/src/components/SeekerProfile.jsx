@@ -25,6 +25,8 @@ class SeekerProfile extends Component {
 		var categoryFeed = [];
 		var identityFeed = [];
 
+		var allFeed = [];
+
 		console.log(this.props)
 
 		if (this.props.isLoaded) {
@@ -38,7 +40,7 @@ class SeekerProfile extends Component {
 					}
 				}
 				if (this.props.seeker.tags.length > 0) {
-					if (this.props.seeker.tags.map(e => e.pk).some(r => solution.tags.includes(r))) {
+					if (this.props.seeker.tags.map(e => e.pk).some(r => solution.tags.map(e => e.pk).includes(r))) {
 						identityFeed.push(<li>{solution.name}</li>)
 					}
 				}
@@ -50,16 +52,26 @@ class SeekerProfile extends Component {
 				<div className="row">
 					<div className="col-4 text-center">
 						<h1>Booksmarks..</h1>
-						{ bookmarks }
+						<ul>
+							{ bookmarks }
+						</ul>
 					</div>
 					<div className="col-4 text-center">
 						<h1>Category Feed</h1>
-						{ categoryFeed }
+						<ul>
+							{ categoryFeed }
+						</ul>
 					</div>	
 					<div className="col-4 text-center">
 						<h1>Identity Feed</h1>
-						{ identityFeed }
+						<ul>
+							{ identityFeed }
+						</ul>
 					</div>	
+				</div>
+				<div className="col-12 text-center">
+					<h1>The aggregate feed will be..</h1>
+					<h3>Not ready yet</h3>
 				</div>
 			</div>
 		)
