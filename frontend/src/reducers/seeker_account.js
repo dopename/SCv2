@@ -4,7 +4,7 @@ var initialState = {
 	seekerCategories: [],
 }
 
-export default seeker_account(state = initialState, action) {
+export default function seeker_account(state = initialState, action) {
 	switch (action.type) {
 		case "FETCH_SEEKER_ACCOUNT":
 			return {...state,
