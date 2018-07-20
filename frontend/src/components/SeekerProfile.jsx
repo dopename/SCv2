@@ -33,12 +33,12 @@ class SeekerProfile extends Component {
 						bookmarks.push(<li>{solution.name}</li>)
 				}
 				if (this.props.seeker.categories.length > 0) {
-					if (this.props.seeker.categories.some(r => solution.category.includes(r))) {
+					if (this.props.seeker.categories.map(e => e.pk).some(r => solution.category.includes(r))) {
 						categoryFeed.push(<li>{solution.name}</li>)
 					}
 				}
 				if (this.props.seeker.tags.length > 0) {
-					if (this.props.seeker.tags.some(r => solution.tags.includes(r))) {
+					if (this.props.seeker.tags..map(e => e.pk).some(r => solution.tags.includes(r))) {
 						identityFeed.push(<li>{solution.name}</li>)
 					}
 				}
