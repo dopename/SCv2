@@ -7,7 +7,6 @@ class SeekerProfile extends Component {
 
 	componentDidMount() {
 		this.props.loadUser();
-		this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
 	}
 
 	componentDidUpdate(prevProps) {
