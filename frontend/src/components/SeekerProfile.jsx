@@ -6,7 +6,8 @@ import {seeker_account, auth, solution_tiles} from "../actions/index";
 class SeekerProfile extends Component {
 
 	componentDidMount() {
-		this.props.listSolutions();
+		// this.props.listSolutions();
+		this.props.listIndustries();
 		if (this.props.auth.user != null) {
 			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account);
 		}
@@ -30,7 +31,7 @@ class SeekerProfile extends Component {
 		console.log(this.props)
 
 		if (this.props.isLoaded) {
-			this.props.allSolutions.map(solution => {
+			this.props.solutions.map(solution => {
 				let sAdded = false;
 				if (this.props.seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
 						bookmarks.push(<li>{solution.name}</li>)
@@ -91,9 +92,10 @@ const mapStateToProps = state => {
 		seeker:state.seeker_account.seeker,
 		mobile:state.main,
 		auth:state.auth,
-		allSolutions:state.seeker_account.allSolutions,
+		solutions:state.discovery.solutions,
+		industries:state.discovery.industries,
 		isLoaded: state.seeker_account.isLoaded,
-		industries:state.discovery.industries
+		// allSolutions:state.seeker_account.allSolutions,
 	}
 }
 
@@ -102,8 +104,11 @@ const mapDispatchToProps = dispatch => {
 		retrieveSeekerAccount: (seekerAccountPK) => {
 			dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
 		},
-		listSolutions: () => {
-			dispatch(seeker_account.listSolutions());
+		// listSolutions: () => {
+		// 	dispatch(seeker_account.listSolutions());
+		// },
+		listIndustries: () => {
+			dispatch(discovery.listIndustries());
 		},
 	}
 }
