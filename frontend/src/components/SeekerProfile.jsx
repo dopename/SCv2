@@ -92,7 +92,8 @@ const mapStateToProps = state => {
 		mobile:state.main,
 		auth:state.auth,
 		allSolutions:state.seeker_account.allSolutions,
-		isLoaded: state.seeker_account.isLoaded
+		isLoaded: state.seeker_account.isLoaded,
+		industries:state.discovery.industries
 	}
 }
 
