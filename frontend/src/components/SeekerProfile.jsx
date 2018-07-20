@@ -25,7 +25,7 @@ class SeekerProfile extends Component {
 		var categoryFeed = [];
 		var identityFeed = [];
 
-		if (this.props.isLoaded) {
+		if (this.props.isLoaded === true) {
 			this.props.allSolutions.map(solution => {
 				if (this.props.seekerBookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
 						bookmarks.push(<li>{solution.name}</li>)
