@@ -6,14 +6,15 @@ import {seeker_account, auth} from "../actions/index";
 class SeekerProfile extends Component {
 
 	componentDidMount() {
-		//this.props.loadUser();
-		null
+		if (this.props.auth.user != null) {
+			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+		}
 	}
 
 	componentDidUpdate(prevProps) {
 		if (this.props != prevProps) {
 			if (this.props.auth.user != null) {
-				this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+				//this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
 			}
 		}
 	}
