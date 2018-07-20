@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
 
-import {solution_account} from "../actions/index";
+import {seeker_account} from "../actions/index";
 
 class SeekerProfile extends Component {
 
@@ -28,7 +28,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		retrieveSeekerAccount: (providerPK) => {
-			dispatch(solution_provider.retrieveProviderData(providerPK));
+			dispatch(seeker_account.retrieveProviderData(providerPK));
 		},
 	}
 }
