@@ -1,18 +1,18 @@
 var initialState = {
-	seekerBookmarks: [],
-	seekerTags: [],
-	seekerCategories: [],
+	seeker: null,
 	allSolutions: [],
 	isLoaded: false,
+	isLoading: false,
 }
 
 export default function seeker_account(state = initialState, action) {
 	switch (action.type) {
-		case "FETCH_SEEKER_ACCOUNT":
+		case "SEEKER_LOADING":
+			return {...state, isLoading:true}
+		case "SEEKER_LOADED":
 			return {...state,
-			seekerBookmarks: action.seekerAccountData.bookmarks,
-			seekerTags: action.seekerAccountData.tags,
-			seekerCategories: action.seekerAccountData.categories,
+			seekerBookmarks: action.seekerAccountData,
+			isLoading: false,
 			isLoaded: true
 			}
 		case "LIST_ALL_SOLUTIONS":

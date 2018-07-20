@@ -2,11 +2,13 @@ import * as helpers from "../helpers/index";
 
 export const retrieveSeekerAccount = (seekerAccountPK) => {
 	return dispatch => {
+		dispatch({type:"SEEKER_LOADING"});
+
 		return helpers.retrieveAPICall("seekeraccount", seekerAccountPK)
 			.then(res => res.json())
 			.then(seekerAccountData => {
 				return dispatch({
-					type: "FETCH_SEEKER_ACCOUNT",
+					type: "SEEKER_LOADED",
 					seekerAccountData
 				})
 			})

@@ -15,7 +15,7 @@ class SeekerProfile extends Component {
 	componentDidUpdate(prevProps) {
 		if (this.props != prevProps) {
 			if (this.props.auth.user != null && !this.props.isLoaded) {
-				this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+				//this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
 			}
 		}
 	}
@@ -25,25 +25,26 @@ class SeekerProfile extends Component {
 		var categoryFeed = [];
 		var identityFeed = [];
 
-		if (this.props.isLoaded === true) {
+		console.log(this.props)
+
+		if (this.props.isLoaded) {
 			this.props.allSolutions.map(solution => {
-				if (this.props.seekerBookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
+				if (this.props.seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
 						bookmarks.push(<li>{solution.name}</li>)
 				}
-				if (this.props.seekerCategories.length > 0) {
+				if (this.props.seeker.category.length > 0) {
 					if (this.props.seekerCategories.some(r => solution.category.indexOf(r)) > -1) {
 						categoryFeed.push(<li>{solution.name}</li>)
 					}
 				}
-				if (this.props.seekerTags.length > 0) {
-					if (this.props.seekerTags.some(r => solution.tags.indexOf(r)) > -1) {
+				if (this.props.seeker.tags.length > 0) {
+					if (this.props.seeker.tags.some(r => solution.tags.indexOf(r)) > -1) {
 						identityFeed.push(<li>{solution.name}</li>)
 					}
 				}
 			})
 		}
 
-		console.log(this.props)
 		return (
 			<div>
 				<div className="row">
@@ -67,9 +68,7 @@ class SeekerProfile extends Component {
 
 const mapStateToProps = state => {
 	return {
-		seekerBookmarks:state.seeker_account.seekerBookmarks,
-		seekerTags: state.seeker_account.seekerTags,
-		seekerCategories:state.seeker_account.seekerCategories,
+		seeker:state.seeker_account.seeker,
 		mobile:state.main,
 		auth:state.auth,
 		allSolutions:state.seeker_account.allSolutions,
