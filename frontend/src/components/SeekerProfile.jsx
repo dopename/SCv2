@@ -32,8 +32,8 @@ class SeekerProfile extends Component {
 				if (this.props.seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
 						bookmarks.push(<li>{solution.name}</li>)
 				}
-				if (this.props.seeker.category.length > 0) {
-					if (this.props.seekerCategories.some(r => solution.category.indexOf(r)) > -1) {
+				if (this.props.seeker.categories.length > 0) {
+					if (this.props.seeker.categories.some(r => solution.category.indexOf(r)) > -1) {
 						categoryFeed.push(<li>{solution.name}</li>)
 					}
 				}
