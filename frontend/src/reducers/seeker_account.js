@@ -3,7 +3,7 @@ var initialState = {
 		seekerBookmarks: [],
 		seekerTags: [],
 		seekerCategories: [],
-	}
+	},
 	allSolutions: []
 }
 
