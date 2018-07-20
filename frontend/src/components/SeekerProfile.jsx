@@ -6,7 +6,7 @@ import {seeker_account, auth} from "../actions/index";
 class SeekerProfile extends Component {
 
 	componentDidMount() {
-		this.props.loadUser();
+		//this.props.loadUser();
 	}
 
 	componentDidUpdate(prevProps) {
