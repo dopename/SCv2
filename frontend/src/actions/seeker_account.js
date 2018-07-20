@@ -1,4 +1,4 @@
-import * as helpers from "../helpers/helpers";
+import * as helpers from "../helpers/index";
 
 export const retrieveSeekerAccount = (seekerAccountPK) => {
 	return dispatch => {
