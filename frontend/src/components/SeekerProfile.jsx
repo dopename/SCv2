@@ -27,13 +27,13 @@ class SeekerProfile extends Component {
 
 		if (this.props.isLoaded) {
 			this.props.allSolutions.map(solution => {
-				if (this.props.seekerAccount.seekerBookmarks.indexOf(solution.pk) > -1) {
+				if (this.props.seekerBookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
 						bookmarks.push(<li>{solution.name}</li>)
 				}
-				if (this.props.seekerAccount.seekerCategories.some(r => solution.category.indexOf(r)) > -1) {
+				if (this.props.seekerCategories.some(r => solution.category.indexOf(r)) > -1) {
 					categoryFeed.push(<li>{solution.name}</li>)
 				}
-				if (this.props.seekerAccount.seekerTags.some(r => solution.tags.indexOf(r)) > -1) {
+				if (this.props.seekerTags.some(r => solution.tags.indexOf(r)) > -1) {
 					identityFeed.push(<li>{solution.name}</li>)
 				}
 			})
