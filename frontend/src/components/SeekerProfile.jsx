@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
 
-import {seeker_account} from "../actions/index";
+import {seeker_account, auth} from "../actions/index";
 
 class SeekerProfile extends Component {
 
 	componentDidMount() {
+		this.props.loadUser();
 		this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+	}
+
+	componentDidUpdate(prevProps) {
+		if (this.props != prevProps) {
+			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+		}
 	}
 
 	render() {
@@ -30,6 +37,9 @@ const mapDispatchToProps = dispatch => {
 		retrieveSeekerAccount: (providerPK) => {
 			dispatch(seeker_account.retrieveProviderData(providerPK));
 		},
+	    loadUser: () => {
+	      return dispatch(auth.loadUser());
+	    },
 	}
 }
 
