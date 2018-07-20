@@ -6,7 +6,7 @@ import {seeker_account, auth, solution_tiles} from "../actions/index";
 class SeekerProfile extends Component {
 
 	componentDidMount() {
-		this.props.listIndustries();
+		this.props.listSolutions();
 		if (this.props.auth.user != null) {
 			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account);
 		}
@@ -25,7 +25,7 @@ class SeekerProfile extends Component {
 		var categoryFeed = [];
 		var identityFeed = [];
 
-		if (this.props.sLoaded) {
+		if (true) {
 			this.props.allSolutions.map(solution => {
 				if (this.props.seekerAccount.seekerBookmarks.indexOf(solution.pk) > -1) {
 						bookmarks.push(<li>{solution.name}</li>)
@@ -63,10 +63,10 @@ class SeekerProfile extends Component {
 
 const mapStateToProps = state => {
 	return {
-		seekerAccount:state.seeker_account,
+		seekerAccount:state.seeker_account.seekerAccount,
 		mobile:state.main,
 		auth:state.auth,
-		allSolutions:
+		allSolutions:state.seeker_account.allSolutions
 	}
 }
 
@@ -78,8 +78,8 @@ const mapDispatchToProps = dispatch => {
 	    loadUser: () => {
 	      return dispatch(auth.loadUser());
 	    },
-		listIndustries: () => {
-			dispatch(discovery.listIndustries());
+		listSolutions: () => {
+			dispatch(seeker_account.listSolutions());
 		},
 	}
 }

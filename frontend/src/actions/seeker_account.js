@@ -12,3 +12,16 @@ export const retrieveSeekerAccount = (seekerAccountPK) => {
 			})
 	}
 }
+
+export const listSolutions = () => {
+	return dispatch => {
+		return helpers.fetchListAPICall("solution")
+			.then(res => res.json())
+			.then(allSolutions => {
+				return dispatch({
+					type: "LIST_ALL_SOLUTIONS",
+					allSolutions
+				})
+			})
+	}
+}

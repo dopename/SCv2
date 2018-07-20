@@ -548,3 +548,9 @@ class SolutionUpdateViewsView(generics.DestroyAPIView):
 			qs = qs.filter(pk=query)
 		return qs
 		
+class SolutionListView(generics.ListAPIView):
+	lookup_field = 'pk'
+	serializer_class = SolutionSerializer
+
+	def get_queryset(self):
+		return Solution.objects.all()
