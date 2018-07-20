@@ -125,6 +125,7 @@ class SeekerAccount(models.Model):
 	tags = models.ManyToManyField(Tag, blank=True, null=True)
 	industries = models.ManyToManyField(Industry, blank=True, null=True)
 	caregories = models.ManyToManyField(Category, blank=True, null=True)
+	bookmarks = models.ManyToManyField(Solution)
 
 	def __str__(self):
 		return self.user.user.username

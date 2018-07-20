@@ -1,5 +1,3 @@
-import * as helpers from "../helpers/index";
-
 const initialState = {
 	solutionData: [],
 }

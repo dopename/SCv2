@@ -400,6 +400,7 @@ class SeekerAccountCreateSerializer(serializers.ModelSerializer):
 
 
 class SeekerAccountSerializer(serializers.ModelSerializer):
+	user = UserSerializer()
 
 	class Meta:
 		model = SeekerAccount
