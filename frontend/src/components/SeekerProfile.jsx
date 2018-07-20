@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
 
-import {seeker_account, auth, discovery} from "../actions/index";
+import {seeker_account, auth, solution_tiles} from "../actions/index";
 
 class SeekerProfile extends Component {
 
@@ -66,8 +66,7 @@ const mapStateToProps = state => {
 		seekerAccount:state.seeker_account,
 		mobile:state.main,
 		auth:state.auth,
-		allSolutions:state.discovery.solutions,
-		sLoaded:state.discovery.loaded
+		allSolutions:
 	}
 }
 
