@@ -6,8 +6,9 @@ import {seeker_account, auth} from "../actions/index";
 class SeekerProfile extends Component {
 
 	componentDidMount() {
+		this.props.listIndustries();
 		if (this.props.auth.user != null) {
-			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account);
 		}
 	}
 
@@ -75,6 +76,9 @@ const mapDispatchToProps = dispatch => {
 	    loadUser: () => {
 	      return dispatch(auth.loadUser());
 	    },
+		listIndustries: () => {
+			dispatch(discovery.listIndustries());
+		},
 	}
 }
 
