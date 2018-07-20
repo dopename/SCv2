@@ -31,17 +31,23 @@ class SeekerProfile extends Component {
 
 		if (this.props.isLoaded) {
 			this.props.allSolutions.map(solution => {
+				let sAdded = false;
 				if (this.props.seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
 						bookmarks.push(<li>{solution.name}</li>)
 				}
 				if (this.props.seeker.categories.length > 0) {
 					if (this.props.seeker.categories.map(e => e.pk).some(r => solution.category.includes(r))) {
 						categoryFeed.push(<li>{solution.name}</li>)
+						allFeed.push(<li>{solution.name}</li>)
+						sAdded = true;
 					}
 				}
 				if (this.props.seeker.tags.length > 0) {
 					if (this.props.seeker.tags.map(e => e.pk).some(r => solution.tags.map(e => e.pk).includes(r))) {
 						identityFeed.push(<li>{solution.name}</li>)
+						if (!sAdded) {
+							allFeed.push(<li>{solution.name}</li>)
+						}
 					}
 				}
 			})
@@ -71,7 +77,9 @@ class SeekerProfile extends Component {
 				</div>
 				<div className="col-12 text-center">
 					<h1>The aggregate feed will be..</h1>
-					<h3>Not ready yet</h3>
+					<ul>
+						{ allFeed }
+					</ul>
 				</div>
 			</div>
 		)
@@ -93,9 +101,6 @@ const mapDispatchToProps = dispatch => {
 		retrieveSeekerAccount: (seekerAccountPK) => {
 			dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
 		},
-	    loadUser: () => {
-	      return dispatch(auth.loadUser());
-	    },
 		listSolutions: () => {
 			dispatch(seeker_account.listSolutions());
 		},
