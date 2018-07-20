@@ -119,18 +119,6 @@ class ProviderAccount(models.Model):
 	provider = models.ForeignKey(Provider, on_delete=models.CASCADE,  related_name="provider_account")
 
 
-class SeekerAccount(models.Model):
-	seekeruser_id = models.AutoField(primary_key=True)
-	user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="seeker_account")
-	tags = models.ManyToManyField(Tag, blank=True, null=True)
-	industries = models.ManyToManyField(Industry, blank=True, null=True)
-	caregories = models.ManyToManyField(Category, blank=True, null=True)
-	bookmarks = models.ManyToManyField(Solution)
-
-	def __str__(self):
-		return self.user.user.username
-
-
 class Solution(models.Model):
 	solution_id = models.AutoField(primary_key=True)
 	category = models.ManyToManyField(Category, blank=True, null=True, related_name='solutions')
@@ -151,6 +139,18 @@ class Solution(models.Model):
 
 	def __str__(self):
 		return self.name
+		
+
+class SeekerAccount(models.Model):
+	seekeruser_id = models.AutoField(primary_key=True)
+	user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="seeker_account")
+	tags = models.ManyToManyField(Tag, blank=True, null=True)
+	industries = models.ManyToManyField(Industry, blank=True, null=True)
+	caregories = models.ManyToManyField(Category, blank=True, null=True)
+	bookmarks = models.ManyToManyField(Solution)
+
+	def __str__(self):
+		return self.user.user.username
 
 
 class TeamMember(models.Model):
