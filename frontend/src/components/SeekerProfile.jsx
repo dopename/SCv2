@@ -38,7 +38,7 @@ class SeekerProfile extends Component {
 					}
 				}
 				if (this.props.seeker.tags.length > 0) {
-					if (this.props.seeker.tags..map(e => e.pk).some(r => solution.tags.includes(r))) {
+					if (this.props.seeker.tags.map(e => e.pk).some(r => solution.tags.includes(r))) {
 						identityFeed.push(<li>{solution.name}</li>)
 					}
 				}
