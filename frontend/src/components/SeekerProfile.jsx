@@ -7,6 +7,7 @@ class SeekerProfile extends Component {
 
 	componentDidMount() {
 		//this.props.loadUser();
+		null
 	}
 
 	componentDidUpdate(prevProps) {
