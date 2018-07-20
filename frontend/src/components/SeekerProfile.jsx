@@ -33,7 +33,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		retrieveSeekerAccount: (providerPK) => {
+		retrieveSeekerAccount: (seekerAccountPK) => {
 			dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
 		},
 	    loadUser: () => {
