@@ -25,17 +25,19 @@ class SeekerProfile extends Component {
 		var categoryFeed = [];
 		var identityFeed = [];
 
-		this.props.allSolutions.map(solution => {
-			if (this.props.seekerAccount.seekerBookmarks.indexOf(solution.pk) > -1) {
-					bookmarks.push(<li>{solution.name}</li>)
-			}
-			if (this.props.seekerAccount.seekerCategories.indexOf(solution.categories[0]) > -1) {
-				categoryFeed.push(<li>{solution.name}</li>)
-			}
-			if (this.props.seekerAccount.seekerTags.some(r => solution.tags.indexOf(r)) > -1) {
-				identityFeed.push(<li>{solution.name}</li>)
-			}
-		})
+		if (this.props.allSolutions.length > 0) {
+			this.props.allSolutions.map(solution => {
+				if (this.props.seekerAccount.seekerBookmarks.indexOf(solution.pk) > -1) {
+						bookmarks.push(<li>{solution.name}</li>)
+				}
+				if (this.props.seekerAccount.seekerCategories.indexOf(solution.categories[0]) > -1) {
+					categoryFeed.push(<li>{solution.name}</li>)
+				}
+				if (this.props.seekerAccount.seekerTags.some(r => solution.tags.indexOf(r)) > -1) {
+					identityFeed.push(<li>{solution.name}</li>)
+				}
+			})
+		}
 
 		console.log(this.props)
 		return (
