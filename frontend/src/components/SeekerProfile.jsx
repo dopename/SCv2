@@ -11,7 +11,9 @@ class SeekerProfile extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props != prevProps) {
-			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+			if (this.props.auth.user.custom_user != undefined) {
+				this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+			}
 		}
 	}
 
