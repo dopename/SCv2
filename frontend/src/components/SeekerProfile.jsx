@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
 
-import {seeker_account, auth} from "../actions/index";
+import {seeker_account, auth, discovery} from "../actions/index";
 
 class SeekerProfile extends Component {
 
