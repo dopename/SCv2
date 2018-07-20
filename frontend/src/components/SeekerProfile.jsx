@@ -25,7 +25,7 @@ class SeekerProfile extends Component {
 		var categoryFeed = [];
 		var identityFeed = [];
 
-		if (true) {
+		if (this.props.loaded) {
 			this.props.allSolutions.map(solution => {
 				if (this.props.seekerAccount.seekerBookmarks.indexOf(solution.pk) > -1) {
 						bookmarks.push(<li>{solution.name}</li>)
@@ -68,7 +68,8 @@ const mapStateToProps = state => {
 		seekerCategories:state.seeker_account.seekerCategories,
 		mobile:state.main,
 		auth:state.auth,
-		allSolutions:state.seeker_account.allSolutions
+		allSolutions:state.seeker_account.allSolutions,
+		loaded: state.seeker_account.loaded
 	}
 }
 

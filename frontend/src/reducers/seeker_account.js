@@ -2,7 +2,8 @@ var initialState = {
 	seekerBookmarks: [],
 	seekerTags: [],
 	seekerCategories: [],
-	allSolutions: []
+	allSolutions: [].
+	loaded: false,
 }
 
 export default function seeker_account(state = initialState, action) {
@@ -11,7 +12,9 @@ export default function seeker_account(state = initialState, action) {
 			return {...state,
 			seekerBookmarks: action.seekerAccountData.bookmarks,
 			seekerTags: action.seekerAccountData.tags,
-			seekerCategories: action.seekerAccountData.categories}
+			seekerCategories: action.seekerAccountData.categories
+			loaded: true
+			}
 		case "LIST_ALL_SOLUTIONS":
 			return {...state, allSolutions: action.allSolutions}
 		default:
