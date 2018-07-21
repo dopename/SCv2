@@ -16,8 +16,8 @@ class SeekerProfile extends Component {
 		//this.toggleSettings = this.toggleSettings.bind(this);
 
 	componentDidMount() {
-		// this.props.listSolutions();
-		this.props.listIndustries();
+		this.props.listSolutions();
+		//this.props.listIndustries();
 		if (this.props.auth.user != null) {
 			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account);
 		}
@@ -116,10 +116,10 @@ const mapStateToProps = state => {
 		seeker:state.seeker_account.seeker,
 		mobile:state.main,
 		auth:state.auth,
-		solutions:state.discovery.solutions,
+		//solutions:state.discovery.solutions,
 		industries:state.discovery.industries,
 		isLoaded: state.seeker_account.isLoaded,
-		// allSolutions:state.seeker_account.allSolutions,
+		solutions:state.seeker_account.allSolutions,
 	}
 }
 
