@@ -24,8 +24,6 @@ class SeekerSettings extends Component {
 					<form onSubmit={this.props.onSubmit}>
 						{this.props.industries.map(i => (
 							<div>
-								<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.props.seeker.categories.map(c => c.pk).includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
-								<DumbSubCheckBox items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
 							</div>
 						))}
 						<input type="submit" value="Update" />
@@ -36,3 +34,6 @@ class SeekerSettings extends Component {
 }
 
 export default SeekerSettings;
+
+//								<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.props.seeker.categories.map(c => c.pk).includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
+//								<DumbSubCheckBox items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
