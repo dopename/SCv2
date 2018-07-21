@@ -99,13 +99,13 @@ class SeekerProfile extends Component {
 				<div className="col-12 text-center">
 					<Button size="lg" color="secondary" onClick={() => this.toggleSettings()}>Open Settings</Button>
 				</div>
-				<SeekerSettings 
+				{this.props.isLoaded ? (<SeekerSettings 
 					industries={this.props.industries} 
 					open={this.state.settingsOpen} 
 					toggle={this.toggleSettings} 
 					seeker={this.props.seeker}
 					onSubmit={this.props.updateSeeker} 
-					/>
+					/>) : null }
 			</div>
 		)
 	}
