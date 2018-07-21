@@ -23,8 +23,10 @@ class SeekerSettings extends Component {
 				<Modal size="lg" isOpen={this.props.open} toggle={this.props.toggle}>
 					<form onSubmit={this.props.onSubmit}>
 						{this.props.industries.map(i => (
-							<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.props.seeker.categories.map(c => c.pk).includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
-							<DumbSubCheckBox items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
+							<div>
+								<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.props.seeker.categories.map(c => c.pk).includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
+								<DumbSubCheckBox items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
+							</div>
 						))}
 						<input type="submit" value="Update" />
 					</form>
