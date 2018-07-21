@@ -38,14 +38,14 @@ class SeekerSettings extends Component {
 			let newUnselectedCategories = this.state.unselectedCategories;
 			if (matches === numCategories) {
 				categories.map(c => {
-					newSelectedCategories.splice(newSelectedCategories[newSelectedCategories.indexOf(c)], 1);
+					newSelectedCategories.splice(newSelectedCategories.indexOf(c), 1);
 					newUnselectedCategories.push(c);
 				})
 			}
 			else {
 				categories.map(c => {
 					if (newUnselectedCategories.indexOf(c) > -1) {
-						newUnselectedCategories.splice(newUnselectedCategories[newUnselectedCategories.indexOf(c)], 1);
+						newUnselectedCategories.splice(newUnselectedCategories.indexOf(c), 1);
 						newSelectedCategories.push(c);
 					}
 				})
