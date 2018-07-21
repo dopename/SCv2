@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
 
-import {seeker_account, auth, solution_tiles} from "../actions/index";
+import {seeker_account, discovery, solution_tiles} from "../actions/index";
+import SolutionSettings from "./SolutionSettings";
+import { Button } from "reactstrap";
 
 class SeekerProfile extends Component {
 	// constructor(props) {
