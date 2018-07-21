@@ -17,7 +17,7 @@ class SeekerProfile extends Component {
 
 	componentDidMount() {
 		this.props.listSolutions();
-		//this.props.listIndustries();
+		this.props.listIndustries();
 		if (this.props.auth.user != null) {
 			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account);
 		}
@@ -134,6 +134,9 @@ const mapDispatchToProps = dispatch => {
 		listIndustries: () => {
 			dispatch(discovery.listIndustries());
 		},
+		listSolutions: () => {
+			dispatch(seeker_account.listSolutions());
+		}
 	}
 }
 
