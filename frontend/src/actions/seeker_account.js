@@ -27,3 +27,21 @@ export const listSolutions = () => {
 			})
 	}
 }
+
+export const updateSeeker = (e, seekerData, token) => {
+	e.preventDefault();
+	return dispatch => {
+		return helpers.updateAPICall("seekeracocunt", seekerData.pk, seekerData, token, true)
+			.then(res => {
+				if (res.ok) {
+					return res.json()
+				}
+			})
+			.then(seekerAccountData => {
+				return dispatch({
+					type: "SEEKER_LOADED",
+					seekerAccountData
+				})
+			})
+	}
+}

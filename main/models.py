@@ -145,7 +145,7 @@ class SeekerAccount(models.Model):
 	seekeruser_id = models.AutoField(primary_key=True)
 	user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="seeker_account")
 	tags = models.ManyToManyField(Tag, blank=True, null=True)
-	industries = models.ManyToManyField(Industry, blank=True, null=True)
+	#industries = models.ManyToManyField(Industry, blank=True, null=True)
 	categories = models.ManyToManyField(Category, blank=True, null=True)
 	bookmarks = models.ManyToManyField(Solution)
 

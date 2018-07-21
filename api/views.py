@@ -459,7 +459,7 @@ class ProviderAccountCreateView(generics.CreateAPIView):
 		
 #/--------------------------------------------------------------/
 
-class SeekerAccountUpdateRetrieveView(generics.RetrieveUpdateAPIView):
+class SeekerAccountRetrieveView(generics.RetrieveAPIView):
 	lookup_field = 'pk'
 	serializer_class = SeekerAccountSerializer
 
@@ -469,6 +469,12 @@ class SeekerAccountUpdateRetrieveView(generics.RetrieveUpdateAPIView):
 		if query is not None:
 			qs = qs.filter(pk=query)
 		return qs
+
+
+class SeekerAccountUpdateView(generics.UpdateAPIView):
+	lookup_field = "pk"
+	serializer_class = SeekerAccountUpdateSerializer
+
 
 
 class SeekerAccountCreateView(generics.CreateAPIView):

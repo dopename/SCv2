@@ -394,7 +394,15 @@ class SeekerAccountCreateSerializer(serializers.ModelSerializer):
 		fields = [
 			"user",
 			"tags",
-			"industries",
+			#"industries",
+			"categories"
+		]
+
+class SeekerAccountUpdateSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = SeekerAccount
+		fields = [
+			"tags",
 			"categories"
 		]
 
@@ -484,7 +492,7 @@ class SeekerAccountSerializer(serializers.ModelSerializer):
 	#user = UserSerializer()
 	bookmarks = SolutionChildSerializer(many=True, read_only=True)
 	categories = CategorySerializer(many=True, read_only=True)
-	industries = IndustryListSerializer(many=True, read_only=True)
+	#industries = IndustryListSerializer(many=True, read_only=True)
 	tags = SolutionTagSerializer(many=True, read_only=True)
 
 	class Meta:
@@ -493,7 +501,7 @@ class SeekerAccountSerializer(serializers.ModelSerializer):
 			"pk",
 			#"user",
 			"tags",
-			"industries",
+			#"industries",
 			"categories",
 			"bookmarks"
 		]

@@ -4,6 +4,15 @@ import {connect} from "react-redux";
 import {seeker_account, auth, solution_tiles} from "../actions/index";
 
 class SeekerProfile extends Component {
+	// constructor(props) {
+	// 	super(props)
+
+		state = {
+			settingsOpen: false,
+		}
+
+		//this.toggleSettings = this.toggleSettings.bind(this);
+	}
 
 	componentDidMount() {
 		// this.props.listSolutions();
@@ -19,6 +28,10 @@ class SeekerProfile extends Component {
 				this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
 			}
 		}
+	}
+
+	toggleSettings() {
+		this.setState({sttingsOpen:!this.state.settingsOpen});
 	}
 
 	render() {
@@ -82,6 +95,16 @@ class SeekerProfile extends Component {
 						{ allFeed }
 					</ul>
 				</div>
+				<div className="col-12 text-center">
+					<Button size="lg" color="secondary" onClick={() => this.toggleSettings()}>Open Settings</Button>
+				</div>
+				<SolutionSettings 
+					industries={this.props.industries} 
+					open={this.state.settingsOpen} 
+					toggle={this.toggleSettings} 
+					seeker={this.props.seeker}
+					onSubmit={this.props.updateSeeker} 
+					/>
 			</div>
 		)
 	}
@@ -104,9 +127,9 @@ const mapDispatchToProps = dispatch => {
 		retrieveSeekerAccount: (seekerAccountPK) => {
 			dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
 		},
-		// listSolutions: () => {
-		// 	dispatch(seeker_account.listSolutions());
-		// },
+		updateSeeker: (seekerData) => {
+			dispatch(seeker_account.updateSeeker(seekerData));
+		},
 		listIndustries: () => {
 			dispatch(discovery.listIndustries());
 		},
