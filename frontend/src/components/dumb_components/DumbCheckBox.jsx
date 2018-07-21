@@ -18,7 +18,7 @@ export class DumbSubCheckBox extends Component {
 		return (
 			<ul className="mb-0">
 				{this.props.items.map(e => (
-					<li><CheckBoxItem item={e} checked={this.props.unselected.indexOf(e.pk) > -1 ? false : true} checkBox={this.props.checkBox} type="category" /></li>
+					<li><DumbCheckBox item={e} checked={this.props.unselected.indexOf(e.pk) > -1 ? false : true} checkBox={this.props.checkBox} type="category" /></li>
 				))}
 			</ul>
 		)
