@@ -29,7 +29,7 @@ class SeekerSettings extends Component {
 			let numCategories = categories.length;
 			let matches = 0;
 			categories.map(c => {
-				if (selectedCategories.includes(c)) {
+				if (this.state.selectedCategories.includes(c)) {
 					matches += 1
 				}
 			})
