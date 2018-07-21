@@ -12,7 +12,6 @@ class SeekerProfile extends Component {
 		}
 
 		//this.toggleSettings = this.toggleSettings.bind(this);
-	}
 
 	componentDidMount() {
 		// this.props.listSolutions();
