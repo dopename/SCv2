@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {connect} from "react-redux";
 
 import {seeker_account, discovery, solution_tiles} from "../actions/index";
-import SolutionSettings from "./SolutionSettings";
+import SeekerSettings from "./SeekerSettings";
 import { Button } from "reactstrap";
 
 class SeekerProfile extends Component {
@@ -99,7 +99,7 @@ class SeekerProfile extends Component {
 				<div className="col-12 text-center">
 					<Button size="lg" color="secondary" onClick={() => this.toggleSettings()}>Open Settings</Button>
 				</div>
-				<SolutionSettings 
+				<SeekerSettings 
 					industries={this.props.industries} 
 					open={this.state.settingsOpen} 
 					toggle={this.toggleSettings} 
