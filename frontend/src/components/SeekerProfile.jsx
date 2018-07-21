@@ -6,15 +6,14 @@ import SeekerSettings from "./SeekerSettings";
 import { Button } from "reactstrap";
 
 class SeekerProfile extends Component {
-	constructor(props) {
-		super(props)
+	// constructor(props) {
+	// 	super(props)
 
-		this.state = {
+		state = {
 			settingsOpen: false,
 		}
 
-		this.toggleSettings = this.toggleSettings.bind(this);
-	}
+		//this.toggleSettings = this.toggleSettings.bind(this);
 
 	componentDidMount() {
 		this.props.listSolutions();
@@ -33,7 +32,7 @@ class SeekerProfile extends Component {
 	}
 
 	toggleSettings() {
-		this.setState({sttingsOpen:!this.state.settingsOpen});
+		this.setState({settingsOpen:!this.state.settingsOpen});
 	}
 
 	render() {
