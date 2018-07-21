@@ -50,6 +50,21 @@ class SeekerSettings extends Component {
 					}
 				})
 			}
+			this.setState({selectedCategories:newUnselectedCategories, unselectedCategories:newUnselectedCategories});
+		}
+		else {
+			if (this.state.unselectedCategories.indexOf(pk) < 0) {
+				this.setState({
+					unselectedCategories:[...this.state.unselectedCategories, pk],
+					selectedCategories:this.state.selectedCategories.splice(this.state.selectedCategories.indexOf(pk), 1)
+				)})
+			}
+			else {
+				this.setState({
+					selectedCategories:[...this.state.selectedCategories, pk],
+					unselectedCategories:this.state.unselectedCategories.splice(this.state.unselectedCategories.indexOf(pk), 1)
+				)})
+			}
 		}
 	}
 
