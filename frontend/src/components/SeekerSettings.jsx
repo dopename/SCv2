@@ -10,11 +10,47 @@ class SeekerSettings extends Component {
 
 		this.state = {
 			selectedCategories: [],
+			unselectedCategories: [],
 		}
+
+		this.checkBox = this.checkBox.bind(this);
 	}
 
 	componentDidMount() {
-		this.setState({selectedCategories:this.props.seeker.categories.map(c => c.pk)})
+		var selectedCategories = this.props.seeker.categories.map(c => c.pk);
+		var allCategories = this.props.industries.map(i => i.categories.map(c => c.pk));
+		var unselectedCategories = allCategories.diff(selectedCategories);
+		this.setState({selectedCategories:selectedCategories, unselectedCategories:unselectedCategories});
+	}
+
+	checkBox(pk, type) {
+		if (type === "industry") {
+			let categories = this.props.industries[this.props.industries.map(i => i.pk).indexOf(pk)].categories.map(c => c.pk);
+			let numCategories = categories.length;
+			let matches = 0;
+			categories.map(c => {
+				if (selectedCategories.includes(c)) {
+					matches += 1
+				}
+			})
+
+			let newSelectedCategories = this.state.selectedCategories;
+			let newUnselectedCategories = this.state.unselectedCategories;
+			if (matches === numCategories) {
+				categories.map(c => {
+					newSelectedCategories.splice(newSelectedCategories[newSelectedCategories.indexOf(c)], 1);
+					newUnselectedCategories.push(c);
+				})
+			}
+			else {
+				categories.map(c => {
+					if (newUnselectedCategories.indexOf(c) > -1) {
+						newUnselectedCategories.splice(newUnselectedCategories[newUnselectedCategories.indexOf(c)], 1);
+						newSelectedCategories.push(c);
+					}
+				})
+			}
+		}
 	}
 
 	render() {
@@ -24,6 +60,8 @@ class SeekerSettings extends Component {
 					<form onSubmit={this.props.onSubmit}>
 						{this.props.industries.map(i => (
 							<div>
+								<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.state.unselectedCategories.includes(r)) ? false : true} checkBox={this.checkBox} type="industry" />
+								<DumbSubCheckBox items={i.categories} unselected={this.state.unselectedCategories} checkBox={this.checkBox} />
 							</div>
 						))}
 						<input type="submit" value="Update" />
@@ -34,6 +72,3 @@ class SeekerSettings extends Component {
 }
 
 export default SeekerSettings;
-
-//								<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.props.seeker.categories.map(c => c.pk).includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
-//								<DumbSubCheckBox items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
