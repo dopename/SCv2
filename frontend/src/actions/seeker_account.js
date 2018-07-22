@@ -28,10 +28,10 @@ export const listSolutions = () => {
 	}
 }
 
-export const updateSeeker = (e, seekerData, token) => {
+export const updateSeeker = (e, pk, seekerData, token) => {
 	e.preventDefault();
 	return dispatch => {
-		return helpers.updateAPICall("seekeracocunt", seekerData.pk, seekerData, token, true)
+		return helpers.updateAPICall("seekeracocunt", pk, seekerData, token, true)
 			.then(res => {
 				if (res.ok) {
 					return res.json()

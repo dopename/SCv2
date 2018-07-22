@@ -105,7 +105,9 @@ class SeekerProfile extends Component {
 					open={this.state.settingsOpen} 
 					toggle={this.toggleSettings} 
 					seeker={this.props.seeker}
-					onSubmit={this.props.updateSeeker} 
+					onSubmit={this.props.updateSeeker}
+					seeker={this.props.seeker}
+					token={this.props.auth.token}
 					/>) : null }
 			</div>
 		)
@@ -129,8 +131,8 @@ const mapDispatchToProps = dispatch => {
 		retrieveSeekerAccount: (seekerAccountPK) => {
 			dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
 		},
-		updateSeeker: (seekerData) => {
-			dispatch(seeker_account.updateSeeker(seekerData));
+		updateSeeker: (pk, seekerData, token) => {
+			dispatch(seeker_account.updateSeeker(pk, seekerData, token));
 		},
 		listIndustries: () => {
 			dispatch(discovery.listIndustries());

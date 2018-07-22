@@ -14,6 +14,7 @@ class SeekerSettings extends Component {
 		}
 
 		this.checkBox = this.checkBox.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	componentDidMount() {
@@ -71,11 +72,18 @@ class SeekerSettings extends Component {
 		}
 	}
 
+	onSubmit(e) {
+		e.preventDefault();
+		var data = {categories:this.state.selectedCategories, tags:this.props.seeker.tags}
+
+		this.props.onSubmit(this.props.seeker.pk, data, this.props.token);
+	}
+
 	render() {
 		console.log("PROPS", this.props, "STATE", this.state);
 		return (
 				<Modal size="lg" isOpen={this.props.open} toggle={this.props.toggle}>
-					<form onSubmit={this.props.onSubmit}>
+					<form onSubmit={this.onSubmit}>
 						{this.props.industries.map(i => (
 							<div>
 								<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.state.unselectedCategories.includes(r)) ? false : true} checkBox={this.checkBox} type="industry" />
