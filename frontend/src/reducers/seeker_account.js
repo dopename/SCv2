@@ -18,7 +18,10 @@ export default function seeker_account(state = initialState, action) {
 		case "LIST_ALL_SOLUTIONS":
 			return {...state, allSolutions: action.allSolutions}
 		case "SEEKER_UPDATED":
-			return {...state, ...seeker, tags: seekerAccountData.tags, categories: seekerAccountData.categories}
+			var newSeeker = state.seeker
+			newSeeker.tags = seekerAccountData.tags
+			newSeeker.categories = seekerAccountData.categories
+			return {...state, seeker:newSeeker}
 		default:
 			return state
 	}
