@@ -36,11 +36,8 @@ export const updateSeeker = (pk, seekerData, token) => {
 					return res.json()
 				}
 			})
-			.then(seekerAccountData => {
-				return dispatch({
-					type: "SEEKER_UPDATED",
-					seekerAccountData
-				})
+			.then(() => {
+				retrieveSeekerAccount(pk);
 			})
 	}
 }
