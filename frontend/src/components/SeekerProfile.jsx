@@ -77,7 +77,7 @@ class SeekerProfile extends Component {
 		}
 
 		return (
-			<div>
+			<div className="container-fluid">
 				<div className="row">
 					<div className="col-3 text-center">
 						<ButtonGroup vertical className="w-100 mt-1">
@@ -87,6 +87,7 @@ class SeekerProfile extends Component {
 						</ButtonGroup>
 					</div>
 					<div className="col-9" style={{overflowY:"auto"}}>
+						<h1 className="text-center">{this.state.view === "main" ? "Your feed" : "Your favories"}</h1>
 						<div className="container">
 							{this.state.view === "main" ? (
 								<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
