@@ -55,17 +55,17 @@ class SeekerSettings extends Component {
 		}
 		else {
 			if (this.state.unselectedCategories.indexOf(pk) < 0) {
-				let newData = newSelectedCategories.splice(newSelectedCategories.indexOf(pk), 1);
+				newSelectedCategories.splice(newSelectedCategories.indexOf(pk), 1);
 				this.setState({
 					unselectedCategories:[...this.state.unselectedCategories, pk],
-					selectedCategories: newData
+					selectedCategories: newSelectedCategories
 				})
 			}
 			else {
-				let newData = newUnselectedCategories.splice(newUnselectedCategories.indexOf(pk), 1);
+				newUnselectedCategories.splice(newUnselectedCategories.indexOf(pk), 1);
 				this.setState({
 					selectedCategories:[...this.state.selectedCategories, pk],
-					unselectedCategories: newData
+					unselectedCategories: newUnselectedCategories
 				})
 			}
 		}
