@@ -26,7 +26,7 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-						<TopNav logout={this.props.logout} isAuthenticated={this.props.auth.isAuthenticated} username={this.props.auth.user.username} />
+						<TopNav logout={this.props.logout} isAuthenticated={this.props.auth.isAuthenticated} username={this.props.auth.isAuthenticated ? this.props.auth.user.username : null} />
 						<Switch>
 							<Route exact path="/" render= { () => <Initial screen_width={this.props.screen_width} screen_height={this.props.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
