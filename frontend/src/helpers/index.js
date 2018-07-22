@@ -1,3 +1,22 @@
+function getCookie(name) {
+    if (!document.cookie) {
+      return null;
+    }
+    const token = document.cookie.split(';')
+      .map(c => c.trim())
+      .filter(c => c.startsWith(name + '='));
+
+    if (token.length === 0) {
+      return null;
+    }
+    return decodeURIComponent(token[0].split('=')[1]);
+  }
+
+  const csrftoken = getCookie('csrftoken')
+  console.log(csrftoken)
+
+const csrftoken = getCookie('csrftoken')
+
 
 export function deleteAPICall(model, pk, title, token) {
 	const url = "/api/destroy/" + model + "/" + pk + "/"
@@ -23,9 +42,11 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 
 	return fetch(url, {
 		method:'put',
+		mode: 'same-origin',
 		headers: {
 			Authorization: "Token " + token,
 			"Content-Type":"application/json",
+			'X-CSRFToken': csrftoken,
 		},
 		body:JSON.stringify(data)
 	})
