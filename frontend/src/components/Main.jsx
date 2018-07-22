@@ -104,7 +104,7 @@ class TopNav extends Component {
 												</DropdownToggle>
 												<DropdownMenu right>
 													<DropdownItem>
-														<NavLink to="/profile/seeker">Seeker Profile</NavLink>
+														<NavLink href="/profile/seeker">Seeker Profile</NavLink>
 													</DropdownItem>
 													<DropdownItem>
 														<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
@@ -113,7 +113,7 @@ class TopNav extends Component {
 											</UncontrolledDropdown> )
 											 : (
 											 <NavItem>
-											 	<NavLink className="list-inline-item mx-2" to="/login">Login</NavLink>
+											 	<NavLink href="/login">Login</NavLink>
 											</NavItem>)
 										}
 								</Nav>
