@@ -78,6 +78,7 @@ class SeekerSettings extends Component {
 		var data = {categories:this.state.selectedCategories, tags:this.props.seeker.tags.map(t => t.pk)}
 
 		this.props.onSubmit(this.props.seeker.pk, data, this.props.token);
+		this.props.toggle();
 	}
 
 	render() {
