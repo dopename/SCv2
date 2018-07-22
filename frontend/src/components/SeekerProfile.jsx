@@ -55,16 +55,16 @@ class SeekerProfile extends Component {
 				}
 				if (this.props.seeker.categories.length > 0) {
 					if (this.props.seeker.categories.map(e => e.pk).some(r => solution.category.includes(r))) {
-						categoryFeed.push(<li>{solution.name}</li>)
-						allFeed.push(<li>{solution.name}</li>)
+						categoryFeed.push(solution)
+						allFeed.push(solution)
 						sAdded = true;
 					}
 				}
 				if (this.props.seeker.tags.length > 0) {
 					if (this.props.seeker.tags.map(e => e.pk).some(r => solution.tags.map(e => e.pk).includes(r))) {
-						identityFeed.push(<li>{solution.name}</li>)
+						identityFeed.push(solution)
 						if (!sAdded) {
-							allFeed.push(<li>{solution.name}</li>)
+							allFeed.push(solution)
 						}
 					}
 				}
