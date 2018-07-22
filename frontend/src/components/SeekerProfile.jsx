@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {seeker_account, discovery, solution_tiles} from "../actions/index";
 import SeekerSettings from "./SeekerSettings";
 import { Button, ButtonGroup } from "reactstrap";
-import DumbTiles from "./dumb-components/DumbTiles"
+import DumbTiles from "./dumb_components/DumbTiles"
 
 class SeekerProfile extends Component {
 	constructor(props) {
