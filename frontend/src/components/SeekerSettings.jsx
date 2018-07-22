@@ -19,14 +19,13 @@ class SeekerSettings extends Component {
 	componentDidMount() {
 		var selectedCategories = this.props.seeker.categories.map(c => c.pk);
 		var allCategories = [].concat.apply([], this.props.industries.map(i => i.categories.map(c => c.pk)));
-		console.log(allCategories);
 		var unselectedCategories = allCategories.filter(x => !selectedCategories.includes(x));
 		this.setState({selectedCategories:selectedCategories, unselectedCategories:unselectedCategories});
 	}
 
 	checkBox(pk, type) {
 		if (type === "industry") {
-			let categories = this.props.industries.indexOf(this.props.industries.map(i => i.pk).indexOf(pk)).categories.map(c => c.pk);
+			let categories = this.props.industries[this.props.industries.map(i => i.pk).indexOf(pk)].categories.map(c => c.pk);
 			let numCategories = categories.length;
 			let matches = 0;
 			categories.map(c => {
@@ -51,6 +50,7 @@ class SeekerSettings extends Component {
 					}
 				})
 			}
+			console.log("CATEGORIES", categories, "NEW SELECTED", newSelectedCategories, "NEW UNSELECTED", newUnselectedCategories);
 			this.setState({selectedCategories:newUnselectedCategories, unselectedCategories:newUnselectedCategories});
 		}
 		else {
