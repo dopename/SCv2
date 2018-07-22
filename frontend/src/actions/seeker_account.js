@@ -29,7 +29,6 @@ export const listSolutions = () => {
 }
 
 export const updateSeeker = (pk, seekerData, token) => {
-	e.preventDefault();
 	return dispatch => {
 		return helpers.updateAPICall("seekeracocunt", pk, seekerData, token, true)
 			.then(res => {
