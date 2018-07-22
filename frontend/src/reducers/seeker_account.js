@@ -14,7 +14,8 @@ export default function seeker_account(state = initialState, action) {
 			return {...state,
 			seeker: action.seekerAccountData,
 			isLoading: false,
-			isLoaded: true
+			isLoaded: true,
+			isUpdated: false
 			}
 		case "LIST_ALL_SOLUTIONS":
 			return {...state, allSolutions: action.allSolutions}
