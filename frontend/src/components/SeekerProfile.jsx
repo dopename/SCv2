@@ -12,7 +12,7 @@ class SeekerProfile extends Component {
 
 		this.state = {
 			settingsOpen: false,
-			view: 'main',
+			view: "main",
 		}
 
 		this.toggleSettings = this.toggleSettings.bind(this);
@@ -82,13 +82,13 @@ class SeekerProfile extends Component {
 					<div className="col-3 text-center">
 						<ButtonGroup vertical className="w-100">
 							<Button outline className="btn-block mb-1" onclick={() => this.changeView("main")} color="secondary" active={this.state.view === "main" ? true : false}>Main</Button>
-							<Button outline className="btn-block mb-1" onclick={() => this.changeView("favories")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories</Button>
+							<Button outline className="btn-block mb-1" onclick={() => this.changeView("favorites")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories</Button>
 							<Button outline className="btn-block" color="secondary" onClick={() => this.toggleSettings()}>Settings</Button>
 						</ButtonGroup>
 					</div>
 					<div className="col-9">
 					{this.state.view === "main" ? (
-						<DumbTiles solutions={allFeed} size="md" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
+						<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
 						):(
 						<DumbTiles solutions={bookmarks} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
 						)
