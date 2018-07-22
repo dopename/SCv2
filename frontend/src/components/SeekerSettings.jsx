@@ -26,7 +26,7 @@ class SeekerSettings extends Component {
 
 	checkBox(pk, type) {
 		if (type === "industry") {
-			let categories = this.props.industries[this.props.industries.map(i => i.pk).indexOf(pk)].categories.map(c => c.pk);
+			let categories = this.props.industries.indexOf(this.props.industries.map(i => i.pk).indexOf(pk)).categories.map(c => c.pk);
 			let numCategories = categories.length;
 			let matches = 0;
 			categories.map(c => {
