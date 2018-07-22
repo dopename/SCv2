@@ -24,6 +24,8 @@ class SeekerSettings extends Component {
 	}
 
 	checkBox(pk, type) {
+		var newSelectedCategories = this.state.selectedCategories;
+		var newUnselectedCategories = this.state.unselectedCategories;
 		if (type === "industry") {
 			let categories = this.props.industries[this.props.industries.map(i => i.pk).indexOf(pk)].categories.map(c => c.pk);
 			let numCategories = categories.length;
@@ -34,8 +36,6 @@ class SeekerSettings extends Component {
 				}
 			})
 
-			let newSelectedCategories = this.state.selectedCategories;
-			let newUnselectedCategories = this.state.unselectedCategories;
 			if (matches === numCategories) {
 				categories.map(c => {
 					newSelectedCategories.splice(newSelectedCategories.indexOf(c), 1);
@@ -55,19 +55,15 @@ class SeekerSettings extends Component {
 		}
 		else {
 			if (this.state.unselectedCategories.indexOf(pk) < 0) {
-				let newData = this.state.selectedCategories.filter(c => c.pk !== pk);
-				let newData2 = this.state.unselectedCategories.push(pk)
 				this.setState({
-					unselectedCategories:newData2,
-					selectedCategories:newData
+					unselectedCategories:[...this.state.unselectedCategories, pk],
+					selectedCategories:newSelectedCategories.filter(c => c.pk !== pk)
 				})
 			}
 			else {
-				let newData = this.state.unselectedCategories.filter(c => c.pk !== pk);
-				let newData2 = this.state.selectedCategories.push(pk)
 				this.setState({
-					selectedCategories:newData2,
-					unselectedCategories:newData
+					selectedCategories:[...this.state.selectedCategories, pk],
+					unselectedCategories:newUnselectedCategories.filter(c => c.pk !== pk)
 				})
 			}
 		}
