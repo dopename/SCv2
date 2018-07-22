@@ -83,14 +83,14 @@ class SeekerSettings extends Component {
 
 	render() {
 		var cols = [];
-		var numPerRow = 3;
+		var numPerRow = 4;
 		var rows = [];
 
 		this.props.industries.map((i, index) => {
 			cols.push(
-				<div className="col-4 text-center">
-					<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.state.unselectedCategories.includes(r)) ? false : true} checkBox={this.checkBox} type="industry" />
-					<DumbSubCheckBox items={i.categories} unselected={this.state.unselectedCategories} checkBox={this.checkBox} />
+				<div className="col-3">
+					<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.state.unselectedCategories.includes(r)) ? false : true} center={true} checkBox={this.checkBox} type="industry" />
+					<DumbSubCheckBox items={i.categories} unselected={this.state.unselectedCategories} checkBox={this.checkBox} center={true} />
 				</div>
 			)
 		    if (((index + 1) % numPerRow === 0) || (index + 1 === this.props.industries.length)) {
