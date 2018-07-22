@@ -48,7 +48,7 @@ urlpatterns = [
 
 	path('seekeraccount/<int:pk>/', SeekerAccountRetrieveView.as_view(), name="seekeraccount-update-retrieve-view"),
 	path('create/seekeraccount/', SeekerAccountCreateView.as_view(), name="seekeraccount-create-view"),
-	path('update/seekeraccount/', SeekerAccountUpdateView.as_view(), name="seekeraccount-update-view"),
+	path('update/seekeraccount/<int:pk>/', SeekerAccountUpdateView.as_view(), name="seekeraccount-update-view"),
 
 	path('destroy/solution/<int:pk>/', SolutionDestroyView.as_view(), name="solution-destroy-view"),
 	path('list/solution/', SolutionListView.as_view(), name="solution-list-view"),
