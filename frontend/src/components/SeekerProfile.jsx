@@ -86,9 +86,9 @@ class SeekerProfile extends Component {
 							<Button outline className="btn-block" color="secondary" onClick={() => this.toggleSettings()}>Settings</Button>
 						</ButtonGroup>
 					</div>
-					<div className="col-9" style={{overflowY:"auto"}}>
+					<div className="col-9">
 						<h1 className="text-center">{this.state.view === "main" ? "Your feed" : "Your favories"}</h1>
-						<div className="container">
+						<div className="container" style={{overflowY:"auto"}}>
 							{this.state.view === "main" ? (
 								<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
 								):(
