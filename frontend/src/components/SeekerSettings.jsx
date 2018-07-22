@@ -18,7 +18,7 @@ class SeekerSettings extends Component {
 
 	componentDidMount() {
 		var selectedCategories = this.props.seeker.categories.map(c => c.pk);
-		var allCategories = this.props.industries.map(i => i.categories.map(c => c.pk));
+		var allCategories = [].concat(this.props.industries.map(i => i.categories.map(c => c.pk)));
 		console.log(allCategories);
 		var unselectedCategories = allCategories.filter(x => !selectedCategories.includes(x));
 		this.setState({selectedCategories:selectedCategories, unselectedCategories:unselectedCategories});
