@@ -26,7 +26,7 @@ class SeekerProfile extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props != prevProps) {
-			if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.seeker.isUpdated) {
+			if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.isUpdated) {
 				this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
 			}
 		}
@@ -122,6 +122,7 @@ const mapStateToProps = state => {
 		//solutions:state.discovery.solutions,
 		industries:state.discovery.industries,
 		isLoaded: state.seeker_account.isLoaded,
+		isUpdated: state.seeker_account.isUpdated,
 		solutions:state.seeker_account.allSolutions,
 	}
 }
