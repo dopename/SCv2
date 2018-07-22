@@ -9,7 +9,7 @@ import SeekerProfile from "./SeekerProfile";
 
 import "./Main.css"
 
-import { Button, Nav, Navbar, NavbarBrand, NavItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
+import { Button, Nav, Navbar, NavbarBrand, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 import {main, auth} from "../actions/index"
 import {connect} from "react-redux";
 
@@ -71,14 +71,14 @@ class TopNav extends Component {
 		super(props)
 
 		this.state = {
-			dropdownOpen: false,
+			collapsed: false,
 		}
 
 		this.toggleDropdown = this.toggleDropdown.bind(this);
 	}
 		
-	toggleDropdown() {
-		this.setState({dropdownOpen:!this.state.dropdownOpen});
+	toggleNavbar() {
+		this.setState({collapsed:!this.state.collapsed});
 	}
 
 	render() {
@@ -88,6 +88,8 @@ class TopNav extends Component {
 					<div className="col-12 px-0">
 						<Navbar color="dark" dark expand="lg">
 							<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
+							<NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+							<Collapse isOpen={!this.state.collapsed} navbar>
 							<Nav className="ml-auto" navbar>
 								<NavItem>
 									<Link className="list-inline-item mx-2" to="/">Home</Link>
@@ -96,11 +98,11 @@ class TopNav extends Component {
 									<Link className="list-inline-item mx-2" to="/discovery">Discover</Link>
 								</NavItem>
 									{this.props.isAuthenticated ? (
-										<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown}>
-											<DropdownToggle caret>
+										<UncontrolledDropdown nav inNavbar>
+											<DropdownToggle nav caret>
 												Welcome back, {this.props.username}
 											</DropdownToggle>
-											<DropdownMenu>
+											<DropdownMenu right>
 												<DropdownItem>
 													<Link to="/profile/seeker">Seeker Profile</Link>
 												</DropdownItem>
@@ -108,7 +110,7 @@ class TopNav extends Component {
 													<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
 												</DropdownItem>
 											</DropdownMenu>
-										</Dropdown> )
+										</UncontrolledDropdown> )
 										 : (
 										 <NavItem>
 										 	<Link className="list-inline-item mx-2" to="/login">Login</Link>
