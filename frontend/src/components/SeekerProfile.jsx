@@ -48,6 +48,8 @@ class SeekerProfile extends Component {
 		var categoryFeed = [];
 		var identityFeed = [];
 
+		var scrollHeight = (0.75 * this.props.mobile.screen_height).toString() + "px"
+
 		var allFeed = [];
 
 		console.log(this.props)
@@ -88,7 +90,7 @@ class SeekerProfile extends Component {
 					</div>
 					<div className="col-9">
 						<h1 className="text-center">{this.state.view === "main" ? "Your feed" : "Your favories"}</h1>
-						<div className="container" style={{overflowY:"auto"}}>
+						<div className="container" style={{overflowY:"auto", height:scrollHeight}}>
 							{this.state.view === "main" ? (
 								<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
 								):(
