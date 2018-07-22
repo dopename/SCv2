@@ -38,7 +38,7 @@ export const updateSeeker = (pk, seekerData, token) => {
 			})
 			.then(seekerAccountData => {
 				return dispatch({
-					type: "SEEKER_LOADED",
+					type: "SEEKER_UPDATED",
 					seekerAccountData
 				})
 			})
