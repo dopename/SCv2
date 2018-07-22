@@ -9,7 +9,7 @@ import SeekerProfile from "./SeekerProfile";
 
 import "./Main.css"
 
-import { Button, Nav, Navbar, NavbarBrand, NavItem } from "reactstrap";
+import { Button, Nav, Navbar, NavbarBrand, NavItem, Dropdown, DropdownToggle, DropdownMenu, DropdownToggle } from "reactstrap";
 import {main, auth} from "../actions/index"
 import {connect} from "react-redux";
 
@@ -26,29 +26,7 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-						<div className="container-fluid">
-							<div className="row">
-								<div className="col-12 px-0">
-									<Navbar color="dark" dark expand="lg">
-										<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
-										<Nav className="ml-auto" navbar>
-											<NavItem>
-												<Link className="list-inline-item mx-2" to="/">Home</Link>
-											</NavItem>
-											<NavItem>
-												<Link className="list-inline-item mx-2" to="/discovery">Discover</Link>
-											</NavItem>
-											<NavItem>
-												{this.props.auth.isAuthenticated ? (
-													<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>)
-													 : (
-													 <Link className="list-inline-item mx-2" to="/login">Login</Link>)}
-											</NavItem>
-										</Nav>
-									</Navbar>
-								</div>
-							</div>
-						</div>
+						<TopNav logout={this.props.logout} isAuthenticated={this.props.auth.isAuthenticated} username={this.props.auth.user.username} />
 						<Switch>
 							<Route exact path="/" render= { () => <Initial screen_width={this.props.screen_width} screen_height={this.props.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
@@ -87,6 +65,61 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
+
+class TopNav extends Component {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			dropdownOpen: false;
+		}
+
+		toggleDropdown() {
+			this.setState({dropdownOpen:!this.state.dropdownOpen});
+		}
+	}
+
+	render() {
+		return (
+			<div className="container-fluid">
+				<div className="row">
+					<div className="col-12 px-0">
+						<Navbar color="dark" dark expand="lg">
+							<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
+							<Nav className="ml-auto" navbar>
+								<NavItem>
+									<Link className="list-inline-item mx-2" to="/">Home</Link>
+								</NavItem>
+								<NavItem>
+									<Link className="list-inline-item mx-2" to="/discovery">Discover</Link>
+								</NavItem>
+									{this.props.isAuthenticated ? (
+										<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown}>
+											<DropdownToggle caret>
+												Welcome back, {this.props.username}
+											</DropdownToggle>
+											<DropdownMenu>
+												<DropdownItem>
+													<Link to="/profile/seeker">Seeker Profile</Link>
+												</DropdownItem>
+												<DropdownItem>
+													<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
+												</DropdownItem>
+											</DropdownMenu>
+										</Dropdown> )
+										 : (
+										 <NavItem>
+										 	<Link className="list-inline-item mx-2" to="/login">Login</Link>
+										</NavItem>)
+									}
+							</Nav>
+						</Navbar>
+					</div>
+				</div>
+			</div>
+		)
+	}
+}
 
 class Initial extends Component {
 	render() {
