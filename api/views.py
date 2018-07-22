@@ -474,7 +474,14 @@ class SeekerAccountRetrieveView(generics.RetrieveAPIView):
 class SeekerAccountUpdateView(generics.UpdateAPIView):
 	lookup_field = "pk"
 	serializer_class = SeekerAccountUpdateSerializer
+	permission_classes = (permissions.IsAuthenticated,)
 
+	def get_queryset(self):
+		qs = SeekerAccount.objects.all()
+		query = self.request.GET.get('q')
+		if query is not None:
+			qs = qs.filter(pk=query)
+		return qs
 
 
 class SeekerAccountCreateView(generics.CreateAPIView):
