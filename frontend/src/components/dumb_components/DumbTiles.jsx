@@ -60,7 +60,7 @@ export default class DumbTiles extends Component {
 
 		this.props.solutions.map((solution, index) => {
 		    cols.push(
-		    	<div class={"my-2 p-2 col-md-" + colSize} key={"solution_" + solution.pk}>
+		    	<div className={"my-2 p-2 col-md-" + colSize} key={"solution_" + solution.pk}>
 		    		<div className="solution-tile">
 			   			<div className="solution-main-image text-center pointer-hand" onClick={() => { this.toggleSolution(solution.pk) } }>
 			   				<img alt={solution.name + " product image"} src={solution.main_image} style={{maxHeight : max_height}} className="responsive-image mt-2" />

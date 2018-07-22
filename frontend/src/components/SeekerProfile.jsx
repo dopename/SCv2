@@ -87,12 +87,14 @@ class SeekerProfile extends Component {
 						</ButtonGroup>
 					</div>
 					<div className="col-9">
-					{this.state.view === "main" ? (
-						<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
-						):(
-						<DumbTiles solutions={bookmarks} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
-						)
-					}
+						<div className="container">
+							{this.state.view === "main" ? (
+								<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
+								):(
+								<DumbTiles solutions={bookmarks} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
+								)
+							}
+						</div>
 					</div>
 				</div>
 				{this.props.isLoaded ? (<SeekerSettings 
