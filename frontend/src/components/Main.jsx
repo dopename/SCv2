@@ -73,10 +73,10 @@ class TopNav extends Component {
 		this.state = {
 			dropdownOpen: false,
 		}
-
-		toggleDropdown() {
-			this.setState({dropdownOpen:!this.state.dropdownOpen});
-		}
+	}
+		
+	toggleDropdown() {
+		this.setState({dropdownOpen:!this.state.dropdownOpen});
 	}
 
 	render() {
