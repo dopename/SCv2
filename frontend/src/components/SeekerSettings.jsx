@@ -3,7 +3,7 @@ import {discovery} from "../actions/index"
 
 import { DumbCheckBox, DumbSubCheckBox } from "./dumb_components/DumbCheckBox";
 import { Modal } from "reactstrap";
-import CSRFtToken from './csrftoken';
+//import CSRFtToken from './csrftoken';
 
 class SeekerSettings extends Component {
 	constructor(props) {
@@ -85,7 +85,6 @@ class SeekerSettings extends Component {
 		return (
 				<Modal size="lg" isOpen={this.props.open} toggle={this.props.toggle}>
 					<form onSubmit={this.onSubmit}>
-						<CSRFtToken />
 						{this.props.industries.map(i => (
 							<div>
 								<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.state.unselectedCategories.includes(r)) ? false : true} checkBox={this.checkBox} type="industry" />

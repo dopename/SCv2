@@ -1,16 +1,16 @@
-// function getCookie(name) {
-//     if (!document.cookie) {
-//       return null;
-//     }
-//     const token = document.cookie.split(';')
-//       .map(c => c.trim())
-//       .filter(c => c.startsWith(name + '='));
+function getCookie(name) {
+    if (!document.cookie) {
+      return null;
+    }
+    const token = document.cookie.split(';')
+      .map(c => c.trim())
+      .filter(c => c.startsWith(name + '='));
 
-//     if (token.length === 0) {
-//       return null;
-//     }
-//     return decodeURIComponent(token[0].split('=')[1]);
-//   }
+    if (token.length === 0) {
+      return null;
+    }
+    return decodeURIComponent(token[0].split('=')[1]);
+  }
 
 
 
@@ -31,7 +31,7 @@ export function deleteAPICall(model, pk, title, token) {
 
 export function updateAPICall(model, pk, data, token, updateInURL) {
 	var url = "/api/" + model + "/" + pk + "/"
-	//const csrftoken = getCookie('csrftoken')
+	const csrftoken = getCookie('csrftoken')
 
 	if (updateInURL) {
 		url = "/api/update/" + model + "/" + pk + "/"
@@ -39,11 +39,11 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 
 	return fetch(url, {
 		method:'put',
-		// mode: 'same-origin',
+		//mode: 'same-origin',
 		headers: {
 			Authorization: "Token " + token,
 			"Content-Type":"application/json",
-			// 'X-CSRFToken': csrftoken
+			'X-CSRFToken': csrftoken
 		},
 		body:JSON.stringify(data)
 	})
