@@ -82,17 +82,36 @@ class SeekerSettings extends Component {
 	}
 
 	render() {
+		var cols = [];
+		var numPerRow = 4;
+		var rows = [];
+
+		this.props.industries.map((i, index) => {
+			cols.push(
+				<div className="col-3">>
+					<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.state.unselectedCategories.includes(r)) ? false : true} checkBox={this.checkBox} type="industry" />
+					<DumbSubCheckBox items={i.categories} unselected={this.state.unselectedCategories} checkBox={this.checkBox} />
+				</div>
+			)
+		    if (((index + 1) % numPerRow === 0) || (index + 1 === this.props.industries.length)) {
+		        rows.push(
+		          <div class="row" key={"row_"+index}>
+		            {cols}
+		          </div>
+		          )
+		        cols = []
+		      }
+		  })
+
 		console.log("PROPS", this.props, "STATE", this.state);
 		return (
 				<Modal size="lg" isOpen={this.props.open} toggle={this.props.toggle}>
+					<h1 className="text-center">What are your interests?</h1>
 					<form onSubmit={this.onSubmit}>
-						{this.props.industries.map(i => (
-							<div>
-								<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.state.unselectedCategories.includes(r)) ? false : true} checkBox={this.checkBox} type="industry" />
-								<DumbSubCheckBox items={i.categories} unselected={this.state.unselectedCategories} checkBox={this.checkBox} />
-							</div>
-						))}
-						<input type="submit" value="Update" />
+						<div className="col-12">
+							{rows}
+							<input className="text-center" type="submit" value="Update" />
+						</div>
 					</form>
 				</Modal>	
 		)
