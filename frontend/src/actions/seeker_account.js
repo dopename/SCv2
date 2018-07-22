@@ -30,7 +30,7 @@ export const listSolutions = () => {
 
 export const updateSeeker = (pk, seekerData, token) => {
 	return dispatch => {
-		return helpers.updateAPICall("seekeracocunt", pk, seekerData, token, true)
+		return helpers.updateAPICall("seekeraccount", pk, seekerData, token, true)
 			.then(res => {
 				if (res.ok) {
 					return res.json()

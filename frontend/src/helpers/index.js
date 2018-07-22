@@ -31,7 +31,7 @@ export function deleteAPICall(model, pk, title, token) {
 
 export function updateAPICall(model, pk, data, token, updateInURL) {
 	var url = "/api/" + model + "/" + pk + "/"
-	const csrftoken = getCookie('csrftoken')
+	//const csrftoken = getCookie('csrftoken')
 
 	if (updateInURL) {
 		url = "/api/update/" + model + "/" + pk + "/"
@@ -43,7 +43,7 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 		headers: {
 			Authorization: "Token " + token,
 			"Content-Type":"application/json",
-			'X-CSRFToken': csrftoken
+			//'X-CSRFToken': csrftoken
 		},
 		body:JSON.stringify(data)
 	})
