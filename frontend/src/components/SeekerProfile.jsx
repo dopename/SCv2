@@ -88,7 +88,7 @@ class SeekerProfile extends Component {
 					</div>
 					<div className="col-9">
 						<h1 className="text-center">{this.state.view === "main" ? "Your feed" : "Your favories"}</h1>
-						<div className="container" style={{overflowY:"auto"}}>
+						<div className="container h-100" style={{overflowY:"auto"}}>
 							{this.state.view === "main" ? (
 								<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
 								):(
