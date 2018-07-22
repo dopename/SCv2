@@ -3,7 +3,8 @@ import {connect} from "react-redux";
 
 import {seeker_account, discovery, solution_tiles} from "../actions/index";
 import SeekerSettings from "./SeekerSettings";
-import { Button } from "reactstrap";
+import { Button, ButtonGroup } from "reactstrap";
+import DumbTiles from "./dumb-components/DumbTiles"
 
 class SeekerProfile extends Component {
 	constructor(props) {
@@ -11,6 +12,7 @@ class SeekerProfile extends Component {
 
 		this.state = {
 			settingsOpen: false,
+			view: 'main',
 		}
 
 		this.toggleSettings = this.toggleSettings.bind(this);
@@ -49,7 +51,7 @@ class SeekerProfile extends Component {
 			this.props.solutions.map(solution => {
 				let sAdded = false;
 				if (this.props.seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
-						bookmarks.push(<li>{solution.name}</li>)
+						bookmarks.push(solution)
 				}
 				if (this.props.seeker.categories.length > 0) {
 					if (this.props.seeker.categories.map(e => e.pk).some(r => solution.category.includes(r))) {
@@ -72,33 +74,21 @@ class SeekerProfile extends Component {
 		return (
 			<div>
 				<div className="row">
-					<div className="col-4 text-center">
-						<h1>Booksmarks..</h1>
-						<ul>
-							{ bookmarks }
-						</ul>
+					<div className="col-3 text-center">
+						<ButtonGroup vertical>
+							<Button outline className="btn-block mb-1" onclick={() => this.changeView("main")} color="secondary" active={this.state.view === "main" ? true : false}>Main</Button>
+							<Button outline className="btn-block mb-1" onclick={() => this.changeView("favories")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories</Button>
+							<Button outline className="btn-block" color="secondary" onClick={() => this.toggleSettings()}>Settings</Button>
+						</ButtonGroup>
 					</div>
-					<div className="col-4 text-center">
-						<h1>Category Feed</h1>
-						<ul>
-							{ categoryFeed }
-						</ul>
-					</div>	
-					<div className="col-4 text-center">
-						<h1>Identity Feed</h1>
-						<ul>
-							{ identityFeed }
-						</ul>
-					</div>	
-				</div>
-				<div className="col-12 text-center">
-					<h1>The aggregate feed will be..</h1>
-					<ul>
-						{ allFeed }
-					</ul>
-				</div>
-				<div className="col-12 text-center">
-					<Button size="lg" color="secondary" onClick={() => this.toggleSettings()}>Open Settings</Button>
+					<div className="col-9">
+					{this.state.view === "main" ? (
+						<DumbTiles solutions={allFeed} size="md" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
+						):(
+						<DumbTiles solutions={bookmarks} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
+						)
+					}
+					</div>
 				</div>
 				{this.props.isLoaded ? (<SeekerSettings 
 					industries={this.props.industries} 

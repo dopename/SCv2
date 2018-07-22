@@ -34,6 +34,8 @@ export default class DumbTiles extends Component {
 		console.log("SOLUTIONS", this.props.solutions)
 		var colSize = 0
 		switch (this.props.size) {
+			case "xl":
+				colSize = 12;
 			case "lg":
 				colSize = 6;
 				break;
