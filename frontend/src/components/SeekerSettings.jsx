@@ -106,7 +106,9 @@ class SeekerSettings extends Component {
 		console.log("PROPS", this.props, "STATE", this.state);
 		return (
 				<Modal size="lg" isOpen={this.props.open} toggle={this.props.toggle}>
-					<h1 className="text-center">What are your interests?</h1>
+					<div className="container">
+						<h1 className="text-left">What are your interests?</h1>
+					</div>
 					<form onSubmit={this.onSubmit}>
 						<div className="container text-center">
 							{rows}
