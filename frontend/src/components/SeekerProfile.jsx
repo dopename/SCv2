@@ -80,7 +80,7 @@ class SeekerProfile extends Component {
 			<div>
 				<div className="row">
 					<div className="col-3 text-center">
-						<ButtonGroup vertical className="w-100">
+						<ButtonGroup vertical className="w-100 mt-1">
 							<Button outline className="btn-block mb-1" onClick={() => this.changeView("main")} color="secondary" active={this.state.view === "main" ? true : false}>Main</Button>
 							<Button outline className="btn-block mb-1" onClick={() => this.changeView("favorites")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories</Button>
 							<Button outline className="btn-block" color="secondary" onClick={() => this.toggleSettings()}>Settings</Button>
