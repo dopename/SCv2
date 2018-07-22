@@ -9,7 +9,7 @@ import SeekerProfile from "./SeekerProfile";
 
 import "./Main.css"
 
-import { Button, Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
+import { Button, Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavLink } from "reactstrap";
 import {main, auth} from "../actions/index"
 import {connect} from "react-redux";
 
@@ -92,10 +92,10 @@ class TopNav extends Component {
 							<Collapse isOpen={!this.state.collapsed} navbar>
 								<Nav className="ml-auto" navbar>
 									<NavItem>
-										<Link className="list-inline-item mx-2" to="/">Home</Link>
+										<NavLink href="/">Home</NavLink>
 									</NavItem>
 									<NavItem>
-										<Link className="list-inline-item mx-2" to="/discovery">Discover</Link>
+										<NavLink href="/discovery">Discover</NavLink>
 									</NavItem>
 										{this.props.isAuthenticated ? (
 											<UncontrolledDropdown nav inNavbar>
@@ -104,7 +104,7 @@ class TopNav extends Component {
 												</DropdownToggle>
 												<DropdownMenu right>
 													<DropdownItem>
-														<Link to="/profile/seeker">Seeker Profile</Link>
+														<NavLink to="/profile/seeker">Seeker Profile</NavLink>
 													</DropdownItem>
 													<DropdownItem>
 														<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
@@ -113,7 +113,7 @@ class TopNav extends Component {
 											</UncontrolledDropdown> )
 											 : (
 											 <NavItem>
-											 	<Link className="list-inline-item mx-2" to="/login">Login</Link>
+											 	<NavLink className="list-inline-item mx-2" to="/login">Login</NavLink>
 											</NavItem>)
 										}
 								</Nav>
