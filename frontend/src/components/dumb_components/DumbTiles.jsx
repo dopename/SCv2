@@ -80,7 +80,7 @@ export default class DumbTiles extends Component {
 
 		    if (((index + 1) % numPerRow === 0) || (index + 1 === this.props.solutions.length)) {
 		        rows.push(
-		          <div class="row" key={"row_"+index}>
+		          <div className="row" key={"row_"+index}>
 		            {cols}
 		          </div>
 		          )
