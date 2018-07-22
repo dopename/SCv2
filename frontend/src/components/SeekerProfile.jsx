@@ -16,6 +16,7 @@ class SeekerProfile extends Component {
 		}
 
 		this.toggleSettings = this.toggleSettings.bind(this);
+		this.changeView = this.changeView.bind(this);
 	}
 
 	componentDidMount() {
@@ -36,6 +37,10 @@ class SeekerProfile extends Component {
 
 	toggleSettings() {
 		this.setState({settingsOpen:!this.state.settingsOpen});
+	}
+
+	changeView(view) {
+		this.setState({view:view});
 	}
 
 	render() {
@@ -75,7 +80,7 @@ class SeekerProfile extends Component {
 			<div>
 				<div className="row">
 					<div className="col-3 text-center">
-						<ButtonGroup vertical>
+						<ButtonGroup vertical className="w-100">
 							<Button outline className="btn-block mb-1" onclick={() => this.changeView("main")} color="secondary" active={this.state.view === "main" ? true : false}>Main</Button>
 							<Button outline className="btn-block mb-1" onclick={() => this.changeView("favories")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories</Button>
 							<Button outline className="btn-block" color="secondary" onClick={() => this.toggleSettings()}>Settings</Button>
