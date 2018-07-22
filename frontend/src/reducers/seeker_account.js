@@ -3,6 +3,7 @@ var initialState = {
 	allSolutions: [],
 	isLoaded: false,
 	isLoading: false,
+	isUpdated: false,
 }
 
 export default function seeker_account(state = initialState, action) {
@@ -17,11 +18,8 @@ export default function seeker_account(state = initialState, action) {
 			}
 		case "LIST_ALL_SOLUTIONS":
 			return {...state, allSolutions: action.allSolutions}
-		// case "SEEKER_UPDATED":
-		// 	var newSeeker = state.seeker
-		// 	newSeeker.tags = action.seekerAccountData.tags
-		// 	newSeeker.categories = action.seekerAccountData.categories
-		// 	return {...state, seeker:newSeeker}
+		case "SEEKER_UPDATED":
+			return {...state, isUpdated:true}
 		default:
 			return state
 	}

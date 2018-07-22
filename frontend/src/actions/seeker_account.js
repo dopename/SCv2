@@ -37,7 +37,9 @@ export const updateSeeker = (pk, seekerData, token) => {
 				}
 			})
 			.then(() => {
-				retrieveSeekerAccount(pk);
+				return dispatch({
+					type: "SEEKER_UPDATED",
+				})
 			})
 	}
 }
