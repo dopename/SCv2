@@ -71,7 +71,7 @@ class TopNav extends Component {
 		super(props)
 
 		this.state = {
-			dropdownOpen: false;
+			dropdownOpen: false,
 		}
 
 		toggleDropdown() {
