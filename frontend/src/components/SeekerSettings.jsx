@@ -108,7 +108,7 @@ class SeekerSettings extends Component {
 				<Modal size="lg" isOpen={this.props.open} toggle={this.props.toggle}>
 					<h1 className="text-center">What are your interests?</h1>
 					<form onSubmit={this.onSubmit}>
-						<div className="col-12 text-center">
+						<div className="col-12 pl-5 text-center">
 							{rows}
 							<input className="btn btn-outline-success btn-lg" type="submit" value="Update" />
 						</div>
