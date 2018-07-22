@@ -88,7 +88,7 @@ class SeekerSettings extends Component {
 
 		this.props.industries.map((i, index) => {
 			cols.push(
-				<div className="col-4">
+				<div className="col-4 text-center">
 					<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.state.unselectedCategories.includes(r)) ? false : true} checkBox={this.checkBox} type="industry" />
 					<DumbSubCheckBox items={i.categories} unselected={this.state.unselectedCategories} checkBox={this.checkBox} />
 				</div>
