@@ -86,7 +86,7 @@ class TopNav extends Component {
 			<div className="container-fluid">
 				<div className="row">
 					<div className="col-12 px-0">
-						<Navbar color="dark" dark expand="lg">
+						<Navbar color="dark" dark expand="lg" fixed="top">
 							<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
 							<NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
 							<Collapse isOpen={!this.state.collapsed} navbar>
