@@ -90,33 +90,34 @@ class TopNav extends Component {
 							<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
 							<NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
 							<Collapse isOpen={!this.state.collapsed} navbar>
-							<Nav className="ml-auto" navbar>
-								<NavItem>
-									<Link className="list-inline-item mx-2" to="/">Home</Link>
-								</NavItem>
-								<NavItem>
-									<Link className="list-inline-item mx-2" to="/discovery">Discover</Link>
-								</NavItem>
-									{this.props.isAuthenticated ? (
-										<UncontrolledDropdown nav inNavbar>
-											<DropdownToggle nav caret>
-												Welcome back, {this.props.username}
-											</DropdownToggle>
-											<DropdownMenu right>
-												<DropdownItem>
-													<Link to="/profile/seeker">Seeker Profile</Link>
-												</DropdownItem>
-												<DropdownItem>
-													<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
-												</DropdownItem>
-											</DropdownMenu>
-										</UncontrolledDropdown> )
-										 : (
-										 <NavItem>
-										 	<Link className="list-inline-item mx-2" to="/login">Login</Link>
-										</NavItem>)
-									}
-							</Nav>
+								<Nav className="ml-auto" navbar>
+									<NavItem>
+										<Link className="list-inline-item mx-2" to="/">Home</Link>
+									</NavItem>
+									<NavItem>
+										<Link className="list-inline-item mx-2" to="/discovery">Discover</Link>
+									</NavItem>
+										{this.props.isAuthenticated ? (
+											<UncontrolledDropdown nav inNavbar>
+												<DropdownToggle nav caret>
+													Welcome back, {this.props.username}
+												</DropdownToggle>
+												<DropdownMenu right>
+													<DropdownItem>
+														<Link to="/profile/seeker">Seeker Profile</Link>
+													</DropdownItem>
+													<DropdownItem>
+														<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
+													</DropdownItem>
+												</DropdownMenu>
+											</UncontrolledDropdown> )
+											 : (
+											 <NavItem>
+											 	<Link className="list-inline-item mx-2" to="/login">Login</Link>
+											</NavItem>)
+										}
+								</Nav>
+							</Collapse>
 						</Navbar>
 					</div>
 				</div>
