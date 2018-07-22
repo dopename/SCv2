@@ -9,7 +9,7 @@ import SeekerProfile from "./SeekerProfile";
 
 import "./Main.css"
 
-import { Button, Nav, Navbar, NavbarBrand, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
+import { Button, Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 import {main, auth} from "../actions/index"
 import {connect} from "react-redux";
 
