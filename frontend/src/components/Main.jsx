@@ -74,7 +74,7 @@ class TopNav extends Component {
 			collapsed: false,
 		}
 
-		this.toggleDropdown = this.toggleDropdown.bind(this);
+		this.toggleNavbar = this.toggleNavbar.bind(this);
 	}
 		
 	toggleNavbar() {
