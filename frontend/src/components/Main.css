@@ -1,6 +1,6 @@
 #home-content1 {
 	background: url("/media/bg-image.jpg")
-	background: url("/media/bg-image.jpg"), linear-gradient(to left, #2b86b5, #01141b);
+	/*background: url("/media/bg-image.jpg"), linear-gradient(to left, #2b86b5, #01141b);*/
 	/*background-size:contain;*/
 	background-repeat:no-repeat;
 	background-position: center;
