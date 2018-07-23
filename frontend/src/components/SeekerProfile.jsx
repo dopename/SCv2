@@ -108,6 +108,7 @@ class SeekerProfile extends Component {
 					onSubmit={this.props.updateSeeker}
 					seeker={this.props.seeker}
 					token={this.props.auth.token}
+					mobile={this.props.mobile}
 					/>) : null }
 			</div>
 		)

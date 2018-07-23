@@ -105,7 +105,7 @@ class SeekerSettings extends Component {
 
 		console.log("PROPS", this.props, "STATE", this.state);
 		return (
-				<Modal size="lg" isOpen={this.props.open} toggle={this.props.toggle}>
+				<Modal size={this.props.mobile.screen_width > 540 ? "lg" : "md"} isOpen={this.props.open} toggle={this.props.toggle}>
 					<div className="container">
 						<h1 className="text-left">What are your interests?</h1>
 					</div>
