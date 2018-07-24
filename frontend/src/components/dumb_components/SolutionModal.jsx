@@ -92,13 +92,13 @@ class SolutionModal extends Component {
 							<div className="row">
 								<div className="col-12">
 									<div className="col-12 text-left">
-										<h5 className="mb-1 modal-text-heading"><i className="far fa-question-circle"></i> Why this exists</h5>
+										<h5 className="mb-1 modal-text-heading"><i className="fa fa-question-circle"></i> Why this exists</h5>
 										<p className="mb-1">{this.props.solution.why}</p>
-										<h5 className="mb-1 modal-text-heading"><i className="fas fa-cogs"></i> How it works</h5>
+										<h5 className="mb-1 modal-text-heading"><i className="fa fa-cogs"></i> How it works</h5>
 										<p className="mb-1">{this.props.solution.how}</p>
-										<h5 className="mb-1 modal-text-heading"><i className="far fa-lightbulb"></i> Opportunity?</h5>
+										<h5 className="mb-1 modal-text-heading"><i className="fa fa-lightbulb"></i> Opportunity?</h5>
 										<p className="mb-1">{this.props.solution.opportunity}</p>
-										<h5 className="mb-1 modal-text-heading"><i className="fas fa-puzzle-piece"></i> Integration</h5>
+										<h5 className="mb-1 modal-text-heading"><i className="fa fa-puzzle-piece"></i> Integration</h5>
 										<p>{this.props.solution.integration}</p>
 									</div>
 								</div>
