@@ -139,7 +139,9 @@ class Initial extends Component {
 						<div className="col-12 custom-h-25">
 							<div className="row">
 								<div className="col-8">
-									<h1 className="text-left text-white ml-3">Solution Connect simplifies technology so you can focus on what matters most you you.</h1>
+									<div className="col-10 m-auto">
+										<h1 className="text-left text-white ml-3">Solution Connect simplifies technology so you can focus on what matters most you you.</h1>
+									</div>
 								</div>
 								<div className="col-4">
 									<div className='col-6 m-auto custom-h-100'>
