@@ -61,10 +61,10 @@ class SolutionModal extends Component {
 						<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
 						<div className="container-fluid px-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
 							<div className="row">
-								<div className="col-2">
-									<img src={this.props.solution.provider_logo} alt={this.props.solution.provider_name + " logo"} style={{width:"100%", height:"auto"}} />
+								<div className="col-1 pr-0">
+									<img src={"media" + this.props.solution.provider_logo} alt={this.props.solution.provider_name + " logo"} style={{width:"100%", height:"auto"}} />
 								</div>
-								<div className="col-6">
+								<div className="col-7">
 									<div className="col-12">
 										<h2 className="modal-text-heading">{this.props.solution.name}</h2>
 										<p>{this.props.solution.provider_name}</p>
