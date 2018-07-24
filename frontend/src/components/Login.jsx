@@ -36,17 +36,17 @@ class Login extends Component {
           <p>
             <label htmlFor="username">Username</label>
             <input
-              type="text" id="username"
+              type="text" id="username" className="form-control"
               onChange={e => this.setState({username: e.target.value})} />
           </p>
           <p>
             <label htmlFor="password">Password</label>
             <input
-              type="password" id="password"
+              type="password" id="password" className="form-control"
               onChange={e => this.setState({password: e.target.value})} />
           </p>
           <p>
-            <button type="submit">Login</button>
+            <button type="submit" className="btn btn-danger">Login</button>
           </p>
 
           <p>
