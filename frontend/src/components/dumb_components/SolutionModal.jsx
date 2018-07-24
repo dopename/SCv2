@@ -62,7 +62,7 @@ class SolutionModal extends Component {
 						<div className="container-fluid px-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
 							<div className="row">
 								<div className="col-1 pr-0">
-									<img src={"media" + this.props.solution.provider_logo} alt={this.props.solution.provider_name + " logo"} style={{width:"100%", height:"auto"}} />
+									<img src={this.props.solution.provider_logo} alt={this.props.solution.provider_name + " logo"} style={{width:"100%", height:"auto"}} />
 								</div>
 								<div className="col-7">
 									<div className="col-12">
