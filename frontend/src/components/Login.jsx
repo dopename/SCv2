@@ -23,7 +23,7 @@ class Login extends Component {
     }
     return (
       <form onSubmit={this.onSubmit}>
-        <div className="text-center col-6 m-auto">
+        <div className="text-center col-4 m-auto">
         <fieldset>
           <legend>Login</legend>
           {this.props.errors.length > 0 && (
