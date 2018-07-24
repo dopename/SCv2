@@ -63,7 +63,7 @@ class SolutionModal extends Component {
 							<div className="row">
 								<div className="col-6">
 									<div className="col-12">
-										<h2>{this.props.solution.name}</h2>
+										<h2 className="modal-text-heading">{this.props.solution.name}</h2>
 										<p>{this.props.solution.provider_name}</p>
 										<p className="mb-0"><small>Who it's for</small></p>
 										<Tags tags={this.props.solution.tags} />
@@ -74,7 +74,7 @@ class SolutionModal extends Component {
 										<div className="float-right text-left">
 											<p className="ml-2 mb-1"><i className={this.props.solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {this.props.solution.status}: {this.props.solution.status_date}</p>
 											{this.props.env === "discovery" ? (
-												<Button color="success" size="lg"><Link className="text-white" to={`/provider/${this.props.solution.provider}`}>Connect with Solution Provider</Link></Button>
+												<Button color="success" size="lg"><Link className="text-white" to={`/provider/${this.props.solution.provider}`}>Go to Solution Provider</Link></Button>
 												) : null}
 										</div>
 									</div>
@@ -92,13 +92,13 @@ class SolutionModal extends Component {
 							<div className="row">
 								<div className="col-12">
 									<div className="col-12 text-left">
-										<h5 className="mb-1">Why this solution exists</h5>
+										<h5 className="mb-1 modal-text-heading"><i className="far fa-question-circle"></i> Why this exists</h5>
 										<p className="mb-1">{this.props.solution.why}</p>
-										<h5 className="mb-1">How it works</h5>
+										<h5 className="mb-1 modal-text-heading"><i className="fas fa-cogs"></i> How it works</h5>
 										<p className="mb-1">{this.props.solution.how}</p>
-										<h5 className="mb-1">What's the opportunity?</h5>
+										<h5 className="mb-1 modal-text-heading"><i className="far fa-lightbulb"></i> Opportunity?</h5>
 										<p className="mb-1">{this.props.solution.opportunity}</p>
-										<h5 className="mb-1">How do you integrate?</h5>
+										<h5 className="mb-1 modal-text-heading"><i className="fas fa-puzzle-piece"></i> Integration</h5>
 										<p>{this.props.solution.integration}</p>
 									</div>
 								</div>
