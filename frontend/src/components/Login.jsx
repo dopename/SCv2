@@ -46,7 +46,7 @@ class Login extends Component {
               onChange={e => this.setState({password: e.target.value})} />
           </p>
           <p>
-            <button type="submit" className="btn btn-danger">Login</button>
+            <button type="submit" className="btn btn-success">Login</button>
           </p>
 
           <p>
