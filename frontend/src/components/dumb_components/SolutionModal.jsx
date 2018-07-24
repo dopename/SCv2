@@ -59,7 +59,7 @@ class SolutionModal extends Component {
 				<div>
 					<Modal size="lg" isOpen={this.state.modal} toggle={this.props.toggle}>
 						<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
-						<div className="container-fluid px-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
+						<div className="container-fluid px-3 mt-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
 							<div className="row">
 								<div className="col-1 pr-0">
 									<img src={this.props.solution.provider_logo} alt={this.props.solution.provider_name + " logo"} style={{width:"100%", height:"auto"}} />
