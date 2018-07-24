@@ -61,6 +61,9 @@ class SolutionModal extends Component {
 						<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
 						<div className="container-fluid px-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
 							<div className="row">
+								<div className="col-2">
+									<img src={this.props.solution.provider_logo} alt={this.props.solution.provider_name + " logo"} style={{width:"100%", height:"auto"}} />
+								</div>
 								<div className="col-6">
 									<div className="col-12">
 										<h2 className="modal-text-heading">{this.props.solution.name}</h2>
@@ -69,7 +72,7 @@ class SolutionModal extends Component {
 										<Tags tags={this.props.solution.tags} />
 									</div>
 								</div>
-								<div className="col-6">
+								<div className="col-4">
 									<div className="col-12 text-right">
 										<div className="float-right text-left">
 											<p className="ml-2 mb-1"><i className={this.props.solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {this.props.solution.status}: {this.props.solution.status_date}</p>
@@ -93,13 +96,13 @@ class SolutionModal extends Component {
 								<div className="col-12">
 									<div className="col-12 text-left">
 										<h5 className="mb-1 modal-text-heading"><i className="fa fa-question-circle"></i> Why this exists</h5>
-										<p className="mb-1 pl-2">{this.props.solution.why}</p>
+										<p className="mb-1 pl-3">{this.props.solution.why}</p>
 										<h5 className="mb-1 modal-text-heading"><i className="fa fa-cogs"></i> How it works</h5>
-										<p className="mb-1 pl-2">{this.props.solution.how}</p>
+										<p className="mb-1 pl-3">{this.props.solution.how}</p>
 										<h5 className="mb-1 modal-text-heading"><i className="fa fa-lightbulb-o"></i> Opportunity</h5>
-										<p className="mb-1 pl-2">{this.props.solution.opportunity}</p>
+										<p className="mb-1 pl-3">{this.props.solution.opportunity}</p>
 										<h5 className="mb-1 modal-text-heading"><i className="fa fa-puzzle-piece"></i> Integration</h5>
-										<p className="pl-2">{this.props.solution.integration}</p>
+										<p className="pl-3">{this.props.solution.integration}</p>
 									</div>
 								</div>
 							</div>
