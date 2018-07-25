@@ -107,25 +107,25 @@ export default class Tags extends Component {
 		return (
 			<div class="container-fluid">
 				<div className="row">
-					<div className="col-1 px-0 text-center">
-						{this.state.arrows === true ? (
+					{this.state.arrows === true ? (
+						<div className="col-1 px-0 text-center">
 							<h2 className="p-0 m-0">
 								<span class="fa fa-angle-left h-100 pointer-hand" onClick={(e) => { this.scrollRight(e)} }></span>
 							</h2>
-							) : null }
-					</div>
-					<div className="col-10">
+						</div>
+					) : null }
+					<div className={this.state.arrows === true ? "col-10" : "col-12"}>
 						<div class="row overflowX flex-nowrap horizontal-scroll py-1 px-0" id={this.state.tagContainer}>
 							{cols}
 						</div>
 					</div>
-					<div className="col-1 px-0 text-center">
-						{this.state.arrows === true ? (
+					{this.state.arrows === true ? (
+						<div className="col-1 px-0 text-center">
 							<h2 className="p-0 m-0">
 								<span class="fa fa-angle-right p-auto pointer-hand h-100" onClick={(e) => { this.scrollLeft(e)} }></span>
 							</h2>
-							) : null }
-					</div>
+						</div>
+					) : null }
 				</div>
 			</div>
 		)
