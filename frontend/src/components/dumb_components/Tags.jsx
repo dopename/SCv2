@@ -66,7 +66,7 @@ export default class Tags extends Component {
 				this.setState({arrows:true});
 			}
 
-			console.log(totalWidth, element.style.width);
+			console.log(totalWidth, element.width);
 		}
 	}
 
