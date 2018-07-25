@@ -55,20 +55,18 @@ export default class Tags extends Component {
 	testArrows() {
 		const element = document.getElementById(this.state.tagContainer);
 		var totalWidth = 0;
-		console.log(element);
 		let childArray =  [...element.childNodes]
-		console.log(childArray);
-
-		console.log(childArray.map(e => e.childNodes[0]));
 
 		if (childArray.length > 0) {
 			childArray.map(e => {
 				totalWidth += e.childNodes[0].style.width;
 			})
 
-			if (totalWidth > element.width) {
+			if (totalWidth > element.style.width) {
 				this.setState({arrows:true});
 			}
+
+			console.log(totalWidth, element.style.width);
 		}
 	}
 
