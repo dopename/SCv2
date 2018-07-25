@@ -61,19 +61,19 @@ class SolutionModal extends Component {
 						<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
 						<div className="container-fluid px-3 mt-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
 							<div className="row">
-								<div className="col-1 pr-0">
+								<div className="col-lg-1 pr-0">
 									<img src={this.props.solution.provider_logo} alt={this.props.solution.provider_name + " logo"} style={{width:"100%", height:"auto"}} />
 								</div>
-								<div className="col-7">
-									<div className="col-12">
+								<div className="col-lg-7">
+									<div className="col-lg-12">
 										<h2 className="modal-text-heading">{this.props.solution.name}</h2>
 										<p>{this.props.solution.provider_name}</p>
 										<p className="mb-0"><small>Who it's for</small></p>
 										<Tags tags={this.props.solution.tags} />
 									</div>
 								</div>
-								<div className="col-4">
-									<div className="col-12 text-right">
+								<div className="col-lg-4">
+									<div className="col-lg-12 text-right">
 										<div className="float-right text-left">
 											<p className="ml-2 mb-1"><i className={this.props.solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {this.props.solution.status}: {this.props.solution.status_date}</p>
 											{this.props.env === "discovery" ? (
@@ -87,14 +87,14 @@ class SolutionModal extends Component {
 						<hr className="my-2" />
 						<div className="container-fluid px-3 pb-2">
 							<div className="row">
-								<div className="col-12 text-center">
+								<div className="col-lg-12 text-center">
 									<h4 className="mb-2">{this.props.solution.what}</h4>
 									<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:max_height}}/>
 								</div>
 							</div>
 							<div className="row">
-								<div className="col-12">
-									<div className="col-12 text-left">
+								<div className="col-lg-12">
+									<div className="col-lg-12 text-left">
 										<h5 className="mb-1 modal-text-heading"><i className="fa fa-question-circle"></i> Why this exists</h5>
 										<p className="mb-2 pl-3">{this.props.solution.why}</p>
 										<h5 className="mb-1 modal-text-heading"><i className="fa fa-cogs"></i> How it works</h5>
