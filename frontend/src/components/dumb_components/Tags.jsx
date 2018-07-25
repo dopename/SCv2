@@ -23,6 +23,7 @@ export default class Tags extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
+		console.log(this.state)
 		if ((this.state.tagContainer !== null) && (this.state.arrows !== null)) {
 			this.testArrows();
 		}
@@ -53,6 +54,7 @@ export default class Tags extends Component {
 	}
 
 	testArrows() {
+		console.log("test arrows");
 		const element = document.getElementById(this.state.tagContainer);
 		var totalWidth = 0;
 		let childArray =  [...element.childNodes]
