@@ -108,7 +108,7 @@ export default class Tags extends Component {
 			<div class="container-fluid">
 				<div className="row">
 					{this.state.arrows === true ? (
-						<div className="col-1 px-0 text-center">
+						<div className="col-1 px-0 text-center mb-2">
 							<h2 className="p-0 m-0">
 								<span class="fa fa-angle-left h-100 pointer-hand" onClick={(e) => { this.scrollRight(e)} }></span>
 							</h2>
@@ -120,7 +120,7 @@ export default class Tags extends Component {
 						</div>
 					</div>
 					{this.state.arrows === true ? (
-						<div className="col-1 px-0 text-center">
+						<div className="col-1 px-0 text-center mb-2">
 							<h2 className="p-0 m-0">
 								<span class="fa fa-angle-right p-auto pointer-hand h-100" onClick={(e) => { this.scrollLeft(e)} }></span>
 							</h2>
