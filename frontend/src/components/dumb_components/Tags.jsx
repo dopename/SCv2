@@ -18,7 +18,7 @@ export default class Tags extends Component {
 		this.testArrows = this.testArrows.bind(this);
 	}
 
-	componentDidMount() {
+	componentDidMount(prevProps) {
 		this.setState({tagContainer:this.randomString()});
 	}
 
@@ -56,12 +56,14 @@ export default class Tags extends Component {
 		const element = document.getElementById(this.tagContainer);
 		var totalWidth = 0;
 
-		element.map(e => {
-			totalWidth += e.width;
-		})
+		if (element.childNodes.length > 0) {
+			element.childNodes.map(e => {
+				totalWidth += e.width;
+			})
 
-		if (totalWidth > element.width) {
-			this.setState({arrows:true});
+			if (totalWidth > element.width) {
+				this.setState({arrows:true});
+			}
 		}
 	}
 
