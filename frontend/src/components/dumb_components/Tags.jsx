@@ -59,10 +59,10 @@ export default class Tags extends Component {
 
 		if (childArray.length > 0) {
 			childArray.map(e => {
-				totalWidth += e.style.width();
+				totalWidth += e.width;
 			})
 
-			if (totalWidth > element.style.width) {
+			if (totalWidth > element.width) {
 				this.setState({arrows:true});
 			}
 
