@@ -54,10 +54,9 @@ class SolutionModal extends Component {
 	render() {
 		var max_height = (this.props.screen_height * 0.25).toString() + "px";
 
-		if (!this.state.isMobile) {
 			return (
 				<div>
-					<Modal size="lg" isOpen={this.state.modal} toggle={this.props.toggle}>
+					<Modal size={this.state.isMobile === true ? "md" : "lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
 						<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
 						<div className="container-fluid px-3 mt-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
 							<div className="row">
@@ -110,12 +109,6 @@ class SolutionModal extends Component {
 					</Modal>
 				</div>
 			)
-		}
-		else {
-			return (
-				null
-			)
-		}
 	}
 }
 
