@@ -65,7 +65,7 @@ class SolutionModal extends Component {
 								<div className="col-lg-7">
 									<div className="col-lg-12">
 										<h2 className="modal-text-heading">{this.props.solution.name}</h2>
-										<p>{this.props.solution.provider_name}</p>
+										<h5>{this.props.solution.provider_name}</h5>
 										<p className="mb-0"><small>Who it's for</small></p>
 										<Tags tags={this.props.solution.tags} />
 									</div>
