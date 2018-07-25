@@ -59,6 +59,8 @@ export default class Tags extends Component {
 		let childArray =  [...element.childNodes]
 		console.log(childArray);
 
+		console.log(childArray.map(e => e.childNodes[0]));
+
 		if (element.childArray.length > 0) {
 			element.childArray.map(e => {
 				totalWidth += e.width;
