@@ -53,7 +53,7 @@ export default class Tags extends Component {
 	}
 
 	testArrows() {
-		const element = document.getElementById(this.tagContainer);
+		const element = document.getElementById(this.state.tagContainer);
 		var totalWidth = 0;
 
 		if (element.childNodes.length > 0) {
