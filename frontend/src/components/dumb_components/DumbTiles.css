@@ -9,6 +9,7 @@
 	border-radius:10%;
 	border:solid black 1.5px;
 	box-shadow: 3px 4px #c0c0c0;
+	box-sizing:border-box;
 }
 
 .solution-main-image:hover {
