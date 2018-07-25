@@ -20,6 +20,9 @@ export default class Tags extends Component {
 
 	componentDidMount() {
 		this.setState({tagContainer:this.randomString()});
+	}
+
+	componentDidUpdate() {
 		if (this.state.tagContainer !== null) {
 			this.testArrows();
 		}
