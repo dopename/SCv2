@@ -76,11 +76,25 @@ export default class Tags extends Component {
 	render() {
 		var cols = [];
 
-		this.props.tags.map((t) => {
-			//var t = tag[0]
+		let tagLength = this.props.tags.length;
+
+		this.props.tags.map((t, index) => {
+			let side = 'left';
+
+			let matches = [0, 1, tagLength - 1]
+
+			if (tagLength <= 1) {
+				side = "both"
+			}
+			else if (matches.includes(index)) {
+				side = "right"
+			}
+
 			if (!t.type) { 
 				cols.push(
-					<div className={"list-group-item p-1"} key={"tag_"+t.pk}>
+					<div 
+					className={"p-1 border-dark border-" + (side === "left" ? "left" : "right") + (side === "both" ? " border-left")} 
+					key={"tag_"+t.pk}>
 						<p className="mb-0">
 							{t.name}
 						</p>
