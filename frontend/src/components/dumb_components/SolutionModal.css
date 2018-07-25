@@ -9,3 +9,7 @@
 .modal-content {
 	padding:1.5%;
 }
+
+.modal-content .horizontal-scroll {
+	margin-left: -5%;
+}
