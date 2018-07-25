@@ -80,19 +80,15 @@ export default class Tags extends Component {
 
 		this.props.tags.map((t, index) => {
 			let side = 'left';
+			let matches = []
 
-			let matches = [0, 1, tagLength - 1]
-
-			if (tagLength <= 1) {
-				side = "both"
-			}
-			else if (matches.includes(index)) {
-				side = "right"
+			if (index === 0) {
+				side = "left";
 			}
 
 			if (!t.type) { 
 				cols.push(
-					<div className={"p-1 border-dark border-" + ((side === "left") ? "left" : (side === "right") ? "right" : "right border-left")} key={"tag_"+t.pk}>
+					<div className={"p-1 border-dark border-right" + ((side === "left") ? " border-left" : null)} key={"tag_"+t.pk}>
 						<p className="mb-0">
 							{t.name}
 						</p>
