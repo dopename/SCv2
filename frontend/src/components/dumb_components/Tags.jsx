@@ -22,8 +22,8 @@ export default class Tags extends Component {
 		this.setState({tagContainer:this.randomString()});
 	}
 
-	componentDidUpdate() {
-		if (this.state.tagContainer !== null) {
+	componentDidUpdate(prevProps, prevState) {
+		if ((this.state.tagContainer !== null) && (this.prevState !== this.state)) {
 			this.testArrows();
 		}
 	}
