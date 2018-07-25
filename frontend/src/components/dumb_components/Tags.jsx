@@ -9,7 +9,6 @@ export default class Tags extends Component {
 
 		this.state = {
 			tagContainer: null,
-			parentContainer: React.createRef();
 		}
 
 		this.scrollLeft = this.scrollLeft.bind(this);
