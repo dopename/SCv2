@@ -9,7 +9,7 @@ export default class Tags extends Component {
 
 		this.state = {
 			tagContainer: null,
-			arrows:false,
+			arrows:null,
 		}
 
 		this.scrollLeft = this.scrollLeft.bind(this);
@@ -23,7 +23,7 @@ export default class Tags extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if ((this.state.tagContainer !== null) && (prevState !== this.state)) {
+		if ((this.state.tagContainer !== null) && (this.state.arrows !== null)) {
 			this.testArrows();
 		}
 	}
@@ -64,6 +64,9 @@ export default class Tags extends Component {
 
 			if (totalWidth > element.offsetWidth) {
 				this.setState({arrows:true});
+			}
+			else {
+				this.setState({arrows:false});
 			}
 
 			console.log(totalWidth, element.offsetWidth);
