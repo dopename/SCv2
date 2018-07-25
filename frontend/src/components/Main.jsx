@@ -17,7 +17,9 @@ class Main extends Component {
 
 	componentDidMount() {
 		this.props.getScreenData(window.screen.width, window.screen.height);
-		this.props.loadUser();
+		if (this.props.auth.isAuthenticated) {
+			this.props.loadUser();
+		}
 	}
 
 	render() {

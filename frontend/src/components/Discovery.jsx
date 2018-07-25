@@ -17,8 +17,8 @@ class Discovery extends Component {
 
 		return (
 			<div className="container-fluid h-100">
-				<div className="row h-100">
-					<div className="col-lg-3 text-center discovery-sidebar">
+				<div className="row h-100 mt-2">
+					<div className="col-lg-3 text-center discovery-sidebar border border-info">
 						<h3><i className="fa fa-search"></i> Refine Results</h3>
 						<input className="form-control mb-2" type="text" placeholder="What would you like to find?" />
 						<div className="text-left discovery-area">
