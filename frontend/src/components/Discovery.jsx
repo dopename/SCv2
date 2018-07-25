@@ -5,6 +5,7 @@ import {discovery} from "../actions/index"
 //import SolutionTiles from "./SolutionTiles"
 import DiscoveryTiles from "./DiscoveryTiles"
 import "./Discovery.css"
+import { DumbCheckBox, DumbSubCheckBox } from "./dumb_components/DumbCheckBox";
 
 class Discovery extends Component {
 
@@ -28,8 +29,8 @@ class Discovery extends Component {
 							<div className="discovery-body p-1">
 								{this.props.discovery.industries.map(i => (
 									<div>
-										<CheckBoxItem item={i} checked={i.categories.map(c => c.pk).some(r => this.props.discovery.unselectedCategories.includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
-										<SubCheckBoxItems items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
+										<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.props.discovery.unselectedCategories.includes(r)) ? false : true} checkBox={this.props.checkBox} type="industry" />
+										<DumbSubCheckBox items={i.categories} unselected={this.props.discovery.unselectedCategories} checkBox={this.props.checkBox} />
 									</div>
 								))}
 							</div>
