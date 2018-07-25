@@ -97,7 +97,7 @@ export default class Tags extends Component {
 		})
 
 		return (
-			<div class={"container-fluid" + this.state.arrows === true ? " px-1" : ""}>
+			<div class="container-fluid">
 				<div className="row">
 					<div className="col-1 px-0 text-center">
 						{this.state.arrows === true ? (
