@@ -12,5 +12,7 @@
 }
 
 .solution-main-image:hover {
-	background-color:#d6d6d6;
+	background-color:#696969;
+	border-top-right-radius: 10%;
+	border-top-left-radius: 10%;
 }
