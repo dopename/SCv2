@@ -9,15 +9,20 @@ export default class Tags extends Component {
 
 		this.state = {
 			tagContainer: null,
+			arrows:false,
 		}
 
 		this.scrollLeft = this.scrollLeft.bind(this);
 		this.scrollRight = this.scrollRight.bind(this);
 		this.randomString = this.randomString.bind(this);
+		this.testArrows = this.testArrows.bind(this);
 	}
 
 	componentDidMount() {
 		this.setState({tagContainer:this.randomString()});
+		if (this.state.tagContainer !== null) {
+			this.testArrows();
+		}
 	}
 
 	randomString() {
@@ -42,6 +47,19 @@ export default class Tags extends Component {
 		$(slider).animate({
 			scrollLeft: '+=156px'
 		});
+	}
+
+	testArrows() {
+		const element = document.getElementById(this.tagContainer);
+		var totalWidth = 0;
+
+		element.map(e => {
+			totalWidth += e.width;
+		})
+
+		if (totalWidth > element.width) {
+			this.setState({arrows:true});
+		}
 	}
 
 	render() {
@@ -71,9 +89,11 @@ export default class Tags extends Component {
 			<div class="container-fluid">
 				<div className="row">
 					<div className="col-1 px-0 text-center">
-						<h2 className="p-0 m-0">
-							<span class="fa fa-angle-left h-100 pointer-hand" onClick={(e) => { this.scrollRight(e)} }></span>
-						</h2>
+						{this.state.arrows ? (
+							<h2 className="p-0 m-0">
+								<span class="fa fa-angle-left h-100 pointer-hand" onClick={(e) => { this.scrollRight(e)} }></span>
+							</h2>
+							) : null }
 					</div>
 					<div className="col-10">
 						<div class="row overflowX flex-nowrap horizontal-scroll py-1 px-0" id={this.state.tagContainer}>
@@ -81,9 +101,11 @@ export default class Tags extends Component {
 						</div>
 					</div>
 					<div className="col-1 px-0 text-center">
-						<h2 className="p-0 m-0">
-							<span class="fa fa-angle-right p-auto pointer-hand h-100" onClick={(e) => { this.scrollLeft(e)} }></span>
-						</h2>
+						{this.state.arrows ? (
+							<h2 className="p-0 m-0">
+								<span class="fa fa-angle-right p-auto pointer-hand h-100" onClick={(e) => { this.scrollLeft(e)} }></span>
+							</h2>
+							) : null }
 					</div>
 				</div>
 			</div>
