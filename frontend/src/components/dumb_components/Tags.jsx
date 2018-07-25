@@ -97,7 +97,7 @@ export default class Tags extends Component {
 			}
 			else {
 				cols.push(
-					<div className={"list-group-item p-1"} key={"tag_"+t.type + t.pk}>
+					<div className={"p-1 border-dark border-right" + ((side === "left") ? " border-left" : "")} key={"tag_"+t.type + t.pk}>
 						<p className="mb-0">{t.type === "industry" ? <span class="badge badge-warning">&#9733;</span> : <span class="badge badge-secondary">C</span> } {t.name}</p>
 					</div>
 					)
