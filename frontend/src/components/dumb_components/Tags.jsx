@@ -23,7 +23,7 @@ export default class Tags extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if ((this.state.tagContainer !== null) && (this.prevState !== this.state)) {
+		if ((this.state.tagContainer !== null) && (prevState !== this.state)) {
 			this.testArrows();
 		}
 	}
