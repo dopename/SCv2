@@ -93,7 +93,7 @@ export default class Tags extends Component {
 			if (!t.type) { 
 				cols.push(
 					<div 
-					className={"p-1 border-dark border-" + (side === "left" ? "left" : "right") + (side === "both" ? " border-left")} 
+					className={"p-1 border-dark border-" + (side === "left" ? "left" : side === "right" ? "right" : side === "both" ? "right border-left")} 
 					key={"tag_"+t.pk}>
 						<p className="mb-0">
 							{t.name}
