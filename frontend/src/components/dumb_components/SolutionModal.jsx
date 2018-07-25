@@ -55,8 +55,8 @@ class SolutionModal extends Component {
 
 			return (
 				<div>
-					<Modal size={this.props.isMobile === true ? "md" : "lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
-						<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" onClick={() => {  this.props.toggle() }}></i><i className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
+					<Modal style={{overflowY:"auto"}} size={this.props.isMobile === true ? "md" : "lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
+						<h4 className="mb-2"><i className="fa fa-window-close mx-1 float-right pointer-hand" title="Close" onClick={() => {  this.props.toggle() }}></i><i title="Bookmark" className="fa fa-bookmark mx-1 float-right pointer-hand"></i><i title="Share" className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i></h4>
 						<div className="container-fluid px-3 mt-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
 							<div className="row">
 								<div className="col-lg-1 pr-0">
@@ -75,7 +75,7 @@ class SolutionModal extends Component {
 										<div className="float-right text-left">
 											<p className="ml-2 mb-1"><i className={this.props.solution.status === "Available since" ? "text-success fa fa-check-circle-o" : "text-warning fa fa-clock-o"}></i> {this.props.solution.status}: {this.props.solution.status_date}</p>
 											{this.props.env === "discovery" ? (
-												<Button color="success" size="lg"><Link className="text-white" to={`/provider/${this.props.solution.provider}`}>Go to Solution Provider</Link></Button>
+												<Button color="success" className="border-dark border" size="lg"><Link className="text-white" to={`/provider/${this.props.solution.provider}`}>Go to Solution Provider</Link></Button>
 												) : null}
 										</div>
 									</div>
