@@ -89,7 +89,6 @@ export default class Tags extends Component {
 			else if (matches.includes(index)) {
 				side = "right"
 			}
-		)}
 
 			if (!t.type) { 
 				cols.push(
