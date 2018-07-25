@@ -59,6 +59,7 @@ export default class Tags extends Component {
 
 		if (childArray.length > 0) {
 			childArray.map(e => {
+				console.log(e.childNodes[0]);
 				totalWidth += e.childNodes[0].style.width;
 			})
 
