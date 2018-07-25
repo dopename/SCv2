@@ -79,7 +79,7 @@ export default class Tags extends Component {
 		let tagLength = this.props.tags.length;
 
 		this.props.tags.map((t, index) => {
-			let side = 'left';
+			let side = 'right';
 			let matches = []
 
 			if (index === 0) {
