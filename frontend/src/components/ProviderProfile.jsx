@@ -41,6 +41,7 @@ class ProviderProfile extends Component {
 							</div>
 						</div>
 						<div className="col-8">
+							<h1 className="text-center">Solution Information</h1>
 							<table className="table">
 								<tr>
 									<th>Name</th>
