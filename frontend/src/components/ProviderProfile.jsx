@@ -2,8 +2,16 @@ import React, { Component } from "react";
 import {connect} from "react-redux";
 
 import {auth, main, discovery, provider_account} from "../actions/index";
+import SolutionForm from "./dumb_components/SolutionForm";
 
 class ProviderProfile extends Component {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			formToggled: false,
+		}
+	}
 
 	componentDidMount() {
 		this.props.listIndustries();
@@ -24,7 +32,23 @@ class ProviderProfile extends Component {
 		}
 	}
 
+	toggleForm() {
+		this.setState({formToggled:!this.state.formToggled});
+	}
+
 	render() {
+		var allIndustries = [];
+		var allCategories = [];
+
+		if (this.props.industries) {
+			this.props.industries.map(i => {
+				allIndustries.push({pk:i.pk, name:i.name});
+				i.categories.map(c => {
+					allCategories.push({pk:c.pk, name:c.pk});
+				})
+			})
+		}
+
 		console.log(this.props);
 		if (this.props.isLoaded === true) {
 			return (
@@ -58,11 +82,21 @@ class ProviderProfile extends Component {
 							</table>
 						</div>
 					</div>
+					<Button onClick={this.toggleForm}>Toggle Form</Button>
+					{this.state.formToggled ? (<SolutionForm submit={null} industries={allIndustries} categories={allCategories} />) : null}
 				</div>
 			)
 		}
 		else {
-			return (<div className="loader"></div>)
+			return (
+				<div className="container-fluid">
+					<div className="text-center">
+						<h1>It looks like you haven't signed up for a Provider Account</h1>
+						<h3>Click the button below to request to request an account!</h3>
+						<Button color="success">Request Access</Button>
+					</div>
+				</div>
+			)
 		}
 	}
 }
