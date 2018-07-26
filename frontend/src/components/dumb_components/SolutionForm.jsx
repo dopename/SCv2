@@ -60,7 +60,7 @@ export default class SolutionForm extends Component {
 									<option disabled selected value> -- select an option -- </option>
 									{this.props.categories.map((c) => {
 										if (c.industry.toString() === this.state.industry) {
-											<option key={"category_" + c.pk} value={c.pk}>{c.name}</option>
+											return (<option key={"category_" + c.pk} value={c.pk}>{c.name}</option>)
 										}}
 									)}
 								</select>)
