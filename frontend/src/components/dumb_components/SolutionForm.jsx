@@ -30,27 +30,32 @@ export default class SolutionForm extends Component {
 		this.setState({[e.target.name]:e.target.value});
 	}
 
+	handleSelectChange(e) {
+		console.log(e);
+		this.setState({[e.target.parentNode.name]:e.target.value});
+	}
+
 	//Need to add the file to state
 	fileHandleChange(e) {
 		this.setState({main_image:e.target.files[0]});
 	}
 
 	render() {
-		const industrySelect = 	(<select name="industry" className="form-control" value={this.state.industry} onChange={this.handleChange}>
+		const industrySelect = 	(<select name="industry" className="form-control" value={this.state.industry} onChange={this.handleSelectChange}>
 									<option disabled selected value> -- select an option -- </option>
 									{this.props.industries.map((i) =>
 										<option key={"industry_"+i.pk} value={i.pk}>{i.name}</option>
 									)}
 								</select>)
 
-		const statusSelect = 	(<select name="status" className="form-control" value={this.state.status} onChange={this.handleChange}>
+		const statusSelect = 	(<select name="status" className="form-control" value={this.state.status} onChange={this.handleSelectChange}>
 									<option disabled selected value> -- select an option -- </option>
 									<option value="Emerging soon:" key="SO_1">Emerging soon:</option>
 									<option value="Available since:" key="SO_2">Available since:</option>
 								</select>)
 
 
-		const categorySelect = 	(<select name="category" className="form-control" value={this.state.category} onChange={this.handleChange}>
+		const categorySelect = 	(<select name="category" className="form-control" value={this.state.category} onChange={this.handleSelectChange}>
 									<option disabled selected value> -- select an option -- </option>
 									{this.props.categories.map((c) => {
 										if (c.industry === this.state.industry) {
