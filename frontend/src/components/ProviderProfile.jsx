@@ -33,11 +33,11 @@ class ProviderProfile extends Component {
 						<div className="col-4">
 							<h1 className="text-center">Provider Information</h1>
 							<div className="text-left">
-								<p><strong>Name:</strong> {this.props.provider.name}</p>
-								<p><strong>Tagline</strong> {this.props.provider.tagline}</p>
-								<p><strong>About:</strong> {this.props.provider.about_us}</p>
-								<p><strong>Address:</strong> {this.props.provider.address} {this.props.provider.city}, {this.props.provider.state} {this.props.provider.zipcode}</p>
-								<p><strong>Phone:</strong> {this.props.provider.phone}</p>
+								<p><strong>Name:</strong> {this.props.provider.provider.name}</p>
+								<p><strong>Tagline</strong> {this.props.provider.provider.tagline}</p>
+								<p><strong>About:</strong> {this.props.provider.provider.about_us}</p>
+								<p><strong>Address:</strong> {this.props.provider.provider.address} {this.props.provider.provider.city}, {this.props.provider.provider.state} {this.props.provider.provider.zipcode}</p>
+								<p><strong>Phone:</strong> {this.props.provider.provider.phone}</p>
 							</div>
 						</div>
 						<div className="col-8">
@@ -47,7 +47,7 @@ class ProviderProfile extends Component {
 									<th>Status</th>
 									<th>Views</th>
 								</tr>
-								{this.props.provider.solutions.map(s => (
+								{this.props.provider.provider.solutions.map(s => (
 									<tr>
 										<td>{s.name}</td>
 										<td>{s.status}</td>
