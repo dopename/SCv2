@@ -14,6 +14,14 @@ class ProviderProfile extends Component {
 		}
 	}
 
+	componentDidUpdate() {
+		if (this.props.auth.user != null) {
+			if (this.props.auth.user.custom_user.provider_account > 0) {
+				this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
+			}
+		}
+	}
+
 	render() {
 		console.log(this.props);
 		return (
