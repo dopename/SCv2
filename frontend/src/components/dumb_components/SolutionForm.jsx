@@ -33,7 +33,7 @@ export default class SolutionForm extends Component {
 
 	handleSelectChange(e) {
 		console.log(e.target, this.state);
-		this.setState({[e.target.parentNode.name]:e.target.value});
+		this.setState({[e.target.name]:e.target.value});
 	}
 
 	//Need to add the file to state
