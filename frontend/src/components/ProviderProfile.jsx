@@ -37,7 +37,7 @@ const mapDispatchToProps = dispatch => {
 			dispatch(discovery.listIndustries());
 		},
 		retrieveProviderAccount: (providerAccountPK) => {
-			dispatch(provider_account.providerSeekerAccount(providerAccountPK));
+			dispatch(provider_account.retrieveProviderAccount(providerAccountPK));
 		},
 	}
 }
