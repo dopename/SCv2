@@ -28,6 +28,7 @@ const mapStateToProps = state => {
 		mobile:state.main,
 		auth:state.auth,
 		industries:state.discovery.industries,
+		provider:state.provider_account.provider,
 	}
 }
 
