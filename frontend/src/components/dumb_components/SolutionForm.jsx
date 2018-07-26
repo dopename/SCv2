@@ -4,6 +4,8 @@ export default class SolutionForm extends Component {
 	constructor(props) {
 		super(props)
 		//All of the fields in the solution table (that can be changed)
+		//Props should include: submit() - this is run on form submit, industries - for listing out industries select box
+		//and categories - for listing out categories select box
 		this.state = {
 			category:-1,
 			how:"",
@@ -18,6 +20,9 @@ export default class SolutionForm extends Component {
 			what:"",
 			why:"",
 		}
+
+		this.handleChange = this.handleChange.bind(this);
+		this.fileHandleChange = this.fileHandleChange.bind(this);
 	}
 
 	//Default change handler
@@ -48,7 +53,9 @@ export default class SolutionForm extends Component {
 		const categorySelect = 	(<select name="category" className="form-control" value={this.state.category} onChange={this.handleChange}>
 									<option disabled selected value> -- select an option -- </option>
 									{this.props.categories.map((c) =>
-										<option key={"category_" + c.pk} value={c.pk}>{c.name}</option>
+										if (c.industry === this.state.industry) {
+											<option key={"category_" + c.pk} value={c.pk}>{c.name}</option>
+										}
 									)}
 								</select>)
 

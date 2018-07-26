@@ -47,7 +47,7 @@ class ProviderProfile extends Component {
 			this.props.industries.map(i => {
 				allIndustries.push({pk:i.pk, name:i.name});
 				i.categories.map(c => {
-					allCategories.push({pk:c.pk, name:c.pk});
+					allCategories.push({pk:c.pk, name:c.name, industry:i.pk});
 				})
 			})
 		}
