@@ -16,7 +16,7 @@ class ProviderProfile extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props != prevProps) {
-			if ((this.props.auth.user != null) && (!this.props.isLoaded)) {
+			if ((this.props.auth.user.custom_user.provider_account != null) && (!this.props.isLoaded)) {
 				this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
 			}
 		}
@@ -24,10 +24,43 @@ class ProviderProfile extends Component {
 
 	render() {
 		console.log(this.props);
-		return (
-			<div>
-			</div>
-		)
+		if (this.props.provider !== null) {
+			return (
+				<div>
+					<div className="row">
+						<div className="col-4">
+							<h1 className="text-center">Provider Information</h1>
+							<div className="text-left">
+								<p><strong>Name:</strong> {this.props.provider.name}</p>
+								<p><strong>Tagline</strong> {this.props.provider.tagline}</p>
+								<p><strong>About:</strong> {this.props.provider.about_us}</p>
+								<p><strong>Address:</strong> {this.props.provider.address} {this.props.provider.city}, {this.props.provider.state} {this.props.provider.zipcode}</p>
+								<p><strong>Phone:</strong> {this.props.provider.phone}</p>
+							</div>
+						</div>
+						<div className="col-8">
+							<table className="table">
+								<tr>
+									<th>Name</th>
+									<th>Status</th>
+									<th>Views</th>
+								</tr>
+								{this.props.provider.solutions.map(s => (
+									<tr>
+										<td>{s.name}</td>
+										<td>{s.status}</td>
+										<td>{s.views}</td>
+									</tr>
+								))}
+							</table>
+						</div>
+					</div>
+				</div>
+			)
+		}
+		else {
+			return (<div className="loader"></div>)
+		}
 	}
 }
 
