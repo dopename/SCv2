@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 
 import {auth, main, discovery, provider_account} from "../actions/index";
 import SolutionForm from "./dumb_components/SolutionForm";
+import { Button } from "reactstrap";
 
 class ProviderProfile extends Component {
 	constructor(props) {
