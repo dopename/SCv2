@@ -32,7 +32,7 @@ export default class SolutionForm extends Component {
 	}
 
 	handleSelectChange(e) {
-		console.log(e);
+		console.log(e.target, this.state);
 		this.setState({[e.target.parentNode.name]:e.target.value});
 	}
 
