@@ -23,6 +23,7 @@ export default class SolutionForm extends Component {
 
 		this.handleChange = this.handleChange.bind(this);
 		this.fileHandleChange = this.fileHandleChange.bind(this);
+		this.handleSelectChange = this.handleSelectChange.bind(this);
 	}
 
 	//Default change handler
