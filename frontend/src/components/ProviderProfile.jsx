@@ -14,8 +14,8 @@ class ProviderProfile extends Component {
 		}
 	}
 
-	componentDidUpdate() {
-		if (this.props.auth.user != null) {
+	componentDidUpdate(prevProps) {
+		if ((this.props.auth.user !== null) && (this.props !== prevProps)) {
 			if (this.props.auth.user.custom_user.provider_account > 0) {
 				this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
 			}
