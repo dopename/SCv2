@@ -14,7 +14,8 @@ const scApp = combineReducers({
 	solution_provider,
 	main,
 	auth, 
-	seeker_account
+	seeker_account,
+	provider_account,
 })
 
 export default scApp;
