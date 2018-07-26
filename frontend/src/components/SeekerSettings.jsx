@@ -52,7 +52,6 @@ class SeekerSettings extends Component {
 					}
 				})
 			}
-			console.log("CATEGORIES", categories, "NEW SELECTED", newSelectedCategories, "NEW UNSELECTED", newUnselectedCategories);
 			this.setState({selectedCategories:newSelectedCategories, unselectedCategories:newUnselectedCategories});
 		}
 		else {

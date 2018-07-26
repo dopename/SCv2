@@ -9,6 +9,9 @@ UPLOAD_ROOT = '/home/sc/static/'
 class CustomUser(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="custom_user")
 
+	def __str__(self):
+		return self.user.username
+
 
 class Industry(models.Model):
 	industry_id = models.AutoField(primary_key=True)
@@ -41,11 +44,14 @@ class Media(models.Model):
 	title = models.CharField(max_length=64)
 	description = models.CharField(max_length=128, blank=True, null=True)
 	location = models.ForeignKey(MediaLocation, on_delete=models.CASCADE)
+	solutionmedia = models.ForeignKey(SolutionMedia, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return "{} - {}".format(self.title, self.solutionmedia.solution.name)
 
 
 class SolutionMedia(models.Model):
 	solutionmedia_id = models.AutoField(primary_key=True)
-	pictures = models.ManyToManyField(Media)
 
 	def __str__(self):
 		return str(self.solutionmedia_id)
@@ -118,6 +124,9 @@ class ProviderAccount(models.Model):
 	user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="provider_account")
 	provider = models.ForeignKey(Provider, on_delete=models.CASCADE,  related_name="provider_account")
 
+	def __str__(self):
+		return "{} - {}".format(self.user, self.provider)
+
 
 class Solution(models.Model):
 	solution_id = models.AutoField(primary_key=True)
@@ -150,7 +159,7 @@ class SeekerAccount(models.Model):
 	bookmarks = models.ManyToManyField(Solution, blank=True, null=True)
 
 	def __str__(self):
-		return self.user.user.username
+		return self.user
 
 
 class TeamMember(models.Model):
@@ -162,4 +171,4 @@ class TeamMember(models.Model):
 	image = models.ImageField(upload_to="team_photos", blank=True, null=True)
 
 	def __str__(self):
-		return self.name
+		return "{} - {}".format(self.name, self.provider)
