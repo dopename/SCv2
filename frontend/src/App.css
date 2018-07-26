@@ -49,3 +49,8 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+
+.container .container-md {
+  margin-left:8%;
+  margin-right:8%;
+}

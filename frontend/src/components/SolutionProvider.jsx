@@ -18,7 +18,7 @@ class SolutionProvider extends Component {
 		console.log(this.props);
 
 		return (
-			<div className="container border mt-2">
+			<div className="container-md container border mt-2">
 				<div className="row">
 					<div className="col-lg-2">
 						<img className="responsive-image m-auto" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
