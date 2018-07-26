@@ -12,6 +12,8 @@ class ProviderProfile extends Component {
 		this.state = {
 			formToggled: false,
 		}
+
+		this.toggleForm = this.toggleForm.bind(this);
 	}
 
 	componentDidMount() {
