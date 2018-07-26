@@ -6,6 +6,7 @@ import SolutionProvider from "./SolutionProvider";
 import Login from "./Login";
 import Register from "./Register";
 import SeekerProfile from "./SeekerProfile";
+import ProviderProfile from "./ProviderProfile";
 
 import "./Main.css"
 
@@ -26,7 +27,7 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-						<TopNav logout={this.props.logout} isAuthenticated={this.props.auth.isAuthenticated} username={this.props.auth.isAuthenticated ? this.props.auth.user.username : null} />
+						<TopNav logout={this.props.logout} auth={this.props.auth} username={this.props.auth.isAuthenticated ? this.props.auth.user.username : null} />
 						<Switch>
 							<Route exact path="/" render= { () => <Initial screen_width={this.props.screen_width} screen_height={this.props.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
@@ -34,6 +35,7 @@ class Main extends Component {
 							<Route exact path="/register" component={Register} />
 							<Route path="/provider/:providerPK" component={SolutionProvider} />
 							<Route path="/profile/seeker" component={SeekerProfile} />
+							{this.props.auth.user.custom_user.provider_account ? <Route path="/profile/provider" component={ProviderProfile} /> : null}
 						</Switch>
 					</div>
 				</BrowserRouter>
@@ -97,7 +99,7 @@ class TopNav extends Component {
 									<NavItem>
 										<NavLink href="/discovery">Discover</NavLink>
 									</NavItem>
-										{this.props.isAuthenticated ? (
+										{this.props.auth.isAuthenticated ? (
 											<UncontrolledDropdown nav inNavbar>
 												<DropdownToggle nav caret>
 													Welcome back, {this.props.username}
@@ -106,6 +108,12 @@ class TopNav extends Component {
 													<DropdownItem>
 														<Link className="list-inline-item mx-2" to="/profile/seeker">Seeker Profile</Link>
 													</DropdownItem>
+													{this.props.auth.user.custom_user.provider_account ? (
+														<DropdownItem>
+															<Link className="list-inline-item mx-2" to="/profile/seeker">Seeker Profile</Link>
+														</DropdownItem>) 
+														: null
+													}
 													<DropdownItem>
 														<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
 													</DropdownItem>

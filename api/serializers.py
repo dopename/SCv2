@@ -374,17 +374,6 @@ class ProviderAccountCreateSerializer(serializers.ModelSerializer):
 			"provider"
 		]
 
-
-class ProviderAccountSerializer(serializers.ModelSerializer):
-
-	class Meta:
-		model = ProviderAccount
-		fields = [
-			"pk",
-			"user",
-			"provider"
-		]
-
 #/------------------------------------------------------------------------------/
 
 class SeekerAccountCreateSerializer(serializers.ModelSerializer):
@@ -479,7 +468,7 @@ class SolutionUpdateViewsSerializer(serializers.ModelSerializer):
 		]	
 
 
-class SolutionChildSerializer(serializers.ModelSerializer):
+class SolutionNameSerializer(serializers.ModelSerializer):
 	
 	class Meta:
 		model = Solution
@@ -491,19 +480,75 @@ class SolutionChildSerializer(serializers.ModelSerializer):
 
 
 class SeekerAccountSerializer(serializers.ModelSerializer):
-	#user = UserSerializer()
-	bookmarks = SolutionChildSerializer(many=True, read_only=True)
+	bookmarks = SolutionNameSerializer(many=True, read_only=True)
 	categories = CategorySerializer(many=True, read_only=True)
-	#industries = IndustryListSerializer(many=True, read_only=True)
 	tags = SolutionTagSerializer(many=True, read_only=True)
 
 	class Meta:
 		model = SeekerAccount
 		fields = [
 			"pk",
-			#"user",
 			"tags",
-			#"industries",
 			"categories",
 			"bookmarks"
+		]
+
+class ProviderAccountSolutionSerializer(serializers.ModelSerializer):
+	tags = SolutionTagSerializer(many=True, read_only=True)
+
+	class Meta:
+		model = Solution
+		fields = [
+			"pk",
+			"category",
+			"industry",
+			"name", 
+			"what",
+			"why",
+			"how",
+			"integration",
+			"opportunity",
+			"status",
+			"status_date",
+			"tags",
+			"provider",
+			"views",
+			"main_image",
+			"solutionmedia",
+		]
+
+class ProviderAccountProviderSerializer(serializers.ModelSerializer):
+	solutions = ProviderAccountSolutionSerializer(read_only=True, many=True)
+
+	class Meta:
+		model = Provider
+		fields = [
+			"pk",
+			"name",
+			"email",
+			"phone", 
+			"address",
+			"city",
+			"state",
+			"zipcode",
+			"industry_type",
+			"tagline",
+			"logo",
+			"about_us",
+			"tags",
+			"views",
+			"solutions",
+			"child_tags",
+			"solution_views",
+		]
+
+class ProviderAccountSerializer(serializers.ModelSerializer):
+	provider = ProviderAccountProviderSerializer(read_only=True)
+
+	class Meta:
+		model = ProviderAccount
+		fields = [
+			"pk",
+			"user",
+			"provider",
 		]

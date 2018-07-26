@@ -6,9 +6,11 @@ class ProviderProfile extends Component {
 
 	componentDidMount() {
 		this.props.listIndustries();
+		this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
 	}
 
 	render() {
+		console.log(this.props);
 		return (
 			<div>
 			</div>
@@ -28,6 +30,9 @@ const mapDispatchToProps = dispatch => {
 	return {
 		listIndustries: () => {
 			dispatch(discovery.listIndustries());
+		},
+		retrieveProviderAccount: (providerAccountPK) => {
+			dispatch(provider_account.providerSeekerAccount(providerAccountPK));
 		},
 	}
 }
