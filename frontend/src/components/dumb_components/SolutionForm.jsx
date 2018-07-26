@@ -52,10 +52,10 @@ export default class SolutionForm extends Component {
 
 		const categorySelect = 	(<select name="category" className="form-control" value={this.state.category} onChange={this.handleChange}>
 									<option disabled selected value> -- select an option -- </option>
-									{this.props.categories.map((c) =>
+									{this.props.categories.map((c) => {
 										if (c.industry === this.state.industry) {
 											<option key={"category_" + c.pk} value={c.pk}>{c.name}</option>
-										}
+										}}
 									)}
 								</select>)
 
