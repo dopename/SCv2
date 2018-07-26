@@ -38,22 +38,23 @@ class MediaLocation(models.Model):
 		return self.location_name
 
 
+class SolutionMedia(models.Model):
+	solutionmedia_id = models.AutoField(primary_key=True)
+
+	def __str__(self):
+		return str(self.solutionmedia_id)
+
+
 class Media(models.Model):
 	media_id = models.AutoField(primary_key=True)
 	file = models.FileField(upload_to="uploads/solution_media/")
 	title = models.CharField(max_length=64)
 	description = models.CharField(max_length=128, blank=True, null=True)
 	location = models.ForeignKey(MediaLocation, on_delete=models.CASCADE)
+	solutionmedia = models.ForeignKey(SolutionMedia, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return "{} - {}".format(self.title, self.solutionmedia.solution.name)
-
-
-class SolutionMedia(models.Model):
-	solutionmedia_id = models.AutoField(primary_key=True)
-
-	def __str__(self):
-		return str(self.solutionmedia_id)
 
 
 class TagType(models.Model):
