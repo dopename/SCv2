@@ -16,7 +16,7 @@ class ProviderProfile extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props != prevProps) {
-			if ((this.props.auth.user != null) && (!this.props.provider.isLoaded)) {
+			if ((this.props.auth.user != null) && (!this.props.isLoaded)) {
 				this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
 			}
 		}
@@ -37,6 +37,7 @@ const mapStateToProps = state => {
 		auth:state.auth,
 		industries:state.discovery.industries,
 		provider:state.provider_account.provider,
+		isLoaded:state.provider_account.isLoaded,
 	}
 }
 
