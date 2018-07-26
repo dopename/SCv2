@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
 
-import {auth, main, discovery} from "../actions/index";
+import {auth, main, discovery, provider_account} from "../actions/index";
 
 class ProviderProfile extends Component {
 
