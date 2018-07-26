@@ -28,7 +28,7 @@ class ProviderProfile extends Component {
 		console.log(this.props);
 		if (this.props.isLoaded === true) {
 			return (
-				<div>
+				<div className="container-fluid">
 					<div className="row">
 						<div className="col-4">
 							<h1 className="text-center">Provider Information</h1>
