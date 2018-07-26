@@ -26,7 +26,7 @@ class ProviderProfile extends Component {
 
 	render() {
 		console.log(this.props);
-		if (this.props.provider !== null) {
+		if (this.props.isLoaded === true) {
 			return (
 				<div>
 					<div className="row">
