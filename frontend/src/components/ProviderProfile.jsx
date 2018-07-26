@@ -7,7 +7,11 @@ class ProviderProfile extends Component {
 
 	componentDidMount() {
 		this.props.listIndustries();
-		this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
+		if (this.props.auth.user != null) {
+			if (this.props.auth.user.custom_user.provider_account > 0) {
+				this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
+			}
+		}
 	}
 
 	render() {

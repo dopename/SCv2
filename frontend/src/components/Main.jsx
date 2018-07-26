@@ -35,7 +35,7 @@ class Main extends Component {
 							<Route exact path="/register" component={Register} />
 							<Route path="/provider/:providerPK" component={SolutionProvider} />
 							<Route path="/profile/seeker" component={SeekerProfile} />
-							{this.props.auth.user.custom_user.provider_account ? <Route path="/profile/provider" component={ProviderProfile} /> : null}
+							<Route path="/profile/provider" component={ProviderProfile} />
 						</Switch>
 					</div>
 				</BrowserRouter>
@@ -108,12 +108,9 @@ class TopNav extends Component {
 													<DropdownItem>
 														<Link className="list-inline-item mx-2" to="/profile/seeker">Seeker Profile</Link>
 													</DropdownItem>
-													{this.props.auth.user.custom_user.provider_account ? (
-														<DropdownItem>
-															<Link className="list-inline-item mx-2" to="/profile/seeker">Seeker Profile</Link>
-														</DropdownItem>) 
-														: null
-													}
+													<DropdownItem>
+														<Link className="list-inline-item mx-2" to="/profile/seeker">Provider Profile</Link>
+													</DropdownItem>
 													<DropdownItem>
 														<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
 													</DropdownItem>
