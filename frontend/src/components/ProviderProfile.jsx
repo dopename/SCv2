@@ -39,7 +39,7 @@ class ProviderProfile extends Component {
 	formSubmit(data) {
 		var formData = new FormData();
 		for ( var key in data ) {
-		    formData.append(key, item[key]);
+		    formData.append(key, data[key]);
 		}
 		this.props.createSolution(formData);
 		this.toggleOff();
