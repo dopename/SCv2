@@ -109,7 +109,7 @@ class ProviderProfile extends Component {
 										<td>{s.name}</td>
 										<td>{s.status}</td>
 										<td>{s.views}</td>
-										<td><Button color="warning" size="md" outline onClick={() => this.toggleEdit(s.pk)}>Edit</Button>
+										<td><Button color="warning" size="md" outline onClick={() => this.toggleEdit(s.pk)}>Edit</Button></td>
 									</tr>
 								))}
 							</table>
