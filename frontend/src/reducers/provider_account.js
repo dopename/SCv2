@@ -22,7 +22,7 @@ export default function provider_account(state = initialState, action) {
 			}
 		case "SOLUTION_CREATED":
 			return {...state, isUpdated: true}
-		case "LIST_TAGS":
+		case "TAGS_LOADED":
 			return {...state, allTags: action.tags}
 		default:
 			return state
