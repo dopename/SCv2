@@ -98,7 +98,7 @@ export default class DumbTiles extends Component {
 		})
 
 		return (
-			<div className="vertical-scroll">
+			<div>
 				{rows}
 			</div>
 		)
