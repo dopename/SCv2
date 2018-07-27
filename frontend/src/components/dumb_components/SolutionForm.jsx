@@ -26,6 +26,7 @@ export default class SolutionForm extends Component {
 		this.fileHandleChange = this.fileHandleChange.bind(this);
 		this.handleSelectChange = this.handleSelectChange.bind(this);
 		this.cleanData = this.cleanData.bind(this);
+		this.handleTagSelect = this.handleTagSelect.bind(this);
 	}
 
 	//Default change handler
