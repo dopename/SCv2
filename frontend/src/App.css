@@ -54,3 +54,13 @@
   margin-left:8%;
   margin-right:8%;
 }
+
+.noscroll {
+  overflow:hidden;
+}
+
+@media (min-device-width: 1025px) {
+  .noscroll { 
+      padding-right: 15px;
+  }
+}
