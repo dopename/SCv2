@@ -20,36 +20,44 @@ class SolutionProvider extends Component {
 		return (
 			<div className="container-fluid border mt-2">
 				<div className="row">
-					<div className="col-lg-2">
-						<img className="responsive-image m-auto" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
+					<div className="col-lg-1 d-none d-sm-block">
 					</div>
-					<div className="col-lg-6 border-bottom mb-2">
-						<h1 className="text-center">{this.props.providerData.name}</h1>
-						<p className="text-center"><i>{this.props.providerData.tagline}</i></p>
+					<div className="col-lg-10 m-auto">
+						<div className="row">
+							<div className="col-lg-2">
+								<img className="responsive-image m-auto" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
+							</div>
+							<div className="col-lg-6 border-bottom mb-2">
+								<h1 className="text-center">{this.props.providerData.name}</h1>
+								<p className="text-center"><i>{this.props.providerData.tagline}</i></p>
+							</div>
+							<div className="col-lg-4">
+								<p>www.marinibank.com</p>
+								<p>Social links to go here</p>
+							</div>
+						</div>
+						<div className="row mb-2 pb-2 border-bottom">
+							<div className="col-lg-6">
+								<h3 className="text-center">Who make solutions for:</h3>
+								{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : <div className="loader"></div>}
+							</div>
+							<div className="col-lg-6 border-left">
+								<h3 className="text-center">Industries we're in:</h3>
+								{this.props.providerData ? <Tags tags={this.props.providerData.child_ind_cat} /> : <div className="loader"></div>}
+							</div>
+						</div>
+						<div className="col-lg-12">
+							<div className="text-left">
+								<p>{this.props.providerData.about_us}</p>
+							</div>
+						</div>
+						<div id="solutions">
+							<h3 className="text-left">Solutions by {this.props.providerData.name}</h3>
+							{this.props.providerData ? <ProviderTiles solutions={this.props.providerData.solutions} /> : <div className="loader"></div>}
+						</div>
 					</div>
-					<div className="col-lg-4">
-						<p>www.marinibank.com</p>
-						<p>Social links to go here</p>
+					<div className="col-lg-1 d-none d-sm-block">
 					</div>
-				</div>
-				<div className="row mb-2 pb-2 border-bottom">
-					<div className="col-lg-6">
-						<h3 className="text-center">Who make solutions for:</h3>
-						{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : <div className="loader"></div>}
-					</div>
-					<div className="col-lg-6 border-left">
-						<h3 className="text-center">Industries we're in:</h3>
-						{this.props.providerData ? <Tags tags={this.props.providerData.child_ind_cat} /> : <div className="loader"></div>}
-					</div>
-				</div>
-				<div className="col-lg-12">
-					<div className="text-left">
-						<p>{this.props.providerData.about_us}</p>
-					</div>
-				</div>
-				<div id="solutions">
-					<h3 className="text-left">Solutions by {this.props.providerData.name}</h3>
-					{this.props.providerData ? <ProviderTiles solutions={this.props.providerData.solutions} /> : <div className="loader"></div>}
 				</div>
 			</div>
 		)
