@@ -18,7 +18,7 @@ class SolutionProvider extends Component {
 		console.log(this.props);
 
 		return (
-			<div className="container-fluid border mt-2">
+			<div className="container-fluid mt-2">
 				<div className="row">
 					<div className="col-lg-1 d-none d-sm-block">
 					</div>
@@ -39,17 +39,9 @@ class SolutionProvider extends Component {
 									</tbody>
 								</table>
 							</div>
-							<div className="col-lg-2">
-								<table>
-									<tbody>
-										<tr>
-											<td className="align-bottom"><p>www.marinibank.com</p></td>
-										</tr>
-										<tr>
-											<td className="align-bottom"><p>Social links to go here</p></td>
-										</tr>
-									</tbody>
-								</table>
+							<div className="col-lg-2 d-flex align-items-end">
+								<p>www.marinibank.com</p>
+								<p>Social links to go here</p>
 							</div>
 						</div>
 						<hr className="mb-2" style={{borderBottom:"dotted black 1px"}} />
