@@ -41,7 +41,7 @@ class SolutionProvider extends Component {
 							</div>
 							<div className="col-lg-2">
 								<div className="d-flex flex-column-reverse h-100">
-									<div className="p-2"><h5 className="d-flex flex-row text-primary justify-content-around"><i className="fa fa-linkedin-square mx-2"></i><i className="fa fa-twitter mx-2"></i><i className="fa fa-facebook-official mx-2"></i></h5></div>
+									<div className="p-2"><h5 className="d-flex flex-row text-primary"><i className="fa fa-linkedin-square mx-2"></i><i className="fa fa-twitter mx-2"></i><i className="fa fa-facebook-official mx-2"></i></h5></div>
 									<div className="p-2">www.marinibank.com</div>
 								</div>
 							</div>
@@ -52,7 +52,7 @@ class SolutionProvider extends Component {
 							<h5 className="d-inline mx-2 text-primary">Solutions</h5>
 							<h5 className="d-inline mx-2 text-primary">About</h5>
 						</div>
-						<div className="row my-2 pb-2 provider-tags">
+						<div className="row my-2 py-2 provider-tags">
 							<div className="col-lg-6">
 								<h4 className="text-left">We make solutions for:</h4>
 								{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : <div className="loader"></div>}
