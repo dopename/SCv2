@@ -40,8 +40,16 @@ class SolutionProvider extends Component {
 								</table>
 							</div>
 							<div className="col-lg-2">
-								<p>www.marinibank.com</p>
-								<p>Social links to go here</p>
+								<table>
+									<tbody>
+										<tr>
+											<td className="align-bottom"><p>www.marinibank.com</p></td>
+										</tr>
+										<tr>
+											<td className="align-bottom"><p>Social links to go here</p></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
 						<hr className="mb-2" style={{borderBottom:"dotted black 1px"}} />
@@ -50,7 +58,7 @@ class SolutionProvider extends Component {
 							<h5 className="d-inline mx-2 text-primary">Solutions</h5>
 							<h5 className="d-inline mx-2 text-primary">About</h5>
 						</div>
-						<div className="row my-2 pb-2 border-bottom provider-tags">
+						<div className="row my-2 pb-2 provider-tags">
 							<div className="col-lg-6">
 								<h4 className="text-left">We make solutions for:</h4>
 								{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : <div className="loader"></div>}
