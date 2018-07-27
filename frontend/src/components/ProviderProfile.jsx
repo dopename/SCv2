@@ -145,7 +145,7 @@ const mapDispatchToProps = dispatch => {
 		},
 		createSolution: (data) => {
 			dispatch(provider_account.createSolution(data));
-		}
+		},
 		listTags: () => {
 			dispatch(provider_account.listTags());
 		}
