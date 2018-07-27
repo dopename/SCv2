@@ -98,7 +98,7 @@ export default class DumbTiles extends Component {
 		})
 
 		return (
-			<div style={{overflowY:"auto"}}>
+			<div className="vertical-scroll">
 				{rows}
 			</div>
 		)
