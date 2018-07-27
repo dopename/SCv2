@@ -69,7 +69,7 @@ export function createAPICall(model, data, token, media, filename = false) {
 	return fetch(url, {
 		method:'post',
 		headers,
-		body:body
+		body
 	})
 }
 
