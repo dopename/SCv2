@@ -46,11 +46,11 @@ class SolutionProvider extends Component {
 						</div>
 						<hr className="mb-2" style={{borderBottom:"dotted black 1px"}} />
 						<div className="col-12 border-bottom">
-							<h4 className="d-inline mx-2 text-primary">Overview</h4>
-							<h4 className="d-inline mx-2 text-primary">Solutions</h4>
-							<h4 className="d-inline mx-2 text-primary">About</h4>
+							<h5 className="d-inline mx-2 text-primary">Overview</h5>
+							<h5 className="d-inline mx-2 text-primary">Solutions</h5>
+							<h5 className="d-inline mx-2 text-primary">About</h5>
 						</div>
-						<div className="row mb-2 pb-2 border-bottom">
+						<div className="row my-2 pb-2 border-bottom provider-tags">
 							<div className="col-lg-6">
 								<h4 className="text-left">We make solutions for:</h4>
 								{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : <div className="loader"></div>}
