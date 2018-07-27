@@ -400,6 +400,7 @@ class SeekerAccountUpdateSerializer(serializers.ModelSerializer):
 
 
 class SolutionCreateSerializer(serializers.ModelSerializer):
+	tags = serializers.PrimaryKeyRelatedField(many=True, queryset=Tag.objects.all())
 
 	class Meta:
 		model = Solution
