@@ -98,7 +98,7 @@ class ProviderProfile extends Component {
 					<Button onClick={this.toggleForm}>Toggle Form</Button>
 					{this.state.formToggled ? (
 						<Modal size="lg" isOpen={this.state.formToggled} toggle={this.toggleForm} >
-							<SolutionForm title="New" submit={this.props.formSubmit} industries={allIndustries} categories={allCategories} providerPK={this.props.provider.pk} />
+							<SolutionForm title="New" submit={this.formSubmit} industries={allIndustries} categories={allCategories} providerPK={this.props.provider.pk} />
 						</Modal>
 						) : null}
 				</div>
