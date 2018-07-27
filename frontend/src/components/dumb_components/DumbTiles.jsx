@@ -98,7 +98,7 @@ export default class DumbTiles extends Component {
 		})
 
 		return (
-			<div>
+			<div style={{overflowY:"auto"}}>
 				{rows}
 			</div>
 		)
