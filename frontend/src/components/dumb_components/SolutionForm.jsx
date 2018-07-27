@@ -52,7 +52,7 @@ export default class SolutionForm extends Component {
 				value.push(options[i].value);
 			}
 		}
-		console.log("new tags value" , vlaue);
+		console.log("new tags value" , value);
 		this.setState({tags:value});
 	}
 
