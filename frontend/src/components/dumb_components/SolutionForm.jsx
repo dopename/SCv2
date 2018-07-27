@@ -45,7 +45,9 @@ export default class SolutionForm extends Component {
 
 	cleanData(e) {
 		e.preventDefault();
-		var data = {...this.state}
+		var category = [];
+		category.push(this.state.category);
+		var data = {...this.state, category:category}
 		this.props.submit(data)
 	}
 

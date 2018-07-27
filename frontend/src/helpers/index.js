@@ -52,10 +52,10 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 export function createAPICall(model, data, token, media) {
 	const url = "/api/create/" + model + "/"
 
-	var headers = { Authorization: "Token " + token}
+	var headers = { Authorization: "Token " + token }
 
 	if (media) {
-		headers["content-type"] = "multipart/form-data";
+		headers["Accept"] = "application/json, text/plain, */*";
 	}
 	else {
 		headers["content-type"] = "application/json";
