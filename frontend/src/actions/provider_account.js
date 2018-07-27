@@ -20,7 +20,7 @@ export const createSolution = (data) => {
 
 		const token = getState().auth.token;
 
-		return helpers.createAPICall("solution", data, token, true, data.main_image.name)
+		return helpers.createAPICall("solution", data, token, true)
 			.then(res => {
 				if (res.status < 500) {
 					return res.json().then(data => {
