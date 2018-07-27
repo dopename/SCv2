@@ -27,9 +27,17 @@ class SolutionProvider extends Component {
 							<div className="col-lg-2">
 								<img className="responsive-image m-auto" style={{maxHeight:"200px"}} alt={this.props.providerData.name + " logo"} src={this.props.providerData.logo} />
 							</div>
-							<div className="col-lg-8 border-bottom mb-2">
-								<h1 className="text-left text-primary">{this.props.providerData.name}</h1>
-								<p className="text-left"><i>{this.props.providerData.tagline}</i></p>
+							<div className="col-lg-8">
+								<table>
+									<tbody>
+										<tr>
+											<td><h1 className="text-left text-primary mt-3">{this.props.providerData.name}</h1></td>
+										</tr>
+										<tr>
+											<td><p className="text-left"><i>{this.props.providerData.tagline}</i></p></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 							<div className="col-lg-2">
 								<p>www.marinibank.com</p>
@@ -38,17 +46,17 @@ class SolutionProvider extends Component {
 						</div>
 						<hr className="mb-2" style={{borderBottom:"dotted black 1px"}} />
 						<div className="col-12 border-bottom">
-							<h4 className="d-inline">Overview</h4>
-							<h4 className="d-inline">Solutions</h4>
-							<h4 className="d-inline">About</h4>
+							<h4 className="d-inline mx-2 text-primary">Overview</h4>
+							<h4 className="d-inline mx-2 text-primary">Solutions</h4>
+							<h4 className="d-inline mx-2 text-primary">About</h4>
 						</div>
 						<div className="row mb-2 pb-2 border-bottom">
 							<div className="col-lg-6">
-								<h3 className="text-center">Who make solutions for:</h3>
+								<h4 className="text-left">We make solutions for:</h4>
 								{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : <div className="loader"></div>}
 							</div>
 							<div className="col-lg-6 border-left">
-								<h3 className="text-center">Industries we're in:</h3>
+								<h4 className="text-left">Industries we're in:</h4>
 								{this.props.providerData ? <Tags tags={this.props.providerData.child_ind_cat} /> : <div className="loader"></div>}
 							</div>
 						</div>
