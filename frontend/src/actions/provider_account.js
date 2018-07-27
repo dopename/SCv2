@@ -45,3 +45,17 @@ export const createSolution = (data) => {
 			
 	}
 }
+
+export const listTags = () => {
+	return dispatch => {
+		return helpers.fetchListAPICall("tag")
+			.then(res => res.json())
+			.then(tags => {
+				return dispatch({
+					type: "TAGS_LOADED",
+					tags
+				})
+			})
+	}
+}
+

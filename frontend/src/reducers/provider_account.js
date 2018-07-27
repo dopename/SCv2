@@ -4,6 +4,7 @@ var initialState = {
 	isLoaded: false,
 	isLoading: false,
 	isUpdated: false,
+	allTags:[],
 }
 
 export default function provider_account(state = initialState, action) {
@@ -21,6 +22,8 @@ export default function provider_account(state = initialState, action) {
 			}
 		case "SOLUTION_CREATED":
 			return {...state, isUpdated: true}
+		case "LIST_TAGS":
+			return {...state, allTags: action.tags}
 		default:
 			return state
 	}

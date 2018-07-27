@@ -363,6 +363,14 @@ class TagDestroyView(generics.DestroyAPIView):
 		if query is not None:
 			qs = qs.filter(pk=query)
 		return qs
+
+
+class TagListView(generics.ListAPIView):
+	lookup_field = 'pk'
+	serializer_class = TagSerializer
+
+	def get_queryset(self):
+		return Tag.objects.all()
 		
 #/--------------------------------------------------------------/
 

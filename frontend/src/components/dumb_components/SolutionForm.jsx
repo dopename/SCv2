@@ -17,7 +17,7 @@ export default class SolutionForm extends Component {
 			opportunity:"",
 			status:"",
 			status_date:"",
-			tags:[1],
+			tags:[],
 			what:"",
 			why:"",
 		}
@@ -41,6 +41,17 @@ export default class SolutionForm extends Component {
 	//Need to add the file to state
 	fileHandleChange(e) {
 		this.setState({main_image:e.target.files[0]});
+	}
+
+	handleTagSelect(e) {
+		var options = e.target.options;
+		var value = [];
+		for (var i = 0, l = options.length; i < l; i++) {
+			if (options[i].selected) {
+				value.push(options[i].value);
+			}
+		}
+		this.setState({tags:value});
 	}
 
 	cleanData(e) {
@@ -75,6 +86,13 @@ export default class SolutionForm extends Component {
 									)}
 								</select>)
 
+		const tagSelect = 		(<select multiple="multiple" className="form-control" defaultValue={this.state.tags} onChange={this.handleTagSelect}>
+									{this.props.allTags.map((tag) => 
+										// tagOptions.push({ value:tag.pk, label:tag.name});
+										<option key={"tag_" + tag.pk} value={tag.pk}>{tag.name}</option>
+									)}
+								</select>)
+
 		return (
 			<form onSubmit={this.cleanData}>
 				<div className="container-fluid">
@@ -95,8 +113,8 @@ export default class SolutionForm extends Component {
 					</div>
 				  	<div className="row my-2">
 						<div className="col-lg-4">
-							<label for="what">What</label>
-							<input className="form-control" name="what" type="text" onChange={this.handleChange} value={this.state.what} />
+							<label for="tags">Tags</label>
+							{ tagSelect }
 						</div>
 						<div className="col-lg-4">
 							<label for="status">Status</label>
@@ -108,6 +126,10 @@ export default class SolutionForm extends Component {
 						</div>
 					</div>
 				  	<div className="row my-2">
+						<div className="col-lg-12">
+							<label for="what">What</label>
+							<input className="form-control" name="what" type="text" onChange={this.handleChange} value={this.state.what} />
+						</div>
 				  		<div className="col-lg-12">
 				  			<label for="why">Why it exists</label>
 				  			<textarea className="form-control" value={this.state.why} onChange={this.handleChange} name="why"></textarea>

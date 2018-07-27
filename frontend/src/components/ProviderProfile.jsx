@@ -20,6 +20,7 @@ class ProviderProfile extends Component {
 
 	componentDidMount() {
 		this.props.listIndustries();
+		this.props.listTags();
 		if (this.props.auth.user != null) {
 			if (this.props.auth.user.custom_user.provider_account) {
 				this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
@@ -102,7 +103,7 @@ class ProviderProfile extends Component {
 					<Button onClick={this.toggleForm}>Toggle Form</Button>
 					{this.state.formToggled ? (
 						<Modal size="lg" isOpen={this.state.formToggled} toggle={this.toggleForm} >
-							<SolutionForm title="New" submit={this.formSubmit} industries={allIndustries} categories={allCategories} providerPK={this.props.provider.provider.pk} />
+							<SolutionForm title="New" submit={this.formSubmit} industries={allIndustries} allTags={this.props.allTags} categories={allCategories} providerPK={this.props.provider.provider.pk} />
 						</Modal>
 						) : null}
 				</div>
@@ -130,6 +131,7 @@ const mapStateToProps = state => {
 		provider:state.provider_account.provider,
 		isLoaded:state.provider_account.isLoaded,
 		isUpdated:state.provider_account.isUpdated,
+		allTags:state.provider_account.allTags,
 	}
 }
 
@@ -143,6 +145,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		createSolution: (data) => {
 			dispatch(provider_account.createSolution(data));
+		}
+		listTags: () => {
+			dispatch(provider_account.listTags());
 		}
 	}
 }

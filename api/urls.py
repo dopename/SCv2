@@ -36,8 +36,9 @@ urlpatterns = [
 	path('create/tagtype/', TagTypeCreateView.as_view(), name="tagtype-create-view"),
 
 	path('destroy/tag/<int:pk>/', TagDestroyView.as_view(), name="tag-destroy-view"),
-	path('tag/<int:pk>/', TagUpdateRetrieveView.as_view(), name="tag-update-retrieve-view"),
+	path('update/tag/<int:pk>/', TagUpdateRetrieveView.as_view(), name="tag-update-retrieve-view"),
 	path('create/tag', TagCreateView.as_view(), name="tag-create-view"),
+	path('list/tag/', TagListView.as_view(), name="tag-list-view"),
 
 	path('destroy/provider/<int:pk>/', ProviderDestroyView.as_view(), name="provider-destroy-view"),
 	path('provider/<int:pk>/', ProviderUpdateRetrieveView.as_view(), name="provider-update-retrieve-view"),
