@@ -42,7 +42,7 @@ class SolutionProvider extends Component {
 							<div className="col-lg-2">
 								<div className="d-flex flex-column-reverse h-100">
 									<div className="p-2">Social links to go here</div>
-									<div className="p-2">www.marinibank.com</div>
+									<div className="p-2 d-flex flex-row text-primary"><i className="fa fa-linkedin-square mx-2"></i><i className="fa fa-twitter mx-2"></i><i className="fa fa-facebook-official mx-2"></i></div>
 								</div>
 							</div>
 						</div>
