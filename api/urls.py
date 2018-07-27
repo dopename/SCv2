@@ -55,4 +55,5 @@ urlpatterns = [
 	path('list/solution/', SolutionListView.as_view(), name="solution-list-view"),
 	path('create/solution/', SolutionCreateView.as_view(), name="solution-create-view"),
 	path('solution/<int:pk>/', SolutionUpdateRetrieveView.as_view(), name="solution-update-retrieve-view"),
+	path('increment/solution/<int:pk>/', IncrementSolutionView.as_view(), name="increment-solution-view"),
 ]

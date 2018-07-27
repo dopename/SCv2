@@ -20,6 +20,15 @@ from knox.auth import TokenAuthentication
 import datetime
 import dateutil.relativedelta
 
+
+class IncrementSolutionView(APIView):
+	permission_classes = (permissions.AllowAny,)
+
+	def get(self, request, pk, *args, **kwargs):
+		solution = Solution.objects.get(pk)
+		solution.views += 1;
+		solution.save()
+
 class RegistrationAPI(generics.GenericAPIView):
 	serializer_class = CreateUserSerializer
 	permission_classes = (permissions.AllowAny,)

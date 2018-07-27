@@ -103,3 +103,9 @@ export function fetchListAPICall(model) {
 		// }
 	//})
 }
+
+export function incrementAPICall(model, pk) {
+	const url = "/api/increment/" + model + "/" + pk + "/"
+
+	return fetch(url)
+}

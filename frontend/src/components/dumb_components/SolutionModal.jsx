@@ -3,6 +3,7 @@ import { Modal, Button } from "reactstrap";
 import Tags from "./Tags"
 import { Link } from "react-router-dom";
 import "./SolutionModal.css"
+import { incrementAPICall } from "../../helpers/index";
 
 class SolutionModal extends Component {
 	constructor(props) {
@@ -42,6 +43,7 @@ class SolutionModal extends Component {
 
 	checkIfActive() {
 		if (this.props.activeModal === this.props.solution.pk) {
+			incrementAPICall("solution", this.props.solution.pk)
 			this.setState({modal:true});
 			// this.updateSolutionViews();
 		}
