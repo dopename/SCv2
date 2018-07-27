@@ -52,6 +52,8 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 export function createAPICall(model, data, token, media) {
 	const url = "/api/create/" + model + "/"
 
+	console.log(data);
+	
 	var headers = { Authorization: "Token " + token}
 
 	if (media) {
