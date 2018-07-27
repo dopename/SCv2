@@ -416,7 +416,6 @@ class SolutionCreateSerializer(serializers.ModelSerializer):
 			"status_date",
 			"tags",
 			"provider",
-			"views",
 			"main_image"
 		]
 
