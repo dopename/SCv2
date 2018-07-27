@@ -527,7 +527,7 @@ class SolutionUpdateRetrieveView(generics.RetrieveUpdateAPIView):
 class SolutionCreateView(generics.CreateAPIView):
 	lookup_field = 'pk'
 	serializer_class = SolutionCreateSerializer
-	parser_classes = (parsers.FormParser,parsers.MultiPartParser, parsers.FileUploadParser, )
+	parser_classes = (parsers.MultiPartParser, parsers.FormParser)
 	permission_classes = (permissions.IsAuthenticated,)
 	# queryset = Solution.objects.all()
 
