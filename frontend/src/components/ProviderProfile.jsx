@@ -39,6 +39,10 @@ class ProviderProfile extends Component {
 		this.setState({formToggled:!this.state.formToggled});
 	}
 
+	toggleOff() {
+		this.setState({formToggled:false});
+	}
+
 	render() {
 		var allIndustries = [];
 		var allCategories = [];
@@ -86,7 +90,7 @@ class ProviderProfile extends Component {
 						</div>
 					</div>
 					<Button onClick={this.toggleForm}>Toggle Form</Button>
-					{this.state.formToggled ? (<Modal size="lg" isOpen={this.state.formToggled} toggle={this.state.toggleForm} ><SolutionForm submit={null} industries={allIndustries} categories={allCategories} /></Modal>) : null}
+					{this.state.formToggled ? (<Modal size="lg" isOpen={this.state.formToggled} toggle={this.toggleForm} ><SolutionForm submit={null} industries={allIndustries} categories={allCategories} /></Modal>) : null}
 				</div>
 			)
 		}
