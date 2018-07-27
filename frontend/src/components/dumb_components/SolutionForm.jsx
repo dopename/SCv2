@@ -17,7 +17,7 @@ export default class SolutionForm extends Component {
 			opportunity:"",
 			status:"",
 			status_date:"",
-			tags:[],
+			tags:[1],
 			what:"",
 			why:"",
 		}
@@ -61,8 +61,8 @@ export default class SolutionForm extends Component {
 
 		const statusSelect = 	(<select name="status" className="form-control" value={this.state.status} onChange={this.handleSelectChange}>
 									<option disabled selected value> -- select an option -- </option>
-									<option value="Emerging soon:" key="SO_1">Emerging soon:</option>
-									<option value="Available since:" key="SO_2">Available since:</option>
+									<option value="Emerging soon" key="SO_1">Emerging soon:</option>
+									<option value="Available since" key="SO_2">Available since:</option>
 								</select>)
 
 
