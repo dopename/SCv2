@@ -10,12 +10,14 @@ class ProviderProfile extends Component {
 		super(props)
 
 		this.state = {
-			formToggled: false,
+			newToggled: false,
+			editToggled: false
 		}
 
-		this.toggleForm = this.toggleForm.bind(this);
+		this.toggleNew = this.toggleNew.bind(this);
 		this.toggleOff = this.toggleOff.bind(this);
 		this.formSubmit = this.formSubmit.bind(this);
+		this.toggleEdit = this.toggleEdit.bind(this);
 	}
 
 	componentDidMount() {
@@ -48,12 +50,21 @@ class ProviderProfile extends Component {
 		this.toggleOff();
 	}
 
-	toggleForm() {
-		this.setState({formToggled:!this.state.formToggled});
+	toggleNew() {
+		this.setState({newToggled:!this.state.newToggled});
+	}
+
+	toggleEdit(pk) {
+		if (this.state.editToggled === pk) {
+			this.setState({editToggled:false});
+		}
+		else {
+			this.setState({editToggled:pk})
+		}
 	}
 
 	toggleOff() {
-		this.setState({formToggled:false});
+		this.setState({newToggled:false, editToggled:false});
 	}
 
 	render() {
@@ -91,20 +102,22 @@ class ProviderProfile extends Component {
 									<th>Name</th>
 									<th>Status</th>
 									<th>Views</th>
+									<th>Actions</th>
 								</tr>
 								{this.props.provider.provider.solutions.map(s => (
 									<tr>
 										<td>{s.name}</td>
 										<td>{s.status}</td>
 										<td>{s.views}</td>
+										<td><Button color="warning" size="md" outline onClick={() => this.toggleEdit(s.pk)}>Edit</Button>
 									</tr>
 								))}
 							</table>
 						</div>
 					</div>
-					<Button onClick={this.toggleForm}>Toggle Form</Button>
-					{this.state.formToggled ? (
-						<Modal size="lg" isOpen={this.state.formToggled} toggle={this.toggleForm} >
+					<Button onClick={this.toggleNew}>Create Solution</Button>
+					{this.state.newToggled ? (
+						<Modal size="lg" isOpen={this.state.newToggled} toggle={this.toggleForm} >
 							<SolutionForm title="New" submit={this.formSubmit} industries={allIndustries} allTags={this.props.allTags} categories={allCategories} providerPK={this.props.provider.provider.pk} />
 						</Modal>
 						) : null}
