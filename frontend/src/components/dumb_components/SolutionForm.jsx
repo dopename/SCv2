@@ -83,6 +83,16 @@ export default class SolutionForm extends Component {
 							<input className="form-control" name="name" type="text" onChange={this.handleChange} value={this.state.name} />
 						</div>
 						<div className="col-lg-4">
+							<label for="industry">Industry</label>
+							{ industrySelect }
+						</div>
+						<div className="col-lg-4">
+							<label for="category">Category</label>
+							{ categorySelect }
+						</div>
+					</div>
+				  	<div className="row my-2">
+						<div className="col-lg-4">
 							<label for="what">What</label>
 							<input className="form-control" name="what" type="text" onChange={this.handleChange} value={this.state.what} />
 						</div>
@@ -90,15 +100,9 @@ export default class SolutionForm extends Component {
 							<label for="status">Status</label>
 							{ statusSelect }
 						</div>
-					</div>
-				  	<div className="row my-2">
-						<div className="col-lg-6">
-							<label for="industry">Industry</label>
-							{ industrySelect }
-						</div>
-						<div className="col-lg-6">
-							<label for="category">Category</label>
-							{ categorySelect }
+						<div className="col-lg-4">
+							<label for="status_date">Status Date</label>
+							<input className="form-control" name="status_date" type="text" onChange={this.handleChange} value={this.state.status_date} />
 						</div>
 					</div>
 				  	<div className="row my-2">

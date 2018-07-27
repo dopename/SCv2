@@ -140,7 +140,7 @@ class Solution(models.Model):
 	opportunity = models.TextField()
 	status = models.CharField(max_length=24, choices=[('Emerging soon','Emerging soon'), ('Available since', 'Available since')], blank=True, null=True)
 	status_date = models.CharField(max_length=12, blank=True, null=True)
-	tags = models.ManyToManyField(Tag, related_name='solutions')
+	tags = models.ManyToManyField(Tag, related_name='solutions', blank=True, null=True)
 	provider = models.ForeignKey(Provider, on_delete=models.CASCADE, related_name='solutions')
 	views = models.IntegerField(default=0)
 	main_image = models.ImageField(upload_to="solution_images/", blank=True, null=True)
