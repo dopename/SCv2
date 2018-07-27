@@ -20,7 +20,6 @@ class ProviderProfile extends Component {
 
 	componentDidMount() {
 		this.props.listIndustries();
-		this.props.listTags();
 		if (this.props.auth.user != null) {
 			if (this.props.auth.user.custom_user.provider_account) {
 				this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
@@ -33,6 +32,9 @@ class ProviderProfile extends Component {
 				if (this.props.auth.user.custom_user.provider_account != null) {
 					this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
 				}
+			}
+			if (this.props.allTags.length < 1) {
+				this.props.listTags();
 			}
 		}
 	}
