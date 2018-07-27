@@ -49,15 +49,21 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 	})
 }
 
-export function createAPICall(model, data, token) {
+export function createAPICall(model, data, token, media) {
 	const url = "/api/create/" + model + "/"
+
+	var headers = { Authorization: "Token " + token}
+
+	if (media) {
+		headers["content-type"] = "multipart/form-data";
+	}
+	else {
+		headers["content-type"] = "application/json";
+	}
 
 	return fetch(url, {
 		method:'post',
-		headers: {
-			"content-type":"application/json",
-			Authorization: "Token " + token,
-		},
+		headers,
 		body:JSON.stringify(data)
 	})
 }

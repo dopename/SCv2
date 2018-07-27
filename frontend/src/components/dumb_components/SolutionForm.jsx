@@ -24,6 +24,7 @@ export default class SolutionForm extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.fileHandleChange = this.fileHandleChange.bind(this);
 		this.handleSelectChange = this.handleSelectChange.bind(this);
+		this.cleanData = this.cleanData.bind(this);
 	}
 
 	//Default change handler
@@ -39,6 +40,12 @@ export default class SolutionForm extends Component {
 	//Need to add the file to state
 	fileHandleChange(e) {
 		this.setState({main_image:e.target.files[0]});
+	}
+
+	cleanData(e) {
+		e.preventDefault();
+		var data = {...this.state}
+		this.props.submit(data)
 	}
 
 	render() {
@@ -66,8 +73,9 @@ export default class SolutionForm extends Component {
 								</select>)
 
 		return (
-			<form onSubmit={this.props.submit}>
+			<form onSubmit={this.cleanData}>
 				<div className="container-fluid">
+					<h1 className="text-left">{this.props.title} Soution</h1>
 				  	<div className="row my-2">
 						<div className="col-lg-4">
 							<label for="name">Name</label>
@@ -121,6 +129,9 @@ export default class SolutionForm extends Component {
 				  			<label for="main_picture">Main Picture</label>
 				  			<input className="form-control" type="file" onChange={this.fileHandleChange} name="main_picture" />
 				  		</div>
+				  	</div>
+				  	<div className="col-4 m-auto">
+				  		<input type="submit" className="btn btn-block btn-outline-success" value="Submit" />
 				  	</div>
 				</div>
 			</form>

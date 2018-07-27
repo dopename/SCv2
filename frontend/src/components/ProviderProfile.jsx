@@ -14,6 +14,8 @@ class ProviderProfile extends Component {
 		}
 
 		this.toggleForm = this.toggleForm.bind(this);
+		this.toggleOff = this.toggleOff.bind(this);
+		this.formSubmit = this.formSubmit.bind(this);
 	}
 
 	componentDidMount() {
@@ -24,15 +26,19 @@ class ProviderProfile extends Component {
 			}
 		}
 	}
-
 	componentDidUpdate(prevProps) {
 		if (this.props != prevProps) {
-			if ((this.props.auth.user != null) && (!this.props.isLoaded)) {
+			if ((this.props.auth.user != null) && (!this.props.isLoaded || this.props.isUpdated)) {
 				if (this.props.auth.user.custom_user.provider_account != null) {
 					this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
 				}
 			}
 		}
+	}
+
+	formSubmit(data) {
+		this.props.createSolution(data);
+		this.toggleOff();
 	}
 
 	toggleForm() {
@@ -90,7 +96,9 @@ class ProviderProfile extends Component {
 						</div>
 					</div>
 					<Button onClick={this.toggleForm}>Toggle Form</Button>
-					{this.state.formToggled ? (<Modal size="lg" isOpen={this.state.formToggled} toggle={this.toggleForm} ><SolutionForm submit={null} industries={allIndustries} categories={allCategories} /></Modal>) : null}
+					{this.state.formToggled ? (
+						<Modal size="lg" isOpen={this.state.formToggled} toggle={this.toggleForm} ><SolutionForm title="New" submit={this.props.formSubmit} industries={allIndustries} categories={allCategories} /></Modal>
+						) : null}
 				</div>
 			)
 		}
@@ -115,6 +123,7 @@ const mapStateToProps = state => {
 		industries:state.discovery.industries,
 		provider:state.provider_account.provider,
 		isLoaded:state.provider_account.isLoaded,
+		isUpdated:state.provider_account.isUpdated,
 	}
 }
 
@@ -126,6 +135,9 @@ const mapDispatchToProps = dispatch => {
 		retrieveProviderAccount: (providerAccountPK) => {
 			dispatch(provider_account.retrieveProviderAccount(providerAccountPK));
 		},
+		createSolution: (data) => {
+			dispatch(provider_account.createSolution(data));
+		}
 	}
 }
 
