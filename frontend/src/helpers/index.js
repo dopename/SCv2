@@ -49,7 +49,7 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 	})
 }
 
-export function createAPICall(model, data, token, media) {
+export function createAPICall(model, data, token, media, filename = false) {
 	const url = "/api/create/" + model + "/"
 
 	console.log(data);
@@ -57,7 +57,7 @@ export function createAPICall(model, data, token, media) {
 	var headers = { Authorization: "Token " + token}
 
 	if (media) {
-		null;
+		headers['CONTENT_DISPOSITION'] = 'attachment; filename='+filename;
 	}
 	else {
 		headers["content-type"] = "application/json";
