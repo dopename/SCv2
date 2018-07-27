@@ -40,8 +40,8 @@ class SolutionProvider extends Component {
 								</table>
 							</div>
 							<div className="col-lg-2 d-flex align-items-end">
-								<p>www.marinibank.com</p>
-								<p>Social links to go here</p>
+								<p className="w-100">Social links to go here</p>
+								<p className="w-100">www.marinibank.com</p>
 							</div>
 						</div>
 						<hr className="mb-2" style={{borderBottom:"dotted black 1px"}} />
