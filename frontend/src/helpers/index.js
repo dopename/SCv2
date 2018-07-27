@@ -53,11 +53,11 @@ export function createAPICall(model, data, token, media) {
 	const url = "/api/create/" + model + "/"
 
 	console.log(data);
-	
+
 	var headers = { Authorization: "Token " + token}
 
 	if (media) {
-		headers["content-type"] = "multipart/form-data";
+		null;
 	}
 	else {
 		headers["content-type"] = "application/json";

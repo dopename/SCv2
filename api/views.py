@@ -1,4 +1,4 @@
-from rest_framework import generics, mixins, status, permissions
+from rest_framework import generics, mixins, status, permissions, parsers
 from django.contrib.auth.models import User
 from main.models import CustomUser, Industry, Category, MediaLocation, Media, SolutionMedia,\
 	TagType, Tag, Provider, ProviderAccount, SeekerAccount, Solution
@@ -527,6 +527,8 @@ class SolutionUpdateRetrieveView(generics.RetrieveUpdateAPIView):
 class SolutionCreateView(generics.CreateAPIView):
 	lookup_field = 'pk'
 	serializer_class = SolutionCreateSerializer
+	parser_classes = (parsers.FormParser,parsers.MultiPartParser, parsers.FileUploadParser, )
+	permission_classes = (permissions.IsAuthenticated,)
 	# queryset = Solution.objects.all()
 
 	def get_queryset(self):
