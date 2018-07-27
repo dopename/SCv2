@@ -51,6 +51,7 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 
 export function createAPICall(model, data, token, media, filename = false) {
 	const url = "/api/create/" + model + "/"
+	var body;
 
 	console.log(data);
 
@@ -58,15 +59,17 @@ export function createAPICall(model, data, token, media, filename = false) {
 
 	if (media) {
 		headers['CONTENT_DISPOSITION'] = 'attachment; filename='+filename;
+		body = data;
 	}
 	else {
-		headers["content-type"] = "application/json";
+		null;//headers["content-type"] = "application/json";
+		body = JSON.stringify(data)
 	}
 
 	return fetch(url, {
 		method:'post',
 		headers,
-		body:JSON.stringify(data)
+		body:body
 	})
 }
 
