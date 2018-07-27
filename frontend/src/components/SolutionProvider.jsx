@@ -40,7 +40,7 @@ class SolutionProvider extends Component {
 								</table>
 							</div>
 							<div className="col-lg-2">
-								<div className="d-flex flex-column align-items-end">
+								<div className="d-flex flex-column-reverse h-100">
 									<div className="p-2">Social links to go here</div>
 									<div className="p-2">www.marinibank.com</div>
 								</div>
