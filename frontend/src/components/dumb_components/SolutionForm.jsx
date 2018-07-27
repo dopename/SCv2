@@ -13,6 +13,7 @@ export default class SolutionForm extends Component {
 			integration:"",
 			main_image:"",
 			name:"",
+			provider:this.props.providerPK,
 			opportunity:"",
 			status:"",
 			status_date:"",

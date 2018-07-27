@@ -38,7 +38,7 @@ export const createSolution = (data) => {
 					return res.data;
 				}
 				else {
-					dispatch(type:"ERROR_CREATING_SOLUTION", data: res.data);
+					dispatch({type:"ERROR_CREATING_SOLUTION", data: res.data});
 					throw res.data;
 				}
 			})
