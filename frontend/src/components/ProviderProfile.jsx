@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 
 import {auth, main, discovery, provider_account} from "../actions/index";
 import SolutionForm from "./dumb_components/SolutionForm";
-import { Button } from "reactstrap";
+import { Button, Modal } from "reactstrap";
 
 class ProviderProfile extends Component {
 	constructor(props) {
@@ -86,7 +86,7 @@ class ProviderProfile extends Component {
 						</div>
 					</div>
 					<Button onClick={this.toggleForm}>Toggle Form</Button>
-					{this.state.formToggled ? (<SolutionForm submit={null} industries={allIndustries} categories={allCategories} />) : null}
+					{this.state.formToggled ? (<Modal size="lg" isOpen={this.state.formToggled} toggle={this.state.toggleForm} ><SolutionForm submit={null} industries={allIndustries} categories={allCategories} /></Modal>) : null}
 				</div>
 			)
 		}
