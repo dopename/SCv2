@@ -3,6 +3,13 @@ from main.models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
+class MultipartM2MField(serializers.Field):
+	def to_representation(self, obj):
+		return obj.values_list('pk', flat=True).order_by('pk')
+
+	def to_internal_value(self, data):
+		return data.split(',') if data else None
+
 
 class LoginUserSerializer(serializers.Serializer):
 	username = serializers.CharField()
@@ -400,7 +407,7 @@ class SeekerAccountUpdateSerializer(serializers.ModelSerializer):
 
 
 class SolutionCreateSerializer(serializers.ModelSerializer):
-	tags = serializers.PrimaryKeyRelatedField(many=True, queryset=Tag.objects.all())
+	tags = MultipartM2MField()
 
 	class Meta:
 		model = Solution
