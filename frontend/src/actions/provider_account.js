@@ -46,6 +46,36 @@ export const createSolution = (data) => {
 	}
 }
 
+export const updateSolution = (data, pk) => {
+	return (dispatch, getState) => {
+
+		const token = getState().auth.token;
+
+		return helpers.updateAPICall("solution", pk, data, token, true)
+			.then(res => {
+				if (res.status < 500) {
+					return res.json().then(data => {
+						return {status: res.status, data}
+					})
+				}
+				else {
+					console.log("Internal server error");
+					throw res;
+				}
+			})
+			.then(res => {
+				if (res.status === 200) {
+					dispatch({type: "SOLUTION_UPDATED"});
+					return res.data;
+				}
+				else {
+					dispatch({type:"ERROR_UPDATING_SOLUTION", data: res.data});
+					throw res.data;
+				}
+			})
+	}
+}
+
 export const listTags = () => {
 	return dispatch => {
 		return helpers.fetchListAPICall("tag")

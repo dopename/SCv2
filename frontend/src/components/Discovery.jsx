@@ -42,7 +42,7 @@ class Discovery extends Component {
 								<h2 className="text-left"><i className="fa fa-globe text-success"></i> Explore Solutions</h2>
 							</div>
 						</div>
-						<DiscoveryTiles />
+						<DiscoveryTiles auth={this.props.auth}/>
 					</div>
 				</div>
 			</div>
@@ -53,7 +53,8 @@ class Discovery extends Component {
 const mapStateToProps = state => {
 	return {
 		discovery:state.discovery,
-		mobile:state.main
+		mobile:state.main,
+		auth:state.auth,
 	}
 }
 

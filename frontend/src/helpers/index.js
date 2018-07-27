@@ -29,9 +29,18 @@ export function deleteAPICall(model, pk, title, token) {
 	}
 }
 
-export function updateAPICall(model, pk, data, token, updateInURL) {
+export function updateAPICall(model, pk, data, token, updateInURL = false, media = false) {
 	var url = "/api/" + model + "/" + pk + "/"
-	//const csrftoken = getCookie('csrftoken')
+	var headers = { Authorization: "Token " + token}
+	var body;
+
+	if (media) {
+		body = data;
+	}
+	else {
+		headers["content-type"] = "application/json";
+		body = JSON.stringify(data);
+	}
 
 	if (updateInURL) {
 		url = "/api/update/" + model + "/" + pk + "/"
@@ -39,13 +48,8 @@ export function updateAPICall(model, pk, data, token, updateInURL) {
 
 	return fetch(url, {
 		method:'put',
-		//mode: 'same-origin',
-		headers: {
-			Authorization: "Token " + token,
-			"Content-Type":"application/json",
-			//'X-CSRFToken': csrftoken
-		},
-		body:JSON.stringify(data)
+		headers,
+		body:body
 	})
 }
 

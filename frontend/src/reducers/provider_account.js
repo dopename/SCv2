@@ -10,6 +10,7 @@ var initialState = {
 export default function provider_account(state = initialState, action) {
 	switch (action.type) {
 		case "ERROR_CREATING_SOLUTION":
+		case "ERROR_UPDATING_SOLUTION":
 			return {...state, errors:action.data}
 		case "PROVIDER_LOADING":
 			return {...state, isLoading:true}
@@ -21,6 +22,7 @@ export default function provider_account(state = initialState, action) {
 			isUpdated: false,
 			}
 		case "SOLUTION_CREATED":
+		case "SOLUTION_UPDATED":
 			return {...state, isUpdated: true}
 		case "TAGS_LOADED":
 			return {...state, allTags: action.tags}

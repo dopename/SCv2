@@ -27,7 +27,14 @@ class DiscoveryTiles extends Component {
 		})
 		return (
 			<div>
-				<DumbTiles solutions={renderSolutions} size="md" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} isMobile={this.props.mobile.isMobile} env="discovery" />
+				<DumbTiles 
+					solutions={renderSolutions} 
+					size="md" 
+					screen_height={this.props.mobile.screen_height} 
+					screen_width={this.props.mobile.screen_width} 
+					isMobile={this.props.mobile.isMobile} 
+					env="discovery"
+					auth={this.props.auth} />
 			</div>
 		)
 	}
