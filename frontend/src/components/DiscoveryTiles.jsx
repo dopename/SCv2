@@ -18,7 +18,7 @@ class DiscoveryTiles extends Component {
 	}
 
 	render() {
-		document.body.classList.add("noscroll");
+		//document.body.classList.add("noscroll");
 		var renderSolutions = [];
 
 		this.props.solutionData.map(solution => {
