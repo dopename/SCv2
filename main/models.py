@@ -159,7 +159,7 @@ class SeekerAccount(models.Model):
 	bookmarks = models.ManyToManyField(Solution, blank=True, null=True)
 
 	def __str__(self):
-		return self.user
+		return self.user.user.username
 
 
 class TeamMember(models.Model):
