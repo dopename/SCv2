@@ -47,7 +47,7 @@ export default class SolutionForm extends Component {
 
 	loadImageFromUrl(url) {
 		var filename = url.split('/')[url.split('/').length - 1]
-		var fileType = filename.split('.')[filename.split('.') - 1]
+		var fileType = filename.split('.')[1]
 		return fetch(url)
 			.then(res => res.arrayBuffer())
 			.then(buf => new File([buf], filename, {type:'image/'+fileType}))
