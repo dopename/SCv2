@@ -81,6 +81,7 @@ export default class SolutionForm extends Component {
 	}
 
 	render() {
+		console.log(this.props, this.state);
 		const industrySelect = 	(<select name="industry" className="form-control" value={this.state.industry} onChange={this.handleSelectChange}>
 									<option disabled selected value> -- select an option -- </option>
 									{this.props.industries.map((i) =>
