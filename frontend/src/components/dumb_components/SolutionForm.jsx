@@ -36,6 +36,8 @@ export default class SolutionForm extends Component {
 			var solutionData = {...this.props.existingSolution}
 			delete solutionData.pk;
 			delete solutionData.views;
+			solutionData.tags = solutionData.tags.map(t => t.pk);
+			solutionData.category = solutionData.category[0];
 			this.loadImageFromUrl(solutionData.main_image)
 			.then(data => { 
 				console.log(data);
