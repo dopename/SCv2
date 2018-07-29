@@ -37,6 +37,7 @@ export default class SolutionForm extends Component {
 			delete solutionData.pk;
 			delete solutionData.views;
 			solutionData.tags = solutionData.tags.map(t => t.pk.toString());
+			solutionData.industry = solutionData.industry.toString();
 			// solutionData.category = solutionData.category[0].toString();
 			this.loadImageFromUrl(solutionData.main_image)
 			.then(data => { 
