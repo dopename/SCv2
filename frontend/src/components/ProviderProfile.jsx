@@ -83,7 +83,7 @@ class ProviderProfile extends Component {
 		var existingSolution = null;
 
 		if (this.state.editToggled) {
-			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.props.editToggled))];
+			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.state.editToggled))];
 		}
 
 		console.log(existingSolution);
