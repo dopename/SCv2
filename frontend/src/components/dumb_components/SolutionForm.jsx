@@ -32,7 +32,7 @@ export default class SolutionForm extends Component {
 	componentDidMount() {
 		if (this.props.existingSolution) {
 			//Copy prop into new variable so I don't edit the prop
-			var solutionData = this.props.existingSolution;
+			var solutionData = {...this.props.existingSolution}
 			delete solutionData.pk;
 			delete solutionData.views;
 			//Set information to the solution being edited
