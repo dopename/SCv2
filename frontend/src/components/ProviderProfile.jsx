@@ -41,12 +41,21 @@ class ProviderProfile extends Component {
 		}
 	}
 
-	formSubmit(data) {
+	createSubmit(data) {
 		var formData = new FormData();
 		for ( var key in data ) {
 		    formData.append(key, data[key]);
 		}
 		this.props.createSolution(formData);
+		this.toggleOff();
+	}
+
+	updateSubmit(data) {
+		var formData = new FormData();
+		for ( var key in data ) {
+		    formData.append(key, data[key]);
+		}
+		this.props.updateSolution(formData, this.state.editToggled);
 		this.toggleOff();
 	}
 
@@ -70,6 +79,11 @@ class ProviderProfile extends Component {
 	render() {
 		var allIndustries = [];
 		var allCategories = [];
+		var existingSolution = null;
+
+		if (this.state.editToggled) {
+			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.props.editToggled))];
+		}
 
 		if (this.props.industries) {
 			this.props.industries.map(i => {
@@ -117,8 +131,26 @@ class ProviderProfile extends Component {
 					</div>
 					<Button onClick={this.toggleNew}>Create Solution</Button>
 					{this.state.newToggled ? (
-						<Modal size="lg" isOpen={this.state.newToggled} toggle={this.toggleForm} >
-							<SolutionForm title="New" submit={this.formSubmit} industries={allIndustries} allTags={this.props.allTags} categories={allCategories} providerPK={this.props.provider.provider.pk} />
+						<Modal size="lg" isOpen={this.state.newToggled} toggle={this.toggleOff} >
+							<SolutionForm 
+								title="New" 
+								submit={this.createSubmit} 
+								industries={allIndustries} 
+								allTags={this.props.allTags} 
+								categories={allCategories} 
+								providerPK={this.props.provider.provider.pk} />
+						</Modal>
+						) : null}
+					{this.state.editToggled ? (
+						<Modal size="lg" isOpen={this.state.editToggled} toggle={this.toggleOff} >
+							<SolutionForm 
+								title="Edit" 
+								submit={this.formSubmit} 
+								industries={allIndustries} 
+								allTags={this.props.allTags} 
+								categories={allCategories} 
+								providerPK={this.props.provider.provider.pk}
+								existingSolution={existingSolution} />
 						</Modal>
 						) : null}
 				</div>
@@ -160,6 +192,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		createSolution: (data) => {
 			dispatch(provider_account.createSolution(data));
+		},
+		updateSolution: (data, pk) => {
+			dispatch(provider_account.updateSolution(data, pk));
 		},
 		listTags: () => {
 			dispatch(provider_account.listTags());

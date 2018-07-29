@@ -29,6 +29,16 @@ export default class SolutionForm extends Component {
 		this.handleTagSelect = this.handleTagSelect.bind(this);
 	}
 
+	componentDidMount() {
+		if (this.props.existingSolution) {
+			//Copy prop into new variable so I don't edit the prop
+			var solutionData = this.props.existingSolution;
+			delete solutionData.pk;
+			//Set information to the solution being edited
+			this.setState({solutionData})
+		}
+	}
+
 	//Default change handler
 	handleChange(e) {
 		this.setState({[e.target.name]:e.target.value});
