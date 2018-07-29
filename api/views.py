@@ -529,7 +529,7 @@ class SeekerAccountCreateView(generics.CreateAPIView):
 		
 #/--------------------------------------------------------------/
 
-class SolutionUpdateRetrieveView(generics.RetrieveUpdateAPIView):
+class SolutionRetrieveView(generics.RetrieveAPIView):
 	lookup_field = 'pk'
 	serializer_class = SolutionSerializer
 
@@ -569,9 +569,9 @@ class SolutionDestroyView(generics.DestroyAPIView):
 			qs = qs.filter(pk=query)
 		return qs
 		
-class SolutionUpdateViewsView(generics.DestroyAPIView):
+class SolutionUpdateView(generics.UpdateAPIView):
 	lookup_field = 'pk'
-	serializer_class = SolutionUpdateViewsSerializer
+	serializer_class = SolutionCreateSerializer
 
 	def get_queryset(self):
 		qs = Solution.objects.all()

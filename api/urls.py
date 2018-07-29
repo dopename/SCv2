@@ -54,6 +54,7 @@ urlpatterns = [
 	path('destroy/solution/<int:pk>/', SolutionDestroyView.as_view(), name="solution-destroy-view"),
 	path('list/solution/', SolutionListView.as_view(), name="solution-list-view"),
 	path('create/solution/', SolutionCreateView.as_view(), name="solution-create-view"),
-	path('solution/<int:pk>/', SolutionUpdateRetrieveView.as_view(), name="solution-update-retrieve-view"),
+	path('update/solution/<int:pk>/', SolutionUpdateView.as_view(), name="solution-update-view"),
+	path('solution/<int:pk>/', SolutionRetrieveView.as_view(), name="solution-retrieve-view"),
 	path('increment/solution/<int:pk>/', IncrementSolutionView.as_view(), name="increment-solution-view"),
 ]
