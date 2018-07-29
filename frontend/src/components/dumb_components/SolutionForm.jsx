@@ -39,7 +39,7 @@ export default class SolutionForm extends Component {
 			this.loadImageFromUrl(solutionData.main_image)
 			.then(data => { 
 				console.log(data);
-				solutionData.main_image = data
+				solutionData['main_image'] = data;
 			})
 			//Set information to the solution being edited
 			this.setState({...solutionData})
