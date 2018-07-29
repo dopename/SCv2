@@ -34,8 +34,9 @@ export default class SolutionForm extends Component {
 			//Copy prop into new variable so I don't edit the prop
 			var solutionData = this.props.existingSolution;
 			delete solutionData.pk;
+			delete solutionData.views;
 			//Set information to the solution being edited
-			this.setState({solutionData})
+			this.setState({...solutionData})
 		}
 	}
 
