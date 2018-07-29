@@ -27,6 +27,7 @@ export default class SolutionForm extends Component {
 		this.handleSelectChange = this.handleSelectChange.bind(this);
 		this.cleanData = this.cleanData.bind(this);
 		this.handleTagSelect = this.handleTagSelect.bind(this);
+		this.loadImageFromUrl = this.loadImageFromUrl.bind(this);
 	}
 
 	componentDidMount() {
@@ -35,7 +36,7 @@ export default class SolutionForm extends Component {
 			var solutionData = {...this.props.existingSolution}
 			delete solutionData.pk;
 			delete solutionData.views;
-			solutionData.main_image = loadImageFromUrl(solutionData.main_image);
+			solutionData.main_image = this.loadImageFromUrl(solutionData.main_image);
 			//Set information to the solution being edited
 			this.setState({...solutionData})
 		}
