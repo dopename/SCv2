@@ -51,7 +51,7 @@ export const updateSolution = (data, pk) => {
 
 		const token = getState().auth.token;
 
-		return helpers.updateAPICall("solution", pk, data, token, true)
+		return helpers.updateAPICall("solution", pk, data, token, false, true)
 			.then(res => {
 				if (res.status < 500) {
 					return res.json().then(data => {
