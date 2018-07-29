@@ -86,6 +86,8 @@ class ProviderProfile extends Component {
 			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.props.editToggled))];
 		}
 
+		console.log(existingSolution);
+
 		if (this.props.industries) {
 			this.props.industries.map(i => {
 				allIndustries.push({pk:i.pk, name:i.name});
@@ -95,7 +97,6 @@ class ProviderProfile extends Component {
 			})
 		}
 
-		console.log(this.props);
 		if (this.props.isLoaded === true) {
 			return (
 				<div className="container-fluid">
