@@ -145,7 +145,7 @@ class ProviderProfile extends Component {
 						<Modal size="lg" isOpen={this.state.editToggled} toggle={this.toggleOff} >
 							<SolutionForm 
 								title="Edit" 
-								submit={this.formSubmit} 
+								submit={this.updateSubmit} 
 								industries={allIndustries} 
 								allTags={this.props.allTags} 
 								categories={allCategories} 
