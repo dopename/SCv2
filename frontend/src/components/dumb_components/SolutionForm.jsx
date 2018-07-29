@@ -36,7 +36,7 @@ export default class SolutionForm extends Component {
 			var solutionData = {...this.props.existingSolution}
 			delete solutionData.pk;
 			delete solutionData.views;
-			loadImageFromUrl(solutionData.main_image)
+			this.loadImageFromUrl(solutionData.main_image)
 			.then(data => solutionData.main_image = data)
 			//Set information to the solution being edited
 			this.setState({...solutionData})
