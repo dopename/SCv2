@@ -35,9 +35,18 @@ export default class SolutionForm extends Component {
 			var solutionData = {...this.props.existingSolution}
 			delete solutionData.pk;
 			delete solutionData.views;
+			solutionData.main_image = loadImageFromUrl(solutionData.main_image);
 			//Set information to the solution being edited
 			this.setState({...solutionData})
 		}
+	}
+
+	loadImageFromUrl(url) {
+		var filename = url.split('/')[url.split('/').length - 1]
+		var fileType = filename.split('.')[filename.split('.') - 1]
+		return fetch(url)
+			.then(res => res.arrayBuffer())
+			.then(buf => new File([buf], filename, {type:'image/'+fileType}))
 	}
 
 	//Default change handler
