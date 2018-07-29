@@ -36,8 +36,8 @@ export default class SolutionForm extends Component {
 			var solutionData = {...this.props.existingSolution}
 			delete solutionData.pk;
 			delete solutionData.views;
-			solutionData.tags = solutionData.tags.map(t => t.pk.toString());
-			solutionData.category = solutionData.category[0].toString();
+			// solutionData.tags = solutionData.tags.map(t => t.pk.toString());
+			// solutionData.category = solutionData.category[0].toString();
 			this.loadImageFromUrl(solutionData.main_image)
 			.then(data => { 
 				console.log(data);
@@ -121,7 +121,7 @@ export default class SolutionForm extends Component {
 									)}
 								</select>)
 
-		const tagSelect = 		(<select multiple="multiple" className="form-control" defaultValue={this.state.tags} onChange={this.handleTagSelect}>
+		const tagSelect = 		(<select multiple="multiple" className="form-control" value={this.state.tags} onChange={this.handleTagSelect}>
 									{this.props.allTags.map((tag) => 
 										// tagOptions.push({ value:tag.pk, label:tag.name});
 										<option key={"tag_" + tag.pk} value={tag.pk}>{tag.name}</option>
