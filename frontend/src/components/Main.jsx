@@ -91,7 +91,7 @@ class TopNav extends Component {
 						<Navbar color="dark" dark expand="lg">
 							<NavbarBrand className="text-primary" href="/"><h3><i className="fa fa-globe"></i></h3></NavbarBrand>
 							<NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-							<Collapse isOpen={!this.state.collapsed} navbar>
+							<Collapse isOpen={this.state.collapsed} navbar>
 								<Nav className="ml-auto" navbar>
 									<NavItem>
 										<NavLink href="/">Home</NavLink>
