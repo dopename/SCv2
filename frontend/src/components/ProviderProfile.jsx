@@ -150,7 +150,6 @@ class ProviderProfile extends Component {
 								<thead className="thead-dark">
 									<tr>
 										<th>Name</th>
-										<th>Status</th>
 										<th>Views</th>
 										<th>Bookmarks</th>
 										<th>Actions</th>
@@ -160,7 +159,6 @@ class ProviderProfile extends Component {
 									{this.props.provider.provider.solutions.map(s => (
 										<tr>
 											<td>{s.name}</td>
-											<td>{s.status}</td>
 											<td>{s.views}</td>
 											<td>{s.bookmark_count}</td>
 											<td>

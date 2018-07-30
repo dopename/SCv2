@@ -15,7 +15,7 @@ class Discovery extends Component {
 
 	render() {
 		console.log("PROPS", this.props);
-
+		document.body.classList.add("noscroll");
 		return (
 			<div className="container-fluid h-100">
 				<div className="row h-100">
