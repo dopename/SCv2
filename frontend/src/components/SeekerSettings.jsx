@@ -82,12 +82,12 @@ class SeekerSettings extends Component {
 
 	render() {
 		var cols = [];
-		var numPerRow = 4;
+		var numPerRow = 3;
 		var rows = [];
 
 		this.props.industries.map((i, index) => {
 			cols.push(
-				<div className="col-lg-3">
+				<div className="col-lg-4">
 					<DumbCheckBox item={i} checked={i.categories.map(c => c.pk).some(r => this.state.unselectedCategories.includes(r)) ? false : true} center={true} checkBox={this.checkBox} type="industry" />
 					<DumbSubCheckBox items={i.categories} unselected={this.state.unselectedCategories} checkBox={this.checkBox} center={true} />
 				</div>
