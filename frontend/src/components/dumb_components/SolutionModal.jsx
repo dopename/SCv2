@@ -24,7 +24,9 @@ class SolutionModal extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props !== prevProps) {
-			this.checkIfActive();
+			if (!this.props.preview) {
+				this.checkIfActive();
+			}
 		}
 	}
 
