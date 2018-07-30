@@ -66,7 +66,7 @@ class ProviderProfile extends Component {
 
 	checkDelete(pk) {
 		var provider = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(pk))];
-		var confirmDelete = window.confirm("Are you sure you want to delete " + provider.name + "?")
+		var confirmDelete = () => window.confirm("Are you sure you want to delete " + provider.name + "?")
 
 		if (confirmDelete()) {
 			this.props.deleteSolution(pk);
