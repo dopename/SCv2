@@ -182,8 +182,7 @@ class ProviderProfile extends Component {
 			   			screen_height={this.props.mobile.screen_height} 
 			   			activeModal={this.state.previewToggled} 
 			   			env="provider"
-			   			auth={this.props.auth}
-					</SolutionModal>
+			   			auth={this.props.auth} />
 						) : null}
 				</div>
 			)
