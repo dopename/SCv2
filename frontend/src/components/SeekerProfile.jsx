@@ -81,14 +81,14 @@ class SeekerProfile extends Component {
 		return (
 			<div className="container-fluid">
 				<div className="row">
-					<div className="col-3 text-center">
-						<ButtonGroup vertical className="w-100 mt-1">
+					<div className="col-lg-3 text-center">
+						<div className={"d-flex " + this.props.mobile.isMobile ? "flex-row" : "flex-column"}>
 							<Button outline className="btn-block mb-1" onClick={() => this.changeView("main")} color="secondary" active={this.state.view === "main" ? true : false}>Main</Button>
 							<Button outline className="btn-block mb-1" onClick={() => this.changeView("favorites")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories</Button>
 							<Button outline className="btn-block" color="secondary" onClick={() => this.toggleSettings()}>Settings</Button>
-						</ButtonGroup>
+						</div>
 					</div>
-					<div className="col-9">
+					<div className="col-lg-9">
 						<h1 className="text-center">{this.state.view === "main" ? "Your feed" : "Your favories"}</h1>
 						<div className="container" style={{overflowY:"auto", height:scrollHeight}}>
 							{this.state.view === "main" ? (
