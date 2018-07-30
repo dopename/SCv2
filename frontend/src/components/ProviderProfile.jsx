@@ -146,25 +146,29 @@ class ProviderProfile extends Component {
 						</div>
 						<div className="col-lg-10">
 							<h1 className="text-center">Solution Information</h1>
-							<table className="table">
-								<tr>
-									<th>Name</th>
-									<th>Status</th>
-									<th>Views</th>
-									<th>Actions</th>
-								</tr>
-								{this.props.provider.provider.solutions.map(s => (
+							<table className="table thead-dark table-striped">
+								<thead>
 									<tr>
-										<td>{s.name}</td>
-										<td>{s.status}</td>
-										<td>{s.views}</td>
-										<td>
-											<i className="fa fa-pencil text-warning pointer-hand" onClick={() => this.toggleEdit(s.pk)}></i>
-											<i className="fa fa-eye text-info pointer-hand mx-2" onClick={() => this.togglePreview(s.pk)}></i>
-											<i className="fa fa-close text-danger pointer-hand" onClick={() => this.checkDelete(s.pk)}></i>
-										</td>
+										<th>Name</th>
+										<th>Status</th>
+										<th>Views</th>
+										<th>Actions</th>
 									</tr>
-								))}
+								</thead>
+								<tbody>
+									{this.props.provider.provider.solutions.map(s => (
+										<tr>
+											<td>{s.name}</td>
+											<td>{s.status}</td>
+											<td>{s.views}</td>
+											<td>
+												<i className="fa fa-pencil text-warning pointer-hand" onClick={() => this.toggleEdit(s.pk)}></i>
+												<i className="fa fa-eye text-info pointer-hand mx-2" onClick={() => this.togglePreview(s.pk)}></i>
+												<i className="fa fa-close text-danger pointer-hand" onClick={() => this.checkDelete(s.pk)}></i>
+											</td>
+										</tr>
+									))}
+								</tbody>
 							</table>
 						</div>
 						<div className="col-1 d-none d-lg-block">
