@@ -184,7 +184,7 @@ class ProviderProfile extends Component {
 			   			activeModal={this.state.previewToggled} 
 			   			env="provider"
 			   			auth={this.props.auth}
-			   			preview={true} />
+			   			preview="preview" />
 						) : null}
 				</div>
 			)
