@@ -28,7 +28,7 @@ class DiscoveryTiles extends Component {
 			}
 		})
 		return (
-			<div className="row vertical-scroll" style={{height:scrollHeight}}>
+			<div className="row vertical-scroll h-100">
 				<div className="col-12">
 					<DumbTiles 
 						solutions={renderSolutions} 
