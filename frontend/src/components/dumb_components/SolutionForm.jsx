@@ -151,7 +151,7 @@ export default class SolutionForm extends Component {
 						<div className="col-lg-4">
 							<label for="tags">Tags</label>
 							{ tagSelect }
-							<small className="text-primary text-center">Hold CTRL to select multiple</small>
+							<p className="text-primary text-center"><small>Hold CTRL to select multiple</small></p>
 						</div>
 						<div className="col-lg-4">
 							<label for="status">Status</label>
