@@ -155,7 +155,7 @@ class ProviderProfile extends Component {
 										<td>
 											<i className="fa fa-pencil text-warning pointer-hand" onClick={() => this.toggleEdit(s.pk)}></i>
 											<i className="fa fa-eye text-info pointer-hand mx-2" onClick={() => this.togglePreview(s.pk)}></i>
-											<i className="fa fa-close text-danger pointer-hand" onClick={() => this.checkDelete(s.pk)}</i>
+											<i className="fa fa-close text-danger pointer-hand" onClick={() => this.checkDelete(s.pk)}></i>
 										</td>
 									</tr>
 								))}
