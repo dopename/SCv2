@@ -105,6 +105,7 @@ class SeekerSettings extends Component {
 		console.log("PROPS", this.props, "STATE", this.state);
 		return (
 				<Modal size={this.props.mobile.screen_width > 540 ? "lg" : "md"} isOpen={this.props.open} toggle={this.props.toggle}>
+				<h4><i className="fa fa-window-close mx-1 float-right pointer-hand" title="Close" onClick={() => {  this.props.toggle() }}></i></h4>
 					<div className="container">
 						<h1 className="text-left">What are your interests?</h1>
 					</div>
