@@ -178,7 +178,7 @@ class ProviderProfile extends Component {
 						<Button outline color="success" onClick={this.toggleNew}>Create Solution</Button>
 					</div>
 					{this.state.newToggled ? (
-						<Modal size="lg" isOpen={this.state.newToggled} toggle={this.toggleOff} >
+						<Modal size={this.props.mobile.isMobile ? "md" : "lg"} isOpen={this.state.newToggled} toggle={this.toggleOff} >
 							<SolutionForm 
 								title="New" 
 								submit={this.createSubmit} 
@@ -189,7 +189,7 @@ class ProviderProfile extends Component {
 						</Modal>
 						) : null}
 					{this.state.editToggled ? (
-						<Modal size="lg" isOpen={this.state.editToggled} toggle={this.toggleOff} >
+						<Modal size={this.props.mobile.isMobile ? "md" : "lg"} isOpen={this.state.editToggled} toggle={this.toggleOff} >
 							<SolutionForm 
 								title="Edit" 
 								submit={this.updateSubmit} 
