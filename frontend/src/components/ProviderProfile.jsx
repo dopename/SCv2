@@ -179,8 +179,10 @@ class ProviderProfile extends Component {
 					</div>
 					{this.state.newToggled ? (
 						<Modal size={this.props.mobile.isMobile ? "md" : "lg"} isOpen={this.state.newToggled} toggle={this.toggleOff} >
+							<h4><i className="fa fa-window-close mx-1 float-right pointer-hand" title="Close" onClick={() => {  this.toggleOff() }}></i></h4>
 							<SolutionForm 
 								title="New" 
+								isMobile={this.props.mobile.isMobile}
 								submit={this.createSubmit} 
 								industries={allIndustries} 
 								allTags={this.props.allTags} 
@@ -190,8 +192,10 @@ class ProviderProfile extends Component {
 						) : null}
 					{this.state.editToggled ? (
 						<Modal size={this.props.mobile.isMobile ? "md" : "lg"} isOpen={this.state.editToggled} toggle={this.toggleOff} >
+							<h4><i className="fa fa-window-close mx-1 float-right pointer-hand" title="Close" onClick={() => {  this.toggleOff() }}></i></h4>
 							<SolutionForm 
-								title="Edit" 
+								title="Edit"
+								isMobile={this.props.mobile.isMobile}
 								submit={this.updateSubmit} 
 								industries={allIndustries} 
 								allTags={this.props.allTags} 

@@ -151,7 +151,7 @@ export default class SolutionForm extends Component {
 						<div className="col-lg-4">
 							<label for="tags">Tags</label>
 							{ tagSelect }
-							<p className="text-primary text-center"><small>Hold CTRL to select multiple</small></p>
+							{this.props.isMobile ? null : <p className="text-primary text-center"><small>Hold CTRL to select multiple</small></p>}
 						</div>
 						<div className="col-lg-4">
 							<label for="status">Status</label>
