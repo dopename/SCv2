@@ -99,6 +99,7 @@ class ProviderProfile extends Component {
 		}
 		if (this.state.previewToggled) {
 			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.state.previewToggled))];
+			existingSolution['provider_logo'] = this.props.provider.provider.logo;
 		}
 
 		console.log(existingSolution);
