@@ -14,8 +14,8 @@ class Discovery extends Component {
 	}
 
 	render() {
-		document.body.classList.add("noscroll");
-
+		console.log("PROPS", this.props);
+		//document.body.classList.add("noscroll");
 		return (
 			<div className="container-fluid h-100">
 				<div className="row h-100">
@@ -42,8 +42,7 @@ class Discovery extends Component {
 								<h2 className="text-left"><i className="fa fa-globe text-success"></i> Explore Solutions</h2>
 							</div>
 						</div>
-						<DiscoveryTiles auth={this.props.auth} />
-						<hr className="my-2" />
+						<DiscoveryTiles auth={this.props.auth}/>
 					</div>
 				</div>
 			</div>
