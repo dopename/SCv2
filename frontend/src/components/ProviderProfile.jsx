@@ -126,7 +126,9 @@ class ProviderProfile extends Component {
 			return (
 				<div className="container-fluid">
 					<div className="row">
-						<div className="col-4">
+						<div className="col-1 d-none">
+						</div>
+						<div className="col-lg-10">
 							<h1 className="text-center">Provider Information</h1>
 							<div className="text-left">
 								<p><strong>Name:</strong> {this.props.provider.provider.name}</p>
@@ -136,7 +138,13 @@ class ProviderProfile extends Component {
 								<p><strong>Phone:</strong> {this.props.provider.provider.phone}</p>
 							</div>
 						</div>
-						<div className="col-8">
+						<div className="col-1 d-none">
+						</div>						
+					</div>
+					<div className="row">
+						<div className="col-1 d-none">
+						</div>
+						<div className="col-lg-10">
 							<h1 className="text-center">Solution Information</h1>
 							<table className="table">
 								<tr>
@@ -158,6 +166,8 @@ class ProviderProfile extends Component {
 									</tr>
 								))}
 							</table>
+						</div>
+						<div className="col-1 d-none">
 						</div>
 					</div>
 					<Button onClick={this.toggleNew}>Create Solution</Button>
