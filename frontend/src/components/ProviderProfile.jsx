@@ -142,8 +142,8 @@ class ProviderProfile extends Component {
 										<td>{s.status}</td>
 										<td>{s.views}</td>
 										<td>
-											<i className="fa fa-pencil text-warning" onClick={() => this.toggleEdit(s.pk)}></i>
-											<i className="fa fa-eye text-info" onClick={() => this.togglePreview(s.pk)}></i>
+											<i className="fa fa-pencil text-warning pointer-hand" onClick={() => this.toggleEdit(s.pk)}></i>
+											<i className="fa fa-eye text-info pointer-hand mx-2" onClick={() => this.togglePreview(s.pk)}></i>
 										</td>
 									</tr>
 								))}
