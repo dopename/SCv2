@@ -20,6 +20,7 @@ class DiscoveryTiles extends Component {
 	render() {
 		//document.body.classList.add("noscroll");
 		var renderSolutions = [];
+		var scrollHeight = (0.85 * this.props.mobile.screen_height).toString() + "px"
 
 		this.props.solutionData.map(solution => {
 			if (this.props.unselected.indexOf(solution.category[0]) < 0) {
@@ -27,8 +28,8 @@ class DiscoveryTiles extends Component {
 			}
 		})
 		return (
-			<div className="row h-100 vertical-scroll">
-				<div className="col-12 h-100">
+			<div className="row vertical-scroll" style={{height:scrollHeight}}>
+				<div className="col-12">
 					<DumbTiles 
 						solutions={renderSolutions} 
 						size="md" 
