@@ -432,7 +432,6 @@ class SolutionSerializer(serializers.ModelSerializer):
 	provider_name = serializers.CharField(source='provider.name', read_only=True)
 	provider_logo = serializers.ImageField(source='provider.logo', read_only=True)
 	tags = SolutionTagSerializer(many=True, read_only=True)
-	bookmark_count = serializers.IntegerField()
 
 	class Meta:
 		model = Solution
@@ -455,7 +454,6 @@ class SolutionSerializer(serializers.ModelSerializer):
 			"solutionmedia",
 			"provider_name",
 			"provider_logo",
-			"bookmark_count",
 		]
 
 class SolutionDestroySerializer(serializers.ModelSerializer):
@@ -504,6 +502,7 @@ class SeekerAccountSerializer(serializers.ModelSerializer):
 
 class ProviderAccountSolutionSerializer(serializers.ModelSerializer):
 	tags = SolutionTagSerializer(many=True, read_only=True)
+	bookmark_count = serializers.IntegerField()
 
 	class Meta:
 		model = Solution
@@ -524,6 +523,7 @@ class ProviderAccountSolutionSerializer(serializers.ModelSerializer):
 			"views",
 			"main_image",
 			"solutionmedia",
+			"bookmark_count",
 		]
 
 class ProviderAccountProviderSerializer(serializers.ModelSerializer):
