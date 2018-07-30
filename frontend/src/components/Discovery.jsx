@@ -15,10 +15,10 @@ class Discovery extends Component {
 
 	render() {
 		console.log("PROPS", this.props);
-		document.body.classList.add("noscroll");
+		//document.body.classList.add("noscroll");
 		return (
-			<div className="container-fluid">
-				<div className="row">
+			<div className="container-fluid h-100">
+				<div className="row h-100">
 					<div className="col-lg-3 text-center discovery-sidebar border border-info">
 						<h3 className="mt-2"><i className="fa fa-search"></i> Refine Results</h3>
 						<input className="form-control mb-2" type="text" placeholder="What would you like to find?" />
