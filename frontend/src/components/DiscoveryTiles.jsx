@@ -27,17 +27,16 @@ class DiscoveryTiles extends Component {
 			}
 		})
 		return (
-			<div className="row h-100 vertical-scroll">
-				<div className="col-12">
-					<DumbTiles 
-						solutions={renderSolutions} 
-						size="md" 
-						screen_height={this.props.mobile.screen_height} 
-						screen_width={this.props.mobile.screen_width} 
-						isMobile={this.props.mobile.isMobile} 
-						env="discovery"
-						auth={this.props.auth} />
-				</div>
+			<div className="container-fluid h-100 vertical-scroll">
+				<DumbTiles 
+					solutions={renderSolutions} 
+					size="md" 
+					screen_height={this.props.mobile.screen_height} 
+					screen_width={this.props.mobile.screen_width} 
+					isMobile={this.props.mobile.isMobile} 
+					env="discovery"
+					auth={this.props.auth} 
+				/>
 			</div>
 		)
 	}
