@@ -146,8 +146,8 @@ class ProviderProfile extends Component {
 						</div>
 						<div className="col-lg-10">
 							<h1 className="text-center">Solution Information</h1>
-							<table className="table thead-dark table-striped">
-								<thead>
+							<table className="table table-striped">
+								<thead className="thead-dark">
 									<tr>
 										<th>Name</th>
 										<th>Status</th>
