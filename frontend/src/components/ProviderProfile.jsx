@@ -34,8 +34,8 @@ class ProviderProfile extends Component {
 		}
 	}
 	componentDidUpdate(prevProps) {
-		if (this.props != prevProps) {
-			if ((this.props.auth.user != null) && (!this.props.isLoaded || this.props.isUpdated)) {
+		if (this.props !== prevProps) {
+			if ((this.props.auth.user !== null) && (!this.props.isLoaded || this.props.isUpdated)) {
 				if (this.props.auth.user.custom_user.provider_account != null) {
 					this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
 				}
@@ -112,8 +112,6 @@ class ProviderProfile extends Component {
 			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.state.previewToggled))];
 			existingSolution['provider_logo'] = this.props.provider.provider.logo;
 		}
-
-		console.log(existingSolution);
 
 		if (this.props.industries) {
 			this.props.industries.map(i => {
