@@ -193,7 +193,7 @@ export default class SolutionForm extends Component {
 				  	<div className="row my-2">
 				  		<div className="col-lg-6 m-auto">
 				  			<label for="main_image">Main Image</label>
-				  			<p>{"Current File: " + this.state.main_image ? "Current: " + this.state.main_image.name : "None"}</p>
+				  			<p>{this.state.main_image.lnegth > 0 ? "Current: " + this.state.main_image.name : null}</p>
 				  			<input className="form-control" type="file" onChange={this.fileHandleChange} name="main_image" />
 				  		</div>
 				  	</div>
