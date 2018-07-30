@@ -14,7 +14,7 @@ function getCookie(name) {
 
 
 
-export function deleteAPICall(model, pk, title, token) {
+export function deleteAPICall(model, pk, token) {
 	const url = "/api/destroy/" + model + "/" + pk + "/"
 
 	return fetch(url, {
