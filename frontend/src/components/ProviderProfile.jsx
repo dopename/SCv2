@@ -152,6 +152,7 @@ class ProviderProfile extends Component {
 										<th>Name</th>
 										<th>Status</th>
 										<th>Views</th>
+										<th>Bookmarks</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
@@ -161,6 +162,7 @@ class ProviderProfile extends Component {
 											<td>{s.name}</td>
 											<td>{s.status}</td>
 											<td>{s.views}</td>
+											<td>{s.bookmark_count}</td>
 											<td>
 												<i className="fa fa-pencil text-warning pointer-hand" onClick={() => this.toggleEdit(s.pk)}></i>
 												<i className="fa fa-eye text-info pointer-hand mx-2" onClick={() => this.togglePreview(s.pk)}></i>

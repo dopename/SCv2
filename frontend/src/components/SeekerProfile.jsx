@@ -100,15 +100,15 @@ class SeekerProfile extends Component {
 						</div>
 					</div>
 				</div>
-				{this.props.isLoaded ? (<SeekerSettings 
-					industries={this.props.industries} 
-					open={this.state.settingsOpen} 
-					toggle={this.toggleSettings} 
-					seeker={this.props.seeker}
-					onSubmit={this.props.updateSeeker}
-					seeker={this.props.seeker}
-					token={this.props.auth.token}
-					mobile={this.props.mobile}
+				{this.props.isLoaded ? (
+					<SeekerSettings 
+						industries={this.props.industries} 
+						open={this.state.settingsOpen} 
+						toggle={this.toggleSettings} 
+						seeker={this.props.seeker}
+						onSubmit={this.props.updateSeeker}
+						token={this.props.auth.token}
+						mobile={this.props.mobile}
 					/>) : null }
 			</div>
 		)

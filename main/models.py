@@ -146,6 +146,10 @@ class Solution(models.Model):
 	main_image = models.ImageField(upload_to="solution_images/", blank=True, null=True)
 	solutionmedia = models.OneToOneField(SolutionMedia, on_delete=models.CASCADE, blank=True, null=True, related_name="solution")
 
+	@property
+	def bookmark_count(self):
+		return len(self.seeker_accounts.all())
+
 	def __str__(self):
 		return self.name
 		
@@ -156,7 +160,7 @@ class SeekerAccount(models.Model):
 	tags = models.ManyToManyField(Tag, blank=True, null=True)
 	#industries = models.ManyToManyField(Industry, blank=True, null=True)
 	categories = models.ManyToManyField(Category, blank=True, null=True)
-	bookmarks = models.ManyToManyField(Solution, blank=True, null=True)
+	bookmarks = models.ManyToManyField(Solution, blank=True, null=True, related_name="seeker_accounts")
 
 	def __str__(self):
 		return self.user.user.username
