@@ -21,7 +21,7 @@ class ProviderProfile extends Component {
 		this.createSubmit = this.createSubmit.bind(this);
 		this.updateSubmit = this.updateSubmit.bind(this);
 		this.toggleEdit = this.toggleEdit.bind(this);
-		this.previewToggled = this.previewToggled.bind(this);
+		this.togglePreview = this.togglePreview.bind(this);
 	}
 
 	componentDidMount() {
