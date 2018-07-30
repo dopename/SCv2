@@ -43,6 +43,7 @@ class Discovery extends Component {
 							</div>
 						</div>
 						<DiscoveryTiles auth={this.props.auth} />
+						<hr className="my-2" />
 					</div>
 				</div>
 			</div>
