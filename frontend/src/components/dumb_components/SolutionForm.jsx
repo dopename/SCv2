@@ -151,7 +151,7 @@ export default class SolutionForm extends Component {
 						<div className="col-lg-4">
 							<label for="tags">Tags</label>
 							{ tagSelect }
-							<small className="text-primary">Hold CTRL to select multiple</small>
+							<small className="text-primary text-center">Hold CTRL to select multiple</small>
 						</div>
 						<div className="col-lg-4">
 							<label for="status">Status</label>
@@ -192,8 +192,8 @@ export default class SolutionForm extends Component {
 				  	</div>
 				  	<div className="row my-2">
 				  		<div className="col-lg-6 m-auto">
-				  			<label for="main_picture">Main Picture</label>
-				  			<input className="form-control" type="file" onChange={this.fileHandleChange} name="main_picture" />
+				  			<label for="main_image">Main Image</label>
+				  			<input className="form-control" type="file" value={this.state.main_image} onChange={this.fileHandleChange} name="main_image" />
 				  		</div>
 				  	</div>
 				  	<div className="col-4 m-auto">
