@@ -24,12 +24,7 @@ class SolutionModal extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props !== prevProps) {
-			if (this.props.preview === "preview") {
-				null
-			}
-			else {
-				this.checkIfActive();
-			}
+			this.checkIfActive();
 		}
 	}
 
@@ -48,7 +43,12 @@ class SolutionModal extends Component {
 
 	checkIfActive() {
 		if (this.props.activeModal === this.props.solution.pk) {
-			incrementAPICall("solution", this.props.solution.pk)
+			if (this.props.preview === "preview") {
+				null
+			}
+			else {
+				incrementAPICall("solution", this.props.solution.pk)
+			}
 			this.setState({modal:true});
 			// this.updateSolutionViews();
 		}
