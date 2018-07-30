@@ -28,8 +28,7 @@ class DiscoveryTiles extends Component {
 			}
 		})
 		return (
-			<div className="row vertical-scroll h-100">
-				<div className="col-12 h-100">
+			<div className="container-fluid h-100 vertical-scroll">
 					<DumbTiles 
 						solutions={renderSolutions} 
 						size="md" 
@@ -38,7 +37,6 @@ class DiscoveryTiles extends Component {
 						isMobile={this.props.mobile.isMobile} 
 						env="discovery"
 						auth={this.props.auth} />
-				</div>
 			</div>
 		)
 	}
