@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 
 import {auth, main, discovery, provider_account} from "../actions/index";
 import SolutionForm from "./dumb_components/SolutionForm";
+import SolutionModal from "./dumb_components/SolutionModal";
 import { Button, Modal } from "reactstrap";
 
 class ProviderProfile extends Component {
@@ -11,7 +12,8 @@ class ProviderProfile extends Component {
 
 		this.state = {
 			newToggled: false,
-			editToggled: false
+			editToggled: false,
+			previewToggled: false,
 		}
 
 		this.toggleNew = this.toggleNew.bind(this);
@@ -19,6 +21,7 @@ class ProviderProfile extends Component {
 		this.createSubmit = this.createSubmit.bind(this);
 		this.updateSubmit = this.updateSubmit.bind(this);
 		this.toggleEdit = this.toggleEdit.bind(this);
+		this.previewToggled = this.previewToggled.bind(this);
 	}
 
 	componentDidMount() {
@@ -73,8 +76,17 @@ class ProviderProfile extends Component {
 		}
 	}
 
+	togglePreview(pk) {
+		if (this.state.previewToggled === pk) {
+			this.setState({previewToggled:false});
+		}
+		else {
+			this.setState({previewToggled:pk})
+		}
+	}
+
 	toggleOff() {
-		this.setState({newToggled:false, editToggled:false});
+		this.setState({newToggled:false, editToggled:false, previewToggled:false});
 	}
 
 	render() {
@@ -84,6 +96,9 @@ class ProviderProfile extends Component {
 
 		if (this.state.editToggled) {
 			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.state.editToggled))];
+		}
+		if (this.state.previewToggled) {
+			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.state.previewToggled))];
 		}
 
 		console.log(existingSolution);
@@ -125,7 +140,10 @@ class ProviderProfile extends Component {
 										<td>{s.name}</td>
 										<td>{s.status}</td>
 										<td>{s.views}</td>
-										<td><Button color="warning" size="md" outline onClick={() => this.toggleEdit(s.pk)}>Edit</Button></td>
+										<td>
+											<i className="fa fa-pencil text-warning" onClick={() => this.toggleEdit(s.pk)}></i>
+											<i className="fa fa-eye text-info" onClick={() => this.togglePreview(s.pk)}></i>
+										</td>
 									</tr>
 								))}
 							</table>
@@ -154,6 +172,18 @@ class ProviderProfile extends Component {
 								providerPK={this.props.provider.provider.pk}
 								existingSolution={existingSolution} />
 						</Modal>
+						) : null}
+					{this.state.previewToggled ? (
+			   		<SolutionModal 
+			   			isMobile={this.props.mobile.isMobile} 
+			   			solution={existingSolution} 
+			   			toggle={this.toggleOff} 
+			   			screen_width={this.props.mobile.screen_width} 
+			   			screen_height={this.props.mobile.screen_height} 
+			   			activeModal={this.state.previewToggled} 
+			   			env="provider"
+			   			auth={this.props.auth}
+					</SolutionModal>
 						) : null}
 				</div>
 			)
