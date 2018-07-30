@@ -22,6 +22,7 @@ class ProviderProfile extends Component {
 		this.updateSubmit = this.updateSubmit.bind(this);
 		this.toggleEdit = this.toggleEdit.bind(this);
 		this.togglePreview = this.togglePreview.bind(this);
+		this.checkDelete = this.checkDelete.bind(this);
 	}
 
 	componentDidMount() {
@@ -61,6 +62,16 @@ class ProviderProfile extends Component {
 		}
 		this.props.updateSolution(formData, this.state.editToggled);
 		this.toggleOff();
+	}
+
+	checkDelete(pk) {
+		var provider = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(pk))];
+		var confirmDelete = window.confirm("Are you sure you want to delete " + provider.name + "?")
+
+		if (confirmDelete()) {
+			this.props.deleteSolution(pk);
+		}
+
 	}
 
 	toggleNew() {
@@ -144,6 +155,7 @@ class ProviderProfile extends Component {
 										<td>
 											<i className="fa fa-pencil text-warning pointer-hand" onClick={() => this.toggleEdit(s.pk)}></i>
 											<i className="fa fa-eye text-info pointer-hand mx-2" onClick={() => this.togglePreview(s.pk)}></i>
+											<i className="fa fa-close text-danger pointer-hand" onClick={() => this.checkDelete(s.pk)}</i>
 										</td>
 									</tr>
 								))}
@@ -228,6 +240,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		updateSolution: (data, pk) => {
 			dispatch(provider_account.updateSolution(data, pk));
+		},
+		deleteSolution: (pk) => {
+			dispatch(provider_account.deleteSolution(pk));
 		},
 		listTags: () => {
 			dispatch(provider_account.listTags());

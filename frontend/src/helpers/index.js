@@ -17,16 +17,12 @@ function getCookie(name) {
 export function deleteAPICall(model, pk, title, token) {
 	const url = "/api/destroy/" + model + "/" + pk + "/"
 
-	var confirmed = window.confirm("Are you sure you want to delete the following objective: " + title +"?");
-
-	if (confirmed) {
-		return fetch(url, {
-			method:"delete",
-			headers: {
-				Authorization: "Token " + token,
-			}
-		})
-	}
+	return fetch(url, {
+		method:"delete",
+		headers: {
+			Authorization: "Token " + token,
+		}
+	})
 }
 
 export function updateAPICall(model, pk, data, token, updateInURL = false, media = false) {
