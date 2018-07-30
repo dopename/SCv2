@@ -126,7 +126,7 @@ class ProviderProfile extends Component {
 			return (
 				<div className="container-fluid">
 					<div className="row">
-						<div className="col-1 d-none">
+						<div className="col-1 d-none d-lg-block">
 						</div>
 						<div className="col-lg-10">
 							<h1 className="text-center">Provider Information</h1>
@@ -138,11 +138,11 @@ class ProviderProfile extends Component {
 								<p><strong>Phone:</strong> {this.props.provider.provider.phone}</p>
 							</div>
 						</div>
-						<div className="col-1 d-none">
+						<div className="col-1 d-none d-lg-block">
 						</div>						
 					</div>
 					<div className="row">
-						<div className="col-1 d-none">
+						<div className="col-1 d-none d-lg-block">
 						</div>
 						<div className="col-lg-10">
 							<h1 className="text-center">Solution Information</h1>
@@ -167,10 +167,12 @@ class ProviderProfile extends Component {
 								))}
 							</table>
 						</div>
-						<div className="col-1 d-none">
+						<div className="col-1 d-none d-lg-block">
 						</div>
 					</div>
-					<Button onClick={this.toggleNew}>Create Solution</Button>
+					<div className="text-center m-auto">
+						<Button outline color="success" onClick={this.toggleNew}>Create Solution</Button>
+					</div>
 					{this.state.newToggled ? (
 						<Modal size="lg" isOpen={this.state.newToggled} toggle={this.toggleOff} >
 							<SolutionForm 
