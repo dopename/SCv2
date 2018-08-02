@@ -78,7 +78,7 @@ export const loadFullUser = () => {
                 })
               })
           }
-
+          console.log(user);
           //If there is a provider account attached, query Provider information *TESTING*
           if (user.custom_user.provider_account) {
             dispatch({type:"PROVIDER_LOADING"});
