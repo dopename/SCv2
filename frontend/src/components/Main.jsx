@@ -18,7 +18,7 @@ class Main extends Component {
 
 	componentDidMount() {
 		this.props.getScreenData(window.screen.width, window.screen.height);
-		this.props.loadUser();
+		this.props.loadFullUser();
 	}
 
 	render() {
