@@ -7,44 +7,29 @@ import Login from "./Login";
 import Register from "./Register";
 import SeekerProfile from "./SeekerProfile";
 import ProviderProfile from "./ProviderProfile";
-import SeekerSettings from "./SeekerSettings";
 
 import "./Main.css"
 
 import { Button, Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavLink } from "reactstrap";
-import {main, auth, discovery, seeker_account} from "../actions/index"
+import {main, auth} from "../actions/index"
 import {connect} from "react-redux";
 
 class Main extends Component {
-	constructor(props) {
-		super(props)
-
-		this.state = {
-			settingsOpen: false,
-		}
-
-		this.toggleSettings = this.toggleSettings.bind(this);
-	}
 
 	componentDidMount() {
 		this.props.getScreenData(window.screen.width, window.screen.height);
-		this.props.listIndustries();
-		this.props.loadFullUser();
-	}
-
-	toggleSettings() {
-		this.setState({settingsOpen:!this.state.settingsOpen});
+		this.props.loadUser();
 	}
 
 	render() {
-		console.log(this.props);
+		console.log(this.props.auth);
 		return (
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-						<TopNav logout={this.props.logout} auth={this.props.auth} toggleSettings={this.toggleSettings} username={this.props.auth.isAuthenticated ? this.props.auth.user.username : null} />
+						<TopNav logout={this.props.logout} auth={this.props.auth} username={this.props.auth.isAuthenticated ? this.props.auth.user.username : null} />
 						<Switch>
-							<Route exact path="/" render= { () => <Initial screen_width={this.props.mobile.screen_width} screen_height={this.props.mobile.screen_height} /> } />
+							<Route exact path="/" render= { () => <Initial screen_width={this.props.screen_width} screen_height={this.props.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
 							<Route exact path="/login" component={Login} />
 							<Route exact path="/register" component={Register} />
@@ -52,16 +37,6 @@ class Main extends Component {
 							<Route path="/profile/seeker" component={SeekerProfile} />
 							<Route path="/profile/provider" component={ProviderProfile} />
 						</Switch>
-						{this.props.seeker !== null ? (
-							<SeekerSettings 
-								industries={this.props.industries} 
-								open={this.state.settingsOpen} 
-								toggle={this.toggleSettings} 
-								seeker={this.props.seeker}
-								onSubmit={this.props.updateSeeker}
-								token={this.props.auth.token}
-								mobile={this.props.mobile}
-							/>) : null }
 					</div>
 				</BrowserRouter>
 			</div>
@@ -71,11 +46,9 @@ class Main extends Component {
 
 const mapStateToProps = state => {
 	return {
-		mobile:state.main,
+		screen_height:state.main.screen_height,
+		screen_width:state.main.screen_width,
 		auth: state.auth,
-		seeker:state.seeker_account.seeker,
-		provider:state.provider_account.provider,
-		industries:state.discovery.industries,
 	}
 }
 
@@ -87,15 +60,9 @@ const mapDispatchToProps = dispatch => {
 		logout: () => {
 			return dispatch(auth.logout())
 		},
-	    loadFullUser: () => {
-	      return dispatch(auth.loadFullUser());
+	    loadUser: () => {
+	      return dispatch(auth.loadUser());
 	    },
-		updateSeeker: (pk, seekerData, token) => {
-			dispatch(seeker_account.updateSeeker(pk, seekerData, token));
-		},
-		listIndustries: () => {
-			dispatch(discovery.listIndustries());
-		},
 	}
 }
 
@@ -143,9 +110,6 @@ class TopNav extends Component {
 													</DropdownItem>
 													<DropdownItem>
 														<Link className="list-inline-item mx-2" to="/profile/provider">Provider Profile</Link>
-													</DropdownItem>
-													<DropdownItem>
-														<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.toggleSettings()}>Settings</p>
 													</DropdownItem>
 													<DropdownItem>
 														<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
