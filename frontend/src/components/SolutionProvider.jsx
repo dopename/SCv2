@@ -53,15 +53,15 @@ class SolutionProvider extends Component {
 							<h5 className="d-inline mx-2 text-primary">Solutions</h5>
 							<h5 className="d-inline mx-2 text-primary">About</h5>
 						</div>
-						<div className="row my-4 py-2 provider-tags">
+						<div className="row my-4 py-2">
 							<div className="col-lg-6">
-								<div className="provider-tags">
+								<div className="provider-tags p-2">
 									<h4 className="text-left">We make solutions for:</h4>
 									{this.props.providerData ? <Tags tags={this.props.providerData.child_tags} /> : <div className="loader"></div>}
 								</div>
 							</div>
 							<div className="col-lg-6">
-								<div className="provider-tags">
+								<div className="provider-tags p-2">
 									<h4 className="text-left">Industries we're in:</h4>
 									{this.props.providerData ? <Tags tags={this.props.providerData.child_ind_cat} /> : <div className="loader"></div>}
 								</div>
