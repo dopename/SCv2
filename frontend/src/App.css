@@ -58,9 +58,3 @@
 .noscroll {
   overflow:hidden;
 }
-
-@media (min-device-width: 1025px) {
-  .noscroll { 
-      padding-right: 15px;
-  }
-}
