@@ -7,6 +7,7 @@ import Login from "./Login";
 import Register from "./Register";
 import SeekerProfile from "./SeekerProfile";
 import ProviderProfile from "./ProviderProfile";
+import SeekerSettings from "./SeekerSettings";
 
 import "./Main.css"
 
