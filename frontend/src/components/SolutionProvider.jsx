@@ -67,12 +67,12 @@ class SolutionProvider extends Component {
 								</div>
 							</div>
 						</div>
-						<div className="col-lg-12 mb-3">
-							<div className="text-left px-2">
+						<div className="col-lg-12">
+							<div className="text-left p-4">
 								<p>{this.props.providerData.about_us}</p>
 							</div>
 						</div>
-						<div id="solutions mt-3" style={{borderTop:"dotted black 1px"}}>
+						<div id="solutions pt-3" style={{borderTop:"dotted black 1px"}}>
 							<h3 className="text-left mt-2 text-primary">Solutions by {this.props.providerData.name}</h3>
 							{this.props.providerData ? <ProviderTiles solutions={this.props.providerData.solutions} /> : <div className="loader"></div>}
 						</div>
