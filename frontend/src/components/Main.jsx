@@ -54,7 +54,7 @@ class Main extends Component {
 						/>) : null }
 						<TopNav logout={this.props.logout} auth={this.props.auth} toggleSettings={this.toggleSettings} username={this.props.auth.isAuthenticated ? this.props.auth.user.username : null} />
 						<Switch>
-							<Route exact path="/" render= { () => <Initial screen_width={this.props.screen_width} screen_height={this.props.screen_height} /> } />
+							<Route exact path="/" render= { () => <Initial screen_width={this.props.mobile.screen_width} screen_height={this.props.mobile.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
 							<Route exact path="/login" component={Login} />
 							<Route exact path="/register" component={Register} />
@@ -71,9 +71,7 @@ class Main extends Component {
 
 const mapStateToProps = state => {
 	return {
-		mobie:state.main,
-		screen_height:state.main.screen_height,
-		screen_width:state.main.screen_width,
+		mobile:state.main,
 		auth: state.auth,
 		seeker:state.seeker_account.seeker,
 		provider:state.provider_account.provider,
