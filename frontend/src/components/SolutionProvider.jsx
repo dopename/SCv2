@@ -53,7 +53,7 @@ class SolutionProvider extends Component {
 							<h5 className="d-inline mx-2 text-primary">Solutions</h5>
 							<h5 className="d-inline mx-2 text-primary">About</h5>
 						</div>
-						<div className="row my-4 py-2">
+						<div className="row my-4 pt-2">
 							<div className="col-lg-6">
 								<div className="provider-tags p-2">
 									<h4 className="text-left">We make solutions for:</h4>
@@ -72,7 +72,7 @@ class SolutionProvider extends Component {
 								<p>{this.props.providerData.about_us}</p>
 							</div>
 						</div>
-						<div id="solutions pt-3" style={{borderTop:"dotted black 1px"}}>
+						<div id="solutions" className="pt-3" style={{borderTop:"dotted black 1px"}}>
 							<h3 className="text-left mt-2 text-primary">Solutions by {this.props.providerData.name}</h3>
 							{this.props.providerData ? <ProviderTiles solutions={this.props.providerData.solutions} /> : <div className="loader"></div>}
 						</div>
