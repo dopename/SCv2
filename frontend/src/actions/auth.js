@@ -65,6 +65,7 @@ export const loadFullUser = () => {
         if (res.status === 200) {
           var user = {...res.data};
 
+          console.log("Querying Seeker Account with ", user);
           //If there is a seeker account attached, query Seeker information *TESTING*
           if (user.custom_user.seeker_account) {
             dispatch({type:"SEEKER_LOADING"});
