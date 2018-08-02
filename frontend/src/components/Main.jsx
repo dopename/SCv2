@@ -71,6 +71,7 @@ class Main extends Component {
 
 const mapStateToProps = state => {
 	return {
+		mobie:state.main,
 		screen_height:state.main.screen_height,
 		screen_width:state.main.screen_width,
 		auth: state.auth,
