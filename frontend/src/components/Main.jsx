@@ -42,16 +42,6 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-					{this.props.seeker !== null ? (
-						<SeekerSettings 
-							industries={this.props.industries} 
-							open={this.state.settingsOpen} 
-							toggle={this.toggleSettings} 
-							seeker={this.props.seeker}
-							onSubmit={this.props.updateSeeker}
-							token={this.props.auth.token}
-							mobile={this.props.mobile}
-						/>) : null }
 						<TopNav logout={this.props.logout} auth={this.props.auth} toggleSettings={this.toggleSettings} username={this.props.auth.isAuthenticated ? this.props.auth.user.username : null} />
 						<Switch>
 							<Route exact path="/" render= { () => <Initial screen_width={this.props.mobile.screen_width} screen_height={this.props.mobile.screen_height} /> } />
@@ -62,6 +52,16 @@ class Main extends Component {
 							<Route path="/profile/seeker" component={SeekerProfile} />
 							<Route path="/profile/provider" component={ProviderProfile} />
 						</Switch>
+						{this.props.seeker !== null ? (
+							<SeekerSettings 
+								industries={this.props.industries} 
+								open={this.state.settingsOpen} 
+								toggle={this.toggleSettings} 
+								seeker={this.props.seeker}
+								onSubmit={this.props.updateSeeker}
+								token={this.props.auth.token}
+								mobile={this.props.mobile}
+							/>) : null }
 					</div>
 				</BrowserRouter>
 			</div>
