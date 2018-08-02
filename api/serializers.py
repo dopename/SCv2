@@ -502,7 +502,6 @@ class SeekerAccountSerializer(serializers.ModelSerializer):
 
 class ProviderAccountSolutionSerializer(serializers.ModelSerializer):
 	tags = SolutionTagSerializer(many=True, read_only=True)
-	bookmark_count = serializers.IntegerField()
 
 	class Meta:
 		model = Solution
