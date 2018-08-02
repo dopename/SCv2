@@ -18,7 +18,7 @@ class Main extends Component {
 
 	componentDidMount() {
 		this.props.getScreenData(window.screen.width, window.screen.height);
-		this.props.loadFullUser();
+		this.props.loadUser();
 	}
 
 	render() {
@@ -62,7 +62,7 @@ const mapDispatchToProps = dispatch => {
 		logout: () => {
 			return dispatch(auth.logout())
 		},
-	    loadUser: () => {
+	    loadFullUser: () => {
 	      return dispatch(auth.loadFullUser());
 	    },
 	}
