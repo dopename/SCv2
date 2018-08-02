@@ -22,7 +22,7 @@ class Main extends Component {
 	}
 
 	render() {
-		console.log(this.props.auth);
+		console.log(this.props);
 		return (
 			<div>
 				<BrowserRouter>
