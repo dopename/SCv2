@@ -7,3 +7,9 @@ export const getScreenData = (width, height) => {
 		screen_height
 	}
 }
+
+export const toggleSettings = () => {
+	return {
+		type: "TOGGLE_SETTINGS",
+	}
+}

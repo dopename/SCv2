@@ -27,19 +27,19 @@ class ProviderProfile extends Component {
 
 	componentDidMount() {
 		this.props.listIndustries();
-		if (this.props.auth.user != null) {
-			if (this.props.auth.user.custom_user.provider_account) {
-				this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
-			}
-		}
+		// if (this.props.auth.user != null) {
+		// 	if (this.props.auth.user.custom_user.provider_account) {
+		// 		this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
+		// 	}
+		// }
 	}
 	componentDidUpdate(prevProps) {
 		if (this.props !== prevProps) {
-			if ((this.props.auth.user !== null) && (!this.props.isLoaded || this.props.isUpdated)) {
-				if (this.props.auth.user.custom_user.provider_account != null) {
-					this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
-				}
-			}
+			// if ((this.props.auth.user !== null) && (!this.props.isLoaded || this.props.isUpdated)) {
+			// 	if (this.props.auth.user.custom_user.provider_account != null) {
+			// 		this.props.retrieveProviderAccount(this.props.auth.user.custom_user.provider_account)
+			// 	}
+			// }
 			if (this.props.allTags.length < 1) {
 				this.props.listTags();
 			}
@@ -122,7 +122,7 @@ class ProviderProfile extends Component {
 			})
 		}
 
-		if (this.props.isLoaded === true) {
+		if (this.props.auth.isAuthenticated) {
 			return (
 				<div className="container-fluid">
 					<div className="row">
@@ -238,9 +238,7 @@ const mapStateToProps = state => {
 		mobile:state.main,
 		auth:state.auth,
 		industries:state.discovery.industries,
-		provider:state.provider_account.provider,
-		isLoaded:state.provider_account.isLoaded,
-		isUpdated:state.provider_account.isUpdated,
+		provider:state.auth.provider,
 		allTags:state.provider_account.allTags,
 	}
 }
@@ -249,9 +247,6 @@ const mapDispatchToProps = dispatch => {
 	return {
 		listIndustries: () => {
 			dispatch(discovery.listIndustries());
-		},
-		retrieveProviderAccount: (providerAccountPK) => {
-			dispatch(provider_account.retrieveProviderAccount(providerAccountPK));
 		},
 		createSolution: (data) => {
 			dispatch(provider_account.createSolution(data));
