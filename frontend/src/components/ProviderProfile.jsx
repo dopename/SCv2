@@ -122,7 +122,7 @@ class ProviderProfile extends Component {
 			})
 		}
 
-		if (this.props.isLoaded === true) {
+		if (this.props.auth.isAuthorized) {
 			return (
 				<div className="container-fluid">
 					<div className="row">

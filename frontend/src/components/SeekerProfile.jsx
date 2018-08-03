@@ -27,14 +27,14 @@ class SeekerProfile extends Component {
 		//}
 	}
 
-	componentDidUpdate(prevProps) {
-		if (this.props != prevProps) {
-			//if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.isUpdated) {
-			//	this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
-			//}
-			null;
-		}
-	}
+	// componentDidUpdate(prevProps) {
+	// 	if (this.props != prevProps) {
+	// 		//if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.isUpdated) {
+	// 		//	this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+	// 		//}
+	// 		null;
+	// 	}
+	// }
 
 	toggleSettings() {
 		this.setState({settingsOpen:!this.state.settingsOpen});
