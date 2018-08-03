@@ -34,12 +34,14 @@ export default function auth(state=initialState, action) {
     case "ERROR_UPDATING_SOLUTION":
     case "ERROR_DELETING_SOLUTION":
     case "ERROR_CREATING_SOLUTION":
+      console.log("Provider action fired");
       return {...state, errors:action.data}
 
     case "SEEKER_UPDATED":
     case "SOLUTION_UPDATED":
     case "SOLUTION_DELETED":
     case "SOLUTION_CREATED":
+      console.log("Seeker action fired");
       return {...state, isUpdated:true}
 
     default:
