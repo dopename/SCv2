@@ -12,6 +12,7 @@ class SeekerProfile extends Component {
 
 		this.state = {
 			settingsOpen: false,
+			seeker: false,
 			view: "main",
 		}
 
@@ -28,11 +29,10 @@ class SeekerProfile extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if (this.props != prevProps) {
-			if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.isUpdated) {
-				this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+		if (this.props !== prevProps) {
+			if ((this.props.seeker) {
+				this.setState({seeker:this.props.seeker});
 			}
-			null;
 		}
 	}
 
@@ -55,7 +55,7 @@ class SeekerProfile extends Component {
 
 		console.log(this.props)
 
-		if (this.props.auth.isAuthenticated) {
+		if (this.props.seeker) {
 			let seeker = {...this.props.auth.user.custom_user.seeker_account};
 			this.props.solutions.map(solution => {
 				let sAdded = false;
@@ -102,12 +102,12 @@ class SeekerProfile extends Component {
 						</div>
 					</div>
 				</div>
-				{this.props.auth.isAuthenticated ? (
+				{this.props.seeker ? (
 					<SeekerSettings 
 						industries={this.props.industries} 
 						open={this.state.settingsOpen} 
 						toggle={this.toggleSettings} 
-						seeker={this.props.auth.user.custom_user.seeker_account}
+						seeker={this.state.seeker}
 						onSubmit={this.props.updateSeeker}
 						token={this.props.auth.token}
 						mobile={this.props.mobile}
@@ -123,6 +123,7 @@ const mapStateToProps = state => {
 		auth:state.auth,
 		industries:state.discovery.industries,
 		solutions:state.seeker_account.allSolutions,
+		seeker:state.auth.seeker,
 	}
 }
 
