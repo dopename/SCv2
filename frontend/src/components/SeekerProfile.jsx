@@ -56,21 +56,21 @@ class SeekerProfile extends Component {
 		console.log(this.props)
 
 		if (this.props.auth.isAuthenticated) {
-			let seeker = this.props.auth.user.custom_user.seeker_account;
+			let seeker = {...this.props.auth.user.custom_user.seeker_account};
 			this.props.solutions.map(solution => {
 				let sAdded = false;
-				if (this.props.seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
+				if (seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
 						bookmarks.push(solution)
 				}
-				if (this.props.seeker.categories.length > 0) {
-					if (this.props.seeker.categories.map(e => e.pk).some(r => solution.category.includes(r))) {
+				if (seeker.categories.length > 0) {
+					if (seeker.categories.map(e => e.pk).some(r => solution.category.includes(r))) {
 						categoryFeed.push(solution)
 						allFeed.push(solution)
 						sAdded = true;
 					}
 				}
-				if (this.props.seeker.tags.length > 0) {
-					if (this.props.seeker.tags.map(e => e.pk).some(r => solution.tags.map(e => e.pk).includes(r))) {
+				if (seeker.tags.length > 0) {
+					if (seeker.tags.map(e => e.pk).some(r => solution.tags.map(e => e.pk).includes(r))) {
 						identityFeed.push(solution)
 						if (!sAdded) {
 							allFeed.push(solution)
