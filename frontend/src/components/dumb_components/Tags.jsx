@@ -62,7 +62,7 @@ export default class Tags extends Component {
 				totalWidth += e.offsetWidth;
 			})
 
-			if (totalWidth > element.offsetWidth) {
+			if (totalWidth > element.offsetWidth + 10) {
 				this.setState({arrows:true});
 			}
 			else {
