@@ -37,7 +37,7 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-						<TopNav logout={this.props.logout} auth={this.props.auth} mobile={this.props.mobile} />
+						<TopNav logout={this.props.logout} auth={this.props.auth} mobile={this.props.mobile} toggleSettings={this.props.toggleSettings} />
 						<Switch>
 							<Route exact path="/" render= { () => <Initial screen_width={this.props.mobile.screen_width} screen_height={this.props.mobile.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
@@ -104,19 +104,13 @@ class TopNav extends Component {
 
 		this.state = {
 			collapsed: false,
-			settingsOpen: false,
 		}
 
 		this.toggleNavbar = this.toggleNavbar.bind(this);
-		this.toggleSettings = this.toggleSettings.bind(this);
 	}
 		
 	toggleNavbar() {
 		this.setState({collapsed:!this.state.collapsed});
-	}
-
-	toggleSettings() {
-		this.setState({settingsOpen:!this.state.settingsOpen});
 	}
 
 	render() {
@@ -137,7 +131,7 @@ class TopNav extends Component {
 									</NavItem>
 										{this.props.auth.isAuthenticated ? (
 											<NavItem>
-												<i className="fa fa-cogs" onClick={this.toggleSettings}></i>
+												<i className="fa fa-cogs" onClick={this.props.toggleSettings}></i>
 											</NavItem>
 										) : null}
 
