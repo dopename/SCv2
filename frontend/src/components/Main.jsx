@@ -131,7 +131,7 @@ class TopNav extends Component {
 									</NavItem>
 										{this.props.auth.isAuthenticated ? (
 											<NavItem>
-												<i className="fa fa-cogs" onClick={this.props.toggleSettings}></i>
+												<i className="fa fa-cogs nav-link" onClick={this.props.toggleSettings}></i>
 											</NavItem>
 										) : null}
 
