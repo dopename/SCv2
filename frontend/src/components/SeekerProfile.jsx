@@ -21,17 +21,18 @@ class SeekerProfile extends Component {
 
 	componentDidMount() {
 		this.props.listSolutions();
-		this.props.listIndustries();
-		if (this.props.auth.user != null) {
-			this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account);
-		}
+		//this.props.listIndustries();
+		//if (this.props.auth.user != null) {
+		//	this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account);
+		//}
 	}
 
 	componentDidUpdate(prevProps) {
 		if (this.props != prevProps) {
-			if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.isUpdated) {
-				this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
-			}
+			//if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.isUpdated) {
+			//	this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+			//}
+			null;
 		}
 	}
 
@@ -54,7 +55,7 @@ class SeekerProfile extends Component {
 
 		console.log(this.props)
 
-		if (this.props.isLoaded) {
+		if (this.props.auth.isAuthenticated) {
 			this.props.solutions.map(solution => {
 				let sAdded = false;
 				if (this.props.seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
@@ -100,12 +101,12 @@ class SeekerProfile extends Component {
 						</div>
 					</div>
 				</div>
-				{this.props.isLoaded ? (
+				{this.props.auth.isAuthenticated ? (
 					<SeekerSettings 
 						industries={this.props.industries} 
 						open={this.state.settingsOpen} 
 						toggle={this.toggleSettings} 
-						seeker={this.props.seeker}
+						seeker={this.props.auth.user.custom_user.seeker_account}
 						onSubmit={this.props.updateSeeker}
 						token={this.props.auth.token}
 						mobile={this.props.mobile}
@@ -117,13 +118,13 @@ class SeekerProfile extends Component {
 
 const mapStateToProps = state => {
 	return {
-		seeker:state.seeker_account.seeker,
+		//seeker:state.seeker_account.seeker,
 		mobile:state.main,
 		auth:state.auth,
 		//solutions:state.discovery.solutions,
 		industries:state.discovery.industries,
-		isLoaded: state.seeker_account.isLoaded,
-		isUpdated: state.seeker_account.isUpdated,
+		//isLoaded: state.seeker_account.isLoaded,
+		//isUpdated: state.seeker_account.isUpdated,
 		solutions:state.seeker_account.allSolutions,
 	}
 }
