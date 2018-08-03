@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
 
-import {seeker_account, discovery, solution_tiles} from "../actions/index";
+import {seeker_account, discovery, solution_tiles, main} from "../actions/index";
 import SeekerSettings from "./SeekerSettings";
 import { Button, ButtonGroup } from "reactstrap";
 import DumbTiles from "./dumb_components/DumbTiles"
@@ -84,7 +84,7 @@ class SeekerProfile extends Component {
 						<div className={"d-flex " + this.props.mobile.isMobile ? "flex-row" : "flex-column"}>
 							<Button outline className="btn-block mb-1" onClick={() => this.changeView("main")} color="secondary" active={this.state.view === "main" ? true : false}>Main</Button>
 							<Button outline className="btn-block mb-1" onClick={() => this.changeView("favorites")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories</Button>
-							<Button outline className="btn-block" color="secondary" onClick={() => this.toggleSettings()}>Settings</Button>
+							<Button outline className="btn-block" color="secondary" onClick={() => this.props.toggleSettings()}>Settings</Button>
 						</div>
 					</div>
 					<div className="col-lg-9">
@@ -140,7 +140,10 @@ const mapDispatchToProps = dispatch => {
 		},
 		listSolutions: () => {
 			dispatch(seeker_account.listSolutions());
-		}
+		},
+		toggleSettings: () => {
+			dispatch(main.toggleSettings());
+		},
 	}
 }
 

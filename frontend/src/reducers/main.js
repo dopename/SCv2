@@ -4,6 +4,7 @@ const initialState = {
 	isMobile: false,
 	isTablet: false,
 	isDesktop: false,
+	settingsOpen: false,
 }
 
 export default function main(state = initialState, action) {
@@ -16,6 +17,8 @@ export default function main(state = initialState, action) {
 				return {...state, screen_height: action.screen_height, screen_width: action.screen_width, isTablet:true}
 			}
 			return {...state, screen_height: action.screen_height, screen_width: action.screen_width, isDesktop:true}
+		case "TOGGLE_SETTINGS":
+		 	return {...state, settingsOpen: !state.settingsOpen}
 		default:
 			return state;
 		}

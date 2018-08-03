@@ -37,7 +37,7 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-						<TopNav logout={this.props.logout} auth={this.props.auth} mobile={this.props.mobile} industries={this.props.industries} updateSeeker={this.props.updateSeeker} />
+						<TopNav logout={this.props.logout} auth={this.props.auth} mobile={this.props.mobile} />
 						<Switch>
 							<Route exact path="/" render= { () => <Initial screen_width={this.props.mobile.screen_width} screen_height={this.props.mobile.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
@@ -47,6 +47,16 @@ class Main extends Component {
 							<Route path="/profile/seeker" component={SeekerProfile} />
 							<Route path="/profile/provider" component={ProviderProfile} />
 						</Switch>
+						{this.props.auth.isAuthenticated ? (
+							<SeekerSettings 
+								industries={this.props.industries} 
+								open={this.props.settingsOpen} 
+								toggle={this.props.toggleSettings} 
+								seeker={this.props.auth.user.custom_user.seeker_account}
+								onSubmit={this.props.updateSeeker}
+								token={this.props.auth.token}
+								mobile={this.props.mobile}
+							/>) : null }
 					</div>
 				</BrowserRouter>
 			</div>
@@ -59,6 +69,7 @@ const mapStateToProps = state => {
 		mobile:state.main,
 		auth: state.auth,
 		industries:state.discovery.industries,
+		settingsOpen:state.main.settingsOpen,
 	}
 }
 
@@ -78,6 +89,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		listIndustries: () => {
 			dispatch(discovery.listIndustries());
+		},
+		toggleSettings: () => {
+			dispatch(main.toggleSettings());
 		},
 	}
 }
@@ -154,16 +168,6 @@ class TopNav extends Component {
 						</Navbar>
 					</div>
 				</div>
-				{this.props.auth.isAuthenticated ? (
-					<SeekerSettings 
-						industries={this.props.industries} 
-						open={this.state.settingsOpen} 
-						toggle={this.toggleSettings} 
-						seeker={this.props.auth.user.custom_user.seeker_account}
-						onSubmit={this.props.updateSeeker}
-						token={this.props.auth.token}
-						mobile={this.props.mobile}
-					/>) : null }
 			</div>
 		)
 	}
