@@ -132,9 +132,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		retrieveSeekerAccount: (seekerAccountPK) => {
-			dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
-		},
+		// retrieveSeekerAccount: (seekerAccountPK) => {
+		// 	dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
+		// },
 		updateSeeker: (pk, seekerData, token) => {
 			dispatch(seeker_account.updateSeeker(pk, seekerData, token));
 		},
