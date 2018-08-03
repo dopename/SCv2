@@ -29,7 +29,7 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-						<TopNav logout={this.props.logout} auth={this.props.auth} indsutries={this.props.industries} updateSeeker={this.props.updateSeeker} />
+						<TopNav logout={this.props.logout} auth={this.props.auth} industries={this.props.industries} updateSeeker={this.props.updateSeeker} />
 						<Switch>
 							<Route exact path="/" render= { () => <Initial screen_width={this.props.screen_width} screen_height={this.props.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
