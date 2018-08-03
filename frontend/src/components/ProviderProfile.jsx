@@ -238,7 +238,7 @@ const mapStateToProps = state => {
 		mobile:state.main,
 		auth:state.auth,
 		industries:state.discovery.industries,
-		provider:state.auth.user.custom_user.provider_account,
+		provider:state.auth.provider,
 		allTags:state.provider_account.allTags,
 	}
 }
