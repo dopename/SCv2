@@ -82,10 +82,11 @@ class TopNav extends Component {
 
 		this.state = {
 			collapsed: false,
-			toggleSettings: false,
+			settingsOpen: false,
 		}
 
 		this.toggleNavbar = this.toggleNavbar.bind(this);
+		this.toggleSettings = this.toggleSettings.bind(this);
 	}
 		
 	toggleNavbar() {
@@ -93,7 +94,7 @@ class TopNav extends Component {
 	}
 
 	toggleSettings() {
-		this.setState({toggleSettings:!this.state.toggleSettings});
+		this.setState({settingsOpen:!this.state.settingsOpen});
 	}
 
 	render() {
@@ -113,27 +114,28 @@ class TopNav extends Component {
 										<NavLink href="/discovery">Discover</NavLink>
 									</NavItem>
 										{this.props.auth.isAuthenticated ? (
-											<div>
-												<NavItem>
-													<i className="fa fa-cogs" onClick={this.toggleSettings}></i>
-												</NavItem>
-												<UncontrolledDropdown nav inNavbar>
-													<DropdownToggle nav caret>
-														Welcome back, {this.props.auth.user.username}
-													</DropdownToggle>
-													<DropdownMenu right>
-														<DropdownItem>
-															<Link className="list-inline-item mx-2" to="/profile/seeker">Seeker Profile</Link>
-														</DropdownItem>
-														<DropdownItem>
-															<Link className="list-inline-item mx-2" to="/profile/provider">Provider Profile</Link>
-														</DropdownItem>
-														<DropdownItem>
-															<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
-														</DropdownItem>
-													</DropdownMenu>
-												</UncontrolledDropdown>
-											</div> )
+											<NavItem>
+												<i className="fa fa-cogs" onClick={this.toggleSettings}></i>
+											</NavItem>
+										) : null}
+
+										{this.props.auth.isAuthenticated ? (
+											<UncontrolledDropdown nav inNavbar>
+												<DropdownToggle nav caret>
+													Welcome back, {this.props.auth.user.username}
+												</DropdownToggle>
+												<DropdownMenu right>
+													<DropdownItem>
+														<Link className="list-inline-item mx-2" to="/profile/seeker">Seeker Profile</Link>
+													</DropdownItem>
+													<DropdownItem>
+														<Link className="list-inline-item mx-2" to="/profile/provider">Provider Profile</Link>
+													</DropdownItem>
+													<DropdownItem>
+														<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
+													</DropdownItem>
+												</DropdownMenu>
+											</UncontrolledDropdown> )
 											 : (
 											 <NavItem>
 											 	<NavLink href="/login">Login</NavLink>
@@ -147,7 +149,7 @@ class TopNav extends Component {
 				{this.props.auth.isAuthenticated ? (
 					<SeekerSettings 
 						industries={this.props.industries} 
-						open={this.state.toggleSettings} 
+						open={this.state.settingsOpen} 
 						toggle={this.toggleSettings} 
 						seeker={this.props.auth.user.custom_user.seeker_account}
 						onSubmit={this.props.updateSeeker}
