@@ -35,7 +35,7 @@
     margin:auto;
 }
 
-.modal-content .adjusted-w-90 {
+.modal-content .adjusted-w-90, .provider-tags .adjusted-w-90 {
     width:100%!important;
     margin:0!important;
 }
