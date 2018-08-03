@@ -30,7 +30,7 @@ class SeekerProfile extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props !== prevProps) {
-			if ((this.props.seeker) {
+			if (this.props.seeker) {
 				this.setState({seeker:this.props.seeker});
 			}
 		}
