@@ -27,14 +27,14 @@ class SeekerProfile extends Component {
 		//}
 	}
 
-	// componentDidUpdate(prevProps) {
-	// 	if (this.props != prevProps) {
-	// 		//if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.isUpdated) {
-	// 		//	this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
-	// 		//}
-	// 		null;
-	// 	}
-	// }
+	componentDidUpdate(prevProps) {
+		if (this.props != prevProps) {
+			if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.isUpdated) {
+				this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+			}
+			null;
+		}
+	}
 
 	toggleSettings() {
 		this.setState({settingsOpen:!this.state.settingsOpen});
@@ -119,22 +119,15 @@ class SeekerProfile extends Component {
 
 const mapStateToProps = state => {
 	return {
-		//seeker:state.seeker_account.seeker,
 		mobile:state.main,
 		auth:state.auth,
-		//solutions:state.discovery.solutions,
 		industries:state.discovery.industries,
-		//isLoaded: state.seeker_account.isLoaded,
-		//isUpdated: state.seeker_account.isUpdated,
 		solutions:state.seeker_account.allSolutions,
 	}
 }
 
 const mapDispatchToProps = dispatch => {
 	return {
-		retrieveSeekerAccount: (seekerAccountPK) => {
-			dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
-		},
 		updateSeeker: (pk, seekerData, token) => {
 			dispatch(seeker_account.updateSeeker(pk, seekerData, token));
 		},

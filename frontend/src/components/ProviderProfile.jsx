@@ -122,7 +122,7 @@ class ProviderProfile extends Component {
 			})
 		}
 
-		if (this.props.auth.isAuthorized) {
+		if (this.props.auth.isAuthenticated) {
 			return (
 				<div className="container-fluid">
 					<div className="row">
@@ -239,8 +239,6 @@ const mapStateToProps = state => {
 		auth:state.auth,
 		industries:state.discovery.industries,
 		provider:state.auth.user.custom_user.provider_account,
-		// isLoaded:state.provider_account.isLoaded,
-		// isUpdated:state.provider_account.isUpdated,
 		allTags:state.provider_account.allTags,
 	}
 }
@@ -250,9 +248,6 @@ const mapDispatchToProps = dispatch => {
 		listIndustries: () => {
 			dispatch(discovery.listIndustries());
 		},
-		// retrieveProviderAccount: (providerAccountPK) => {
-		// 	dispatch(provider_account.retrieveProviderAccount(providerAccountPK));
-		// },
 		createSolution: (data) => {
 			dispatch(provider_account.createSolution(data));
 		},
