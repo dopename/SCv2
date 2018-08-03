@@ -55,8 +55,8 @@ class SeekerProfile extends Component {
 
 		console.log(this.props)
 
-		if (this.props.solutions.length > 0) {
-			let seeker = this.props.seeker;
+		if (this.props.solutions.length > 0 && this.state.seeker) {
+			let seeker = this.state.seeker;
 			this.props.solutions.map(solution => {
 				let sAdded = false;
 				if (seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
