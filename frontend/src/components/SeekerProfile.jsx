@@ -53,11 +53,10 @@ class SeekerProfile extends Component {
 
 		var allFeed = [];
 
-		let seeker = this.props.auth.user.custom_user.seeker_account;
-
 		console.log(this.props)
 
 		if (this.props.auth.isAuthenticated) {
+			let seeker = this.props.auth.user.custom_user.seeker_account;
 			this.props.solutions.map(solution => {
 				let sAdded = false;
 				if (this.props.seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
