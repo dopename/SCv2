@@ -24,7 +24,7 @@ class Main extends Component {
 	}
 
 	componentDidUpdate() {
-		if (this.props.isUpdated) {
+		if (this.props.auth.isUpdated) {
 			this.props.loadUser();
 		}
 	}
