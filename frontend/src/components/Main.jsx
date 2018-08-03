@@ -150,7 +150,7 @@ class TopNav extends Component {
 						industries={this.props.industries} 
 						open={this.state.toggleSettings} 
 						toggle={this.toggleSettings} 
-						seeker={this.props.user.custom_user.seeker_account}
+						seeker={this.props.auth.user.custom_user.seeker_account}
 						onSubmit={this.props.updateSeeker}
 						token={this.props.auth.token}
 						mobile={this.props.mobile}
