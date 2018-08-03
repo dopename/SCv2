@@ -114,11 +114,9 @@ export default class Tags extends Component {
 								</h2>
 						</div>
 					) : null }
-					<div className="col-10">
 						<div class="overflowX flex-nowrap d-flex flex-row horizontal-scroll py-1 px-0 w-100" id={this.state.tagContainer}>
 							{cols}
 						</div>
-					</div>
 					{this.state.arrows === true ? (
 						<div className="text-center" style={{width:"5%"}}>
 							<h2 className="p-0 m-0">
