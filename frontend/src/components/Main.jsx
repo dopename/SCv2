@@ -23,6 +23,12 @@ class Main extends Component {
 		this.props.loadUser();
 	}
 
+	componentDidUpdate() {
+		if (this.props.isUpdated) {
+			this.props.loadUser();
+		}
+	}
+
 	render() {
 		console.log(this.props.auth);
 		return (

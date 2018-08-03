@@ -35,75 +35,6 @@ export const loadUser = () => {
       })
   }
 }
-////////////////////////////////////////////////////////////////////////
-
-export const loadFullUser = () => {
-  return (dispatch, getState) => {
-    dispatch({type: "USER_LOADING"});
-
-    const token = getState().auth.token;
-
-    let headers = {
-      "Content-Type": "application/json",
-    };
-
-    if (token) {
-      headers["Authorization"] = `Token ${token}`;
-    }
-    return fetch("/api/auth/user/", {headers, })
-      .then(res => {
-        if (res.status < 500) {
-          return res.json().then(data => {
-            return {status: res.status, data};
-          })
-        } else {
-          console.log("Server Error!");
-          throw res;
-        }
-      })
-      .then(res => {
-        if (res.status === 200) {
-          var user = {...res.data};
-
-          console.log("Querying Seeker Account with ", user);
-          //If there is a seeker account attached, query Seeker information *TESTING*
-          if (user.custom_user.seeker_account) {
-            dispatch({type:"SEEKER_LOADING"});
-            return helpers.retrieveAPICall("seekeraccount", user.custom_user.seeker_account)
-              .then(res => res.json())
-              .then(seekerAccountData => {
-                return dispatch({
-                  type: "SEEKER_LOADED",
-                  seekerAccountData
-                })
-              })
-          }
-          console.log(user);
-          //If there is a provider account attached, query Provider information *TESTING*
-          if (user.custom_user.provider_account) {
-            dispatch({type:"PROVIDER_LOADING"});
-
-            return helpers.retrieveAPICall("provideraccount", user.custom_user.provider_account)
-              .then(res => res.json())
-              .then(providerAccountData => {
-                return dispatch({
-                  type: "PROVIDER_LOADED",
-                  providerAccountData
-                })
-              })
-          }
-
-          dispatch({type: 'USER_LOADED', user: res.data });
-          return res.data;
-        } else if (res.status >= 400 && res.status < 500) {
-          dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
-          throw res.data;
-        }
-      })
-  }
-}
-/////////////////////////////////////////////////////////////////////////////////////
-
 
 export const login = (username, password) => {
   return (dispatch, getState) => {
@@ -202,3 +133,115 @@ export const logout = () => {
       })
   }
 }
+
+//////////// Seeker Account Actions Below //////////////////////////
+
+// export const updateSeeker = (pk, seekerData, token) => {
+//   return dispatch => {
+//     return helpers.updateAPICall("seekeraccount", pk, seekerData, token, true)
+//       .then(res => {
+//         if (res.ok) {
+//           return res.json()
+//         }
+//       })
+//       .then(() => {
+//         return dispatch({
+//           type: "SEEKER_UPDATED",
+//         })
+//       })
+//   }
+// }
+
+// ////////////// Provider Account Actions Below //////////////////////
+
+
+// export const updateSolution = (data, pk) => {
+//   return (dispatch, getState) => {
+
+//     const token = getState().auth.token;
+
+//     return helpers.updateAPICall("solution", pk, data, token, true, true)
+//       .then(res => {
+//         if (res.status < 500) {
+//           return res.json().then(data => {
+//             return {status: res.status, data}
+//           })
+//         }
+//         else {
+//           console.log("Internal server error");
+//           throw res;
+//         }
+//       })
+//       .then(res => {
+//         if (res.status === 200) {
+//           dispatch({type: "SOLUTION_UPDATED"});
+//           return res.data;
+//         }
+//         else {
+//           dispatch({type:"ERROR_UPDATING_SOLUTION", data: res.data});
+//           throw res.data;
+//         }
+//       })
+//   }
+// }
+
+// export const deleteSolution = (pk) => {
+//   return (dispatch, getState) => {
+
+//     const token = getState().auth.token;
+
+//     return helpers.deleteAPICall("solution", pk, token)
+//       .then(res => {
+//         if (res.status < 500) {
+//           return res.json().then(data => {
+//             return {status: res.status, data}
+//           })
+//         }
+//         else {
+//           console.log("Internal server error");
+//           throw res;
+//         }
+//       })
+//       .then(res => {
+//         if (res.status === 200) {
+//           dispatch({type: "SOLUTION_DELETED"});
+//           return res.data;
+//         }
+//         else {
+//           dispatch({type:"ERROR_DELETING_SOLUTION", data: res.data});
+//           throw res.data;
+//         }
+//       })
+//   }
+// }
+
+// export const createSolution = (data) => {
+//   return (dispatch, getState) => {
+
+//     const token = getState().auth.token;
+
+//     return helpers.createAPICall("solution", data, token, true)
+//       .then(res => {
+//         if (res.status < 500) {
+//           return res.json().then(data => {
+//             return {status: res.status, data}
+//           })
+//         }
+//         else {
+//           console.log("Internal server error");
+//           throw res;
+//         }
+//       })
+//       .then(res => {
+//         if (res.status === 200) {
+//           dispatch({type: "SOLUTION_CREATED", newSolutionData :res.data});
+//           return res.data;
+//         }
+//         else {
+//           dispatch({type:"ERROR_CREATING_SOLUTION", data: res.data});
+//           throw res.data;
+//         }
+//       })
+      
+//   }
+// }
