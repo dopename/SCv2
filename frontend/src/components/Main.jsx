@@ -7,6 +7,7 @@ import Login from "./Login";
 import Register from "./Register";
 import SeekerProfile from "./SeekerProfile";
 import ProviderProfile from "./ProviderProfile";
+import SeekerSettings from "./SeekerSettings";
 
 import "./Main.css"
 
@@ -18,6 +19,7 @@ class Main extends Component {
 
 	componentDidMount() {
 		this.props.getScreenData(window.screen.width, window.screen.height);
+		this.props.listIndustries();
 		this.props.loadUser();
 	}
 
@@ -27,7 +29,7 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-						<TopNav logout={this.props.logout} auth={this.props.auth} username={this.props.auth.isAuthenticated ? this.props.auth.user.username : null} />
+						<TopNav logout={this.props.logout} auth={this.props.auth} indsutries={this.props.industries} updateSeeker={this.props.updateSeeker} />
 						<Switch>
 							<Route exact path="/" render= { () => <Initial screen_width={this.props.screen_width} screen_height={this.props.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
@@ -49,6 +51,7 @@ const mapStateToProps = state => {
 		screen_height:state.main.screen_height,
 		screen_width:state.main.screen_width,
 		auth: state.auth,
+		industries:state.discovery.industries,
 	}
 }
 
@@ -63,6 +66,12 @@ const mapDispatchToProps = dispatch => {
 	    loadUser: () => {
 	      return dispatch(auth.loadUser());
 	    },
+		updateSeeker: (pk, seekerData, token) => {
+			dispatch(seeker_account.updateSeeker(pk, seekerData, token));
+		},
+		listIndustries: () => {
+			dispatch(discovery.listIndustries());
+		},
 	}
 }
 
@@ -74,6 +83,7 @@ class TopNav extends Component {
 
 		this.state = {
 			collapsed: false,
+			toggleSettings: false,
 		}
 
 		this.toggleNavbar = this.toggleNavbar.bind(this);
@@ -81,6 +91,10 @@ class TopNav extends Component {
 		
 	toggleNavbar() {
 		this.setState({collapsed:!this.state.collapsed});
+	}
+
+	toggleSettings() {
+		this.setState({toggleSettings:!this.state.toggleSettings});
 	}
 
 	render() {
@@ -100,22 +114,27 @@ class TopNav extends Component {
 										<NavLink href="/discovery">Discover</NavLink>
 									</NavItem>
 										{this.props.auth.isAuthenticated ? (
-											<UncontrolledDropdown nav inNavbar>
-												<DropdownToggle nav caret>
-													Welcome back, {this.props.username}
-												</DropdownToggle>
-												<DropdownMenu right>
-													<DropdownItem>
-														<Link className="list-inline-item mx-2" to="/profile/seeker">Seeker Profile</Link>
-													</DropdownItem>
-													<DropdownItem>
-														<Link className="list-inline-item mx-2" to="/profile/provider">Provider Profile</Link>
-													</DropdownItem>
-													<DropdownItem>
-														<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
-													</DropdownItem>
-												</DropdownMenu>
-											</UncontrolledDropdown> )
+											<div>
+												<NavItem>
+													<i className="fa fa-cogs" onClick={this.toggleSettings}></i>
+												</NavItem>
+												<UncontrolledDropdown nav inNavbar>
+													<DropdownToggle nav caret>
+														Welcome back, {this.props.auth.user.username}
+													</DropdownToggle>
+													<DropdownMenu right>
+														<DropdownItem>
+															<Link className="list-inline-item mx-2" to="/profile/seeker">Seeker Profile</Link>
+														</DropdownItem>
+														<DropdownItem>
+															<Link className="list-inline-item mx-2" to="/profile/provider">Provider Profile</Link>
+														</DropdownItem>
+														<DropdownItem>
+															<p className="list-inline-item pointer-hand text-primary mx-2" onClick={() => this.props.logout()}>Logout</p>
+														</DropdownItem>
+													</DropdownMenu>
+												</UncontrolledDropdown>
+											</div> )
 											 : (
 											 <NavItem>
 											 	<NavLink href="/login">Login</NavLink>
@@ -126,6 +145,16 @@ class TopNav extends Component {
 						</Navbar>
 					</div>
 				</div>
+				{this.props.auth.isAuthenticated ? (
+					<SeekerSettings 
+						industries={this.props.industries} 
+						open={this.state.toggleSettings} 
+						toggle={this.toggleSettings} 
+						seeker={this.props.user.custom_user.seeker_account}
+						onSubmit={this.props.updateSeeker}
+						token={this.props.auth.token}
+						mobile={this.props.mobile}
+					/>) : null }
 			</div>
 		)
 	}
