@@ -10,6 +10,6 @@
 	padding:1.5%;
 }
 
-.modal-content .horizontal-scroll, .provider-tags .horizontal-scroll {
+.modal-content .horizontal-scroll, {
 	margin-left: -12%;
 }
