@@ -24,8 +24,8 @@ class Main extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if (prevProps !== this.props) {
-			if (this.props.auth.isUpdated) {
+		if (this.props !== prevProps) {
+			if (this.props.auth.isUpdated === true) {
 				this.props.loadUser();
 			}
 		}
@@ -68,10 +68,10 @@ const mapDispatchToProps = dispatch => {
 			dispatch(main.getScreenData(width, height));
 		},
 		logout: () => {
-			return dispatch(auth.logout())
+			return dispatch(auth.logout());
 		},
 	    loadUser: () => {
-	      return dispatch(auth.loadUser());
+	      	return dispatch(auth.loadUser());
 	    },
 		updateSeeker: (pk, seekerData, token) => {
 			dispatch(seeker_account.updateSeeker(pk, seekerData, token));
