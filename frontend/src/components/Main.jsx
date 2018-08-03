@@ -29,9 +29,9 @@ class Main extends Component {
 			<div>
 				<BrowserRouter>
 					<div className="h-100">
-						<TopNav logout={this.props.logout} auth={this.props.auth} industries={this.props.industries} updateSeeker={this.props.updateSeeker} />
+						<TopNav logout={this.props.logout} auth={this.props.auth} mobile={this.props.mobile} industries={this.props.industries} updateSeeker={this.props.updateSeeker} />
 						<Switch>
-							<Route exact path="/" render= { () => <Initial screen_width={this.props.screen_width} screen_height={this.props.screen_height} /> } />
+							<Route exact path="/" render= { () => <Initial screen_width={this.props.mobile.screen_width} screen_height={this.props.mobile.screen_height} /> } />
 							<Route path="/discovery" render= { () => <Discovery /> } />
 							<Route exact path="/login" component={Login} />
 							<Route exact path="/register" component={Register} />
@@ -48,8 +48,7 @@ class Main extends Component {
 
 const mapStateToProps = state => {
 	return {
-		screen_height:state.main.screen_height,
-		screen_width:state.main.screen_width,
+		mobile:state.main,
 		auth: state.auth,
 		industries:state.discovery.industries,
 	}
