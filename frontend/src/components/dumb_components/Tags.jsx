@@ -115,7 +115,7 @@ export default class Tags extends Component {
 							) : null }
 					</div>
 					<div className="col-10">
-						<div class="row overflowX flex-nowrap horizontal-scroll py-1 px-0" id={this.state.tagContainer}>
+						<div class="row overflowX flex-nowrap horizontal-scroll py-1 px-0 w-100" id={this.state.tagContainer}>
 							{cols}
 						</div>
 					</div>
