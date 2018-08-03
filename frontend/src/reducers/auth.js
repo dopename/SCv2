@@ -17,10 +17,10 @@ export default function auth(state=initialState, action) {
   switch (action.type) {
 
     case 'USER_LOADING':
-      return {...state, isLoading: true};
+      return {...state, isLoading: true, isUpdated: false};
 
     case 'USER_LOADED':
-      return {...state, isAuthenticated: true, isUpdated:false, isLoading: false, user: action.user, seeker: action.user.custom_user.seeker_account, provider: action.user.custom_user.provider_account};
+      return {...state, isAuthenticated: true, isUpdated: false, isLoading: false, user: action.user, seeker: action.user.custom_user.seeker_account, provider: action.user.custom_user.provider_account};
 
     case 'LOGIN_SUCCESSFUL':
     case 'REGISTRATION_SUCCESSFUL':
