@@ -12,7 +12,6 @@ class SeekerProfile extends Component {
 
 		this.state = {
 			settingsOpen: false,
-			seeker: false,
 			view: "main",
 		}
 
@@ -28,13 +27,14 @@ class SeekerProfile extends Component {
 		//}
 	}
 
-	componentDidUpdate(prevProps) {
-		if (this.props !== prevProps) {
-			if (this.props.seeker) {
-				this.setState({seeker:this.props.seeker});
-			}
-		}
-	}
+	// componentDidUpdate(prevProps) {
+	// 	if (this.props != prevProps) {
+	// 		//if ((this.props.auth.user != null && !this.props.isLoaded) || this.props.isUpdated) {
+	// 		//	this.props.retrieveSeekerAccount(this.props.auth.user.custom_user.seeker_account)
+	// 		//}
+	// 		null;
+	// 	}
+	// }
 
 	toggleSettings() {
 		this.setState({settingsOpen:!this.state.settingsOpen});
@@ -55,8 +55,8 @@ class SeekerProfile extends Component {
 
 		console.log(this.props)
 
-		if (this.props.solutions.length > 0 && this.state.seeker) {
-			let seeker = this.state.seeker;
+		if (this.props.auth.isAuthenticated) {
+			let seeker = {...this.props.auth.user.custom_user.seeker_account};
 			this.props.solutions.map(solution => {
 				let sAdded = false;
 				if (seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
@@ -102,12 +102,12 @@ class SeekerProfile extends Component {
 						</div>
 					</div>
 				</div>
-				{this.props.seeker ? (
+				{this.props.auth.isAuthenticated ? (
 					<SeekerSettings 
 						industries={this.props.industries} 
 						open={this.state.settingsOpen} 
 						toggle={this.toggleSettings} 
-						seeker={this.state.seeker}
+						seeker={this.props.auth.user.custom_user.seeker_account}
 						onSubmit={this.props.updateSeeker}
 						token={this.props.auth.token}
 						mobile={this.props.mobile}
@@ -119,16 +119,22 @@ class SeekerProfile extends Component {
 
 const mapStateToProps = state => {
 	return {
+		//seeker:state.seeker_account.seeker,
 		mobile:state.main,
 		auth:state.auth,
+		//solutions:state.discovery.solutions,
 		industries:state.discovery.industries,
+		//isLoaded: state.seeker_account.isLoaded,
+		//isUpdated: state.seeker_account.isUpdated,
 		solutions:state.seeker_account.allSolutions,
-		seeker:state.auth.seeker,
 	}
 }
 
 const mapDispatchToProps = dispatch => {
 	return {
+		retrieveSeekerAccount: (seekerAccountPK) => {
+			dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
+		},
 		updateSeeker: (pk, seekerData, token) => {
 			dispatch(seeker_account.updateSeeker(pk, seekerData, token));
 		},
