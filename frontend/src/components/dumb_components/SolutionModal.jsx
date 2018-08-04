@@ -49,15 +49,17 @@ class SolutionModal extends Component {
 	}
 
 	bookmarkSolution(pk) {
-		var bookmarks = this.props.seeker.bookmarks;
+		var bookmarks = this.props.seeker.bookmarks.map(b => b.pk);
 		if (bookmarks.indexOf(pk) > -1) {
 			bookmarks = bookmarks.splice(bookmarks.indexOf(pk), 1);
 		}
 		else {
 			bookmarks.push(pk);
 		}
+		var categories = [];
 
-		var data = {categories:this.props.seeker.categories[0], tags:this.props.seeker.tags.map(t => t.pk), bookmarks:bookmarks}
+
+		var data = {categories:this.props.seeker.categories[0].pk, tags:this.props.seeker.tags.map(t => t.pk), bookmarks:bookmarks}
 		console.log(data)
 
 		this.props.updateSeeker(this.props.seeker.pk, data, this.props.token);
