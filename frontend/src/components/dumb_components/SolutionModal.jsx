@@ -4,6 +4,7 @@ import Tags from "./Tags"
 import { Link } from "react-router-dom";
 import "./SolutionModal.css"
 import { incrementAPICall } from "../../helpers/index";
+import {connect} from "react-redux";
 
 import {seeker_account} from "../../actions/index"
 
@@ -66,7 +67,7 @@ class SolutionModal extends Component {
 			bookmarks = bookmarks.splice(bookmarks.indexOf(pk), 1);
 		}
 		else {
-			boookmarks.push(pk);
+			bookmarks.push(pk);
 		}
 
 		var data = {categories:this.props.seeker.categories, tags:this.props.seeker.tags, bookmarks:bookmarks}
