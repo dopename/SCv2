@@ -105,14 +105,14 @@ class SeekerSettings extends Component {
 					<DumbSubCheckBox items={i.categories} unselected={this.state.unselectedCategories} checkBox={this.checkBox} center={true} />
 				</div>
 			)
-		    if (((index + 1) % numPerRow === 0) || (index + 1 === this.props.industries.length)) {
+		    // if (((index + 1) % numPerRow === 0) || (index + 1 === this.props.industries.length)) {
 		        rows.push(
-		          <div className="row mb-2" key={"row_"+index}>
+		          <div className="d-flex flex-wrap flex-row mb-2" key={"row_"+index}>
 		            {cols}
 		          </div>
 		          )
 		        cols = []
-		      }
+		      //}
 		  })
 
 		console.log("PROPS", this.props, "STATE", this.state);
