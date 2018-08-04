@@ -20,6 +20,7 @@ class Main extends Component {
 	componentDidMount() {
 		this.props.getScreenData(window.screen.width, window.screen.height);
 		this.props.listIndustries();
+		this.props.listTags();
 		this.props.loadUser();
 	}
 
@@ -32,7 +33,7 @@ class Main extends Component {
 	}
 
 	render() {
-		console.log(this.props.auth);
+		console.log(this.props);
 		return (
 			<div>
 				<BrowserRouter>
@@ -70,6 +71,7 @@ const mapStateToProps = state => {
 		auth: state.auth,
 		industries:state.discovery.industries,
 		settingsOpen:state.main.settingsOpen,
+		tags:state.provider_account.allTags,
 	}
 }
 
@@ -93,6 +95,9 @@ const mapDispatchToProps = dispatch => {
 		toggleSettings: () => {
 			dispatch(main.toggleSettings());
 		},
+		listTags: () => {
+			dispatch(provider_account.listTags());
+		}
 	}
 }
 

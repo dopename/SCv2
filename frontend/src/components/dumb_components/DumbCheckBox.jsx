@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+//checkbox with a title/description. Pass whether it is checked, and what to do onClick
 export class DumbCheckBox extends Component {
 	render() {
 		return (
@@ -13,6 +14,7 @@ export class DumbCheckBox extends Component {
 	}
 }
 
+//Creates an unordered list of DumbCheckBoxes. 
 export class DumbSubCheckBox extends Component {
 	render() {
 		return (

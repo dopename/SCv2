@@ -13,3 +13,21 @@ export const toggleSettings = () => {
 		type: "TOGGLE_SETTINGS",
 	}
 }
+
+// export const fetchAllTables = (functionList) => {
+// 	return (dispatch, getState) => {
+
+// 		const token = getState().auth.token;
+
+// 		var queries = functionList.map(func => {
+// 			return func()
+// 		})
+
+// 		Promise.all(queries).then(data => {
+// 			return dispatch({
+// 				type: "ALL_MAIN_INFO_FETCHED",
+// 				data
+// 			})
+// 		}
+// 	}
+// }
