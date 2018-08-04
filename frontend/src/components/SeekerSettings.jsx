@@ -12,6 +12,7 @@ class SeekerSettings extends Component {
 		this.state = {
 			selectedCategories: [],
 			unselectedCategories: [],
+			selectedTags: [],
 		}
 
 		this.checkBox = this.checkBox.bind(this);
@@ -22,7 +23,8 @@ class SeekerSettings extends Component {
 		var selectedCategories = this.props.seeker.categories.map(c => c.pk);
 		var allCategories = [].concat.apply([], this.props.industries.map(i => i.categories.map(c => c.pk)));
 		var unselectedCategories = allCategories.filter(x => !selectedCategories.includes(x));
-		this.setState({selectedCategories:selectedCategories, unselectedCategories:unselectedCategories});
+		var selectedTags = this.props.seeker.tags.map(t => t.pk);
+		this.setState({selectedCategories:selectedCategories, unselectedCategories:unselectedCategories, selectedTags:selectedTags});
 	}
 
 	checkBox(pk, type) {
@@ -70,6 +72,17 @@ class SeekerSettings extends Component {
 				})
 			}
 		}
+	}
+
+	tagCheck(pk) {
+		var newTags = this.state.selectedTags;
+		if (this.state.selectedTags.indexOf(pk) > -1) {
+			var newTags = newTags.filter(t => t != pk)
+		}
+		else {
+			newTags.push(pk)
+		}
+		this.setState({newTags:newTags});
 	}
 
 	onSubmit(e) {
