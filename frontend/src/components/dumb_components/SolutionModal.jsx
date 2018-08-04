@@ -51,7 +51,7 @@ class SolutionModal extends Component {
 	bookmarkSolution(pk) {
 		var bookmarks = this.props.seeker.bookmarks.map(b => b.pk);
 		if (bookmarks.indexOf(pk) > -1) {
-			bookmarks = bookmarks.splice(bookmarks.indexOf(pk), 1);
+			bookmarks.splice(bookmarks.indexOf(pk), 1);
 		}
 		else {
 			bookmarks.push(pk);
@@ -68,13 +68,20 @@ class SolutionModal extends Component {
 
 	render() {
 		var max_height = (this.props.screen_height * 0.25).toString() + "px";
+		var bookmarks = this.props.seeker.bookmarks.map(b => b.pk);
+
+		var bookmarkActive = false;
+
+		if (bookmarks.indexOf(this.props.solution.pk) > -1) {
+			bookmarkActive = true;
+		}
 
 			return (
 				<div>
 					<Modal size={this.props.isMobile === true ? "md" : "lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
 						<h4 className="mb-2">
 							<i className="fa fa-window-close mx-1 float-right pointer-hand" title="Close" onClick={() => {  this.props.toggle() }}></i>
-							{this.props.seeker ? <i title="Bookmark" className="fa fa-bookmark mx-1 float-right pointer-hand" onClick={() => this.bookmarkSolution(this.props.solution.pk)}></i> : null }
+							{this.props.seeker ? <i title="Bookmark" className={"fa fa-bookmark mx-1 float-right pointer-hand" + (bookmarkActive ? " text-warning" : "")} onClick={() => this.bookmarkSolution(this.props.solution.pk)}></i> : null }
 							<i title="Share" className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i>
 						</h4>
 						<div className="container-fluid px-3 mt-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
