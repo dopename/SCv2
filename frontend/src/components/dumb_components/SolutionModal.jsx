@@ -57,9 +57,10 @@ class SolutionModal extends Component {
 			bookmarks.push(pk);
 		}
 		var categories = [];
+		categories.push(this.props.seeker.categories[0].pk)
 
 
-		var data = {categories:this.props.seeker.categories[0].pk, tags:this.props.seeker.tags.map(t => t.pk), bookmarks:bookmarks}
+		var data = {categories:categories, tags:this.props.seeker.tags.map(t => t.pk), bookmarks:bookmarks}
 		console.log(data)
 
 		this.props.updateSeeker(this.props.seeker.pk, data, this.props.token);
