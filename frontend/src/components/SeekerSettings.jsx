@@ -98,6 +98,9 @@ class SeekerSettings extends Component {
 		var numPerRow = 3;
 		var rows = [];
 
+		var tagCol = [];
+		var tagRow = [];
+
 		this.props.industries.map((i, index) => {
 			cols.push(
 				<div className="w-25">
@@ -114,6 +117,20 @@ class SeekerSettings extends Component {
 		    </div>
 		   )
 
+		 if (this.props.tags) {
+		 	this.props.tags.map(t => {
+		 		tagCol.push(
+		 			<DumbCheckBox item={t} checked={this.state.selectedTags.indexOf(t.pk) < 0 ? false : true} checkBox={this.tagCheck} />
+		 			)
+		 	})
+		 }
+
+		 tagRow.push(
+		    <div className="d-flex flex-wrap flex-row mb-2">
+		        {tagCol}
+		    </div>
+		 	)
+
 		console.log("PROPS", this.props, "STATE", this.state);
 		return (
 				<Modal size={this.props.mobile.screen_width > 540 ? "lg" : "md"} isOpen={this.props.open} toggle={this.props.toggle}>
@@ -124,6 +141,8 @@ class SeekerSettings extends Component {
 					<form onSubmit={this.onSubmit}>
 						<div className="container text-center">
 							{rows}
+							<h1 className="text-left">Identity Tags</h1>
+							{tagCol}
 							<input className="btn btn-outline-success btn-lg" type="submit" value="Update" />
 						</div>
 					</form>
