@@ -78,7 +78,7 @@ class SeekerSettings extends Component {
 	tagCheck(pk) {
 		var newTags = this.state.selectedTags;
 		if (this.state.selectedTags.indexOf(pk) > -1) {
-			var newTags = newTags.filter(t => t != pk)
+			var newTags = newTags.splice(newTags.indexOf(pk), 1)
 		}
 		else {
 			newTags.push(pk)
@@ -88,7 +88,7 @@ class SeekerSettings extends Component {
 
 	onSubmit(e) {
 		e.preventDefault();
-		var data = {categories:this.state.selectedCategories, tags:this.props.seeker.tags.map(t => t.pk)}
+		var data = {categories:this.state.selectedCategories, tags:this.state.tags}
 
 		this.props.onSubmit(this.props.seeker.pk, data, this.props.token);
 		this.props.toggle();
