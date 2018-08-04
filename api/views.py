@@ -28,6 +28,7 @@ class IncrementSolutionView(APIView):
 		solution = Solution.objects.get(pk=pk)
 		solution.views += 1;
 		solution.save()
+		return Response("Success")
 
 class RegistrationAPI(generics.GenericAPIView):
 	serializer_class = CreateUserSerializer

@@ -395,6 +395,8 @@ class SeekerAccountCreateSerializer(serializers.ModelSerializer):
 		]
 
 class SeekerAccountUpdateSerializer(serializers.ModelSerializer):
+	bookmarks = serializers.PrimaryKeyRelatedField(many=True, required=False)
+
 	class Meta:
 		model = SeekerAccount
 		fields = [
