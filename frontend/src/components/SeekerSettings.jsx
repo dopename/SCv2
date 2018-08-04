@@ -145,7 +145,7 @@ class SeekerSettings extends Component {
 						<div className="container text-center">
 							{rows}
 							<h1 className="text-left">Identity Tags</h1>
-							{tagCol}
+							{tagRow}
 							<input className="btn btn-outline-success btn-lg" type="submit" value="Update" />
 						</div>
 					</form>
