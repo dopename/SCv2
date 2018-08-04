@@ -88,7 +88,7 @@ class SeekerSettings extends Component {
 
 	onSubmit(e) {
 		e.preventDefault();
-		var data = {categories:this.state.selectedCategories, tags:this.state.tags}
+		var data = {categories:this.state.selectedCategories, tags:this.state.selectedTags}
 
 		this.props.onSubmit(this.props.seeker.pk, data, this.props.token);
 		this.props.toggle();
