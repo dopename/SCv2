@@ -57,6 +57,7 @@ class Main extends Component {
 								onSubmit={this.props.updateSeeker}
 								token={this.props.auth.token}
 								mobile={this.props.mobile}
+								tags={this.props.tags}
 							/>) : null }
 					</div>
 				</BrowserRouter>
