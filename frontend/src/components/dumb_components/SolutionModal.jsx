@@ -32,19 +32,6 @@ class SolutionModal extends Component {
 		}
 	}
 
-	// updateSolutionViews() {
-	//     var data = this.props.solution
-	//     data.views += 1
-	//     var url = 'https://www.solutionconnect.org/api/postings/solution/update/'
-	//     fetch(url + this.props.solution.pk + '/', {
-	//       method: 'put',
-	//       headers: {
-	//         'content-type':'application/json',
-	//       },
-	//       body: JSON.stringify(data)
-	//     })
-	// }
-
 	checkIfActive() {
 		if (this.props.activeModal === this.props.solution.pk) {
 			if (this.props.preview === "preview") {
@@ -71,6 +58,7 @@ class SolutionModal extends Component {
 		}
 
 		var data = {categories:this.props.seeker.categories, tags:this.props.seeker.tags, bookmarks:bookmarks}
+		console.log(data)
 
 		this.props.updateSeeker(this.props.seeker.pk, data, this.props.token);
 	}
