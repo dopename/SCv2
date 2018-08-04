@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import "./SolutionModal.css"
 import { incrementAPICall } from "../../helpers/index";
 
+import {seeker_account} from "../actions/index"
+
 class SolutionModal extends Component {
 	constructor(props) {
 		super(props)
@@ -15,6 +17,7 @@ class SolutionModal extends Component {
 		}
 
 		this.checkIfActive = this.checkIfActive.bind(this);
+		this.bookmarkSolution = this.bookmarkSolution.bind(this);
 		//this.updateSolutionViews = this.updateSolutionViews.bind(this);
 	}
 
@@ -57,6 +60,20 @@ class SolutionModal extends Component {
 		}
 	}
 
+	bookmarkSolution(pk) {
+		var bookmarks = this.props.seeker.bookmarks;
+		if (bookmarks.indexOf(pk) > -1) {
+			bookmarks = bookmarks.splice(bookmarks.indexOf(pk), 1);
+		}
+		else {
+			boookmarks.push(pk);
+		}
+
+		var data = {categories:this.props.seeker.categories, tags:this.props.seeker.tags, bookmarks:bookmarks}
+
+		this.props.updateSeeker(this.props.seeker.pk, data, this.props.token);
+	}
+
 	render() {
 		var max_height = (this.props.screen_height * 0.25).toString() + "px";
 
@@ -65,7 +82,7 @@ class SolutionModal extends Component {
 					<Modal size={this.props.isMobile === true ? "md" : "lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
 						<h4 className="mb-2">
 							<i className="fa fa-window-close mx-1 float-right pointer-hand" title="Close" onClick={() => {  this.props.toggle() }}></i>
-							<i title="Bookmark" className="fa fa-bookmark mx-1 float-right pointer-hand"></i>
+							{this.props.seeker ? <i title="Bookmark" className="fa fa-bookmark mx-1 float-right pointer-hand" onClick={() => this.bookmarkSolution(this.props.solution.pk)}></i> : null }
 							<i title="Share" className="fa fa-share-alt-square mx-1 float-right pointer-hand"></i>
 						</h4>
 						<div className="container-fluid px-3 mt-3" style={{borderBottom:"solid #E9ECEF 1px"}}>
@@ -122,4 +139,19 @@ class SolutionModal extends Component {
 	}
 }
 
-export default SolutionModal;
+const mapStateToProps = state => {
+	return {
+		seeker:state.auth.seeker,
+		token:state.auth.token,
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		updateSeeker: (pk, seekerData, token) => {
+			dispatch(seeker_account.updateSeeker(pk, seekerData, token));
+		},
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SolutionModal);
