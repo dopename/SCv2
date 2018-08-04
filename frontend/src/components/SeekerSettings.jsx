@@ -17,6 +17,7 @@ class SeekerSettings extends Component {
 
 		this.checkBox = this.checkBox.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.tagCheck = this.tagCheck.bind(this);
 	}
 
 	componentDidMount() {
@@ -120,7 +121,9 @@ class SeekerSettings extends Component {
 		 if (this.props.tags) {
 		 	this.props.tags.map(t => {
 		 		tagCol.push(
-		 			<DumbCheckBox item={t} checked={this.state.selectedTags.indexOf(t.pk) < 0 ? false : true} checkBox={this.tagCheck} />
+		 			<div className="w-25">
+		 				<DumbCheckBox item={t} checked={this.state.selectedTags.indexOf(t.pk) < 0 ? false : true} checkBox={this.tagCheck} />
+		 			</div>
 		 			)
 		 	})
 		 }
