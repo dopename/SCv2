@@ -401,7 +401,8 @@ class SeekerAccountUpdateSerializer(serializers.ModelSerializer):
 		model = SeekerAccount
 		fields = [
 			"tags",
-			"categories"
+			"categories",
+			"bookmarks"
 		]
 
 
