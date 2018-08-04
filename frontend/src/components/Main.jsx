@@ -12,7 +12,7 @@ import SeekerSettings from "./SeekerSettings";
 import "./Main.css"
 
 import { Button, Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavLink } from "reactstrap";
-import {main, auth, seeker_account, discovery} from "../actions/index"
+import {main, auth, seeker_account, discovery, provider_account} from "../actions/index"
 import {connect} from "react-redux";
 
 class Main extends Component {
