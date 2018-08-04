@@ -109,7 +109,7 @@ class SeekerSettings extends Component {
 		      //}
 		  })
 		  rows.push(
-		    <div className="d-flex flex-wrap flex-row mb-2" key={"row_"+index}>
+		    <div className="d-flex flex-wrap flex-row mb-2">
 		        {cols}
 		    </div>
 		   )
