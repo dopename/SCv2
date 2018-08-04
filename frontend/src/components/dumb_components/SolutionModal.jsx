@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./SolutionModal.css"
 import { incrementAPICall } from "../../helpers/index";
 
-import {seeker_account} from "../actions/index"
+import {seeker_account} from "../../actions/index"
 
 class SolutionModal extends Component {
 	constructor(props) {
