@@ -122,7 +122,7 @@ class SeekerSettings extends Component {
 		 	this.props.tags.map(t => {
 		 		tagCol.push(
 		 			<div className="w-25">
-		 				<DumbCheckBox item={t} checked={this.state.selectedTags.indexOf(t.pk) < 0 ? false : true} checkBox={this.tagCheck} />
+		 				<DumbCheckBox item={t} checked={this.state.selectedTags.indexOf(t.pk) < 0 ? false : true} checkBox={this.tagCheck} center={true} />
 		 			</div>
 		 			)
 		 	})
