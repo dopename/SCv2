@@ -396,6 +396,8 @@ class SeekerAccountCreateSerializer(serializers.ModelSerializer):
 
 class SeekerAccountUpdateSerializer(serializers.ModelSerializer):
 	bookmarks = serializers.PrimaryKeyRelatedField(many=True, required=False, queryset=Solution.objects.all())
+	tags = serializers.PrimaryKeyRelatedField(many=True, required=False, queryset=Tag.objects.all())
+	categories = serializers.PrimaryKeyRelatedField(many=True, required=False, queryset=Category.objects.all())
 
 	class Meta:
 		model = SeekerAccount

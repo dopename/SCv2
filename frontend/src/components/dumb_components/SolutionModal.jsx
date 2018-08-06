@@ -32,10 +32,10 @@ class SolutionModal extends Component {
 		}
 	}
 
-	checkIfActive() {
+	checkIfActive() { //Is passed an activeModal prop, if it equals the pk of solution, pop open the modal! 
 		if (this.props.activeModal === this.props.solution.pk) {
 			if (this.props.preview === "preview") {
-				null
+				null //Shouldn't increment views if it is a preview.
 			}
 			else {
 				incrementAPICall("solution", this.props.solution.pk)
@@ -56,12 +56,8 @@ class SolutionModal extends Component {
 		else {
 			bookmarks.push(pk);
 		}
-		var categories = [];
-		categories.push(this.props.seeker.categories[0].pk)
 
-
-		var data = {categories:categories, tags:this.props.seeker.tags.map(t => t.pk), bookmarks:bookmarks}
-		console.log(data)
+		var data = {bookmarks:bookmarks}
 
 		this.props.updateSeeker(this.props.seeker.pk, data, this.props.token);
 	}
