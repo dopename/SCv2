@@ -68,12 +68,15 @@ class SolutionModal extends Component {
 
 	render() {
 		var max_height = (this.props.screen_height * 0.25).toString() + "px";
-		var bookmarks = this.props.seeker.bookmarks.map(b => b.pk);
-
+		var bookmarks;
 		var bookmarkActive = false;
 
-		if (bookmarks.indexOf(this.props.solution.pk) > -1) {
-			bookmarkActive = true;
+		if (this.props.seeker) {
+			bookmarks = this.props.seeker.bookmarks.map(b => b.pk);
+
+			if (bookmarks.indexOf(this.props.solution.pk) > -1) {
+				bookmarkActive = true;
+			}
 		}
 
 			return (

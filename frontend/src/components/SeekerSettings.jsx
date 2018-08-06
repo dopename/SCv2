@@ -21,35 +21,38 @@ class SeekerSettings extends Component {
 	}
 
 	componentDidMount() {
-		var selectedCategories = this.props.seeker.categories.map(c => c.pk);
-		var allCategories = [].concat.apply([], this.props.industries.map(i => i.categories.map(c => c.pk)));
-		var unselectedCategories = allCategories.filter(x => !selectedCategories.includes(x));
-		var selectedTags = this.props.seeker.tags.map(t => t.pk);
+		var selectedCategories = this.props.seeker.categories.map(c => c.pk); //PK of categories returned by seeker are selected
+		var allCategories = [].concat.apply([], this.props.industries.map(i => i.categories.map(c => c.pk))); //Get all categories (they're returned in Industries endpoint)
+		var unselectedCategories = allCategories.filter(x => !selectedCategories.includes(x)); //Unselected is all of the categories that aren't selected
+		var selectedTags = this.props.seeker.tags.map(t => t.pk); //Need less logic with this one (no parent relationship) - just copy tags from seeker
 		this.setState({selectedCategories:selectedCategories, unselectedCategories:unselectedCategories, selectedTags:selectedTags});
 	}
 
+	//Function for managing which Categories are checked.
+	//Filterting only goes by Category - function makes sure that if parent is clicked, it checks its children (same with uncheck)
 	checkBox(pk, type) {
-		var newSelectedCategories = this.state.selectedCategories;
+		var newSelectedCategories = this.state.selectedCategories; //copy state into new variables - not editing directly
 		var newUnselectedCategories = this.state.unselectedCategories;
+
 		if (type === "industry") {
-			let categories = this.props.industries[this.props.industries.map(i => i.pk).indexOf(pk)].categories.map(c => c.pk);
-			let numCategories = categories.length;
+			let categories = this.props.industries[this.props.industries.map(i => i.pk).indexOf(pk)].categories.map(c => c.pk); //Get all the categories for the industry
+			let numCategories = categories.length; //Get the count of categories
 			let matches = 0;
 			categories.map(c => {
 				if (this.state.selectedCategories.includes(c)) {
-					matches += 1
+					matches += 1; //Increment matches if theres a match..
 				}
 			})
 
-			if (matches === numCategories) {
+			if (matches === numCategories) { //If all of them are checked..
 				categories.map(c => {
-					newSelectedCategories.splice(newSelectedCategories.indexOf(c), 1);
-					newUnselectedCategories.push(c);
+					newSelectedCategories.splice(newSelectedCategories.indexOf(c), 1); //Cut them out of "Selected Categories"
+					newUnselectedCategories.push(c); //Append them to Unselected
 				})
 			}
 			else {
 				categories.map(c => {
-					if (newUnselectedCategories.indexOf(c) > -1) {
+					if (newUnselectedCategories.indexOf(c) > -1) { //Do the opposite if not checked
 						newUnselectedCategories.splice(newUnselectedCategories.indexOf(c), 1);
 						newSelectedCategories.push(c);
 					}
@@ -57,7 +60,7 @@ class SeekerSettings extends Component {
 			}
 			this.setState({selectedCategories:newSelectedCategories, unselectedCategories:newUnselectedCategories});
 		}
-		else {
+		else { //If its a childe element, more simple logic.
 			if (this.state.unselectedCategories.indexOf(pk) < 0) {
 				newSelectedCategories.splice(newSelectedCategories.indexOf(pk), 1);
 				this.setState({
@@ -75,6 +78,7 @@ class SeekerSettings extends Component {
 		}
 	}
 
+	//Managing which Identity tags are currently checked.
 	tagCheck(pk) {
 		var newTags = this.state.selectedTags;
 		if (this.state.selectedTags.indexOf(pk) > -1) {
