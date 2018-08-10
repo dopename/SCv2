@@ -162,11 +162,12 @@ class EditSeekerInfo extends Component {
 	}
 
 	render() {
+		console.log(this.props, this.state);
 		return (
 			<div>
 				<h3>Your Information</h3>
 				<form>
-					<input type="text" name="username" value={this.state.username} className="form-control" />
+					<input type="text" name="username" className="form-control" />
 					<input type="submit" value="Submit" />
 				</form>
 			</div>
