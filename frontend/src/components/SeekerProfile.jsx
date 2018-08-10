@@ -154,6 +154,11 @@ class EditSeekerInfo extends Component {
 	constructor(props) {
 		super(props)
 
+		this.state = {
+			user: {
+				username: null,
+			},
+		}
 	}
 
 	componentDidMount() {
