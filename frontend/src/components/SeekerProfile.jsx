@@ -157,7 +157,8 @@ class EditSeekerInfo extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({this.props.user})
+		const user = this.props.user;
+		this.setState({user});
 	}
 
 	render() {
