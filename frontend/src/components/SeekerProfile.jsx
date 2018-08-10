@@ -171,7 +171,7 @@ class EditSeekerInfo extends Component {
 	handleChange(e) {
 		var user = {...this.state.user}
 		user[e.target.name] = e.target.value
-		this.setState({userChange})
+		this.setState({user})
 	}
 
 	render() {
