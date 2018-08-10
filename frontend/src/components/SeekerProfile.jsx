@@ -164,12 +164,12 @@ class EditSeekerInfo extends Component {
 	}
 
 	componentDidMount() {
-		const user = this.props.user;
-		this.setState({user});
+		this.setState({...this.props.user});
 	}
 
 	handleChange(e) {
-		this.setState({[e.target.name]:e.target.value})
+
+		this.setState({...this.state.user, [e.target.name]:e.target.value})
 	}
 
 	render() {
