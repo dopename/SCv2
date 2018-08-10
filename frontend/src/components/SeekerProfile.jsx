@@ -83,18 +83,19 @@ class SeekerProfile extends Component {
 					<div className="col-lg-3 text-center">
 						<div className={"d-flex " + this.props.mobile.isMobile ? "flex-row" : "flex-column"}>
 							<Button outline className="btn-block mb-1" onClick={() => this.changeView("main")} color="secondary" active={this.state.view === "main" ? true : false}>Main</Button>
-							<Button outline className="btn-block mb-1" onClick={() => this.changeView("favorites")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories</Button>
-							<Button outline className="btn-block" color="secondary" onClick={() => this.props.toggleSettings()}>Settings</Button>
+							<Button outline className="btn-block mb-1" onClick={() => this.changeView("favorites")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories <span class="badge badge-warning">&#9733;</span></Button>
+							<Button outline className="btn-block mb-1" color="secondary" onClick={() => this.props.toggleSettings()}>Feed Settings <i className="fa fa-cogs nav-link pointer-hand"></i></Button>
+							<Button outline className="btn-block" onClick={() => this.changeView("editUser")} color="info" active={this.state.view === "editUser" ? true : false}>Edit Info <i className="fa fa-user"></i></Button>
 						</div>
 					</div>
 					<div className="col-lg-9">
-						<h1 className="text-center">{this.state.view === "main" ? "Your feed" : "Your favories"}</h1>
+						<h1 className="text-center">{this.state.view === "main" ? "Your feed" : (this.state.view === "favorites") ? "Your favories" : "Edit User Information"}</h1>
 						<div className="container" style={{overflowY:"auto", height:scrollHeight}}>
-							{this.state.view === "main" ? (
+							{(this.state.view === "main") ? (
 								<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
-								):(
+								): (this.state.view === "favorites") ? (
 								<DumbTiles solutions={bookmarks} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
-								)
+								): <EditSeekerInfo user={this.props.auth.user} />
 							}
 						</div>
 					</div>
@@ -148,3 +149,26 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SeekerProfile);
+
+class EditSeekerInfo extends Component {
+	constructor(props) {
+		super(props)
+
+	}
+
+	componentDidMount() {
+		this.setState({this.props.user})
+	}
+
+	render() {
+		return (
+			<div>
+				<h3>Your Information</h3>
+				<form>
+					<input type="text" name="username" value={this.state.username} className="form-control" />
+					<input type="submit" value="Submit" />
+				</form>
+			</div>
+		)
+	}
+}
