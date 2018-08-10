@@ -159,11 +159,17 @@ class EditSeekerInfo extends Component {
 				username: null,
 			},
 		}
+
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	componentDidMount() {
 		const user = this.props.user;
 		this.setState({user});
+	}
+
+	handleChange(e) {
+		this.setState({[e.target.name]:e.target.value})
 	}
 
 	render() {
@@ -172,7 +178,7 @@ class EditSeekerInfo extends Component {
 			<div>
 				<h3>Your Information</h3>
 				<form>
-					<input type="text" name="username" value={this.state.user.username} className="form-control" />
+					<input type="text" name="username" value={this.state.user.username} onChange={this.handleChange} className="form-control" />
 					<input type="submit" value="Submit" />
 				</form>
 			</div>
