@@ -38,6 +38,7 @@ class RegistrationAPI(generics.GenericAPIView):
 		serializer = self.get_serializer(data=request.data)
 		serializer.is_valid(raise_exception=True)
 		user_serializer = CreateUserSerializer(data={'email':request.data['email'], 'password':request.data['password']})
+		user_serializer.is_valid(raise_exception=True)
 		user = user_serializer.save()
 		custom_user = CustomUser.objects.create(
 			user=user, first_name=request.data['first_name'], last_name=request.data['last_name'], phone_number=request.data['phone_number'], email=request.data['email']
