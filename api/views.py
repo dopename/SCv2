@@ -40,7 +40,7 @@ class RegistrationAPI(generics.GenericAPIView):
 		user_serializer = CreateUserSerializer(data={'email':request.data['email'], 'password':request.data['password']})
 		user = user_serializer.save()
 		custom_user = CustomUser.objects.create(
-			user=user, 'first_name':request.data['first_name'], 'last_name':request.data['last_name'], 'phone_number':request.data['phone_number'], 'email':request.data['email']
+			user=user, first_name=request.data['first_name'], last_name=request.data['last_name'], phone_number=request.data['phone_number'], email=request.data['email']
 		)
 		custom_user.save()
 		seeker_user = SeekerAccount.objects.create(user=custom_user)
