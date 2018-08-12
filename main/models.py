@@ -8,6 +8,11 @@ UPLOAD_ROOT = '/home/sc/static/'
 
 class CustomUser(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="custom_user")
+	first_name = models.CharField(max_length=32, blank=True, null=True)
+	last_name = models.CharField(max_length=32, blank=True, null=True)
+	phone_number = models.CharField(max_length=16, blank=True, null=True)
+	email = models.EmailField(blank=True, null=True)
+
 
 	def __str__(self):
 		return self.user.username

@@ -8,13 +8,19 @@ import {auth} from "../actions";
 class Login extends Component {
 
   state = {
-    username: "",
+    //username: "",
     password: "",
+    email:"",
+    phone_number:"",
+    first_name:"",
+    last_name:"",
   }
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.register(this.state.username, this.state.password);
+    this.props.register(
+      this.state.first_name, this.state.last_name, this.state.email, this.state.phone_number, this.state.password
+    );
   }
 
   render() {
@@ -34,10 +40,28 @@ class Login extends Component {
             </ul>
           )}
           <p>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="first_name">First Name</label>
             <input
-              type="text" id="username" className="form-control"
-              onChange={e => this.setState({username: e.target.value})} />
+              type="text" id="first_name" className="form-control"
+              onChange={e => this.setState({first_name: e.target.value})} />
+          </p>
+          <p>
+            <label htmlFor="last_name">Last Name</label>
+            <input
+              type="text" id="last_name" className="form-control"
+              onChange={e => this.setState({last_name: e.target.value})} />
+          </p>
+          <p>
+            <label htmlFor="email">Email</label>
+            <input
+              type="text" id="email" className="form-control"
+              onChange={e => this.setState({email: e.target.value})} />
+          </p>
+          <p>
+            <label htmlFor="phone_number">Phone Number</label>
+            <input
+              type="text" id="phone_number" className="form-control"
+              onChange={e => this.setState({phone_number: e.target.value})} />
           </p>
           <p>
             <label htmlFor="password">Password</label>
@@ -74,7 +98,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    register: (username, password) => dispatch(auth.register(username, password)),
+    register: (first_name, last_name, email, phone_number, password) => dispatch(auth.register(first_name, last_name, email, phone_number, password)),
   };
 }
 

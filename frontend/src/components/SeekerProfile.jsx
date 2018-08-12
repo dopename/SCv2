@@ -83,8 +83,8 @@ class SeekerProfile extends Component {
 					<div className="col-lg-3 text-center">
 						<div className={"d-flex " + this.props.mobile.isMobile ? "flex-row" : "flex-column"}>
 							<Button outline className="btn-block mb-1" onClick={() => this.changeView("main")} color="secondary" active={this.state.view === "main" ? true : false}>Main</Button>
-							<Button outline className="btn-block mb-1" onClick={() => this.changeView("favorites")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories <span class="badge badge-warning">&#9733;</span></Button>
-							<Button outline className="btn-block mb-1" color="secondary" onClick={() => this.props.toggleSettings()}>Feed Settings <i className="fa fa-cogs nav-link pointer-hand"></i></Button>
+							<Button outline className="btn-block mb-1" onClick={() => this.changeView("favorites")} color="warning" active={this.state.view === "favorites" ? true : false}>Favories <i className="fa fa-star"></i></Button>
+							<Button outline className="btn-block mb-1" color="secondary" onClick={() => this.props.toggleSettings()}>Feed Settings <i className="fa fa-cogs"></i></Button>
 							<Button outline className="btn-block" onClick={() => this.changeView("editUser")} color="info" active={this.state.view === "editUser" ? true : false}>Edit Info <i className="fa fa-user"></i></Button>
 						</div>
 					</div>

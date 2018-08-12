@@ -31,16 +31,19 @@ class IncrementSolutionView(APIView):
 		return Response("Success")
 
 class RegistrationAPI(generics.GenericAPIView):
-	serializer_class = CreateUserSerializer
+	serializer_class = CustomCreateUserSerializer
 	permission_classes = (permissions.AllowAny,)
 
 	def post(self, request, *args, **kwargs):
 		serializer = self.get_serializer(data=request.data)
 		serializer.is_valid(raise_exception=True)
-		user = serializer.save()
-		custom_user = CustomUser.objects.create(user=user)
+		user_serializer = CreateUserSerializer(data={'email':request.data['email'], 'password':request.data['password']})
+		user = user_serializer.save()
+		custom_user = CustomUser.objects.create(
+			user=user, 'first_name':request.data['first_name'], 'last_name':request.data['last_name'], 'phone_number':request.data['phone_number'], 'email':request.data['email']
+		)
 		custom_user.save()
-		seeker_user = SeekerAccount.objects.create(user=custom_user.pk)
+		seeker_user = SeekerAccount.objects.create(user=custom_user)
 		seeker_user.save()
 
 		return Response({

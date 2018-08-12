@@ -34,6 +34,13 @@ class CreateUserSerializer(serializers.ModelSerializer):
 										validated_data['password'])
 		return user
 
+class CustomCreateUserSerializer(serializers.Serializer):
+	email = serializers.EmailField()
+	password = serializers.CharField(write_only=True)
+	first_name = serializers.CharField()
+	last_name = serializers.CharField()
+	phone_number = serializers.CharField()
+
 
 class UserLoginSerializer(serializers.ModelSerializer):
 

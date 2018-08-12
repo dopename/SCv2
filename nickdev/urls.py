@@ -29,9 +29,9 @@ urlpatterns = [
     path('api/', include("api.urls")),
     path('api/auth/', include('knox.urls')),
     path('', TemplateView.as_view(template_name="index.html")),
-    path('token-auth/', obtain_jwt_token),
-    path('token-verify/', verify_jwt_token),
-    path('token-refresh/', refresh_jwt_token),
+    # path('token-auth/', obtain_jwt_token),
+    # path('token-verify/', verify_jwt_token),
+    # path('token-refresh/', refresh_jwt_token),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
