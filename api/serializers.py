@@ -577,6 +577,18 @@ class ProviderAccountSerializer(serializers.ModelSerializer):
 			"provider",
 		]
 
+class UpdateCustomUserSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = CustomUser
+		fields = [
+			'email',
+			'first_name',
+			'last_name',
+			'phone_number'
+		]
+
+
 class CustomUserSerializer(serializers.ModelSerializer):
 	seeker_account = SeekerAccountSerializer()
 	provider_account = ProviderAccountSerializer()

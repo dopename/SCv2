@@ -43,3 +43,19 @@ export const updateSeeker = (pk, seekerData, token) => {
 			})
 	}
 }
+
+export const updateCustomUser = (pk, data, token) => {
+	return dispatch => {
+		return helpers.updateAPICall("customuser", pk, data, token, true)
+			.then(res => {
+				if (res.ok) {
+					return res.json()
+				}
+			})
+			.then(() => {
+				return dispatch({
+					type: "CUSTOM_USER_UPDATED",
+				})
+			})
+	}
+}

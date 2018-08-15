@@ -88,6 +88,21 @@ class UserAPIView(generics.ListAPIView):
 
 #/--------------------------------------------------------------/
 
+class CustomUserUpdateView(generics.UpdateAPIView):
+	permission_classes = (permissions.IsAuthenticated, )
+	lookup_field = 'pk'
+	serializer_class = UpdateCustomUserSerializer
+
+	def get_queryset(self):
+		qs = CustomUser.objects.all()
+		query = self.request.GET.get('q')
+		if query is not None:
+			qs = qs.filter(pk=query)
+		return qs
+
+
+#/--------------------------------------------------------------/
+
 class IndustryUpdateRetrieveView(generics.RetrieveUpdateAPIView):
 	lookup_field = 'pk'
 	serializer_class = IndustrySerializer

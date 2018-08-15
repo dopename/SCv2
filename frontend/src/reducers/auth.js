@@ -42,6 +42,7 @@ export default function auth(state=initialState, action) {
       return {...state, errors:action.data}
 
     case "SEEKER_UPDATED":
+    case "CUSTOM_USER_UPDATED":
     case "SOLUTION_UPDATED":
     case "SOLUTION_DELETED":
     case "SOLUTION_CREATED":

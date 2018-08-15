@@ -95,7 +95,7 @@ class SeekerProfile extends Component {
 								<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
 								): (this.state.view === "favorites") ? (
 								<DumbTiles solutions={bookmarks} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
-								): <EditSeekerInfo user={this.props.auth.user} />
+								): <EditSeekerInfo user={this.props.auth.user} token={this.props.auth.token} submit={this.props.updateCustomUser} />
 							}
 						</div>
 					</div>
@@ -117,22 +117,18 @@ class SeekerProfile extends Component {
 
 const mapStateToProps = state => {
 	return {
-		//seeker:state.seeker_account.seeker,
 		mobile:state.main,
 		auth:state.auth,
-		//solutions:state.discovery.solutions,
 		industries:state.discovery.industries,
-		//isLoaded: state.seeker_account.isLoaded,
-		//isUpdated: state.seeker_account.isUpdated,
 		solutions:state.seeker_account.allSolutions,
 	}
 }
 
 const mapDispatchToProps = dispatch => {
 	return {
-		// retrieveSeekerAccount: (seekerAccountPK) => {
-		// 	dispatch(seeker_account.retrieveSeekerAccount(seekerAccountPK));
-		// },
+		updateCustomUser: (pk, seekerData, token) => {
+			dispatch(seeker_account.updateCustomUser(pk, seekerData, token));
+		},
 		updateSeeker: (pk, seekerData, token) => {
 			dispatch(seeker_account.updateSeeker(pk, seekerData, token));
 		},
@@ -164,10 +160,14 @@ class EditSeekerInfo extends Component {
 		}
 
 		this.handleChange = this.handleChange.bind(this);
+		this.cleanData = this.cleanData.bind(this);
 	}
 
 	componentDidMount() {
 		const custom_user = {...this.props.user.custom_user}
+		delete custom_user['provider_account'];
+		delete custom_user['seeker_account'];
+		delete custom_user['pk'];
 		this.setState({custom_user});
 	}
 
@@ -177,12 +177,18 @@ class EditSeekerInfo extends Component {
 		this.setState({custom_user})
 	}
 
+	cleanData(e) {
+		e.preventDefault();
+		const data = {...this.state.custom_user}
+		this.submit(this.props.user.custom_user.pk, data, this.props.token);
+	}
+
 	render() {
 		console.log(this.props, this.state);
 		return (
 			<div>
-				<h3>Your Information</h3>
-				<form>
+				<h3 className="modal-text-heading">Your Information</h3>
+				<form onSubmit={this.cleanData}>
 					<div className="container-fluid">
 						<div className="row">
 							<div className="col-lg-6">
@@ -205,7 +211,9 @@ class EditSeekerInfo extends Component {
 							</div>
 						</div>
 					</div>
-					<input type="submit" value="Submit" />
+					<div className="text-center">
+						<input type="submit" className="btn btn-lg btn-success" value="Update" />
+					</div>
 				</form>
 			</div>
 		)
