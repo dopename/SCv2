@@ -28,7 +28,7 @@ class DiscoveryTiles extends Component {
 			}
 		})
 		return (
-				<div className="container-fluid vertical-scroll h-100">
+				<div className="container-fluid vertical-scroll h-75">
 					<DumbTiles 
 						solutions={renderSolutions} 
 						size="md" 
