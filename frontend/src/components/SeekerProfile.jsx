@@ -180,7 +180,7 @@ class EditSeekerInfo extends Component {
 	cleanData(e) {
 		e.preventDefault();
 		const data = {...this.state.custom_user}
-		this.submit(this.props.user.custom_user.pk, data, this.props.token);
+		this.props.submit(this.props.user.custom_user.pk, data, this.props.token);
 	}
 
 	render() {
@@ -212,7 +212,7 @@ class EditSeekerInfo extends Component {
 						</div>
 					</div>
 					<div className="text-center">
-						<input type="submit" className="btn btn-lg btn-success" value="Update" />
+						<input type="submit" className="btn btn-md btn-success mt-2" value="Update" />
 					</div>
 				</form>
 			</div>
