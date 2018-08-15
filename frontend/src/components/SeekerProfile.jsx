@@ -155,8 +155,11 @@ class EditSeekerInfo extends Component {
 		super(props)
 
 		this.state = {
-			user: {
-				username: null,
+			custom_user: {
+				first_name: null,
+				last_name:null,
+				phone_number:null,
+				email:null
 			},
 		}
 
@@ -164,14 +167,14 @@ class EditSeekerInfo extends Component {
 	}
 
 	componentDidMount() {
-		const user = {...this.props.user}
-		this.setState({user});
+		const custom_user = {...this.props.user.custom_user}
+		this.setState({custom_user});
 	}
 
 	handleChange(e) {
-		var user = {...this.state.user}
-		user[e.target.name] = e.target.value
-		this.setState({user})
+		var custom_user = {...this.state.custom_user}
+		custom_user[e.target.name] = e.target.value
+		this.setState({custom_user})
 	}
 
 	render() {
@@ -180,7 +183,28 @@ class EditSeekerInfo extends Component {
 			<div>
 				<h3>Your Information</h3>
 				<form>
-					<input type="text" name="username" value={this.state.user.username} onChange={this.handleChange} className="form-control" />
+					<div className="container-fluid">
+						<div className="row">
+							<div className="col-lg-6">
+								<label for="first_name">First Name</label>
+								<input type="text" name="first_name" value={this.state.custom_user.first_name} onChange={this.handleChange} className="form-control" />
+							</div>
+							<div className="col-lg-6">
+								<label for="last_name">Last Name</label>
+								<input type="text" name="last_name" value={this.state.custom_user.last_name} onChange={this.handleChange} className="form-control" />
+							</div>
+						</div>
+						<div className="row mt-2">
+							<div className="col-lg-6">
+								<label for="email">E-mail Address</label>
+								<input type="email" name="email" value={this.state.custom_user.email} onChange={this.handleChange} className="form-control" />
+							</div>
+							<div className="col-lg-6">
+								<label for="phone_number">Phone Number</label>
+								<input type="text" name="phone_number" value={this.state.custom_user.phone_number} onChange={this.handleChange} className="form-control" />
+							</div>
+						</div>
+					</div>
 					<input type="submit" value="Submit" />
 				</form>
 			</div>
