@@ -48,30 +48,30 @@ class UserLoginSerializer(serializers.ModelSerializer):
 		model = User
 		fields = ['username', 'pk']
 		
+# ON BOTTOM OF PAGE
+# class CustomUserSerializer(serializers.ModelSerializer):
+# 	seeker_account = serializers.PrimaryKeyRelatedField(read_only=True)
+# 	provider_account = serializers.PrimaryKeyRelatedField(read_only=True)
 
-class CustomUserSerializer(serializers.ModelSerializer):
-	seeker_account = serializers.PrimaryKeyRelatedField(read_only=True)
-	provider_account = serializers.PrimaryKeyRelatedField(read_only=True)
+# 	class Meta:
+# 		model = CustomUser
+# 		fields = [
+# 			'pk',
+# 			'seeker_account',
+# 			'provider_account',
+# 			'first_name',
+# 			'last_name',
+# 			'email',
+# 			'phone_number',
+# 		]
 
-	class Meta:
-		model = CustomUser
-		fields = [
-			'pk',
-			'seeker_account',
-			'provider_account',
-			'first_name',
-			'last_name',
-			'email',
-			'phone_number',
-		]
+# ON BOTTOM OF PAGE
+# class UserSerializer(serializers.ModelSerializer):
+# 	custom_user = CustomUserSerializer()
 
-
-class UserSerializer(serializers.ModelSerializer):
-	custom_user = CustomUserSerializer()
-
-	class Meta:
-		model = User
-		fields = ('id', 'username', 'custom_user')
+# 	class Meta:
+# 		model = User
+# 		fields = ('id', 'username', 'custom_user')
 
 #/------------------------------------------------------------------------------/
 
@@ -586,7 +586,11 @@ class CustomUserSerializer(serializers.ModelSerializer):
 		fields = [
 			'pk',
 			'seeker_account',
-			'provider_account'
+			'provider_account',
+			'first_name',
+			'last_name',
+			'email',
+			'phone_number',
 		]
 
 
