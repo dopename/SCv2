@@ -41,7 +41,9 @@ class Discovery extends Component {
 						:
 						(
 							<div>
-								<Button outline color="info" size="md" onClick={() => this.toggleModal()}>Refine Results</Button>
+								<div className="text-center">
+									<Button outline color="info" size="md" onClick={() => this.toggleModal()}>Refine Results</Button>
+								</div>
 								<Modal isOpen={this.state.modalOpen} toggle={this.toggleModal}>
 									<RefineResults discovery={this.props.discovery} checkBox={this.props.checkBox} />
 								</Modal>
