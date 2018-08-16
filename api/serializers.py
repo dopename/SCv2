@@ -221,7 +221,7 @@ class SolutionMediaCreateSerializer(serializers.ModelSerializer):
 
 
 class SolutionMediaSerializer(serializers.ModelSerializer):
-	media = MediaSerializer()
+	media = MediaSerializer(read_only=True, many=True)
 
 	class Meta:
 		model = SolutionMedia
