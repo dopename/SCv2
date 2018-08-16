@@ -218,18 +218,16 @@ class SolutionMediaCreateSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = SolutionMedia
-		fields = [
-			"pictures"
-		]
 
 
 class SolutionMediaSerializer(serializers.ModelSerializer):
+	media = MediaSerializer()
 
 	class Meta:
 		model = SolutionMedia
 		fields = [
 			"pk",
-			"pictures"
+			"media"
 		]
 
 class SolutionMediaDestroySerializer(serializers.ModelSerializer):
@@ -448,6 +446,7 @@ class SolutionSerializer(serializers.ModelSerializer):
 	provider_name = serializers.CharField(source='provider.name', read_only=True)
 	provider_logo = serializers.ImageField(source='provider.logo', read_only=True)
 	tags = SolutionTagSerializer(many=True, read_only=True)
+	solutionmedia = SolutionMediaSerializer()
 
 	class Meta:
 		model = Solution

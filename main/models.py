@@ -56,7 +56,7 @@ class Media(models.Model):
 	title = models.CharField(max_length=64)
 	description = models.CharField(max_length=128, blank=True, null=True)
 	location = models.ForeignKey(MediaLocation, on_delete=models.CASCADE)
-	solutionmedia = models.ForeignKey(SolutionMedia, on_delete=models.CASCADE, blank=True, null=True)
+	solutionmedia = models.ForeignKey(SolutionMedia, on_delete=models.CASCADE, blank=True, null=True, related_name="media")
 
 	def __str__(self):
 		return "{} - {}".format(self.title, self.solutionmedia.solution.name)
