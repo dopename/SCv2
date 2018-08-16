@@ -446,7 +446,7 @@ class SolutionSerializer(serializers.ModelSerializer):
 	provider_name = serializers.CharField(source='provider.name', read_only=True)
 	provider_logo = serializers.ImageField(source='provider.logo', read_only=True)
 	tags = SolutionTagSerializer(many=True, read_only=True)
-	solutionmedia = SolutionMediaSerializer()
+	solutionmedia = SolutionMediaSerializer(required=False)
 
 	class Meta:
 		model = Solution
