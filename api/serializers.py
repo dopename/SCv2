@@ -192,6 +192,7 @@ class MediaCreateSerializer(serializers.ModelSerializer):
 
 
 class MediaSerializer(serializers.ModelSerializer):
+	location_name = serializers.CharField(source='location.location_name', read_only=True)
 
 	class Meta:
 		model = Media
