@@ -217,16 +217,32 @@ class SolutionCarousel extends Component {
 		const { activeIndex } = this.state;
 
 		const slides = this.props.items.map((item, i) => {
-			return (
-				<CarouselItem
-					onExiting={this.onExiting}
-					onExited={this.onExited}
-					key={item.file}
-				>
-					<img src={item.file} alt={"Slide" + i} className="responsive-image" style={{maxHeight:this.props.max_height}} />
-				</CarouselItem>
+			if (item.file.endsWith(".jpg") || item.file.endsWith(".png")) {
+				return (
+					<CarouselItem
+						onExiting={this.onExiting}
+						onExited={this.onExited}
+						key={item.file}
+					>
+						<img src={item.file} alt={"Slide" + i} className="responsive-image" style={{maxHeight:this.props.max_height}} />
+					</CarouselItem>
 
-			);
+				)
+			}
+			else {
+				return (
+					<CarouselItem
+						onExiting={this.onExiting}
+						onExited={this.onExited}
+						key={item.file}
+					>
+						<video controls className="responsive-image" style={{maxHeight:this.props.max_height}}>
+							<source src={item.file} type="video/mp4" />
+						</video>
+					</CarouselItem>
+
+				)
+			}
 		});
 
 		return (
