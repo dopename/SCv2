@@ -11,7 +11,7 @@ export default class MediaForm extends Component {
 			title:"",
 			description:"",
 			location:"",
-			solutionmedia:this.props.solutionmediaPK
+			solutionmedia:this.props.solutionmediaPK,
 
 			allLocations:[]
 		}
