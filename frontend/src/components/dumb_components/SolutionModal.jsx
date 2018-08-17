@@ -167,7 +167,7 @@ class SolutionCarousel extends Component {
 		super(props)
 
 		this.state = {
-			activeIndex = 0;
+			activeIndex:0
 		}
 
 		this.next = this.next.bind(this);
