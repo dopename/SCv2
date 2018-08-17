@@ -76,6 +76,10 @@ class SolutionModal extends Component {
 		}
 
 			return (
+				const totalMedia = [];
+				totalMedia.push( {file:this.props.solution.main_image });
+				toatlMedia = [...totalMedia, this.props.solution.solutionmedia.media]
+
 				<div>
 					<Modal size={this.props.isMobile === true ? "md" : "lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
 						<h4 className="mb-2">
@@ -119,7 +123,7 @@ class SolutionModal extends Component {
 										)
 										:
 										(
-											<SolutionCarousel items={this.props.solution.solutionmedia.media} />
+											<SolutionCarousel items={totalMedia} />
 										)
 									}
 								</div>
