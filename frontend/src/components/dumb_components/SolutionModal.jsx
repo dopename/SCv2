@@ -198,7 +198,7 @@ class SolutionCarousel extends Component {
 			return;
 		}
 		const nextIndex = this.state.activeIndex === 0 ? this.props.items.length - 1 : this.state.activeIndex - 1;
-		this.setState({activeIndex:newIndex});
+		this.setState({activeIndex:nextIndex});
 	}
 
 	goToIndex(newIndex) {
