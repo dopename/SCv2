@@ -18,7 +18,7 @@ class DiscoveryTiles extends Component {
 	}
 
 	render() {
-		if (!this.props.isMobile) {
+		if (!this.props.mobile.isMobile) {
 			document.body.classList.add("noscroll");
 		}
 		var renderSolutions = [];
