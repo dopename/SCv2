@@ -119,7 +119,7 @@ class SolutionModal extends Component {
 										)
 										:
 										(
-											<SolutionCarousel items={this.props.solution.solutionmedia.media.map((m, i) => {src:m.file} )} />
+											<SolutionCarousel items={this.props.solution.solutionmedia.media} />
 										)
 									}
 								</div>
@@ -217,9 +217,9 @@ class SolutionCarousel extends Component {
 				<CarouselItem
 					onExiting={this.onExiting}
 					onExited={this.onExited}
-					key={item.src}
+					key={item.file}
 				>
-					<img src={item.src} alt={"Slide" + i} />
+					<img src={item.file} alt={"Slide" + i} />
 				</CarouselItem>
 
 			);
