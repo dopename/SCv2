@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button } from "reactstrap";
+import { Modal, Button, Carousel, CarouselItem, CarouselIndicators, CarouselControl } from "reactstrap";
 import Tags from "./Tags"
 import { Link } from "react-router-dom";
 import "./SolutionModal.css"
@@ -113,7 +113,15 @@ class SolutionModal extends Component {
 							<div className="row">
 								<div className="col-lg-12 text-center">
 									<h4 className="mb-2">{this.props.solution.what}</h4>
-									<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:max_height}}/>
+									{this.props.solution.solutionmedia.media.length < 1 ? 
+										(
+											<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:max_height}}/>
+										)
+										:
+										(
+											<SolutionCarousel items={this.props.solution.solutionmedia.media.map((m, i) => {src:m.file, altText:"Slide " + i})} />
+										)
+									}
 								</div>
 							</div>
 							<div className="row">
@@ -153,3 +161,80 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SolutionModal);
+
+class SolutionCarousel extends Component {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			activeIndex = 0;
+		}
+
+		this.next = this.next.bind(this);
+		this.previous = this.previous.bind(this);
+		this.goToIndex = this.goToIndex.bind(this);
+		this.onExiting = this.onExiting.bind(this);
+		this.onEntering = this.onEntering.bind(this);
+	}
+
+	onExiting() {
+		this.animating = true;;
+	}
+
+	onExited() {
+		this.animating = false;
+	}
+
+	next() {
+		if (this.animating) {
+			return;
+		}
+		const nextIndex = this.state.activeIndex === this.props.items.length - 1 ? 0 : this.state.activeIndex + 1;
+		this.setState({activeIndex:nextIndex});
+	}
+
+	previous() {
+		if (this.animating) {
+			return;
+		}
+		const nextIndex = this.state.activeIndex === 0 ? this.props.items.length - 1 : this.state.activeIndex - 1;
+		this.setState({activeIndex:newIndex});
+	}
+
+	goToIndex(newIndex) {
+		if (this.animating) {
+			return;
+		}
+		this.setState({activeIndex:newIndex});
+	}
+
+	render() {
+		const { activeIndex } = this.state;
+
+		const slides = this.props.items.map((item, i) => {
+			return (
+				<CarouselItem
+					onExiting={this.onExiting}
+					onExited={this.onExited}
+					key={item.src}
+				>
+					<img src={item.src} alt={"Slide" + i} />
+				</CarouselItem>
+
+			);
+		});
+
+		return (
+			<Carousel
+				activeIndex={activeIndex}
+				next={this.next}
+				previous={this.previous}
+			>
+				<CarouselIndicators items={this.props.items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+					{slides}
+				<CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+				<CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+			</Carousel>
+		);
+	}
+}
