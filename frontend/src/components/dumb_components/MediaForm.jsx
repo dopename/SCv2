@@ -23,6 +23,7 @@ export default class MediaForm extends Component {
 	}
 
 	componentDidMount() {
+		console.log("MEDIA PROPS", this.props);
 		// if (this.props.existingSolution) {
 		// 	//Copy prop into new variable so I don't edit the prop
 		// 	var solutionData = {...this.props.existingSolution}
