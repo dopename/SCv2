@@ -38,7 +38,7 @@ export default class MediaForm extends Component {
 		// 	})
 		// 	//Set information to the solution being edited
 		// }
-		const url = "/api/list/medialocation/"
+		const url = "https://www.marinibank.com/api/list/medialocation/"
 
 		fetch(url)
 			.then(response => {
