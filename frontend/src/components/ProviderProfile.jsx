@@ -25,6 +25,7 @@ class ProviderProfile extends Component {
 		this.toggleEdit = this.toggleEdit.bind(this);
 		this.togglePreview = this.togglePreview.bind(this);
 		this.checkDelete = this.checkDelete.bind(this);
+		this.createMediaSubmit = this.createMediaSubmit.bind(this);
 	}
 
 	componentDidMount() {
@@ -188,7 +189,7 @@ class ProviderProfile extends Component {
 												<i className="fa fa-pencil text-warning pointer-hand" onClick={() => this.toggleEdit(s.pk)}></i>
 												<i className="fa fa-eye text-info pointer-hand mx-2" onClick={() => this.togglePreview(s.pk)}></i>
 												<i className="fa fa-close text-danger pointer-hand" onClick={() => this.checkDelete(s.pk)}></i>
-												<i className="fa fa-file-image-o text-primary pointer-hand" onClick={() => this.toggleNewMedia(s.pk)}></i>
+												<i className="fa fa-file-image-o text-primary pointer-hand mx-2" onClick={() => this.toggleNewMedia(s.pk)}></i>
 											</td>
 										</tr>
 									))}
@@ -246,7 +247,7 @@ class ProviderProfile extends Component {
 							<MediaForm
 								solution_title={existingSolution.name}
 								solutionmediaPK={existingSolution.solutionmedia.pk}
-								submit={this.props.createMediaSubmit}
+								submit={this.createMediaSubmit}
 							/>
 						</Modal>
 						) : null}
