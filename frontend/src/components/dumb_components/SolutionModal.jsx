@@ -123,7 +123,7 @@ class SolutionModal extends Component {
 										)
 										:
 										(
-											<SolutionCarousel items={totalMedia} />
+											<SolutionCarousel items={totalMedia} max_height={max_height} />
 										)
 									}
 								</div>
@@ -223,7 +223,7 @@ class SolutionCarousel extends Component {
 					onExited={this.onExited}
 					key={item.file}
 				>
-					<img src={item.file} alt={"Slide" + i} />
+					<img src={item.file} alt={"Slide" + i} className="responsive-image" style={{maxHeight:this.props.max_height}} />
 				</CarouselItem>
 
 			);
