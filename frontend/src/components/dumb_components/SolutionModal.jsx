@@ -119,7 +119,7 @@ class SolutionModal extends Component {
 										)
 										:
 										(
-											<SolutionCarousel items={this.props.solution.solutionmedia.media.map((m, i) => {src:m.file, altText:"Slide " + i})} />
+											<SolutionCarousel items={this.props.solution.solutionmedia.media.map((m, i) => {src:m.file} )} />
 										)
 									}
 								</div>
