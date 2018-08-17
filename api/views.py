@@ -206,6 +206,12 @@ class MediaLocationUpdateRetrieveView(generics.RetrieveUpdateAPIView):
 			qs = qs.filter(pk=query)
 		return qs
 
+class MediaLocationListView(generics.ListAPIView):
+	serializer_class = MediaLocationSerializer
+
+	def get_queryset(self):
+		return MediaLocation.objects.all()
+
 
 class MediaLocationCreateView(generics.CreateAPIView):
 	lookup_field = 'pk'

@@ -22,6 +22,7 @@ urlpatterns = [
 
 	path('destroy/medialocation/<int:pk>/', MediaLocationDestroyView.as_view(), name="medialocation-destroy-view"),
 	path('medialocation/<int:pk>/', MediaLocationUpdateRetrieveView.as_view(), name="medialocation-update-retrieve-view"),
+	path('list/medialocation/', MediaLocationListView.as_view(), name="medialocation-list-view"),
 	path('create/medialocation/', MediaLocationCreateView.as_view(), name="medialocation-create-view"),
 
 	path('destroy/media/<int:pk>/', MediaDestroyView.as_view(), name="media-destroy-view"),

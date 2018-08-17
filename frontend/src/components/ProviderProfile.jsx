@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {auth, main, discovery, provider_account} from "../actions/index";
 import SolutionForm from "./dumb_components/SolutionForm";
 import SolutionModal from "./dumb_components/SolutionModal";
+import MediaForm from "./dumb_components/MediaForm";
 import { Button, Modal } from "reactstrap";
 
 class ProviderProfile extends Component {
@@ -14,6 +15,7 @@ class ProviderProfile extends Component {
 			newToggled: false,
 			editToggled: false,
 			previewToggled: false,
+			newMediaToggled: false
 		}
 
 		this.toggleNew = this.toggleNew.bind(this);
@@ -96,8 +98,17 @@ class ProviderProfile extends Component {
 		}
 	}
 
+	toggleNewMedia(pk) {
+		if (this.state.newMediaToggled === pk) {
+			this.setState({newMediaToggled:false});
+		}
+		else {
+			this.setState({newMediaToggled:pk})
+		}
+	}
+
 	toggleOff() {
-		this.setState({newToggled:false, editToggled:false, previewToggled:false});
+		this.setState({newToggled:false, editToggled:false, previewToggled:false, newMediaToggled:false});
 	}
 
 	render() {
@@ -111,6 +122,9 @@ class ProviderProfile extends Component {
 		if (this.state.previewToggled) {
 			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.state.previewToggled))];
 			existingSolution['provider_logo'] = this.props.provider.provider.logo;
+		}
+		if (this.state.newMediaToggled) {
+			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.state.newMediaToggled))];
 		}
 
 		if (this.props.industries) {
@@ -165,6 +179,7 @@ class ProviderProfile extends Component {
 												<i className="fa fa-pencil text-warning pointer-hand" onClick={() => this.toggleEdit(s.pk)}></i>
 												<i className="fa fa-eye text-info pointer-hand mx-2" onClick={() => this.togglePreview(s.pk)}></i>
 												<i className="fa fa-close text-danger pointer-hand" onClick={() => this.checkDelete(s.pk)}></i>
+												<i className="fa fa-file-image-o text-primary pointer-hand" onClick={() => this.toggleNewMedia(s.pk)}></i>
 											</td>
 										</tr>
 									))}
@@ -216,6 +231,16 @@ class ProviderProfile extends Component {
 			   			auth={this.props.auth}
 			   			preview="preview" />
 						) : null}
+					{this.state.newMediaToggled ? (
+						<Modal size={this.props.mobile.isMobile ? "md" : "lg"} isOpen={this.state.newMediaToggled} toggle={this.toggleOff}>
+							<h4><i className="fa fa-window-close mx-1 float-right pointer-hand" title="Close" onClick={() => {  this.toggleOff() }}></i></h4>
+							<MediaForm
+								solution_title={existingSolution.name}
+								solutionmediaPK={existingSolution.solutionmedia.pk}
+								submit={this.props.createMedia}
+							/>
+						</Modal>
+						) : null}
 				</div>
 			)
 		}
@@ -259,6 +284,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		listTags: () => {
 			dispatch(provider_account.listTags());
+		},
+		createMedia: (data) => {
+			dispatch(provider_account.createMedia(data));
 		}
 	}
 }

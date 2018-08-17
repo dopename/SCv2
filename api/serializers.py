@@ -187,7 +187,8 @@ class MediaCreateSerializer(serializers.ModelSerializer):
 			"file",
 			"title",
 			"description",
-			"location"
+			"location",
+			"solutionmedia"
 		]
 
 

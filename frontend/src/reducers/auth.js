@@ -46,6 +46,7 @@ export default function auth(state=initialState, action) {
     case "SOLUTION_UPDATED":
     case "SOLUTION_DELETED":
     case "SOLUTION_CREATED":
+    case "MEDIA_CREATED":
       console.log("Seeker action fired");
       return {...state, isUpdated:true}
 

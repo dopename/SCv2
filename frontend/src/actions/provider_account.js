@@ -119,3 +119,32 @@ export const listTags = () => {
 	}
 }
 
+export const createMedia = (data) => {
+	return (dispatch, getState) => {
+
+		const token = getState().auth.token;
+
+		return helpers.createAPICall("media", data, token, true)
+			.then(res => {
+				if (res.status < 500) {
+					return res.json().then(data => {
+						return {status: res.status, data}
+					})
+				}
+				else {
+					console.log("Internal server error");
+					throw res;
+				}
+			})
+			.then(res => {
+				if (res.status === 200) {
+					dispatch({type: "MEDIA_CREATED", newSolutionData :res.data});
+					return res.data;
+				}
+				else {
+					dispatch({type:"ERROR_CREATING_MEDIA", data: res.data});
+					throw res.data;
+				}
+			})
+	}
+}
