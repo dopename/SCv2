@@ -174,7 +174,7 @@ class SolutionCarousel extends Component {
 		this.previous = this.previous.bind(this);
 		this.goToIndex = this.goToIndex.bind(this);
 		this.onExiting = this.onExiting.bind(this);
-		this.onEntering = this.onEntering.bind(this);
+		this.onExited = this.onExited.bind(this);
 	}
 
 	onExiting() {
