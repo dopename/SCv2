@@ -63,6 +63,10 @@ class SolutionModal extends Component {
 	}
 
 	render() {
+		var totalMedia = [];
+		totalMedia.push( {file:this.props.solution.main_image });
+		toatlMedia = [...totalMedia, this.props.solution.solutionmedia.media]
+
 		var max_height = (this.props.screen_height * 0.25).toString() + "px";
 		var bookmarks;
 		var bookmarkActive = false;
@@ -76,10 +80,6 @@ class SolutionModal extends Component {
 		}
 
 			return (
-				var totalMedia = [];
-				totalMedia.push( {file:this.props.solution.main_image });
-				toatlMedia = [...totalMedia, this.props.solution.solutionmedia.media]
-
 				<div>
 					<Modal size={this.props.isMobile === true ? "md" : "lg"} isOpen={this.state.modal} toggle={this.props.toggle}>
 						<h4 className="mb-2">
