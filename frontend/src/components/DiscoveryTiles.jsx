@@ -18,12 +18,12 @@ class DiscoveryTiles extends Component {
 	}
 
 	render() {
-		if (this.props.mobile.isMobile) {
-			document.body.classList.remove("noscroll");
-		}
-		else {
-			document.body.classList.add("noscroll");
-		}
+		// if (this.props.mobile.isMobile) {
+		// 	document.body.classList.remove("noscroll");
+		// }
+		// else {
+		// 	document.body.classList.add("noscroll");
+		// }
 
 		var renderSolutions = [];
 		var scrollHeight = (0.85 * this.props.mobile.screen_height).toString() + "px"
