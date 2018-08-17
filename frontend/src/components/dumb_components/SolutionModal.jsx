@@ -234,6 +234,7 @@ class SolutionCarousel extends Component {
 				activeIndex={activeIndex}
 				next={this.next}
 				previous={this.previous}
+				interval={false}
 			>
 				<CarouselIndicators items={this.props.items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
 					{slides}
