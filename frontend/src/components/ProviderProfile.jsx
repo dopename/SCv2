@@ -72,7 +72,7 @@ class ProviderProfile extends Component {
 		for ( var key in data ) {
 		    formData.append(key, data[key]);
 		}
-		this.props.createMediaSubmit(data);
+		this.props.createMedia(formData);
 		this.toggleOff();
 	}
 
