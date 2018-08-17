@@ -125,7 +125,7 @@ class ProviderProfile extends Component {
 		if (this.props.provider) {
 			return (
 				<div className="container-fluid">
-					<div className="row">
+					<div className="row mt-3">
 						<div className="col-1 d-none d-lg-block">
 						</div>
 						<div className="col-lg-10">
@@ -141,7 +141,7 @@ class ProviderProfile extends Component {
 						<div className="col-1 d-none d-lg-block">
 						</div>						
 					</div>
-					<div className="row">
+					<div className="row mt-3">
 						<div className="col-1 d-none d-lg-block">
 						</div>
 						<div className="col-lg-10">

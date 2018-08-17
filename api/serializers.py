@@ -201,7 +201,8 @@ class MediaSerializer(serializers.ModelSerializer):
 			"file",
 			"title",
 			"description",
-			"location"
+			"location",
+			"location_name"
 		]
 
 class MediaDestroySerializer(serializers.ModelSerializer):
