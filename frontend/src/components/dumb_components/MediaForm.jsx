@@ -75,7 +75,7 @@ export default class MediaForm extends Component {
 		e.preventDefault();
 
 		var data = {...this.state}
-		data.solutionmedia = data.solutionmedia.toInt()
+		// data.solutionmedia = data.solutionmedia.toInt()
 
 		delete data.allLocations;
 

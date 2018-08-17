@@ -246,7 +246,7 @@ class ProviderProfile extends Component {
 							<h4><i className="fa fa-window-close mx-1 float-right pointer-hand" title="Close" onClick={() => {  this.toggleOff() }}></i></h4>
 							<MediaForm
 								solution_title={existingSolution.name}
-								solutionmediaPK={existingSolution.solutionmedia.pk}
+								solutionmediaPK={existingSolution.solutionmedia}
 								submit={this.createMediaSubmit}
 							/>
 						</Modal>
