@@ -66,6 +66,15 @@ class ProviderProfile extends Component {
 		this.toggleOff();
 	}
 
+	createMediaSubmit(data) {
+		var formData = new FormData();
+		for ( var key in data ) {
+		    formData.append(key, data[key]);
+		}
+		this.props.createMediaSubmit(data);
+		this.toggleOff();
+	}
+
 	checkDelete(pk) {
 		var provider = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(pk))];
 		var confirmDelete = () => window.confirm("Are you sure you want to delete " + provider.name + "?")
@@ -237,7 +246,7 @@ class ProviderProfile extends Component {
 							<MediaForm
 								solution_title={existingSolution.name}
 								solutionmediaPK={existingSolution.solutionmedia.pk}
-								submit={this.props.createMedia}
+								submit={this.props.createMediaSubmit}
 							/>
 						</Modal>
 						) : null}

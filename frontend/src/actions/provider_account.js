@@ -123,7 +123,7 @@ export const createMedia = (data) => {
 	return (dispatch, getState) => {
 
 		const token = getState().auth.token;
-
+		
 		return helpers.createAPICall("media", data, token, true)
 			.then(res => {
 				if (res.status < 500) {
