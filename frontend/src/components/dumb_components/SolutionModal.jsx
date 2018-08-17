@@ -209,6 +209,7 @@ class SolutionCarousel extends Component {
 	}
 
 	render() {
+		console.log(this.props);
 		const { activeIndex } = this.state;
 
 		const slides = this.props.items.map((item, i) => {
