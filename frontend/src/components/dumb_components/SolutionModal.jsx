@@ -217,7 +217,7 @@ class SolutionCarousel extends Component {
 		const { activeIndex } = this.state;
 
 		const slides = this.props.items.map((item, i) => {
-			if (item.file.endsWith(".jpg") || item.file.endsWith(".png")) {
+			if (item.file.endsWith(".jpg") || item.file.endsWith(".png") || item.file.endsWith(".jpeg")) {
 				return (
 					<CarouselItem
 						onExiting={this.onExiting}
