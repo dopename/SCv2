@@ -76,7 +76,7 @@ class SolutionModal extends Component {
 		}
 
 			return (
-				const totalMedia = [];
+				var totalMedia = [];
 				totalMedia.push( {file:this.props.solution.main_image });
 				toatlMedia = [...totalMedia, this.props.solution.solutionmedia.media]
 
