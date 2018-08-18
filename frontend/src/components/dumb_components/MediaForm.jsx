@@ -108,7 +108,7 @@ export default class MediaForm extends Component {
 				  	<div className="row my-2">
 				  		<div className="col-lg-6">
 				  			<label for="file">Media File</label>
-				  			<p className="text-primary">{this.state.file.name ? "Current: " + this.state.file.name : null}</p>
+				  			<p className={"text-primary" + (this.state.file.name ? "" : " d-none")}>{this.state.file.name ? "Current: " + this.state.file.name : null}</p>
 				  			<input className="form-control" type="file" onChange={this.fileHandleChange} name="file" />
 				  		</div>
 				  		<div className="col-lg-6">
