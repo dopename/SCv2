@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import os
+import datetime
 
 from rest_framework.reverse import reverse as api_reverse
 
@@ -56,6 +57,7 @@ class Media(models.Model):
 	title = models.CharField(max_length=64)
 	description = models.CharField(max_length=128, blank=True, null=True)
 	location = models.ForeignKey(MediaLocation, on_delete=models.CASCADE)
+	last_edit = models.DateTimeField(auto_now=True, blank=True, null=True)
 	solutionmedia = models.ForeignKey(SolutionMedia, on_delete=models.CASCADE, blank=True, null=True, related_name="media")
 
 	def __str__(self):

@@ -203,7 +203,8 @@ class MediaSerializer(serializers.ModelSerializer):
 			"title",
 			"description",
 			"location",
-			"location_name"
+			"location_name",
+			"last_edit",
 		]
 
 class MediaDestroySerializer(serializers.ModelSerializer):
