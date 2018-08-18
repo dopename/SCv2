@@ -83,7 +83,7 @@ export default class MediaForm extends Component {
 	}
 
 	render() {
-		const locationSelect = 		(<select name="location" className="form-control" value={this.state.location} onChange={this.handleChange}>
+		const locationSelect = 	(<select name="location" className="form-control" value={this.state.location} onChange={this.handleChange}>
 									{this.state.allLocations.map((l) => 
 										<option key={"location_" + l.pk} value={l.pk}>{l.location_name}</option>
 									)}
