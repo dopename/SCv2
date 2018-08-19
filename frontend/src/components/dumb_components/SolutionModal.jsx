@@ -65,7 +65,7 @@ class SolutionModal extends Component {
 	render() {
 		var totalMedia = [];
 		totalMedia.push( {file:this.props.solution.main_image });
-		if (this.props.solution.solutionmedia.media.length > 0) {
+		if (this.props.solution.solutionmedia.media) {
 			totalMedia = [...totalMedia, ...this.props.solution.solutionmedia.media]
 		}
 
