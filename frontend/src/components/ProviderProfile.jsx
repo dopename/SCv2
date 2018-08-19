@@ -125,6 +125,7 @@ class ProviderProfile extends Component {
 		var allIndustries = [];
 		var allCategories = [];
 		var existingSolution = null;
+		console.log(this.props);
 
 		if (this.state.editToggled) {
 			existingSolution = this.props.provider.provider.solutions[(this.props.provider.provider.solutions.map(s => s.pk).indexOf(this.state.editToggled))];
