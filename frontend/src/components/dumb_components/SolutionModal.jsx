@@ -65,7 +65,9 @@ class SolutionModal extends Component {
 	render() {
 		var totalMedia = [];
 		totalMedia.push( {file:this.props.solution.main_image });
-		totalMedia = [...totalMedia, ...this.props.solution.solutionmedia.media]
+		if (this.props.solution.solutionmedia.media.length > 0) {
+			totalMedia = [...totalMedia, ...this.props.solution.solutionmedia.media]
+		}
 
 		var max_height = (this.props.screen_height * 0.25).toString() + "px";
 		var bookmarks;
