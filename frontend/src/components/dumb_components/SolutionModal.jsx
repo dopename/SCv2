@@ -119,7 +119,7 @@ class SolutionModal extends Component {
 							<div className="row">
 								<div className="col-lg-12 text-center">
 									<h4 className="mb-2">{this.props.solution.what}</h4>
-									{this.props.solution.solutionmedia.media.length < 1 ? 
+									{totalMedia.length < 2 ? 
 										(
 											<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:max_height}}/>
 										)
