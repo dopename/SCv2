@@ -521,6 +521,7 @@ class SeekerAccountSerializer(serializers.ModelSerializer):
 
 class ProviderAccountSolutionSerializer(serializers.ModelSerializer):
 	tags = SolutionTagSerializer(many=True, read_only=True)
+	solutionmedia = SolutionMediaSerializer(required=False)
 
 	class Meta:
 		model = Solution
