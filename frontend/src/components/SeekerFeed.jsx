@@ -10,7 +10,7 @@ export default class SeekerFeed extends Component {
 		var feed = [];
 		var responsiveHeight = (0.18 * this.props.mobile.screen_height).toString() + "px"
 		this.props.solutions.map(s => {
-			feed.append(
+			feed.push(
 					<div className="col-12">
 						<div className="d-flex flex-column">
 							<div className="d-flex flex-row" style={{height:responsiveHeight}}>
