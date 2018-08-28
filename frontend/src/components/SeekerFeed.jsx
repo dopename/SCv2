@@ -23,7 +23,8 @@ export default class SeekerFeed extends Component {
 		var feed = [];
 		var responsiveHeight = (0.18 * this.props.mobile.screen_height).toString() + "px"
 		this.props.solutions.map(s => {
-			var feedImage = <img src={s.main_image} alt="pic" style={{maxHeight:responsiveHeight}} className="responsive-image mt-2" />
+			var feedImage = <img src={s.main_image} alt="pic" style={{maxHeight:responsiveHeight, width:"auto"}} className="m-2" />
+			console.log(feedImage.width, feedImage.height);
 			if ((feedImage.width / feedImage.height) > 1.70) {
 				feed.push(<TopFeedItem s={s} image={feedImage} />)
 			}
