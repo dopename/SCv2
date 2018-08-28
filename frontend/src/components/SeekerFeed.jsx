@@ -49,9 +49,9 @@ class LeftFeedItem extends Component {
 				<div className="d-flex flex-column border border-dark" style={{borderRadius:"10px"}}>
 					<div className="d-flex flex-row">
 						{this.props.image}
-						<p className="text-left p-2">{s.why}</p>
+						<p className="text-left p-2">{this.props.s.why}</p>
 					</div>
-					<Tags tags={s.tags} />
+					<Tags tags={this.props.s.tags} />
 				</div>
 			</div>
 		)
@@ -67,8 +67,8 @@ class TopFeedItem extends Component {
 					<div className="d-flex flex-row">
 						{this.props.image}
 					</div>
-					<p className="text-left p-2">{s.why}</p>
-					<Tags tags={s.tags} />
+					<p className="text-left p-2">{this.props.s.why}</p>
+					<Tags tags={this.props.s.tags} />
 				</div>
 			</div>
 		)
