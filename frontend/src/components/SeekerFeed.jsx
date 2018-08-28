@@ -13,8 +13,8 @@ export default class SeekerFeed extends Component {
 			feed.push(
 					<div className="col-12">
 						<div className="d-flex flex-column">
-							<div className="d-flex flex-row" style={{height:responsiveHeight}}>
-								<img src={s.main_image} alt="pic" className="responsive-image mt-2" />
+							<div className="d-flex flex-row">
+								<img src={s.main_image} alt="pic" style={{maxHeight:responsiveHeight}} className="responsive-image mt-2" />
 							</div>
 							<p className="text-left p-2">{s.about}</p>
 							<Tags tags={s.tags} />
