@@ -16,7 +16,7 @@ export default class SeekerFeed extends Component {
 							<div className="d-flex flex-row">
 								<img src={s.main_image} alt="pic" style={{maxHeight:responsiveHeight}} className="responsive-image mt-2" />
 							</div>
-							<p className="text-left p-2">{s.about_us}</p>
+							<p className="text-left p-2">{s.why}</p>
 							<Tags tags={s.tags} />
 						</div>
 					</div>
