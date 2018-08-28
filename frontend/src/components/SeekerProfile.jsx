@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
-
+import SeekerFeed from "./SeekerFeed";
 import {seeker_account, discovery, solution_tiles, main} from "../actions/index";
 import SeekerSettings from "./SeekerSettings";
 import { Button, ButtonGroup } from "reactstrap";
@@ -92,7 +92,7 @@ class SeekerProfile extends Component {
 						<h1 className="text-center">{this.state.view === "main" ? "Your feed" : (this.state.view === "favorites") ? "Your favories" : "Edit User Information"}</h1>
 						<div className="container" style={{overflowY:"auto", height:scrollHeight}}>
 							{(this.state.view === "main") ? (
-								<DumbTiles solutions={allFeed} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
+								<SeekerFeed solutions={allFeed} mobile={this.props.mobile} />
 								): (this.state.view === "favorites") ? (
 								<DumbTiles solutions={bookmarks} size="lg" screen_height={this.props.mobile.screen_height} screen_width={this.props.mobile.screen_width} env="discovery" />
 								): <EditSeekerInfo user={this.props.auth.user} token={this.props.auth.token} submit={this.props.updateCustomUser} />
