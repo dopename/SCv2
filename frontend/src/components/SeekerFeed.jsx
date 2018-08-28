@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {connect} from "react-redux";
 import SeekerSettings from "./SeekerSettings";
 import { Button, ButtonGroup } from "reactstrap";
-import Tags from "./dumb_compnents/Tags";
+import Tags from "./dumb_components/Tags";
 
 //mobile
 export default class SeekerFeed extends Component {
