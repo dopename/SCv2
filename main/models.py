@@ -48,7 +48,7 @@ class SolutionMedia(models.Model):
 	solutionmedia_id = models.AutoField(primary_key=True)
 
 	def __str__(self):
-		return str(self.solution.name) + " Solution Media"
+		return str(self.solution_set.all()[0].name) + " Solution Media"
 
 
 class Media(models.Model):
