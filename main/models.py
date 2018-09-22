@@ -64,7 +64,10 @@ class Media(models.Model):
 	solutionmedia = models.ForeignKey(SolutionMedia, on_delete=models.CASCADE, blank=True, null=True, related_name="media")
 
 	def __str__(self):
-		return "{} - {}".format(self.title, self.solutionmedia.solution.name)
+		try:
+			return "{} - {}".format(self.title, self.solutionmedia.solution.name)
+		except:
+			return str(self.media_id)
 
 
 class TagType(models.Model):
