@@ -88,7 +88,7 @@ class SolutionModal extends Component {
 
 	render() {
 
-		const contactForm = (
+		var contactForm = (
 				<div className="container">
 					<div className="d-flex flex-row">
 						<h3 className="mr-auto" onClick={() => this.toggleContactForm()}><i className="fa fa-mail-reply"></i></h3>
