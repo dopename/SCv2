@@ -93,19 +93,21 @@ class SolutionModal extends Component {
 					<div className="d-flex flex-row">
 						<h3 className="mr-auto" onClick={() => this.toggleContactForm()}><i className="fa fa-mail-reply"></i></h3>
 					</div>
+
 					<h2 className="text-center">Contact Provider</h2>
-					<label for="name">Your Name
-						<input className="form-control" name="name" type="text" onChange={this.contactFormChange} value={this.state.contactInfo.name} />
-					</label>
-					<label for="email">Your E-mail
-						<input className="form-control" name="email" type="email" onChange={this.contactFormChange} value={this.state.contactInfo.email} />
-					</label>
-					<label for="subject">Subject
-						<input className="form-control" name="subject" type="text" onChange={this.contactFormChange} value={this.state.contactInfo.subject} />
-					</label>
-					<label for="message">Your Message
-						<textarea className="form-control" value={this.state.contactInfo.message} onChange={this.contactFormChange} name="message"></textarea>
-					</label>
+
+					<label for="name">Your Name</label>
+					<input className="form-control" name="name" type="text" onChange={this.contactFormChange} value={this.state.contactInfo.name} />
+
+					<label for="email">Your E-mail</label>
+					<input className="form-control" name="email" type="email" onChange={this.contactFormChange} value={this.state.contactInfo.email} />
+					
+					<label for="subject">Subject</label>
+					<input className="form-control" name="subject" type="text" onChange={this.contactFormChange} value={this.state.contactInfo.subject} />
+
+					<label for="message">Your Message</label>
+					<textarea className="form-control" value={this.state.contactInfo.message} onChange={this.contactFormChange} name="message"></textarea>
+
 					<Button className="mx-auto" color="success" size="lg" onClick={() => this.contactFormSubmit()}>Submit</Button>
 				</div>
 			)
