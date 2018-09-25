@@ -311,7 +311,7 @@ class SolutionContactForm extends Component {
 		return (
 			<div className="container">
 				<div className="d-flex flex-row">
-					<h3 className="mr-auto" onClick={() => this.props.toggle()}><i className="fa fa-mail-reply"></i></h3>
+					<h3 className="mr-auto pointer-hand" onClick={() => this.props.toggle()}><i className="fa fa-mail-reply"></i></h3>
 				</div>
 
 				<h2 className="text-center">Contact Provider</h2>
