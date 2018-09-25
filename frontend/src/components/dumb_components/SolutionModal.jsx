@@ -16,19 +16,11 @@ class SolutionModal extends Component {
 			modal:false,
 			mobile:null,
 			contactForm:false,
-			contactInfo: {
-				name:"",
-				email:"",
-				subject:"",
-				message:""
-			}
 		}
 
 		this.checkIfActive = this.checkIfActive.bind(this);
 		this.bookmarkSolution = this.bookmarkSolution.bind(this);
 		//this.updateSolutionViews = this.updateSolutionViews.bind(this);
-		this.toggleContactForm = this.toggleContactForm.bind(this);
-		this.contactFormChange = this.contactFormChange.bind(this);
 	}
 
 	componentDidMount() {
@@ -75,43 +67,8 @@ class SolutionModal extends Component {
 		this.setState({contactForm:!this.state.contactForm});
 	}
 
-	contactFormChange(e) {
-		var contactData = {...this.state.contactInfo}
-		contactData[e.target.name] = e.target.value;
-		this.setState({contactInfo:contactData});
-	}
-
-	contactFormSubmit() {
-		alert("Your message has been sent");
-		this.setState({contactForm:false});
-	}
 
 	render() {
-
-		var contactForm = (
-				<div className="container">
-					<div className="d-flex flex-row">
-						<h3 className="mr-auto" onClick={() => this.toggleContactForm()}><i className="fa fa-mail-reply"></i></h3>
-					</div>
-
-					<h2 className="text-center">Contact Provider</h2>
-
-					<label for="name">Your Name</label>
-					<input className="form-control" name="name" type="text" onChange={this.contactFormChange} value={this.state.contactInfo.name} />
-
-					<label for="email">Your E-mail</label>
-					<input className="form-control" name="email" type="email" onChange={this.contactFormChange} value={this.state.contactInfo.email} />
-					
-					<label for="subject">Subject</label>
-					<input className="form-control" name="subject" type="text" onChange={this.contactFormChange} value={this.state.contactInfo.subject} />
-
-					<label for="message">Your Message</label>
-					<textarea className="form-control" value={this.state.contactInfo.message} onChange={this.contactFormChange} name="message"></textarea>
-
-					<Button className="mx-auto" color="success" size="lg" onClick={() => this.contactFormSubmit()}>Submit</Button>
-				</div>
-			)
-
 
 		var totalMedia = [];
 		totalMedia.push( {file:this.props.solution.main_image });
@@ -197,14 +154,14 @@ class SolutionModal extends Component {
 											</div>
 										</div>
 									</div>
-									<div className="mx-auto">
+									<div className="mx-auto col-6 text-center">
 										<Button outline color="success" size="lg" onClick={() => this.toggleContactForm()}>Contact Provider</Button>
 									</div>
 								</div>
 							)
 							:
 							(
-								{contactForm}
+								<SolutionContactForm toggle={this.toggleContactForm} />
 							)
 						}
 					</Modal>
@@ -322,5 +279,56 @@ class SolutionCarousel extends Component {
 				<CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
 			</Carousel>
 		);
+	}
+}
+
+class SolutionContactForm extends Component {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			name:"",
+			email:"",
+			subject:"",
+			message:""
+		}
+
+		this.contactFormChange = this.contactFormChange.bind(this);
+		this.contactFormSubmit = this.contactFormSubmit.bind(this);
+	}
+
+	contactFormChange(e) {
+		this.setState({[e.target.name]:e.target.value});
+	}
+
+	contactFormSubmit() {
+		alert("Your message has been sent");
+		this.props.toggle();
+	}
+
+	render() {
+		return (
+			<div className="container">
+				<div className="d-flex flex-row">
+					<h3 className="mr-auto" onClick={() => this.props.toggle()}><i className="fa fa-mail-reply"></i></h3>
+				</div>
+
+				<h2 className="text-center">Contact Provider</h2>
+
+				<label for="name">Your Name</label>
+				<input className="form-control" name="name" type="text" onChange={this.contactFormChange} value={this.state.name} />
+
+				<label for="email">Your E-mail</label>
+				<input className="form-control" name="email" type="email" onChange={this.contactFormChange} value={this.state.email} />
+
+				<label for="subject">Subject</label>
+				<input className="form-control" name="subject" type="text" onChange={this.contactFormChange} value={this.state.subject} />
+
+				<label for="message">Your Message</label>
+				<textarea className="form-control" value={this.state.message} onChange={this.contactFormChange} name="message"></textarea>
+
+				<Button className="mx-auto" color="success" size="lg" onClick={() => this.contactFormSubmit()}>Submit</Button>
+			</div>
+		)
 	}
 }
