@@ -14,12 +14,21 @@ class SolutionModal extends Component {
 
 		this.state = {
 			modal:false,
-			mobile:null
+			mobile:null,
+			contactForm:false,
+			contactInfo: {
+				name:"",
+				email:"",
+				subject:"",
+				message:""
+			}
 		}
 
 		this.checkIfActive = this.checkIfActive.bind(this);
 		this.bookmarkSolution = this.bookmarkSolution.bind(this);
 		//this.updateSolutionViews = this.updateSolutionViews.bind(this);
+		this.toggleContactForm = this.toggleContactForm.bind(this);
+		this.contactFormChange = this.contactFormChange.bind(this);
 	}
 
 	componentDidMount() {
@@ -62,7 +71,46 @@ class SolutionModal extends Component {
 		this.props.updateSeeker(this.props.seeker.pk, data, this.props.token);
 	}
 
+	toggleContactForm() {
+		this.setState({contactForm:!this.state.contactForm});
+	}
+
+	contactFormChange(e) {
+		var contactData = {...this.state.contactInfo}
+		contactData[e.target.name] = e.target.value;
+		this.setState({contactInfo:contactData});
+	}
+
+	contactFormSubmit() {
+		alert("Your message has been sent");
+		this.setState({contactForm:false});
+	}
+
 	render() {
+
+		const contactForm = (
+				<div className="container">
+					<div className="d-flex flex-row">
+						<h3 className="mr-auto" onClick={() => this.toggleContactForm()}><i className="fa fa-mail-reply"></i></h3>
+					</div>
+					<h2 className="text-center">Contact Provider</h2>
+					<label for="name">Your Name
+						<input className="form-control" name="name" type="text" onChange={this.contactFormChange} value={this.state.contactInfo.name} />
+					</label>
+					<label for="email">Your E-mail
+						<input className="form-control" name="email" type="email" onChange={this.contactFormChange} value={this.state.contactInfo.email} />
+					</label>
+					<label for="subject">Subject
+						<input className="form-control" name="subject" type="text" onChange={this.contactFormChange} value={this.state.contactInfo.subject} />
+					</label>
+					<label for="message">Your Message
+						<textarea className="form-control" value={this.state.contactInfo.message} onChange={this.contactFormChange} name="message"></textarea>
+					</label>
+					<Button className="mx-auto" color="success" size="lg" onClick={() => this.contactFormSubmit()}>Submit</Button>
+				</div>
+			)
+
+
 		var totalMedia = [];
 		totalMedia.push( {file:this.props.solution.main_image });
 		if (this.props.solution.solutionmedia.media) {
@@ -115,36 +163,48 @@ class SolutionModal extends Component {
 							</div>
 						</div>
 						<hr className="my-2" />
-						<div className="container-fluid px-3 pb-2">
-							<div className="row">
-								<div className="col-lg-12 text-center">
-									<h4 className="mb-2">{this.props.solution.what}</h4>
-									{totalMedia.length < 2 ? 
-										(
-											<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:max_height}}/>
-										)
-										:
-										(
-											<SolutionCarousel items={totalMedia} max_height={max_height} />
-										)
-									}
-								</div>
-							</div>
-							<div className="row">
-								<div className="col-lg-12">
-									<div className="col-lg-12 text-left">
-										<h5 className="mb-1 modal-text-heading"><i className="fa fa-question-circle"></i> Why this exists</h5>
-										<p className="mb-2 pl-3">{this.props.solution.why}</p>
-										<h5 className="mb-1 modal-text-heading"><i className="fa fa-cogs"></i> How it works</h5>
-										<p className="mb-2 pl-3">{this.props.solution.how}</p>
-										<h5 className="mb-1 modal-text-heading"><i className="fa fa-lightbulb-o"></i> Opportunity</h5>
-										<p className="mb-2 pl-3">{this.props.solution.opportunity}</p>
-										<h5 className="mb-1 modal-text-heading"><i className="fa fa-puzzle-piece"></i> Integration</h5>
-										<p className="pl-3">{this.props.solution.integration}</p>
+
+						{this.state.contactForm === false ? 
+							(
+								<div className="container-fluid px-3 pb-2">
+									<div className="row">
+										<div className="col-lg-12 text-center">
+											<h4 className="mb-2">{this.props.solution.what}</h4>
+											{totalMedia.length < 2 ? 
+												(
+													<img src={this.props.solution.main_image} alt={"Image for " + this.props.solution.name} className="responsive-image" style={{maxHeight:max_height}}/>
+												)
+												:
+												(
+													<SolutionCarousel items={totalMedia} max_height={max_height} />
+												)
+											}
+										</div>
+									</div>
+									<div className="row">
+										<div className="col-lg-12">
+											<div className="col-lg-12 text-left">
+												<h5 className="mb-1 modal-text-heading"><i className="fa fa-question-circle"></i> Why this exists</h5>
+												<p className="mb-2 pl-3">{this.props.solution.why}</p>
+												<h5 className="mb-1 modal-text-heading"><i className="fa fa-cogs"></i> How it works</h5>
+												<p className="mb-2 pl-3">{this.props.solution.how}</p>
+												<h5 className="mb-1 modal-text-heading"><i className="fa fa-lightbulb-o"></i> Opportunity</h5>
+												<p className="mb-2 pl-3">{this.props.solution.opportunity}</p>
+												<h5 className="mb-1 modal-text-heading"><i className="fa fa-puzzle-piece"></i> Integration</h5>
+												<p className="pl-3">{this.props.solution.integration}</p>
+											</div>
+										</div>
+									</div>
+									<div className="mx-auto">
+										<Button outline color="success" size="lg" onClick={() => this.toggleContactForm()}>Contact Provider</Button>
 									</div>
 								</div>
-							</div>
-						</div>
+							)
+							:
+							(
+								{contactForm}
+							)
+						}
 					</Modal>
 				</div>
 			)
