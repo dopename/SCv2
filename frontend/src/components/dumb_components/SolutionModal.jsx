@@ -21,6 +21,7 @@ class SolutionModal extends Component {
 		this.checkIfActive = this.checkIfActive.bind(this);
 		this.bookmarkSolution = this.bookmarkSolution.bind(this);
 		//this.updateSolutionViews = this.updateSolutionViews.bind(this);
+		this.toggleContactForm = this.toggleContactForm.bind(this);
 	}
 
 	componentDidMount() {
