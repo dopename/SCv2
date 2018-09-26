@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./SolutionModal.css"
 import { incrementAPICall } from "../../helpers/index";
 import {connect} from "react-redux";
+import Gallery from "react-grid-gallery";
 
 import {seeker_account} from "../../actions/index"
 
@@ -16,12 +17,14 @@ class SolutionModal extends Component {
 			modal:false,
 			mobile:null,
 			contactForm:false,
+			gallery: false,
 		}
 
 		this.checkIfActive = this.checkIfActive.bind(this);
 		this.bookmarkSolution = this.bookmarkSolution.bind(this);
 		//this.updateSolutionViews = this.updateSolutionViews.bind(this);
 		this.toggleContactForm = this.toggleContactForm.bind(this);
+		this.toggleGallery = this.toggleGallery.bind(this);
 	}
 
 	componentDidMount() {
@@ -66,6 +69,10 @@ class SolutionModal extends Component {
 
 	toggleContactForm() {
 		this.setState({contactForm:!this.state.contactForm});
+	}
+
+	toggleGallery() {
+		this.setState({gallery:!this.state.gallery});
 	}
 
 
@@ -124,7 +131,7 @@ class SolutionModal extends Component {
 						</div>
 						<hr className="my-2" />
 
-						{this.state.contactForm === false ? 
+						{this.state.contactForm === false && this.state.gallery === false ? 
 							(
 								<div className="container-fluid px-3 pb-2">
 									<div className="row">
@@ -157,13 +164,19 @@ class SolutionModal extends Component {
 									</div>
 									<div className="mx-auto col-6 text-center">
 										<Button outline color="success" size="lg" onClick={() => this.toggleContactForm()}>Contact Provider</Button>
+										<hr className="my-2" />
+										<Button outline color="primary" size="lg" onClick={() => this.toggleGallery()}>View Gallery</Button>
 									</div>
 								</div>
 							)
-							:
+							: this.state.contactForm === true ?
 							(
 								<SolutionContactForm toggle={this.toggleContactForm} />
 							)
+							: this.state.gallery === true ?
+							(
+								<SolutionGallery images={this.props.solution.solutionMedia.media} toggle={this.toggleGallery} />
+							) : null
 						}
 					</Modal>
 				</div>
@@ -187,6 +200,31 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SolutionModal);
+
+class SolutionGallery extends Component {
+	constructor(props) {
+		super(props) 
+	}
+	render() {
+		var images = [];
+		this.props.images.map(i => {
+			images.push({
+				src: i.file,
+				thumbnail: i.file,
+				thumbnailWidth: 320,
+				thumbnailHeight: 174,
+			})
+		})
+		return (
+			<div className="container">
+				<div className="d-flex flex-row">
+					<h3 className="mr-auto pointer-hand" onClick={() => this.props.toggle()}><i className="fa fa-mail-reply"></i></h3>
+				</div>
+				<Gallery images={images} />
+			</div>
+		)
+	}
+}
 
 class SolutionCarousel extends Component {
 	constructor(props) {
