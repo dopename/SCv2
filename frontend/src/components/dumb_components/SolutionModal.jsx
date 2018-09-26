@@ -175,7 +175,7 @@ class SolutionModal extends Component {
 							)
 							: this.state.gallery === true ?
 							(
-								<SolutionGallery images={this.props.solution.solutionMedia.media} toggle={this.toggleGallery} />
+								<SolutionGallery images={this.props.solution.solutionmedia.media} toggle={this.toggleGallery} />
 							) : null
 						}
 					</Modal>
