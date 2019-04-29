@@ -158,6 +158,7 @@ class Solution(models.Model):
 	views = models.IntegerField(default=0)
 	main_image = models.ImageField(upload_to="solution_images/", blank=True, null=True)
 	solutionmedia = models.OneToOneField(SolutionMedia, on_delete=models.CASCADE, blank=True, null=True)
+	last_edit = models.DateTimeField(auto_now=True, blank=True, null=True)
 
 	@property
 	def bookmark_count(self):

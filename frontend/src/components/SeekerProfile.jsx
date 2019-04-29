@@ -6,6 +6,14 @@ import SeekerSettings from "./SeekerSettings";
 import { Button, ButtonGroup } from "reactstrap";
 import DumbTiles from "./dumb_components/DumbTiles"
 
+
+ function Comparator(a, b) {
+   if (a[0] < b[0]) return -1;
+   if (a[0] > b[0]) return 1;
+   return 0;
+ }
+
+
 class SeekerProfile extends Component {
 	constructor(props) {
 		super(props)
@@ -57,8 +65,10 @@ class SeekerProfile extends Component {
 			this.props.solutions.map(solution => {
 				let sAdded = false;
 				if (seeker.bookmarks.map(e => e.pk).indexOf(solution.pk) > -1) {
-						bookmarks.push(solution)
+						bookmarks.push(solution) //if pk matches bookmarked pk, add to bookmark array
 				}
+				//if solution category matches one of categories subscribed to, push to allFeed (and categoryFeed?)
+				//since categories are a broader scope, hit this first and flag sAdded so we don't duplicate
 				if (seeker.categories.length > 0) {
 					if (seeker.categories.map(e => e.pk).some(r => solution.category.includes(r))) {
 						categoryFeed.push(solution)
